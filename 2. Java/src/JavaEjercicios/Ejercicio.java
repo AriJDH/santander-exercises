@@ -1,4 +1,5 @@
 package JavaEjercicios;
+import java.util.Scanner;
 
 public class Ejercicio {
     public static void main(String[] args) {
@@ -20,6 +21,15 @@ public class Ejercicio {
         double estatura_de_la_persona;
         int cantidad_de_hijos;
 
-        //
+        //Community Manager
+        final int precio_por_dia = 2;
+        System.out.println("Cuantos dias durara la campana?");
+        Scanner input = new Scanner(System.in);
+        int dias = input.nextInt();
+
+        int precio_final = (precio_por_dia * dias);
+        //se imprime el precio total de la campanña
+        System.out.println(precio_final);
+
     }
 }
