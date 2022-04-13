@@ -1,0 +1,17 @@
+Falta las "" de Gomez
+String apellido = Gomez;
+
+Falta sacar las "" del 35// Cambiar int con String
+int edad = "35";
+
+
+Falta nombre de la variable y sacar ""
+boolean = "false";
+
+
+Falta las "" de 45857.90 y ; al final // Cambiar String con int
+String sueldo = 45857.90
+
+
+Cambiar double con String
+double nombre = "Julián";
