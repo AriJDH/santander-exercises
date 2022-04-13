@@ -4,8 +4,9 @@ public class Main {
     public static void main(String[] args) {
         // ejercicio1();
         // ejercicio2();
-        ejercicio3(5);
-        ejercicio3(8);
+        // ejercicio3(5);
+        // ejercicio3(8);
+        System.out.printf("%f %n", ejercicio4(23_563_899));
     }
 
     public static void ejercicio1() {
@@ -57,6 +58,17 @@ public class Main {
         int costPerDay = 2;
 
         System.out.printf("%d días de campaña → $%d * %d = $%d %n", days, costPerDay, days, costPerDay * days);
+    }
+
+    public static double ejercicio4(double prize) {
+        float tax1 = 2.45f;
+        float tax2 = 15.0f;
+        float tax3 = 3.0f;
+
+        // prize - (prize * tax1 / 100 + prize * tax2 / 100 + prize * tax3 / 100)
+        // prize - prize * (tax1 / 100 + tax2 / 100 + tax3 / 100)
+        // prize * ( 1 - (tax1 + tax2 + tax3) / 100)
+        return prize * (double) (1.0f - (tax1 + tax2 + tax3) / 100f);
     }
 
 }
