@@ -8,7 +8,7 @@ public class App3 {
         Scanner scanner = new Scanner(System.in);
         System.out.print("ingrese días: ");
         int dias= scanner.nextInt();
-        System.out.println("valor de campaña: $30"+ dias*PRECIODIA);
+        System.out.println("valor de campaña: $"+ dias*PRECIODIA);
 
     }
 }
