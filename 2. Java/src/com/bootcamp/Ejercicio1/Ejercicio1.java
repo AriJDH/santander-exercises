@@ -1,2 +1,10 @@
-package com.bootcamp.Ejercicio1;public class Ejercicio1 {
+package com.bootcamp.Ejercicio1;
+
+public class Ejercicio1 {
+
+    String apellido = "Gomez";
+    int edad = 35;
+    boolean b = false;
+    double sueldo = 45857.90;
+    String nombre = "Julián";
 }
