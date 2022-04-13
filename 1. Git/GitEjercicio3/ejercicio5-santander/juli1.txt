@@ -1,7 +1,5 @@
-<<<<<<< HEAD
+
 dadadsadadadadadsdadadadad
-=======
 
 primer texto julian, otra modificacion por julian
 modificacion
->>>>>>> 675d7cf77764c5c84a824a4bc2603a1f1f56f8ae
