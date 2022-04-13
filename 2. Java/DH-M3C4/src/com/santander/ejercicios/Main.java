@@ -3,7 +3,9 @@ package com.santander.ejercicios;
 public class Main {
     public static void main(String[] args) {
         // ejercicio1();
-        ejercicio2();
+        // ejercicio2();
+        ejercicio3(5);
+        ejercicio3(8);
     }
 
     public static void ejercicio1() {
@@ -50,4 +52,11 @@ public class Main {
         // No puede comenzar con el símbolo especial "-"
         // int cantidad-de-hijos;
     }
+
+    public static void ejercicio3(int days) {
+        int costPerDay = 2;
+
+        System.out.printf("%d días de campaña → $%d * %d = $%d %n", days, costPerDay, days, costPerDay * days);
+    }
+
 }
