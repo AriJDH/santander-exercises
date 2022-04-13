@@ -2,7 +2,8 @@ package com.santander.ejercicios;
 
 public class Main {
     public static void main(String[] args) {
-        ejercicio1();
+        // ejercicio1();
+        ejercicio2();
     }
 
     public static void ejercicio1() {
@@ -25,5 +26,28 @@ public class Main {
         // El valor asignado a nombre es un String
         // double nombre = "Julián";
         String nombre = "Julián";
+    }
+
+    public static void ejercicio2() {
+        // No puede comenzar con un número
+        // String 1nombre;
+
+        int edad;
+
+        // Si bien puede comenzar con $, no es recomendable
+        // double $ueldo;
+
+        // No puede comenzar con el símbolo especial "@"
+        // String @pellido;
+
+        String direccion;
+
+        boolean licencia_de_conducir;
+
+        // No puede comenzar con el símbolo especial " "
+        // double estatura de la persona;
+
+        // No puede comenzar con el símbolo especial "-"
+        // int cantidad-de-hijos;
     }
 }
