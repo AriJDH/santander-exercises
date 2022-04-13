@@ -11,5 +11,6 @@ public class Ejercicio3 {
         dias = entrada.nextInt();
         total = dias * 2;
         System.out.println(dias + " días de campaña -> $2 * " + dias + " = $" + total);
+        entrada.close();
     }
 }
