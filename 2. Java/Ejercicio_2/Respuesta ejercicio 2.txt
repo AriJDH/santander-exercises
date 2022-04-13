@@ -1,0 +1,24 @@
+
+Hay que sacar el 1 de nombre
+String 1nombre;
+
+
+ta perfecto
+int edad;
+
+
+Sacar el $ de ueldo
+double $ueldo;
+
+
+Sacar el @ de pellido
+String @pellido;
+
+
+ta perfecto
+String direccion;
+
+
+boolean licencia_de_conducir;
+double estatura de la persona;
+int cantidad-de-hijos;
