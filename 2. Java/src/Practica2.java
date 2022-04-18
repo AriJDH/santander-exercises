@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Practica2 {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         double notas = 0;
         int cantidadDeNotas;
