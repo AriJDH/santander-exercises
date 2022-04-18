@@ -9,7 +9,10 @@ public class C5P1 {
         //ejercicio_2.ejecutar();
 
         EjercicioC5P1_3 ejercicio_3 = new EjercicioC5P1_3();
-        ejercicio_3.ejecutar();
+        //ejercicio_3.ejecutar();
+
+        EjercicioC5P1_4 ejercicio_4 = new EjercicioC5P1_4();
+        ejercicio_4.ejecutar();
     }
 
 }
