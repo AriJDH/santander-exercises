@@ -2,15 +2,6 @@ package com.santanderbootcamp.EstructurasDeControl;
 
 import java.util.Scanner;
 
-/*
-Una tienda de ropa compra sus productos de 3 fábricas distintas distribuidas
- por todo el país. Para determinar el precio de venta de cada una de las
-       prendas, es necesario sumar, al precio de costo, un porcentaje (%)
-        equivalente al costo de envío dependiendo de en qué haya comprad
-         la misma. Para ello, el vendedor utiliza actualmente la siguiente
-          tabla de valores:
-
- */
 public class Ejercicio1 {
 
     public static void main(String[] args) {
