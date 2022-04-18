@@ -51,9 +51,9 @@ public class App4 {
         }
         System.out.println("Cantidades:");
         System.out.println("    3 diarios: " + sus3diarios);
-        System.out.println("    A y B: " + susAyB);
-        System.out.println("    A y C: " + susAyC);
-        System.out.println("    C y B: " + susByC);
+        System.out.println("    A y B: " + (susAyB + sus3diarios));
+        System.out.println("    A y C: " + (susAyC+ sus3diarios));
+        System.out.println("    C y B: " + (susByC+ sus3diarios));
         System.out.println("    only A: " + susAonly);
 
     }
