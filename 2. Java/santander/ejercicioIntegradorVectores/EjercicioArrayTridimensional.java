@@ -10,7 +10,7 @@ public class EjercicioArrayTridimensional {
         int indiceMayor=0;
         int indiceMenor=0;
         for (int f = 0; f <temperaturas.length ; f++) {
-            for (int c = 0; c < temperaturas[f].length; c++) {
+
                 if(menorTemperatura>temperaturas[f][0]){
                     menorTemperatura=temperaturas[f][0];
                     indiceMenor=f;
@@ -19,7 +19,7 @@ public class EjercicioArrayTridimensional {
                     mayorTemperatura=temperaturas[f][1];
                     indiceMayor=f;
                 }
-            }
+
         }
         System.out.println("la mayor temperatura fue de: "+nombreCiudades[indiceMayor]+" la cual fue de: " + temperaturas[indiceMayor][1]);
         System.out.println("la menor temperatura fue de: "+nombreCiudades[indiceMenor]+" la cual fue de: " + temperaturas[indiceMenor][0]);

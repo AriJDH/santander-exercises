@@ -7,7 +7,7 @@ public class EjercicioDos {
         Scanner entrada = new Scanner(System.in);
         double sueldo;
         System.out.println("ingrese sueldo del empleado");
-        sueldo = entrada.nextDouble();
+        sueldo = entrada.nextDouble();EjercicioArrayTridimensional
         if(sueldo<20000){
             sueldo += sueldo*0.20;
             System.out.println("Le corresponde un 20%");
