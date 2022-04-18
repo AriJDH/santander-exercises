@@ -1,3 +1,5 @@
+package C5P1;
+
 import java.util.Scanner;
 
 public class C5P1_Ejercicio4 {
