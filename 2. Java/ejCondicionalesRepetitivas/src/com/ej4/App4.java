@@ -48,7 +48,7 @@ public class App4 {
                 }
             }
         }
-        System.out.println("cantidades:");
+        System.out.println("Cantidades:");
         System.out.println("    3 diarios: " + sus3diarios);
         System.out.println("    A y B: " + susAyB);
         System.out.println("    A y C: " + susAyC);
