@@ -1,4 +1,4 @@
-public class Ejercicio1_C4 {
+public class C4_Ejercicio1 {
     public static void main(String[] args) {
 
         String apellido = "Gomez";    // faltan las comillas
