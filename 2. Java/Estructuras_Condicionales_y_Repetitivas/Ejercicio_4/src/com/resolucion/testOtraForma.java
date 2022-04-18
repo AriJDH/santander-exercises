@@ -1,3 +1,5 @@
+package com.resolucion;
+
 import java.util.Scanner;
 
 public class testOtraForma {
