@@ -1,4 +1,4 @@
-package com.bootcamp.Ejercicio1;
+package com.bootcamp.PrimerosEjercicios.Ejercicio1;
 
 public class Ejercicio1 {
 

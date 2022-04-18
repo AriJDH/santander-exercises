@@ -1,4 +1,4 @@
-package com.bootcamp.Ejercicio3;
+package com.bootcamp.PrimerosEjercicios.Ejercicio3;
 
 import java.util.Scanner;
 
