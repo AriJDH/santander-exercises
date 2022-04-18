@@ -1,5 +1,6 @@
 package com.santander.sistema;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -45,6 +46,38 @@ public class Main {
     }
 
     public static void ejercicio3() {
+        Scanner input = new Scanner(System.in);
+
+        final int cantidad_clientes = 7;
+        boolean servicio_camara, servicio_patrullaje;
+        double factura_monto;
+
+        for (int x = 1; x <= cantidad_clientes; x++) {
+            System.out.printf("%n* Cliente %d *%n", x);
+
+            servicio_camara = false;
+            servicio_patrullaje = false;
+            factura_monto = 0.0;
+
+            System.out.print("Desea el servicio de camaras (S/N) ? ");
+            servicio_camara = input.nextLine().toUpperCase().equals("S");
+
+            if (servicio_camara) {
+                System.out.print("Desea el servicio de patrullaje (S/N) ? ");
+                servicio_patrullaje = input.nextLine().toUpperCase().equals("S");
+            }
+
+            if (servicio_camara) {
+                factura_monto += 1500.0;
+
+                if (servicio_patrullaje) {
+                    factura_monto += 700.0;
+                }
+            }
+
+            System.out.printf("Monto final: $%.2f%n", factura_monto);
+        }
+
 
     }
 }
