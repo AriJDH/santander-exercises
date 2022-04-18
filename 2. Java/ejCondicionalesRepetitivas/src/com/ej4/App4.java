@@ -11,6 +11,7 @@ public class App4 {
         int susAyB = 0;
         int susByC = 0;
         int susAonly = 0;
+
         for (int i = 0; i < ENCUESTADOS; i++) {
             boolean susA = false;
             boolean susB = false;
