@@ -55,7 +55,7 @@ public class Ejercicios {
         System.out.print("Ingrese la cantidad de días que dura la campaña: ");
         int diasCampania = scanner.nextInt();
 
-        System.out.println("El monto total es: " + "$" + diasCampania*2 + " dólares.");
+        System.out.println("El monto total es: $" + diasCampania*2 + " dólares.");
 
 // ---------------------------------------------------------------------
 

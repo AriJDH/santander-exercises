@@ -6,9 +6,7 @@ public class Ejercicio4 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
         int respuesta;
-
         int votos_opciones[] = new int [5];
 
         for (int i = 0; i < 10; i++){
@@ -21,6 +19,5 @@ public class Ejercicio4 {
         }
 
         System.out.printf(" Suscriptos a los 3 diarios: %01d.\n Suscriptos al A y C: %01d.\n Suscriptos al A y al B: %01d.\n Suscriptos al B y al C: %01d.\n Suscriptos sólo al A: %01d.\n", votos_opciones[0], votos_opciones[1], votos_opciones[2], votos_opciones[3], votos_opciones[4]);
-
     }
 }
