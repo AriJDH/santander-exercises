@@ -16,8 +16,8 @@ public class app {
             }
         }
 
-        System.out.println("El pais con la temperatura mas alta es: " + paisTempMax + "con " +tempMax + "°");
-        System.out.println("El pais con la temperatura mas baja es: " + paisTempMin + "con " +tempMin + "°");
+        System.out.println("El pais que tuvo mayor temperatura es " + paisTempMax + " con " +tempMax + "°");
+        System.out.println("El pais que tuvo menor temperatura es " + paisTempMin + " con " +tempMin + "°");
 
     }
 }
