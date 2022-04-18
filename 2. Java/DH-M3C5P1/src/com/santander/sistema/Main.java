@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
         // ejercicio1();
         // ejercicio2();
-        ejercicio3();
+        // ejercicio3();
+        ejercicio4();
     }
 
     public static void ejercicio1() {
@@ -78,6 +79,58 @@ public class Main {
             System.out.printf("Monto final: $%.2f%n", factura_monto);
         }
 
+
+    }
+
+    public static void ejercicio4() {
+        Scanner input = new Scanner(System.in);
+
+        final int cantidad_encuentados = 3; // FIXME: 50
+        boolean diario_a, diario_b, diario_c;
+        int cantidad_a_b_c = 0;
+        int cantidad_a_c = 0;
+        int cantidad_a_b = 0;
+        int cantidad_b_c = 0;
+        int cantidad_solo_a = 0;
+
+        for (int x = 1; x <= cantidad_encuentados; x++) {
+            System.out.printf("%n* Encuentado %d *%n", x);
+
+            diario_a = false;
+            diario_b = false;
+            diario_c = false;
+
+            System.out.print("Se encuentra subscripto al Diario A (S/N) ? ");
+            diario_a = input.nextLine().toUpperCase().equals("S");
+            System.out.print("Se encuentra subscripto al Diario B (S/N) ? ");
+            diario_b = input.nextLine().toUpperCase().equals("S");
+            System.out.print("Se encuentra subscripto al Diario C (S/N) ? ");
+            diario_c = input.nextLine().toUpperCase().equals("S");
+
+            if (diario_a && diario_c) {
+                cantidad_a_c++;
+            }
+
+            if (diario_a && diario_b) {
+                cantidad_a_b++;
+            }
+
+            if (diario_b && diario_c) {
+                cantidad_b_c++;
+            }
+
+            if (diario_a && diario_b && diario_c) {
+                cantidad_a_b_c++;
+            } else if (diario_a && !diario_b && !diario_c) {
+                cantidad_solo_a++;
+            }
+        }
+
+        System.out.printf("%nSubscriptos a los 3 diarios: %d%n", cantidad_a_b_c);
+        System.out.printf("Subscriptos al diario A y C: %d%n", cantidad_a_c);
+        System.out.printf("Subscriptos al diario A y B: %d%n", cantidad_a_b);
+        System.out.printf("Subscriptos al diario B y C: %d%n", cantidad_b_c);
+        System.out.printf("Subscriptos solo al diario A: %d%n", cantidad_solo_a);
 
     }
 }
