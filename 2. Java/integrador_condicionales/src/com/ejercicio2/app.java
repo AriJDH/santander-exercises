@@ -13,8 +13,7 @@ public class app {
         System.out.print("Ingrese el sueldo del empleado: ");
         sueldo = teclado.nextDouble();
 
-        if (sueldo < 20000) { System.out.println("No corresponde."); }
-        else if (sueldo <= 20000){ sueldoAumentado = sueldo * 1.2; }
+        if (sueldo <= 20000){ sueldoAumentado = sueldo * 1.2; }
         else if (sueldo <= 45000) { sueldoAumentado = sueldo * 1.1; }
         else if (sueldo > 45000) { sueldoAumentado = sueldo * 1.05; }
 
