@@ -15,7 +15,7 @@ public class Ejercicio4 {
         int suscriptosDiariosAB = 0;
         int suscriptosDiariosBC = 0;
         int suscriptosDiariosAC = 0;
-        for(int i = 1; i <= 50; i++) {
+        for(int i = 1; i <= 5; i++) {
             System.out.println("Participante Número " + i + "/50 de la encuesta:");
             System.out.print(" Esta suscripto al Diario A (1 para confirmar): ");
             if (teclado.nextInt() == 1) suscriptoDiarioA = true;
