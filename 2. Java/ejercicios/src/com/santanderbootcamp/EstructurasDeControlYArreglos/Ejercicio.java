@@ -18,7 +18,7 @@ public class Ejercicio {
                 temperaturaMasAlta = temperaturas[i][1];
             }
         }
-        System.out.println("La ciudad que tuvo la temperatura más baja es " + ciudadConMenosTemperatura + " con " + temperaturaMasBaja);
-        System.out.println("La ciudad que tuvo la temperatura más alta es " + ciudadConMasTemperatura + " con " + temperaturaMasAlta);
+        System.out.println("La ciudad que tuvo la temperatura más baja es " + ciudadConMenosTemperatura + " con " + temperaturaMasBaja + "ºC.");
+        System.out.println("La ciudad que tuvo la temperatura más alta es " + ciudadConMasTemperatura + " con " + temperaturaMasAlta + "ºC.");
     }
 }
