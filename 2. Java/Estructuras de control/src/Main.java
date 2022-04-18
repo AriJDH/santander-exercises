@@ -75,8 +75,55 @@ public class Main {
 
 
         }
+        //ejercicio 4
+        //declaracion variables
+        int diarioA =0;
+        int diarioB =0;
+        int diarioC =0;
+        int diarioAyB= 0;
+        int diarioAyC= 0;
+        int diarioByC= 0;
+        int cliente= 50;
+        int todos= 0;
+        while(cliente>0){
+            System.out.println("A cuantos diarios está suscrito? 1.A 2.B 3.C 4.AyB 5.AyC 6.ByC 7.todos");
+            int seleccion= entrada.nextInt();
+            switch (seleccion) {
+                case 1:
+                    diarioA++;
+                    break;
+                case 2:
+                    diarioB++;
+                    break;
+                case 3:
+                    diarioC++;
+                    break;
+                case 4:
+                    diarioAyB++;
+                    break;
+                case 5:
+                    diarioAyC++;
+                    break;
+                case 6:
+                    diarioByC++;
+                    break;
+                case 7:
+                    todos++;
+                    break;
+
+            }
+            cliente--;
 
 
+        }
+
+
+
+        System.out.println("a los 3 diarios están suscritos: " + todos);
+        System.out.println("al diario A y C están suscritos " +diarioAyC);
+        System.out.println("al diario A y B están suscritos " + diarioAyB);
+        System.out.println("al diario B y C están suscritos "+ diarioByC);
+        System.out.println("al diario A están suscritos " + diarioA);
 
 
 
