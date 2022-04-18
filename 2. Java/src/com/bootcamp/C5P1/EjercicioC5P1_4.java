@@ -9,12 +9,12 @@ public class EjercicioC5P1_4 {
         Scanner teclado = new Scanner(System.in);
         String entrada = "";
         int suscriptos_en_A_B_C = 0, suscriptos_en_A_C = 0, suscriptos_en_A_B = 0, suscriptos_en_B_C = 0, suscriptos_solo_en_A = 0;
+        boolean suscripto_en_A = false, suscripto_en_B = false, suscripto_en_C = false;
 
         for (int i = 0; i < CANTIDAD_ENCUESTADOS; i++) {
             System.out.print("Ingrese a que diarios esta suscripto el usuario Nro " + i + " (ejemplo: ABC para indicar que esta suscripto a los 3) : ");
             entrada = teclado.next();
 
-            boolean suscripto_en_A = false, suscripto_en_B = false, suscripto_en_C = false;
             suscripto_en_A = entrada.toLowerCase().contains("a");
             suscripto_en_B = entrada.toLowerCase().contains("b");
             suscripto_en_C = entrada.toLowerCase().contains("c");

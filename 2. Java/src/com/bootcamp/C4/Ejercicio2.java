@@ -1,4 +1,4 @@
-package com.bootcamp;
+package com.bootcamp.C4;
 
 public class Ejercicio2 {
     public void ejecutar() {
