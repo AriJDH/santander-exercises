@@ -77,7 +77,7 @@ public class practica {
         int notas[][] = {{4,5,6}, {8,9,10},{9,9,10},{8,5,10}};
         int promedio = 0;
         for (int f = 0; f<alumnos.length; f++) {
-            for (int c=0; c<3;c++) {
+            for (int c=0; c<alumnos[f].length();c++) {
                 promedio = promedio + notas[f][c];
             }
             System.out.println("El promedio de " + alumnos[f] + " es " + promedio/3);
