@@ -32,9 +32,6 @@ public class Ejercicio4 {
             else if (suscriptoDiarioA && suscriptoDiarioC) {
                 suscriptosDiariosAC++;
             }
-            else if (suscriptoDiarioA && suscriptoDiarioC) {
-                suscriptosDiariosAC++;
-            }
             else if (suscriptoDiarioB && suscriptoDiarioC) {
                 suscriptosDiariosBC++;
             }
