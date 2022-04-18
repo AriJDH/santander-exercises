@@ -33,8 +33,27 @@ public class Main {
                 break;
 
 
-
         }
+
+        //Segundo ejercicio
+        //declaracion de variables
+
+        System.out.println("por favor ingrese su sueldo para calcular el aumento");
+        double sueldo= entrada.nextDouble();
+        if(sueldo <= 20000){
+           double sueldoFinal= sueldo * 1.20;
+           System.out.println(sueldoFinal);
+
+        }else if(sueldo>20000 && sueldo<=45000) {
+           double sueldoFinal= sueldo * 1.10;
+            System.out.println(sueldoFinal);
+
+
+        }else{
+            double sueldoFinal= sueldo * 1.05;
+            System.out.println(sueldoFinal);
+        }
+
 
 
 
