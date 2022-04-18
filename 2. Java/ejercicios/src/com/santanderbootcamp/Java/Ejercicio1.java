@@ -1,4 +1,4 @@
-package com.santanderbootcamp.Ejercicio1;
+package com.santanderbootcamp.Java;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
