@@ -1,4 +1,4 @@
-package com.santander.bootcamp;
+package p1;
 
 import java.util.Scanner;
 
