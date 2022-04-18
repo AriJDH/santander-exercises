@@ -1,9 +1,8 @@
 package com.santander.bootcamp;
 
-import javax.sound.midi.SysexMessage;
 import java.util.Scanner;
 
-public class App {
+public class Ejercicio1 {
 
     public static void main(String[] args) {
 
