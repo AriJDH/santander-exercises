@@ -30,10 +30,16 @@ public class Ejercicio4 {
 
             if (diarioA == 1 && diarioB == 1 && diarioC == 1){
                 abc++;
+                ab++;
+                ac++;
+                bc++;
+                a++;
             }else if (diarioA == 1 && diarioB == 1 && diarioC == 2){
                 ab++;
+                a++;
             }else if (diarioA == 1 && diarioB == 2 && diarioC == 1){
                 ac++;
+                a++;
             }else if (diarioA == 2 && diarioB == 1 && diarioC == 1){
                 bc++;
             }else if (diarioA == 1 && diarioB == 2 && diarioC == 2){

@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41e3f1e1-86d9-4d35-bb30-d5a9a559ee41" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejercicio java día 1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bootcamp/Ejercicio1/Ejercicio1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bootcamp/Ejercicio2/Ejercicio2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bootcamp/Ejercicio3/ejercicio3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bootcamp/Ejercicio4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejercicio java/src/com/bootcamp/EjercicioCondicionales/Ejercicio4.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ejercicio java/src/com/bootcamp/EjercicioCondicionales/Ejercicio4.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +45,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java/Ejercicio condicionales/src/com/condicionales/ejercicio.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
