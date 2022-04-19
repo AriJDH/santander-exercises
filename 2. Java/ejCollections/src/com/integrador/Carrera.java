@@ -36,7 +36,7 @@ public class Carrera {
     }
 
     public void inscribirAvanzado(Participante p1) {
-        if (!circuitoChico.contains(p1) && !circuitoMedio.contains(p1) && !circuitoAvanzado.contains(p1) && (p1.getEdad() > 18)) {
+        if (!circuitoChico.contains(p1) && !circuitoMedio.contains(p1) && !circuitoAvanzado.contains(p1) && (p1.getEdad() >= 18)) {
             circuitoAvanzado.add(p1);
             p1.setNroInscripto(circuitoAvanzado.size());
             p1.setMonto(2800);
