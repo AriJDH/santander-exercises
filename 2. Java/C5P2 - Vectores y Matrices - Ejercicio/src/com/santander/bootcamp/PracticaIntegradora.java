@@ -24,12 +24,13 @@ public class PracticaIntegradora {
         String mayor_ciudad = ciudades[0];
 
         for (int i = 1; i < ciudades.length; i++) {
-            if (menor_temperatura < temperaturas[i][0] ) {
+
+            if (temperaturas[i][0] <  menor_temperatura) {
                 menor_temperatura = temperaturas[i][0];
                 menor_ciudad = ciudades[i];
             }
 
-            if (mayor_temperatura > temperaturas[i][1]) {
+            if (temperaturas[i][1] > mayor_temperatura)  {
                 mayor_temperatura = temperaturas[i][1];
                 mayor_ciudad = ciudades[i];
             }
