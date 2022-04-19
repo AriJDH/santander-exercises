@@ -1,4 +1,4 @@
-package com;
+package bootcamp;
 
 import java.util.Scanner;
 

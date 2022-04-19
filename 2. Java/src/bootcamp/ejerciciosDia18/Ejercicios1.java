@@ -1,4 +1,4 @@
-package com.ejerciciosDia18;
+package bootcamp.ejerciciosDia18;
 
 import java.util.Scanner;
 

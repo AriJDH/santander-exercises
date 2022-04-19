@@ -1,4 +1,4 @@
-package com.santander.saveTheRopa;
+package bootcamp.saveTheRopa;
 
 public class Prenda {
     String marca;

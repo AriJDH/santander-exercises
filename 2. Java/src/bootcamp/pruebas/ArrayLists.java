@@ -1,4 +1,4 @@
-package com.pruebas;
+package bootcamp.pruebas;
 
 import java.util.ArrayList;
 import java.util.List;

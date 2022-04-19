@@ -1,9 +1,7 @@
-package com.santander.saveTheRopa;
+package bootcamp.saveTheRopa;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class GuardaRopa {
     HashMap<Integer, List<Prenda>> mapa = new HashMap<>();

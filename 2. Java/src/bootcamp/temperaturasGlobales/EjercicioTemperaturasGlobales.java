@@ -1,4 +1,4 @@
-package com.bootcamp.temperaturasGlobales;
+package bootcamp.temperaturasGlobales;
 
 public class EjercicioTemperaturasGlobales {
 
