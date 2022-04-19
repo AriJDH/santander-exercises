@@ -1,4 +1,4 @@
-package com.ejercicio1;
+package com.SaveRopa;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
