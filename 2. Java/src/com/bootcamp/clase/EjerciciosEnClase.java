@@ -4,9 +4,15 @@ public class EjerciciosEnClase {
     public static void main(String[] args) {
         //ejercicio_cargar_notas();
         //ejercicio_matriz_notas();
+
         EjerciciosCollections ejerciciosCollections = new EjerciciosCollections();
-        //ejerciciosCollections.ejercicio_array_lists();
+        /*
         ejerciciosCollections.ejercicio_lista_notas_alumnos();
+        ejerciciosCollections.ejercicio_array_lists();
+         */
+        //ejerciciosCollections.sets();
+        //ejerciciosCollections.diccionarios();
+        ejerciciosCollections.ejercicio_listas_diccionario();
 
     }
 
