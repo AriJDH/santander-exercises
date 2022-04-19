@@ -1,5 +1,5 @@
 package Collections;
-import java.util.Scanner;
+
 //Creo la clase Prenda con un constructor para definir sus atributos
 
 public class Prenda {

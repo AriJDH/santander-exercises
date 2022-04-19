@@ -15,7 +15,7 @@ public class GuardaRopa {
         lista.put(count, listaDePrenda);
         return count;
     }
-    //Recoro el map para mostrar el identificador y su prenda asociada (lista de marca y modelo)
+    //Recorro el map para mostrar el identificador y las prendas asociadas (lista de marca y modelo)
     public void mostrarPrendas(){
         lista.forEach((k, v) -> System.out.println("numero: " + k + " prenda: " + v));
 
@@ -24,7 +24,9 @@ public class GuardaRopa {
     //Devuelvo la prenda solicitada por el cliente a través de su número identificador
     public List<Prenda> devolverPrendas(Integer numero){
         List listaDePrendas = lista.get(numero);
+        lista.remove(numero);
         return listaDePrendas;
+
 
     }
 
