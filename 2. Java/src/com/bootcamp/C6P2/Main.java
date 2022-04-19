@@ -5,6 +5,25 @@ public class Main {
         probar_circuito_chico();
         probar_circuito_medio();
         probar_circuito_avanzado();
+        probar_todos();
+    }
+
+    private static void probar_todos() {
+        Carrera carrera = new Carrera();
+        Persona persona_1 = new Persona(388,"agus",13);
+        Persona persona_2 = new Persona(422,"brian",18);
+        Persona persona_3 = new Persona(122,"juan",20);
+
+        carrera.inscribir_persona_circuito_chico(persona_1);
+        carrera.inscribir_persona_circuito_medio(persona_2);
+        carrera.inscribir_persona_circuito_avanzado(persona_3);
+
+        carrera.mostrar_inscriptos_circuito_chico();
+        carrera.mostrar_inscriptos_circuito_medio();
+        carrera.mostrar_inscriptos_circuito_avanzado();
+
+        float total = carrera.obtener_ganancias();
+        System.out.println("Ganancias total: " + total);
     }
 
     private static void probar_circuito_medio() {
