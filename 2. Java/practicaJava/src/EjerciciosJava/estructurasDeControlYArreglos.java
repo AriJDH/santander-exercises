@@ -4,7 +4,7 @@ public class estructurasDeControlYArreglos {
     public static void main(String[] args) {
         String ciudades[] = {"Londres", "Madrid", "Nueva York", "Buenos Aires", "Asuncion", "Sao Paulo", "Lima", "Santiago deChile", "Lisboa", "Tokio"};
         int temperaturas[][] = {{-2, 33}, {-3, 32}, {-8, 27}, {4, 37}, {6, 42}, {5, 43}, {0, 39}, {-7, 26}, {-1, 31}, {-10, 35}};
-        int maxima = temperaturas[0][0], minima= temperaturas[0][0], posicionMax=0, posicionMin=0;
+        int maxima = temperaturas[0][1], minima= temperaturas[0][0], posicionMax=0, posicionMin=0;
 
             for (int x = 0; x < 10; x++) {
                 if(maxima<temperaturas[x][1]) {
