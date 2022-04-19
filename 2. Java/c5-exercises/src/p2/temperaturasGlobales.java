@@ -9,15 +9,21 @@ public class temperaturasGlobales {
             {-1, 31}, {-10, 35}};
 
         int min_temp = 1000, aux=0;
+        int max_temp = -1000, aux1=0;
         for (int i=0; i<temperaturas.length; ++i) {
             for (int j=0; j<2; ++j) {
                 if (temperaturas[i][j] < min_temp) {
                     min_temp = temperaturas[i][j];
                     aux = i;
                 }
+                if (temperaturas[i][j] > max_temp) {
+                    max_temp = temperaturas[i][j];
+                    aux1 = i;
+                }
             }
         }
 
         System.out.println("La temperatura mínima fue: " + min_temp + "°C y ocurrió en " + ciudades[aux]);
+        System.out.println("La temperatura máxima fue: " + max_temp + "°C y ocurrió en " + ciudades[aux1]);
     }
 }
