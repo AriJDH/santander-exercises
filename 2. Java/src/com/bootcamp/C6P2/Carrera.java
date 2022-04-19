@@ -16,25 +16,13 @@ public class Carrera {
     private boolean esta_inscripto(Persona persona){
         return circuitoChico.esta_inscripto(persona);
     }
-    //TODO: validar que no este inscripto circutioCHico.no_esta && circuitoMedio.no_esta
+
     public void inscribir_persona_circuito_chico(Persona persona) {
-        if(!esta_inscripto(persona)){
-            circuitoChico.inscribir(id_actual, persona);
-            persona.set_numero(id_actual);
-            id_actual++;
-        } else {
-            System.out.println("Participante ya esta inscripto");
-        }
+        inscribir_persona_en(persona, circuitoChico);
     }
 
     public void inscribir_persona_circuito_medio(Persona persona) {
-        if(!esta_inscripto(persona)){
-            circuitoMedio.inscribir(id_actual, persona);
-            persona.set_numero(id_actual);
-            id_actual++;
-        } else {
-            System.out.println("Participante ya esta inscripto");
-        }
+        inscribir_persona_en(persona, circuitoMedio);
     }
 
     public void inscribir_persona_circuito_avanzado(Persona persona) {
@@ -82,5 +70,15 @@ public class Carrera {
 
     public float obtener_ganancias(){
         return circuitoChico.obtener_ganancias() + circuitoMedio.obtener_ganancias() + circuitoAvanzado.obtener_ganancias();
+    }
+
+    private void inscribir_persona_en(Persona persona, Circuito circuito){
+        if(!esta_inscripto(persona)){
+            circuito.inscribir(id_actual, persona);
+            persona.set_numero(id_actual);
+            id_actual++;
+        } else {
+            System.out.println("Participante ya esta inscripto");
+        }
     }
 }
