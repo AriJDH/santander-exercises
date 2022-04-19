@@ -4,12 +4,13 @@ public class Main {
     public static void main(String[] args) {
         probar_circuito_chico();
         probar_circuito_medio();
+        probar_circuito_avanzado();
     }
 
     private static void probar_circuito_medio() {
         Carrera carrera = new Carrera();
-        Persona persona_1 = new Persona(388,"agus",26);
-        Persona persona_2 = new Persona(422,"brian",27);
+        Persona persona_1 = new Persona(388,"agus",13);
+        Persona persona_2 = new Persona(422,"brian",18);
 
         carrera.inscribir_persona_circuito_medio(persona_1);
         carrera.inscribir_persona_circuito_medio(persona_2);
@@ -25,6 +26,29 @@ public class Main {
         float ganancias_chico = carrera.obtener_ganancias_circuito_medio();
 
         System.out.println("Ganancias medio: " + ganancias_chico);
+
+
+    }
+
+    private static void probar_circuito_avanzado() {
+        Carrera carrera = new Carrera();
+        Persona persona_1 = new Persona(388,"agus",13);
+        Persona persona_2 = new Persona(422,"brian",19);
+
+        carrera.inscribir_persona_circuito_avanzado(persona_1);
+        carrera.inscribir_persona_circuito_avanzado(persona_2);
+
+        System.out.println("Circuito avanzado");
+        carrera.mostrar_inscriptos_circuito_avanzado();
+
+        carrera.desinscribir_persona(persona_1);
+
+        System.out.println("Circuito avanzado despues de desinscribir");
+        carrera.mostrar_inscriptos_circuito_avanzado();
+
+        float ganancias = carrera.obtener_ganancias_circuito_avanzado();
+
+        System.out.println("Ganancias avanzado: " + ganancias);
 
 
     }

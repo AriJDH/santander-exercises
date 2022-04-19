@@ -13,8 +13,9 @@ public class CircuitoMedio extends Circuito {
     }
 
     @Override
-    public void inscribir(int id, Persona persona) {
+    public boolean inscribir(int id, Persona persona) {
         persona.pagar(LIMITE_EDAD, PRECIO_MENOR_LIMITE, PRECIO_MAYOR_LIMITE);
         super.corredores.put(id, persona);
+        return true;
     }
 }

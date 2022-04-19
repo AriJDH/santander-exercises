@@ -14,11 +14,12 @@ public class CircuitoChico extends Circuito {
     }
 
     @Override
-    public void inscribir(int id, Persona persona) {
+    public boolean inscribir(int id, Persona persona) {
         //validar(persona)
         //TODO: guardar el numero y lo que abona en una clase que wrapea a Persona i.e. Inscripcion(Persona, numero, abono)
         persona.pagar(LIMITE_EDAD, PRECIO_MENOR_LIMITE, PRECIO_MAYOR_LIMITE);
         super.corredores.put(id, persona);
+        return true;
     }
 
     private void validar(Persona persona){

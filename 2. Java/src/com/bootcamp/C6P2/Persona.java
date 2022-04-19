@@ -48,4 +48,8 @@ public class Persona {
     public float get_abono() {
         return this.monto_abonado;
     }
+
+    public boolean puede_participar(int edad_minima) {
+        return this.edad > edad_minima;
+    }
 }

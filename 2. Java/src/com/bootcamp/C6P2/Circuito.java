@@ -6,7 +6,7 @@ import java.util.Map;
 abstract public class Circuito {
     protected HashMap<Integer, Persona> corredores;
 
-    abstract public void inscribir(int id, Persona persona);
+    abstract public boolean inscribir(int id, Persona persona);
 
     public void mostrar_inscriptos() {
         for(Map.Entry<Integer, Persona> entrada : corredores.entrySet()){
