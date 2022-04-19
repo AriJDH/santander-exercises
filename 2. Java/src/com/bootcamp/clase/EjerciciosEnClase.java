@@ -3,7 +3,11 @@ package com.bootcamp.clase;
 public class EjerciciosEnClase {
     public static void main(String[] args) {
         //ejercicio_cargar_notas();
-        ejercicio_matriz_notas();
+        //ejercicio_matriz_notas();
+        EjerciciosCollections ejerciciosCollections = new EjerciciosCollections();
+        //ejerciciosCollections.ejercicio_array_lists();
+        ejerciciosCollections.ejercicio_lista_notas_alumnos();
+
     }
 
     public static void ejercicio_cargar_notas(){
