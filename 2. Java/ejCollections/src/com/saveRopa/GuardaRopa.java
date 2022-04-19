@@ -30,16 +30,8 @@ public class GuardaRopa {
     }
 
     public ArrayList<Prenda> devolverPrendas(Integer numero) {
-        for (Map.Entry<Integer, ArrayList> entrada : map.entrySet()) {
-            int key = entrada.getKey();
-            if (key == numero) {
-                ArrayList<Prenda> prendas;
-                prendas = entrada.getValue();
-                map.remove(key);
-                System.out.println("Sus prendas con el número " + numero + " han sido devueltas correctamente");
-                return prendas;
-            }
-        }
-        return null;
+        ArrayList<Prenda> prendasAdevolver=map.get(numero);
+        map.remove(numero);
+        return prendasAdevolver;
     }
 }

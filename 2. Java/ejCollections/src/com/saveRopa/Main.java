@@ -20,7 +20,7 @@ public class Main {
         System.out.println(miCodigo1);
         System.out.println(miCodigo2);
         g1.mostrarPrendas();
-        ArrayList<Prenda> prendasDevueltas = g1.devolverPrendas(miCodigo1);
+        ArrayList<Prenda> prendasDevueltas = g1.devolverPrendas(miCodigo2);
         g1.mostrarPrendas();
         System.out.print("devueltas:");
         System.out.println(prendasDevueltas);
