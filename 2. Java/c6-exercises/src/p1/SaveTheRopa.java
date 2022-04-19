@@ -16,9 +16,13 @@ class Prenda {
 }
 
 class GuardaRopa {
-    Map<Integer, List<Prenda>> map = new HashMap<>();
-    int counter=0;
+    Map<Integer, List<Prenda>> map;
+    int counter;
 
+    public GuardaRopa() {
+        map = new HashMap<>();
+        counter = 0;
+    }
     public Integer guardarPrendas(List<Prenda> listaDePrendas) {
         map.put(counter, listaDePrendas);
         counter++;
