@@ -26,19 +26,21 @@ class GuardaRopa {
     }
 
     public void mostrarPrendas() {
+
         for (Map.Entry<Integer, List<Prenda>> entrada: map.entrySet()) {
             Integer identificador = entrada.getKey();
             List<Prenda> list = entrada.getValue();
             System.out.println("Identificador: " + identificador + ". Prendas: ");
-            for (int i=0; i<list.size(); ++i) {
-                Prenda p = list.get(i);
+            for (Prenda p: list) {
                 System.out.println("Marca: " + p.marca + ". Modelo: " + p.modelo);
             }
         }
     }
 
     public List<Prenda> devolverPrendas(Integer n) {
-        return map.get(n);
+        List<Prenda> list = map.get(n);
+        map.remove(n);
+        return list;
     }
 }
 
