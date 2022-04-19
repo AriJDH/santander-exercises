@@ -8,6 +8,11 @@ import java.util.Map;
 class Prenda {
     String marca;
     String modelo;
+
+    public Prenda(String marcaRopa, String modeloRopa) {
+        marca = marcaRopa;
+        modelo = modeloRopa;
+    }
 }
 
 class GuardaRopa {
@@ -39,29 +44,20 @@ class GuardaRopa {
 
 public class SaveTheRopa {
     public static void main(String[] args) {
-        List<Prenda> listDePrendas = new ArrayList<>();
+        List<Prenda> listDePrendas1 = new ArrayList<>();
         List<Prenda> listDePrendas2 = new ArrayList<>();
 
-        Prenda p1 = new Prenda();
-        p1.marca="Nike";
-        p1.modelo="Buzo";
+        Prenda p1 = new Prenda("Nike", "Buzo");
+        Prenda p2 = new Prenda("Adidas", "Remera");
+        Prenda p3 = new Prenda("Jordan", "Zapatillas");
 
-        Prenda p2 = new Prenda();
-        p2.marca="Adidas";
-        p2.modelo="Remera";
-
-        Prenda p3 = new Prenda();
-        p3.marca = "Jordan";
-        p3.modelo = "Zapatillas";
-
-        listDePrendas.add(p1);
-        listDePrendas.add(p2);
-
+        listDePrendas1.add(p1);
+        listDePrendas1.add(p2);
         listDePrendas2.add(p3);
 
         GuardaRopa gr = new GuardaRopa();
 
-        int id1 = gr.guardarPrendas(listDePrendas);
+        int id1 = gr.guardarPrendas(listDePrendas1);
         int id2 = gr.guardarPrendas(listDePrendas2);
 
         gr.mostrarPrendas();
