@@ -17,10 +17,12 @@ public class Main {
         GuardaRopa g1 = new GuardaRopa();
         int miCodigo1 = g1.guardarPrendas(prendas1);
         int miCodigo2 = g1.guardarPrendas(prendas2);
+        int miCodigo3 = g1.guardarPrendas(prendas1);
         System.out.println(miCodigo1);
         System.out.println(miCodigo2);
+        System.out.println(miCodigo3);
         g1.mostrarPrendas();
-        ArrayList<Prenda> prendasDevueltas = g1.devolverPrendas(miCodigo2);
+        ArrayList<Prenda> prendasDevueltas = g1.devolverPrendas(miCodigo1);
         g1.mostrarPrendas();
         System.out.print("devueltas:");
         System.out.println(prendasDevueltas);
