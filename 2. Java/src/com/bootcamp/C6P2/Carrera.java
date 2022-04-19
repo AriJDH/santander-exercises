@@ -1,24 +1,53 @@
 package com.bootcamp.C6P2;
 
 public class Carrera {
-    private int numero_actual;
-    private Circuito circuitoChico;
+    private int id_actual;
+    private CircuitoChico circuitoChico;
+    private CircuitoMedio circuitoMedio;
+    private CircuitoAvanzado circuitoAvanzado;
 
     public Carrera(){
-        numero_actual = 1;
+        id_actual = 1;
         circuitoChico = new CircuitoChico();
-        //circuitoChico = new CircuitoMedio();
-        //circuitoChico = new CircuitoGrande();
+        circuitoMedio = new CircuitoMedio();
+        circuitoAvanzado = new CircuitoAvanzado();
     }
 
-
+    //TODO: validar que no este inscripto circutioCHico.no_esta && circuitoMedio.no_esta
     public void inscribir_persona_circuito_chico(Persona persona) {
-        persona.set_numero(numero_actual);
-        circuitoChico.inscribir(persona);
-        numero_actual++;
+        circuitoChico.inscribir(id_actual, persona);
+        persona.set_numero(id_actual);
+        id_actual++;
+    }
+
+    public void inscribir_persona_circuito_medio(Persona persona) {
+        circuitoMedio.inscribir(id_actual, persona);
+        persona.set_numero(id_actual);
+        id_actual++;
     }
 
     public void mostrar_inscriptos_circuito_chico() {
         circuitoChico.mostrar_inscriptos();
+    }
+
+    public void mostrar_inscriptos_circuito_medio() {
+        circuitoMedio.mostrar_inscriptos();
+    }
+
+    public void desinscribir_persona(Persona persona) {
+        circuitoChico.desinscribir(persona);
+        circuitoMedio.desinscribir(persona);
+    }
+
+    public float obtener_ganancias_circuito_chico() {
+        return circuitoChico.obtener_ganancias();
+    }
+
+    public float obtener_ganancias(){
+        return circuitoChico.obtener_ganancias() + circuitoMedio.obtener_ganancias() + circuitoAvanzado.obtener_ganancias();
+    }
+
+    public float obtener_ganancias_circuito_medio() {
+        return circuitoMedio.obtener_ganancias();
     }
 }

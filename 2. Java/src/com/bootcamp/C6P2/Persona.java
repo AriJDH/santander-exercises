@@ -8,17 +8,19 @@ public class Persona {
     private long nro_celular;
     private long nro_emergencia;
     private String grupo_sanguineo;
-    private int numero_corredor = -1;
+    private int id_corredor = -1;
+    private float monto_abonado;
 
     //TODO: agregar parametros faltantes
     public Persona(int dni, String nombre, int edad){
         this.dni = dni;
         this.nombre = nombre;
         this.edad = edad;
+        monto_abonado = 0;
     }
 
     public void set_numero(int numero) {
-        this.numero_corredor = numero;
+        this.id_corredor = numero;
     }
 
     public float pagar(int limite_edad, float precio_menor_limite, float precio_mayor_limite) {
@@ -27,13 +29,23 @@ public class Persona {
         if(edad < limite_edad){
             abono = precio_menor_limite;
         }
+        this.monto_abonado = abono;
         return abono;
     }
 
     @Override
     public String toString() {
-        return "Nro inscripto: " + this.numero_corredor +
+        return "Nro inscripto: " + this.id_corredor +
                 " \n Nombre: " + this.nombre +
-                " \n dni: " + this.dni;
+                " \n dni: " + this.dni +
+                "\n monto abonado: " + this.monto_abonado;
+    }
+
+    public Integer get_id() {
+        return this.id_corredor;
+    }
+
+    public float get_abono() {
+        return this.monto_abonado;
     }
 }
