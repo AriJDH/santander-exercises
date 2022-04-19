@@ -33,7 +33,7 @@ class GuardarRopa {
     }
 
     public List<Prenda> devolverPrendas(Integer numero) {
-        return ropas.get(numero);
+        return ropas.remove(numero);
     }
 }
 
@@ -55,6 +55,8 @@ public class App {
 
         guardado.guardarPrendas(prendas);
         guardado.guardarPrendas(prendas);
+        guardado.mostrarPrendas();
+        guardado.devolverPrendas(0);
         guardado.mostrarPrendas();
 
 
