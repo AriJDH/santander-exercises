@@ -49,6 +49,8 @@ public class Persona {
         return this.monto_abonado;
     }
 
+
+
     public boolean puede_participar(int edad_minima) {
         return this.edad > edad_minima;
     }

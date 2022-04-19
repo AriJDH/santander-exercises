@@ -28,4 +28,8 @@ abstract public class Circuito {
         }
         return total;
     }
+
+    public boolean esta_inscripto(Persona persona) {
+        return corredores.containsKey(persona.get_id());
+    }
 }

@@ -6,6 +6,23 @@ public class Main {
         probar_circuito_medio();
         probar_circuito_avanzado();
         probar_todos();
+        probar_no_repetir_inscripcion();
+    }
+
+    private static void probar_no_repetir_inscripcion() {
+        Carrera carrera = new Carrera();
+        Persona persona_1 = new Persona(388,"agus",20);
+
+        //OK
+        carrera.inscribir_persona_circuito_chico(persona_1);
+        carrera.mostrar_inscriptos_circuito_chico();
+
+        System.out.println("Los siguiente no se pueden inscribir");
+        //Error
+        carrera.inscribir_persona_circuito_chico(persona_1);
+        carrera.inscribir_persona_circuito_medio(persona_1);
+        carrera.inscribir_persona_circuito_avanzado(persona_1);
+
     }
 
     private static void probar_todos() {

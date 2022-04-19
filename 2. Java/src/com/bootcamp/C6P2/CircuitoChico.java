@@ -3,7 +3,6 @@ package com.bootcamp.C6P2;
 import java.util.HashMap;
 
 public class CircuitoChico extends Circuito {
-    private final String descripcion = "2 km por selva y arroyos.";
     private final int LIMITE_EDAD = 18;
     private final float PRECIO_MENOR_LIMITE = 1300;
     private final float PRECIO_MAYOR_LIMITE = 1500;
@@ -15,15 +14,10 @@ public class CircuitoChico extends Circuito {
 
     @Override
     public boolean inscribir(int id, Persona persona) {
-        //validar(persona)
         //TODO: guardar el numero y lo que abona en una clase que wrapea a Persona i.e. Inscripcion(Persona, numero, abono)
         persona.pagar(LIMITE_EDAD, PRECIO_MENOR_LIMITE, PRECIO_MAYOR_LIMITE);
         super.corredores.put(id, persona);
         return true;
     }
 
-    private void validar(Persona persona){
-        //persona.puede_participar();
-        System.out.println("No deberias implementar esto");
-    }
 }

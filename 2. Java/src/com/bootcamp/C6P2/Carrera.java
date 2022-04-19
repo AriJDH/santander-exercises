@@ -13,25 +13,40 @@ public class Carrera {
         circuitoAvanzado = new CircuitoAvanzado();
     }
 
+    private boolean esta_inscripto(Persona persona){
+        return circuitoChico.esta_inscripto(persona);
+    }
     //TODO: validar que no este inscripto circutioCHico.no_esta && circuitoMedio.no_esta
     public void inscribir_persona_circuito_chico(Persona persona) {
-        circuitoChico.inscribir(id_actual, persona);
-        persona.set_numero(id_actual);
-        id_actual++;
-    }
-
-    public void inscribir_persona_circuito_medio(Persona persona) {
-        circuitoMedio.inscribir(id_actual, persona);
-        persona.set_numero(id_actual);
-        id_actual++;
-    }
-
-    public void inscribir_persona_circuito_avanzado(Persona persona) {
-        if(circuitoAvanzado.inscribir(id_actual, persona)){
+        if(!esta_inscripto(persona)){
+            circuitoChico.inscribir(id_actual, persona);
             persona.set_numero(id_actual);
             id_actual++;
         } else {
-            System.out.println("Persona menor de edad no puede participar del circuito avanzado");
+            System.out.println("Participante ya esta inscripto");
+        }
+    }
+
+    public void inscribir_persona_circuito_medio(Persona persona) {
+        if(!esta_inscripto(persona)){
+            circuitoMedio.inscribir(id_actual, persona);
+            persona.set_numero(id_actual);
+            id_actual++;
+        } else {
+            System.out.println("Participante ya esta inscripto");
+        }
+    }
+
+    public void inscribir_persona_circuito_avanzado(Persona persona) {
+        if(!esta_inscripto(persona)){
+            if(circuitoAvanzado.inscribir(id_actual, persona)){
+                persona.set_numero(id_actual);
+                id_actual++;
+            } else {
+                System.out.println("Persona menor de edad no puede participar del circuito avanzado");
+            }
+        } else {
+            System.out.println("Participante ya esta inscripto");
         }
     }
 
