@@ -8,4 +8,10 @@ public class Autor {
         this.nombre = nombre;
         this.alias = alias;
     }
+
+    @Override
+    public String toString() {
+        return "Autor {nombre: " + nombre +
+                ", alias: " + alias + "}";
+    }
 }
