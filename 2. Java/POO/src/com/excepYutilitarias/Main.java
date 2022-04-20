@@ -28,7 +28,11 @@ public class Main {
 
     public static void main(String[] args) {
         PracticaExc e1 = new PracticaExc();
-
+        try {
+            e1.cociente();
+        }catch (Exception e){
+            System.out.println(e);
+        };
         //Mensaje final
         String mensajeFinal = "Este es el último mensaje";
 
