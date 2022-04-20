@@ -1,6 +1,4 @@
 package com.santander;
-import com.santander.colecciones.Prenda;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
