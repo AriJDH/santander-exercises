@@ -22,4 +22,23 @@ public class Persona {
         this.peso = peso;
         this.altura = altura;
     }
+
+    public int calcularIMC() {
+        double calculo = peso/(altura*altura);
+        if (peso < 20.0) {
+            return -1;
+        }
+        if (peso > 25.0) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public boolean esMayorDeEdad() {
+        return edad >= 18;
+    }
+
+    public String toString() {
+        return nombre + " con DNI " + dni + ", tiene " +edad + " años su peso es " + peso + "kg y altura " + altura + "mts";
+    }
 }
