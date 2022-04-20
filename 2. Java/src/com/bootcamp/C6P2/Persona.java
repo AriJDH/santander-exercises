@@ -36,9 +36,9 @@ public class Persona {
     @Override
     public String toString() {
         return "Nro inscripto: " + this.id_corredor +
-                " \n Nombre: " + this.nombre +
-                " \n dni: " + this.dni +
-                "\n monto abonado: " + this.monto_abonado;
+                " Nombre: " + this.nombre +
+                " dni: " + this.dni +
+                " monto abonado: " + this.monto_abonado;
     }
 
     public Integer get_id() {

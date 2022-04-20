@@ -26,7 +26,11 @@ public class Carrera {
     }
 
     private void inscribir_persona_en(Persona persona, Circuito circuito){
-        id_actual = circuito.inscribir(id_actual, persona);
+        if(!circuitoChico.esta_inscripto(persona) && !circuitoMedio.esta_inscripto(persona) && !circuitoAvanzado.esta_inscripto(persona)){
+            id_actual = circuito.inscribir(id_actual, persona);
+        } else {
+            System.out.println("Persona no se puede inscribir en mas de un circuito a la vez");
+        }
     }
 
     public void mostrar_inscriptos_circuito_chico() {

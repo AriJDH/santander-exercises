@@ -14,10 +14,8 @@ public class CircuitoAvanzado extends Circuito {
 
     @Override
     public int inscribir(int id, Persona persona) {
-        //TODO: podria verificar y devolver el id aumentado, esto me permitiria hacer el inscribir en CircuitoAvanzado aca y no en Carrera sin necesidad de devolver un booleano
-        boolean valida = validar(persona);
         int sig_id = id;
-        if(valida){
+        if(validar(persona)){
             if(!esta_inscripto(persona)){
                 persona.pagar(limite_edad, precio_menor_limite, precio_mayor_limite);
                 super.corredores.put(id, persona);

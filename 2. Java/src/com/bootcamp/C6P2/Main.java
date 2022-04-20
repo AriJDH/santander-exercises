@@ -11,17 +11,28 @@ public class Main {
 
     private static void probar_no_repetir_inscripcion() {
         Carrera carrera = new Carrera();
-        Persona persona_1 = new Persona(388,"agus",20);
+        Persona persona_1 = new Persona(111,"agus",20);
+        Persona persona_2 = new Persona(222,"carla",21);
+        Persona persona_3 = new Persona(333,"martin",22);
 
         //OK
         carrera.inscribir_persona_circuito_chico(persona_1);
+        carrera.inscribir_persona_circuito_medio(persona_2);
+        carrera.inscribir_persona_circuito_avanzado(persona_3);
         carrera.mostrar_inscriptos_circuito_chico();
 
         System.out.println("Los siguiente no se pueden inscribir");
+
         //Error
         carrera.inscribir_persona_circuito_chico(persona_1);
         carrera.inscribir_persona_circuito_medio(persona_1);
         carrera.inscribir_persona_circuito_avanzado(persona_1);
+        carrera.inscribir_persona_circuito_chico(persona_2);
+        carrera.inscribir_persona_circuito_medio(persona_2);
+        carrera.inscribir_persona_circuito_avanzado(persona_2);
+        carrera.inscribir_persona_circuito_chico(persona_3);
+        carrera.inscribir_persona_circuito_medio(persona_3);
+        carrera.inscribir_persona_circuito_avanzado(persona_3);
 
     }
 
@@ -30,6 +41,8 @@ public class Main {
         Persona persona_1 = new Persona(388,"agus",13);
         Persona persona_2 = new Persona(422,"brian",18);
         Persona persona_3 = new Persona(122,"juan",20);
+
+        System.out.println("Inscribiendo en todos los circuitos");
 
         carrera.inscribir_persona_circuito_chico(persona_1);
         carrera.inscribir_persona_circuito_medio(persona_2);
@@ -42,6 +55,28 @@ public class Main {
 
         float total = carrera.obtener_ganancias();
         System.out.println("Ganancias total: " + total);
+    }
+
+    private static void probar_circuito_chico() {
+        Carrera carrera = new Carrera();
+        Persona persona_en_chico_1 = new Persona(388,"agus",26);
+        Persona persona_en_chico_2 = new Persona(422,"brian",27);
+
+        carrera.inscribir_persona_circuito_chico(persona_en_chico_1);
+        carrera.inscribir_persona_circuito_chico(persona_en_chico_2);
+
+        System.out.println("Circuito chico");
+        carrera.mostrar_inscriptos_circuito_chico();
+
+        carrera.desinscribir_persona(persona_en_chico_2);
+
+        System.out.println("Circuito chico");
+        carrera.mostrar_inscriptos_circuito_chico();
+
+        float ganancias_chico = carrera.obtener_ganancias_circuito_chico();
+
+        System.out.println("Ganancias chico: " + ganancias_chico);
+
     }
 
     private static void probar_circuito_medio() {
@@ -72,10 +107,10 @@ public class Main {
         Persona persona_1 = new Persona(388,"agus",13);
         Persona persona_2 = new Persona(422,"brian",19);
 
+        System.out.println("Circuito avanzado");
         carrera.inscribir_persona_circuito_avanzado(persona_1);
         carrera.inscribir_persona_circuito_avanzado(persona_2);
 
-        System.out.println("Circuito avanzado");
         carrera.mostrar_inscriptos_circuito_avanzado();
 
         carrera.desinscribir_persona(persona_1);
@@ -87,28 +122,6 @@ public class Main {
 
         System.out.println("Ganancias avanzado: " + ganancias);
 
-
-    }
-
-    private static void probar_circuito_chico() {
-        Carrera carrera = new Carrera();
-        Persona persona_en_chico_1 = new Persona(388,"agus",26);
-        Persona persona_en_chico_2 = new Persona(422,"brian",27);
-
-        carrera.inscribir_persona_circuito_chico(persona_en_chico_1);
-        carrera.inscribir_persona_circuito_chico(persona_en_chico_2);
-
-        System.out.println("Circuito chico");
-        carrera.mostrar_inscriptos_circuito_chico();
-
-        carrera.desinscribir_persona(persona_en_chico_2);
-
-        System.out.println("Circuito chico");
-        carrera.mostrar_inscriptos_circuito_chico();
-
-        float ganancias_chico = carrera.obtener_ganancias_circuito_chico();
-
-        System.out.println("Ganancias chico: " + ganancias_chico);
 
     }
 }
