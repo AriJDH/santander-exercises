@@ -11,7 +11,33 @@ public class Main {
         //ejercicio_2();
 
         /*ejercicio 3*/
-        leerArchivo("nombre random");
+        //leerArchivo("nombre random");
+
+        /*ejercicio 4*/
+        ejercicio_4();
+    }
+
+    private static void ejercicio_4() {
+        Calculos calculos = new Calculos();
+        int a = 30, b = 50;
+
+        calculos.max(a, b);
+        calculos.min(a, b);
+
+        float base = 10, potencia = 3;
+        double res = calculos.potencia(base,potencia);
+        System.out.println("Potencia: " + base + " " + potencia + ": " + res);
+
+        float angulo = 30;
+        double coseno_ang = calculos.coseno(angulo);
+        System.out.println("Angulo " + angulo + " coseno: " + coseno_ang);
+
+        float numero = 144;
+        double sqr = calculos.raiz_cuadrada(numero);
+        System.out.println("Sqrt de " + numero + " es " + sqr);
+
+        int aleatorio = calculos.numero_aleatorio();
+        System.out.println("Numero aleatorio: " + aleatorio);
     }
 
     private static void leerArchivo(String nombreArchivo) {
