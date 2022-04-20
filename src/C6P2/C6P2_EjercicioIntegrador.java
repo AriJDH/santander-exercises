@@ -115,9 +115,10 @@ public class C6P2_EjercicioIntegrador {
     }
 
     public  abstract static class Carrera{
-        public List<Corredor> listaCorredores;
-        public double costoMenores;
-        public double costoMayores;
+        private List<Corredor> listaCorredores;
+        private double costoMenores;
+        private double costoMayores;
+        private double recaudacion;
         static double totalRecaudado=0;
 
 
@@ -126,16 +127,21 @@ public class C6P2_EjercicioIntegrador {
             this.listaCorredores = new ArrayList<>();
             this.costoMenores = costoMenores;
             this.costoMayores = costoMayores;
+            this.recaudacion=0;
 
         }
 
         public void inscribirParticipante(Corredor corredor){
             listaCorredores.add(corredor);
             corredor.nroInscripcion = listaCorredores.size() - 1;
-            if (corredor.edad < 18)
+            if (corredor.edad < 18){
                 totalRecaudado+=costoMenores;
-            else
-                totalRecaudado+=costoMayores;
+                recaudacion+=costoMenores;
+            }
+            else {
+                totalRecaudado += costoMayores;
+                recaudacion+= costoMayores;
+            }
         }
 
         public void mostrarInscriptos(){
@@ -150,10 +156,14 @@ public class C6P2_EjercicioIntegrador {
 
         public void desinscribirParticipante(Corredor corredor){
             listaCorredores.remove(corredor);
-            if (corredor.edad < 18)
-                totalRecaudado-=costoMenores;
-            else
-                totalRecaudado-=costoMayores;
+            if (corredor.edad < 18) {
+                totalRecaudado -= costoMenores;
+                recaudacion-= costoMenores;
+            }
+            else {
+                totalRecaudado -= costoMayores;
+                recaudacion-= costoMayores;
+            }
             System.out.println("Se desinscribió participante n°: " + corredor.nroInscripcion);
             System.out.println("-------------------------------------");
         }
@@ -166,14 +176,8 @@ public class C6P2_EjercicioIntegrador {
         }
 
         public void calcularTotalRecaudado(){
-            double total=0;
-            for (Corredor c: listaCorredores) {
-                if (c.edad < 18)
-                    total+=this.costoMenores;
-                else
-                    total+=costoMayores;
-            }
-            System.out.println("El total recaudado de la categoría es: $" + total);
+
+            System.out.println("El total recaudado de la categoría es: $" + recaudacion);
 
         }
 
