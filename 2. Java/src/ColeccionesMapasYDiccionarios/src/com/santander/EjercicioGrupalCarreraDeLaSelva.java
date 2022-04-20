@@ -26,14 +26,6 @@ public class EjercicioGrupalCarreraDeLaSelva {
         recaudacionTotal(circuitoChico, circuitoMedio, circuitoAvanzado);
         System.out.println(desinscribir(p00.getNroInscripto(), circuitoAvanzado, circuitoChico, circuitoMedio));
         recaudacionTotal(circuitoChico, circuitoMedio, circuitoAvanzado);
-
-        System.out.println("Ingrese su D.N.I. (-1 para salir): ");
-        int dni = teclado.nextInt();
-        while(dni != -1) {
-            System.out.println("¿A qué circuito querés unirte? Corto -> 1, Mediano -> 2, Avanzado -> 3");
-            int rta = teclado.nextInt();
-            System.out.println("Ingrese su D.N.I. (-1 para salir): ");
-            dni = teclado.nextInt();
          */
         int dni;
         String nombre;
