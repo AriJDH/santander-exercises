@@ -19,7 +19,7 @@ public class ejercicio_practico {
                 minimo = minimos[j];
                 ciudad_min = ciudades[j];
             }
-            if (maximos[j] > maximo) {
+            else if (maximos[j] > maximo) {
                 maximo = maximos[j];
                 ciudad_max = ciudades[j];
             }
