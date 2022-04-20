@@ -10,6 +10,7 @@ public class Persona {
     public Persona(){
 
     }
+
     public Persona(String nombre, String dni, int edad){
         this.nombre= nombre;
         this.dni= dni;
@@ -17,9 +18,18 @@ public class Persona {
 
     }
 
+    public Persona(String nombre, String dni, int edad, double peso, double altura){
+        this.nombre= nombre;
+        this.dni= dni;
+        this.edad= edad;
+        this.peso= peso;
+        this.altura= altura;
+
+    }
+
 
     public Integer calcularIMC(double altura, double peso){
-        double imc= peso/(Math.pow(altura, 2));
+        double imc= this.peso/(Math.pow(this.altura, 2));
         if(imc<20){
             return -1;
 
@@ -39,7 +49,14 @@ public class Persona {
 
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", dni='" + dni + '\'' +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                '}';
+    }
 }
