@@ -1,12 +1,12 @@
 package com.excepYutilitarias;
 
 public class PracticaExc {
-    private int a = 0;
-    private int b = 300;
+    private int a = 20;
+    private int b = 0;
 
-    public void cociente() {
+    public double cociente() {
         try {
-            System.out.println(b/a);
+            return (a/b);
         } catch (ArithmeticException exp) {
             throw new IllegalArgumentException("no se puede x cero");
         } finally {

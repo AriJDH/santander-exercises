@@ -29,7 +29,8 @@ public class Main {
     public static void main(String[] args) {
         PracticaExc e1 = new PracticaExc();
         try {
-            e1.cociente();
+            double cociente= e1.cociente();
+            System.out.println(cociente);
         }catch (Exception e){
             System.out.println(e);
         };
@@ -49,7 +50,7 @@ public class Main {
         leerArchivo("jose.txt");
 
         //no requiere instanciar
-        System.out.println(Calculos.mayorNumero(200, 5));
+        System.out.println(Calculos.mayorNumero(200, 3));
         System.out.println(Calculos.potenciar(2, 3));
         System.out.println(Calculos.cos(0));
         System.out.println(Calculos.raiz(25));
