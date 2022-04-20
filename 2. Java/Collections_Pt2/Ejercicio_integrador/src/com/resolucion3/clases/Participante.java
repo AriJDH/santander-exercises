@@ -21,7 +21,37 @@ public class Participante {
         this.numeroParticipante = numeroParticipante;
     }
 
+    public int getDni() {
+        return dni;
+    }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public int getCelular() {
+        return celular;
+    }
+
+    public int getNumeroEmergencia() {
+        return numeroEmergencia;
+    }
+
+    public String getGrupoSanguineo() {
+        return grupoSanguineo;
+    }
+
+    public int getNumeroParticipante() {
+        return numeroParticipante;
+    }
 
     @Override
     public String toString() {

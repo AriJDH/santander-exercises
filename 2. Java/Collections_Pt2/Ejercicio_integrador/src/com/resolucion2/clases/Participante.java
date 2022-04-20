@@ -23,6 +23,18 @@ public class Participante {
         this.categoria = categoria;
     }
 
+    public int getNumeroParticipante() {
+        return numeroParticipante;
+    }
+
+    public int getNroInscripto() {
+        return categoria;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
 
     @Override
     public String toString() {
