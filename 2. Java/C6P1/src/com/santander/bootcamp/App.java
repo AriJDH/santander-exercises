@@ -85,3 +85,4 @@ class GuardarRopa {
         return mapa.get(numero);
     }
 }
+

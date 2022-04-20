@@ -31,7 +31,9 @@ public class CarreraDeLaSelva {
             int rta = teclado.nextInt();
             System.out.println("Ingrese su D.N.I. (-1 para salir): ");
             dni = teclado.nextInt();
-         */
+
+
+        */
         int dni;
         String nombre;
         String apellido;
@@ -116,6 +118,8 @@ public class CarreraDeLaSelva {
             System.out.println("Ingrese dni (ingrese -1 para salir)");
             dni = teclado.nextInt();
         }
+
+
         recaudacionTotal(circuitoChico, circuitoMedio, circuitoAvanzado);
     }
     public static int inscribir(Participante particip, List<Participante> circuito, int contador) {
@@ -144,6 +148,7 @@ public class CarreraDeLaSelva {
         }
         return precios[circuito][indiceEdad];
     }
+
     public static void recaudacionTotal(List<Participante> c, List<Participante> m, List<Participante> a) {
         double acumuladorChico = 0;
         double acumuladorMediano = 0;
