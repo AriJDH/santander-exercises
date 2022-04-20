@@ -1,4 +1,4 @@
-package com;
+package com.Ejercicio1;
 
 public class Persona {
 
