@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static com.excepYutilitarias.Calculos.*;
+
 public class Main {
 
     public static void leerArchivo(String nombreArchivo) {
@@ -41,6 +43,13 @@ public class Main {
         }
 
         leerArchivo("jose.txt");
+
+        //no requiere instanciar
+        System.out.println(Calculos.mayorNumero(200, 5));
+        System.out.println(Calculos.potenciar(2, 3));
+        System.out.println(Calculos.cos(0));
+        System.out.println(Calculos.raiz(25));
+        System.out.println(Calculos.randomE0y999());
 
     }
 

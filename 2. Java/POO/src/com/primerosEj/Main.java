@@ -3,7 +3,7 @@ package com.primerosEj;
 public class Main {
     public static void main(String[] args) {
         Persona p1= new Persona();
-        Persona p2= new Persona("juan","32323",22,66,1.67);
+        Persona p2= new Persona("juan","32323",21,66,1.67);
         System.out.print("Su IMC dice: ");
         if (p2.calcularIMC()==-1){
             System.out.println("Bajo peso");
@@ -19,6 +19,6 @@ public class Main {
         }else{
             System.out.println("no sos mayor :(");
         }
-        System.out.println(p2.toString());
+        System.out.println(p2);
     }
 }

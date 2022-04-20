@@ -36,7 +36,7 @@ public class Persona {
     }
 
     public boolean esMayor(){
-        return this.edad > 18;
+        return this.edad >= 18;
     }
 
     @Override
