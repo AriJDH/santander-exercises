@@ -1,11 +1,21 @@
 package com.bootcamp.C7P1.modelos;
 
 public class Persona {
-    private final String nombre;
-    private final int edad;
-    private final String dni;
-    private final float peso;
-    private final float altura;
+    private String nombre;
+    private int edad;
+    private String dni;
+    private float peso;
+    private float altura;
+
+    public Persona(){
+
+    }
+
+    public Persona(String nombre, int edad, String dni){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.dni = dni;
+    }
 
     public Persona(String nombre, int edad, String dni,
                    float peso, float altura) {
