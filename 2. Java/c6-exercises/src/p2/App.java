@@ -75,6 +75,8 @@ public class App {
                     break;
                 case 5:
                     return;
+                default:
+                    break;
             }
             System.out.println("---------------------------------");
         }
