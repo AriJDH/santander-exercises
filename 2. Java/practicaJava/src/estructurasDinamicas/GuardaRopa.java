@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class GuardaRopa {
     int count= 0;
     HashMap<Integer, List>  diccionario= new HashMap<>();
+
     public Integer guardarPrendas(List<Prenda> listaDePrenda){
         count++;
         diccionario.put(count, listaDePrenda);
@@ -14,7 +15,6 @@ public class GuardaRopa {
         diccionario.forEach((n, p) -> System.out.println("numero: " + n + " prenda: " + p));
     }
     public List<Prenda> devolverPrendas(Integer numero){
-        List listaDePrendas = diccionario.get(numero);
-        return listaDePrendas;
+        return diccionario.remove(numero);
     }
 }
