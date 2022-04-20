@@ -9,24 +9,16 @@ public class Libro {
     private String nombre;
     private List<Autor> autores;
     private Map<Integer,List<Autor>> autoresPorCapitulo;
-
-    // private List<Capitulo>
-
-    public static void info() {
-        System.out.println("Es un libro");
-    }
+    private int cantidadHojas;
 
     public Libro() {
-        this.autores = new ArrayList<>();
     }
 
-    public Libro(String nombre, List<Autor> autores) {
-        this.setNombre(nombre);
-        this.setAutores(autores);
-    }
-
-    public String mostrarInfo() {
-        return "Nombre del libro " + nombre + " Autores " + autores;
+    public Libro(String nombre, List<Autor> autores, Map<Integer, List<Autor>> autoresPorCapitulo, int cantidadHojas) {
+        this.nombre = nombre;
+        this.autores = autores;
+        this.autoresPorCapitulo = autoresPorCapitulo;
+        this.cantidadHojas = cantidadHojas;
     }
 
     public String getNombre() {
@@ -35,13 +27,5 @@ public class Libro {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public List<Autor> getAutores() {
-        return autores;
-    }
-
-    public void setAutores(List<Autor> autores) {
-        this.autores = autores;
     }
 }

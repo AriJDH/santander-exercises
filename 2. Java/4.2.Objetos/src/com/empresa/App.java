@@ -1,45 +1,42 @@
 package com.empresa;
 
-import com.empresa.modelos.Autor;
-import com.empresa.modelos.Libro;
+
 import com.empresa.modelos.Persona;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
-        Libro.info();
 
-        List<Autor> autores = new ArrayList<>();
-        Libro libro1 = new Libro("Don Quijote",autores);
+        Persona persona = null;
+        String[] palabras = {"algo"};
 
-        System.out.println(libro1.mostrarInfo());
-
-        //
-        //  Consigna, agregar a la clase Libro
-        //  listas de autores por capitulos
-        //  capitulo 10  - Pedro y juan
-        //  capitlo  15  - Pedro
-        //  capitulo 20  - Maria Pedro
-        //
-        //  metodo para devolver lista de autores
-        //  por capitulo
-        //
+        try {
+            /*
+            System.out.println(persona.toString());
+            int numero = 0;
+            int respuesta = 10/0;
+             */
+            System.out.println(palabras[1]);
+        } catch (ArithmeticException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            System.out.println("Terminar procesos");
+        }
 
         /*
-        System.out.println(libro1.autor);
-        System.out.println(libro1.nombre);
-        Libro libro2 = libro1;
-        libro2.autor = "Pedro";
-        System.out.println(libro1.autor);
+        try {
+            FileInputStream fileInputStream = new FileInputStream("algun texto");
+        } catch (FileNotFoundException e) {
+            //System.out.println("No se encontro el archivo");
+            e.printStackTrace();
+        }
         */
 
-
-        Persona per1 = new Persona();
-        per1.mostrarInfo();
-        System.out.println(per1);
-
+        System.out.println("El programa termina ok !!!");
     }
 }

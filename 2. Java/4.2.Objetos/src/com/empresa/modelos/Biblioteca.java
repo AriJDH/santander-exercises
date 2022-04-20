@@ -1,5 +1,6 @@
 package com.empresa.modelos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Biblioteca {
@@ -7,6 +8,7 @@ public class Biblioteca {
     private List<Ejemplar> ejemplares;
 
     public Biblioteca() {
+        ejemplares = new ArrayList<>();
     }
 
     public Biblioteca(List<Ejemplar> ejemplares) {
@@ -20,8 +22,6 @@ public class Biblioteca {
     public void setEjemplares(List<Ejemplar> ejemplares) {
         this.ejemplares = ejemplares;
     }
-
-
 
 
 }
