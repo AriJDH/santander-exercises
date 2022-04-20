@@ -3,7 +3,6 @@ package com.bootcamp.PracticaExcepciones;
 import java.io.*;
 
 public class Ejercicio3 {
-    
     public void leerArchivo(String nombreArchivo) throws FileNotFoundException, IOException {
         String texto = null;
         try {
