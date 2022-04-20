@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 class Prenda {
+
     public String marca;
     public String modelo;
 
@@ -17,6 +18,7 @@ class Prenda {
 }
 
 class GuardaRopa {
+
     public HashMap<Integer, List<Prenda>> ropaGuardada = new HashMap<>();
     public int contador = 0;
 
@@ -43,7 +45,9 @@ class GuardaRopa {
     }
 
     public List<Prenda>devolverPrendas(Integer numero){
+
         List<Prenda> lista = ropaGuardada.get(numero);
+
         System.out.println("\nSe llevaron: ");
         for (Prenda p: lista) {
             System.out.println(p.modelo + " " + p.marca);
@@ -55,6 +59,7 @@ class GuardaRopa {
 
 public class App {
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
         List<Prenda> listaDePrenda = new ArrayList<>();
         List<Prenda> listaDePrenda1 = new ArrayList<>();
