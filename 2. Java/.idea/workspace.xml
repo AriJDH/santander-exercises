@@ -44,14 +44,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java/Ejercicio practica" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.bootcamp.Ejercicio1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Carrera">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bootcamp.Prendas.App" />
       <module name="2. Java" />
@@ -78,8 +78,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ejercicio3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bootcamp.EjercicioCondicionales.Ejercicio3" />
+    <configuration name="Ejercicio4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bootcamp.EjercicioCondicionales.Ejercicio4" />
       <module name="2. Java" />
       <extension name="coverage">
         <pattern>
@@ -91,12 +91,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ejercicio4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bootcamp.EjercicioCondicionales.Ejercicio4" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bootcamp.EjercicioOrientados.Main" />
       <module name="2. Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.bootcamp.EjercicioCondicionales.*" />
+          <option name="PATTERN" value="com.bootcamp.EjercicioOrientados.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Carrera" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.Temperaturas" />
         <item itemvalue="Application.Ejercicio4" />
-        <item itemvalue="Application.Ejercicio3" />
       </list>
     </recent_temporary>
   </component>
