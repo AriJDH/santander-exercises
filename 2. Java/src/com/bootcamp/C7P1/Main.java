@@ -11,7 +11,7 @@ public class Main {
         //Error
         //Persona persona_vacia = new Persona("agus", "18");
 
-        //int valor = persona_completa.calcularIMC();
-        //System.out.println("Valor IMC: " + valor);
+        int valor = persona_completa.calcularIMC();
+        System.out.println("Valor IMC: " + valor);
     }
 }

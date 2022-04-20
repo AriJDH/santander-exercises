@@ -27,7 +27,15 @@ public class Persona {
         
     }
 
-    public double calcularIMC() {
-        return peso / (Math.pow(altura, 2));
+    public int calcularIMC() {
+        double imc = peso / (Math.pow(altura, 2));
+        System.out.println("IMC: " + imc);
+        int valor = -1;
+        if (imc >= 20 && imc <= 25){
+            valor = 0;
+        } else if (imc > 25) {
+            valor = 1;
+        }
+        return valor;
     }
 }
