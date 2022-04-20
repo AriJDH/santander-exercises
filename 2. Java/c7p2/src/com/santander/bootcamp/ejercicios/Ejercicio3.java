@@ -27,15 +27,15 @@ public class Ejercicio3 {
         } catch (NullPointerException e) {
             System.out.println("Excepcion en el while:");
             System.out.println(e.getMessage());
+        } catch (IOException e){
+            System.out.println("Error al leer el archivo especificado");
         }
-
 
         try {
             bufferedReader.close();
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
-}
+        }
+
+    }}
