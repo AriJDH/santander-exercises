@@ -1,8 +1,5 @@
-package com.santanderbootcamp.PracticaIntegradora;
+package com.santanderbootcamp.PracticaIntegradoraColecciones;
 
-import jdk.dynalink.beans.StaticClass;
-
-import javax.swing.plaf.ComponentInputMapUIResource;
 import java.util.*;
 
 class Participante {
@@ -14,7 +11,6 @@ class Participante {
     String nroEmergencia;
     String grupoSanguineo;
     int nroParticipante = -1;
-
     String categoriaInscripta = "";
 
     Participante(String dni, String nombre, String apellido, int edad, String celular, String nroEmergencia, String grupoSanguineo) {
@@ -30,7 +26,6 @@ class Participante {
 
 class Carrera {
     HashMap<String, HashMap<String, Double>> circuitos = new HashMap<>();
-    HashMap<Integer, Double> circuitosMayores18 = new HashMap<>();
     List<Participante> participantes = new LinkedList<Participante>();
     int ultimoParticipanteNro = -1;
 
@@ -39,18 +34,18 @@ class Carrera {
         circuitos.put(nombre, precios);
     }
 
-    public void establecerPrecioMenor18(String nombre, double precio) {
-        if(circuitos.containsKey(nombre)) {
-            circuitos.get(nombre).put("precioMenor18", precio);
+    public void establecerPrecioMenor18(String circuito, double precio) {
+        if(circuitos.containsKey(circuito)) {
+            circuitos.get(circuito).put("precioMenor18", precio);
         }
         else {
             System.out.println("El circuito no se encuentra.");
         }
     }
 
-    public void establecerPrecioMayor18(String nombre, double precio) {
-        if(circuitos.containsKey(nombre)) {
-            circuitos.get(nombre).put("precioMayor18", precio);
+    public void establecerPrecioMayor18(String circuito, double precio) {
+        if(circuitos.containsKey(circuito)) {
+            circuitos.get(circuito).put("precioMayor18", precio);
         }
         else {
             System.out.println("El circuito no se encuentra.");
@@ -58,31 +53,40 @@ class Carrera {
     }
 
     private boolean existeCategoriaParaParticipante(Participante participante, String categoria) {
-        boolean condicion1 = participante.edad < 18 && circuitos.get(categoria).containsKey("precioMenor18");
-        boolean condicion2 = participante.edad >= 18 && circuitos.get(categoria).containsKey("precioMayor18");
-        return condicion1 || condicion2;
+        boolean existe = circuitos.containsKey(categoria) ||
+                participante.edad < 18 && circuitos.get(categoria).containsKey("precioMenor18") ||
+                participante.edad >= 18 && circuitos.get(categoria).containsKey("precioMayor18");
+        if(!existe) {
+            System.out.println("La categoría no existe o el participante no se puede inscribir a la misma.");
+        }
+        return existe;
     }
     public void inscribirParticipante(Participante participante, String categoria) {
         if (participantes.contains(participante)) {
             System.out.println("El participante ya se encuentra inscripto con el número " + participante.nroParticipante);
         }
         else {
-            if(circuitos.containsKey(categoria) && existeCategoriaParaParticipante(participante, categoria)) {
+            if(existeCategoriaParaParticipante(participante, categoria)) {
                 participantes.add(participante);
                 participante.nroParticipante = ++ultimoParticipanteNro;
                 participante.categoriaInscripta = categoria;
                 System.out.println("Se inscribió al participante y su número es " + participante.nroParticipante);
             }
-            else {
-                System.out.println("La categoría no existe o el participante no se puede inscribir a la misma.");
-            }
         }
     }
 
-    public void desinscribirParticipante(Participante participante) {
-        if (participantes.contains(participante)) {
-            participantes.remove(participante);
-            System.out.println("El participante se desinscribió");
+    public void desinscribirParticipante(int nroParticipante) {
+        boolean desinscripto = false;
+        if (nroParticipante <= ultimoParticipanteNro) {
+            for (int i = 0; i < participantes.size() && !desinscripto; i++) {
+                if (participantes.get(i).nroParticipante == nroParticipante) {
+                    participantes.remove(participantes.get(i));
+                    desinscripto = true;
+                }
+            }
+        }
+        if(desinscripto) {
+            System.out.println("El participante se desinscribió.");
         }
         else {
             System.out.println("El participante no se encuentra inscripto.");
@@ -94,21 +98,29 @@ class Carrera {
             if (participante.categoriaInscripta == categoria) {
                 System.out.println();
                 System.out.println("Participante número " + participante.nroParticipante + ": ");
-                System.out.println("---->DNI: " + participante.dni);
-                System.out.println("---->Apellido y nombre: " + participante.apellido + ", " + participante.nombre);
-                System.out.println("---->Edad: " + participante.edad);
-                System.out.println("---->Celular: " + participante.celular);
-                System.out.println("---->Número de emergencia:" + participante.nroEmergencia);
-                System.out.println("---->Grupo sanguíneo: " + participante.grupoSanguineo);
+                System.out.println("|---->DNI: " + participante.dni);
+                System.out.println("|---->Apellido y nombre: " + participante.apellido + ", " + participante.nombre);
+                System.out.println("|---->Edad: " + participante.edad);
+                System.out.println("|---->Celular: " + participante.celular);
+                System.out.println("|---->Número de emergencia:" + participante.nroEmergencia);
+                System.out.println("`---->Grupo sanguíneo: " + participante.grupoSanguineo);
             }
         }
     }
 
     public double montoAbonadoAlInscribirse(Participante participante, String categoria) {
-        return (participante.edad >= 18) ? circuitos.get(categoria).get("precioMayor18") : circuitos.get(categoria).get("precioMenor18");
+        double montoAbonado = 0;
+        if (existeCategoriaParaParticipante(participante,categoria)) {
+            if (participante.edad >= 18) {
+                montoAbonado = circuitos.get(categoria).get("precioMayor18");
+            } else {
+                montoAbonado = circuitos.get(categoria).get("precioMenor18");
+            }
+        }
+        return montoAbonado;
     }
 
-    public double calcularTotalAbonadoPorCategoria(String categoria) {
+    private double calcularTotalAbonadoPorCategoria(String categoria) {
         double totalCategoria = 0;
         for(Participante participante: participantes) {
             if (participante.categoriaInscripta == categoria) {
@@ -159,8 +171,11 @@ public class Ejercicio {
         carrera.inscribirParticipante(participante3,"Circuito Medio");
         carrera.inscribirParticipante(participante4,"Circuito Avanzado");
 
-        System.out.println("Participantes inscriptos a la categoria 1:");
+        System.out.println("Participantes inscriptos a la categoría 'Circuito Chico':");
         carrera.mostrarDatosCategoria("Circuito Chico");
+        System.out.println();
+
+        carrera.desinscribirParticipante(0);
         System.out.println();
 
         System.out.println("El monto que abono el participante 0 fue: " + carrera.montoAbonadoAlInscribirse(participante,"Circuito Chico"));
