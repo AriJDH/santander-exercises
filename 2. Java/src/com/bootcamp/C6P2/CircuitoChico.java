@@ -12,11 +12,18 @@ public class CircuitoChico extends Circuito {
     }
 
     @Override
-    public boolean inscribir(int id, Persona persona) {
-        //TODO: guardar el numero y lo que abona en una clase que wrapea a Persona i.e. Inscripcion(Persona, numero, abono)
-        persona.pagar(limite_edad, precio_menor_limite, precio_mayor_limite);
-        super.corredores.put(id, persona);
-        return true;
+    public int inscribir(int id, Persona persona) {
+        int sig_id = id;
+        if(!esta_inscripto(persona)){
+            //TODO: guardar el numero y lo que abona en una clase que wrapea a Persona i.e. Inscripcion(Persona, numero, abono)
+            persona.pagar(limite_edad, precio_menor_limite, precio_mayor_limite);
+            super.corredores.put(id, persona);
+            persona.set_numero(id);
+            sig_id++;
+        } else {
+            System.out.println("Participante ya esta inscripto en Circuito Chico");
+        }
+        return sig_id;
     }
 
 }

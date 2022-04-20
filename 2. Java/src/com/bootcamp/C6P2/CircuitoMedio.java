@@ -12,9 +12,16 @@ public class CircuitoMedio extends Circuito {
     }
 
     @Override
-    public boolean inscribir(int id, Persona persona) {
-        persona.pagar(limite_edad, precio_menor_limite, precio_mayor_limite);
-        super.corredores.put(id, persona);
-        return true;
+    public int inscribir(int id, Persona persona) {
+        int sig_id = id;
+        if(!esta_inscripto(persona)){
+            persona.pagar(limite_edad, precio_menor_limite, precio_mayor_limite);
+            super.corredores.put(id, persona);
+            persona.set_numero(id);
+            sig_id++;
+        } else {
+            System.out.println("Participante ya esta inscripto en Circuito Medio");
+        }
+        return sig_id;
     }
 }

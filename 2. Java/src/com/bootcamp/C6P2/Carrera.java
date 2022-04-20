@@ -2,19 +2,15 @@ package com.bootcamp.C6P2;
 
 public class Carrera {
     private int id_actual;
-    private CircuitoChico circuitoChico;
-    private CircuitoMedio circuitoMedio;
-    private CircuitoAvanzado circuitoAvanzado;
+    private final CircuitoChico circuitoChico;
+    private final CircuitoMedio circuitoMedio;
+    private final CircuitoAvanzado circuitoAvanzado;
 
     public Carrera(){
         id_actual = 1;
         circuitoChico = new CircuitoChico();
         circuitoMedio = new CircuitoMedio();
         circuitoAvanzado = new CircuitoAvanzado();
-    }
-
-    private boolean esta_inscripto(Persona persona){
-        return circuitoChico.esta_inscripto(persona);
     }
 
     public void inscribir_persona_circuito_chico(Persona persona) {
@@ -26,16 +22,11 @@ public class Carrera {
     }
 
     public void inscribir_persona_circuito_avanzado(Persona persona) {
-        if(!esta_inscripto(persona)){
-            if(circuitoAvanzado.inscribir(id_actual, persona)){
-                persona.set_numero(id_actual);
-                id_actual++;
-            } else {
-                System.out.println("Persona menor de edad no puede participar del circuito avanzado");
-            }
-        } else {
-            System.out.println("Participante ya esta inscripto");
-        }
+        inscribir_persona_en(persona, circuitoAvanzado);
+    }
+
+    private void inscribir_persona_en(Persona persona, Circuito circuito){
+        id_actual = circuito.inscribir(id_actual, persona);
     }
 
     public void mostrar_inscriptos_circuito_chico() {
@@ -70,15 +61,5 @@ public class Carrera {
 
     public float obtener_ganancias(){
         return circuitoChico.obtener_ganancias() + circuitoMedio.obtener_ganancias() + circuitoAvanzado.obtener_ganancias();
-    }
-
-    private void inscribir_persona_en(Persona persona, Circuito circuito){
-        if(!esta_inscripto(persona)){
-            circuito.inscribir(id_actual, persona);
-            persona.set_numero(id_actual);
-            id_actual++;
-        } else {
-            System.out.println("Participante ya esta inscripto");
-        }
     }
 }

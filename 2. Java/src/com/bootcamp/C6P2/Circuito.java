@@ -10,7 +10,7 @@ abstract public class Circuito {
     protected float precio_mayor_limite;
     protected int edad_minima = 0;
 
-    abstract public boolean inscribir(int id, Persona persona);
+    abstract public int inscribir(int id, Persona persona);
 
     public void mostrar_inscriptos() {
         for(Map.Entry<Integer, Persona> entrada : corredores.entrySet()){
