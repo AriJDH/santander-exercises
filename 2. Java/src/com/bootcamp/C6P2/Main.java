@@ -65,18 +65,15 @@ public class Main {
         carrera.inscribir_persona_circuito_chico(persona_en_chico_1);
         carrera.inscribir_persona_circuito_chico(persona_en_chico_2);
 
-        System.out.println("Circuito chico");
         carrera.mostrar_inscriptos_circuito_chico();
 
         carrera.desinscribir_persona(persona_en_chico_2);
 
-        System.out.println("Circuito chico");
         carrera.mostrar_inscriptos_circuito_chico();
 
         float ganancias_chico = carrera.obtener_ganancias_circuito_chico();
 
         System.out.println("Ganancias chico: " + ganancias_chico);
-
     }
 
     private static void probar_circuito_medio() {
@@ -87,7 +84,6 @@ public class Main {
         carrera.inscribir_persona_circuito_medio(persona_1);
         carrera.inscribir_persona_circuito_medio(persona_2);
 
-        System.out.println("Circuito medio");
         carrera.mostrar_inscriptos_circuito_medio();
 
         carrera.desinscribir_persona(persona_1);
@@ -98,8 +94,6 @@ public class Main {
         float ganancias_chico = carrera.obtener_ganancias_circuito_medio();
 
         System.out.println("Ganancias medio: " + ganancias_chico);
-
-
     }
 
     private static void probar_circuito_avanzado() {
@@ -107,7 +101,6 @@ public class Main {
         Persona persona_1 = new Persona(388,"agus",13);
         Persona persona_2 = new Persona(422,"brian",19);
 
-        System.out.println("Circuito avanzado");
         carrera.inscribir_persona_circuito_avanzado(persona_1);
         carrera.inscribir_persona_circuito_avanzado(persona_2);
 

@@ -34,15 +34,15 @@ public class Carrera {
     }
 
     public void mostrar_inscriptos_circuito_chico() {
-        circuitoChico.mostrar_inscriptos();
+        circuitoChico.mostrar_inscriptos("");
     }
 
     public void mostrar_inscriptos_circuito_medio() {
-        circuitoMedio.mostrar_inscriptos();
+        circuitoMedio.mostrar_inscriptos("");
     }
 
     public void mostrar_inscriptos_circuito_avanzado() {
-        circuitoAvanzado.mostrar_inscriptos();
+        circuitoAvanzado.mostrar_inscriptos("");
     }
 
     public void desinscribir_persona(Persona persona) {

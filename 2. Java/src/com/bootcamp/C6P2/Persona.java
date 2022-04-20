@@ -38,6 +38,7 @@ public class Persona {
         return "Nro inscripto: " + this.id_corredor +
                 " Nombre: " + this.nombre +
                 " dni: " + this.dni +
+                " edad: " + this.edad +
                 " monto abonado: " + this.monto_abonado;
     }
 

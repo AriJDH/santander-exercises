@@ -12,7 +12,8 @@ abstract public class Circuito {
 
     abstract public int inscribir(int id, Persona persona);
 
-    public void mostrar_inscriptos() {
+    protected void mostrar_inscriptos(String circuito) {
+        System.out.println(circuito);
         for(Map.Entry<Integer, Persona> entrada : corredores.entrySet()){
             Persona corredor = entrada.getValue();
             System.out.println(corredor);

@@ -30,6 +30,11 @@ public class CircuitoAvanzado extends Circuito {
         return sig_id;
     }
 
+    @Override
+    protected void mostrar_inscriptos(String circuito) {
+        super.mostrar_inscriptos("Mostrando corredores de \"Circuito Avanzado\"");
+    }
+
     private boolean validar(Persona persona){
         return persona.puede_participar(edad_minima);
     }

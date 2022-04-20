@@ -24,4 +24,9 @@ public class CircuitoMedio extends Circuito {
         }
         return sig_id;
     }
+
+    @Override
+    protected void mostrar_inscriptos(String circuito) {
+        super.mostrar_inscriptos("Mostrando corredores de \"Circuito Medio\"");
+    }
 }
