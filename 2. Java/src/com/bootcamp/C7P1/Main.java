@@ -12,10 +12,26 @@ public class Main {
         //Persona persona_vacia = new Persona("agus", "18");
 
         int valor = personaCompleta.calcularIMC();
-        System.out.println("Valor IMC: " + valor);
+
+        switch (valor){
+            case -1:
+                System.out.println("Bajo peso" + valor);
+                break;
+            case 0:
+                System.out.println("Peso saludable");
+                break;
+            case 1:
+                System.out.println("Sobrepeso");
+                break;
+        }
 
         boolean es_mayor = personaCompleta.esMayorDeEdad();
-        System.out.println("Es mayor?: " + es_mayor);
+
+        if (es_mayor) {
+            System.out.println("Es mayor de edad");
+        } else {
+            System.out.println("Es menor de edad");
+        }
 
         System.out.println(personaCompleta);
 

@@ -1,5 +1,7 @@
 package com.bootcamp.C7P1.modelos;
 
+import java.text.DecimalFormat;
+
 public class Persona {
     private String nombre;
     private int edad;
@@ -46,11 +48,12 @@ public class Persona {
 
     @Override
     public String toString() {
+        DecimalFormat df = new DecimalFormat("###.###");
         return "Persona{" +
                 "nombre:" + nombre +
                 ", edad: " + edad +
                 ", dni: " + dni +
                 ", peso: " + peso +
-                ", altura: " + altura + "}";
+                ", altura: " + df.format(altura) + "}";
     }
 }
