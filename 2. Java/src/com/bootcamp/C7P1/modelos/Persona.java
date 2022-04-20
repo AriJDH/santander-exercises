@@ -6,6 +6,7 @@ public class Persona {
     private String dni;
     private double peso;
     private double altura;
+    private static final int LIMITE_MAYOR_EDAD = 18;
 
     public Persona(){
 
@@ -37,5 +38,19 @@ public class Persona {
             valor = 1;
         }
         return valor;
+    }
+
+    public boolean esMayorDeEdad() {
+        return edad >= LIMITE_MAYOR_EDAD;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre:" + nombre +
+                ", edad: " + edad +
+                ", dni: " + dni +
+                ", peso: " + peso +
+                ", altura: " + altura + "}";
     }
 }
