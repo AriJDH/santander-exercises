@@ -3,18 +3,17 @@ package com.bootcamp.C6P2;
 import java.util.HashMap;
 
 public class CircuitoMedio extends Circuito {
-    private final String descripcion = "2 km por selva y arroyos.";
-    private final int LIMITE_EDAD = 18;
-    private final float PRECIO_MENOR_LIMITE = 2000;
-    private final float PRECIO_MAYOR_LIMITE = 2300;
 
     public CircuitoMedio(){
+        super.limite_edad = 18;
+        super.precio_menor_limite = 2000;
+        super.precio_mayor_limite = 2300;
         super.corredores = new HashMap<>();
     }
 
     @Override
     public boolean inscribir(int id, Persona persona) {
-        persona.pagar(LIMITE_EDAD, PRECIO_MENOR_LIMITE, PRECIO_MAYOR_LIMITE);
+        persona.pagar(limite_edad, precio_menor_limite, precio_mayor_limite);
         super.corredores.put(id, persona);
         return true;
     }

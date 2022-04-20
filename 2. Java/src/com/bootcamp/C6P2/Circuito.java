@@ -5,6 +5,10 @@ import java.util.Map;
 
 abstract public class Circuito {
     protected HashMap<Integer, Persona> corredores;
+    protected int limite_edad;
+    protected float precio_menor_limite;
+    protected float precio_mayor_limite;
+    protected int edad_minima = 0;
 
     abstract public boolean inscribir(int id, Persona persona);
 

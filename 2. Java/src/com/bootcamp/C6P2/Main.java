@@ -35,6 +35,7 @@ public class Main {
         carrera.inscribir_persona_circuito_medio(persona_2);
         carrera.inscribir_persona_circuito_avanzado(persona_3);
 
+        System.out.println("Mostrando todos los inscriptos");
         carrera.mostrar_inscriptos_circuito_chico();
         carrera.mostrar_inscriptos_circuito_medio();
         carrera.mostrar_inscriptos_circuito_avanzado();
