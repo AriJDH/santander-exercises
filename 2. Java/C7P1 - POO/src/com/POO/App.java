@@ -9,7 +9,7 @@ public class App {
         Persona p2 = new Persona("Fernando", 23, "40392438");
         Persona p3 = new Persona("Julia", 32, "38936420", 66, 1.73);
 
-        //Persona p4 = new Persona("Franco", 28); ----->   no hay constructor que tome datos de esta forma
+        //Persona p4 = new Persona("Franco", 28); ----->  no funciona porque no hay constructor que tome datos de esta forma
 
         System.out.println(p1.toString());
         System.out.println(p2.toString());

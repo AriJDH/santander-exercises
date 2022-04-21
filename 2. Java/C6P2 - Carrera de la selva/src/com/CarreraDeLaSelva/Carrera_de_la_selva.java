@@ -29,13 +29,13 @@ class Corredores {
 
 class Circuito {
 
-    public HashMap<String, List<Corredores>> circuitos = new HashMap<String, List<Corredores>>();
+    public LinkedHashMap<String, List<Corredores>> circuitos = new LinkedHashMap<String, List<Corredores>>();
     public int contador = 0;
     public String idPart;
 
     public void CargarCorredor (String letraCircuito, List<Corredores>participantes){
 
-        idPart = contador + " - " + letraCircuito;
+        idPart = contador + "-" + letraCircuito;
         circuitos.put(idPart, participantes);
         contador ++;
 
@@ -145,6 +145,14 @@ public class Carrera_de_la_selva {
 
             participante.add(new Corredores(dniAuxil, nombreAuxil, apellidoAuxil, edadAuxil, celularAuxil, numEmergenciaAuxil, grupSangAuxil, tipoCicuitoAuxil));
             circ.CargarCorredor(letraDeCircuito, participante);
+
+
+            for (String key: circ.circuitos.keySet()) {
+                System.out.println("\n");
+                System.out.println(key);
+                System.out.println("\n");
+            }
+
 
             System.out.println("\nLa persona debe abonar: " + aPagar);
             System.out.println("\n--------------------------------------------------");

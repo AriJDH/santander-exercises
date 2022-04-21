@@ -26,7 +26,7 @@ public class app {
 
 
 
-        libro1.cargarCapitulo();
+        //libro1.cargarCapitulo();
 
         /*libro1.setAutores(autores);
         libro1.setNombre("Don Quijote");*/
