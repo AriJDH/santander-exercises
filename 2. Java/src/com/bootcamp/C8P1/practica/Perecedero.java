@@ -26,7 +26,7 @@ public class Perecedero extends Producto {
 
     @Override
     public int aumentar_si_perecedero(int contador_perecederos) {
-        return contador_perecederos;
+        return contador_perecederos+1;
     }
 
     @Override
