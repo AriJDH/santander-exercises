@@ -6,11 +6,6 @@ import java.util.Scanner;
 
 public class Juego {
 
-
-    public void jugar() {
-
-    }
-
     public static void main(String[] args) {
         ArrayList<Jugador> jugadores= new ArrayList<>();
         boolean seguirJugando= true;
