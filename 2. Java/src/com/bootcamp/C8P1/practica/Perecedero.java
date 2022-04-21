@@ -20,6 +20,11 @@ public class Perecedero extends Producto {
     }
 
     @Override
+    public String toString() {
+        return super.toString() + ", dias para caducar=" + diasPorCaducar;
+    }
+
+    @Override
     public int aumentar_si_perecedero(int contador_perecederos) {
         return contador_perecederos;
     }

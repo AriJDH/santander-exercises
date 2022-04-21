@@ -19,7 +19,7 @@ public class Distribuidora {
         boolean encontro = false;
         int i = 0;
         Producto producto = null;
-        while(!encontro){
+        while(!encontro && i < productos.size()){
             producto = productos.get(i);
             encontro = producto.getNombre().equals(nombre_producto);
             i++;
@@ -32,13 +32,16 @@ public class Distribuidora {
             contador_no_perecederos = producto.aumentar_si_no_perecedero(contador_no_perecederos);
             acum_no_perecederos = producto.acumular_si_no_perecedero(acum_no_perecederos, cantidad);
 
+            System.out.println("Se vendio: " + producto);
             imprimir_total_si_llego_a_5();
+        } else {
+            System.out.println("NO se encontro el producto");
         }
     }
 
     private void imprimir_total_si_llego_a_5() {
         if (contador_no_perecederos == LIMITE && contador_perecederos == LIMITE){
-            System.out.println("Se vendio" + LIMITE + "de cada uno");
+            System.out.println("¡Se vendio " + LIMITE + " de cada uno!");
             System.out.println("Total perecederos: " + acum_perecederos);
             System.out.println("Total no perecederos: " + acum_no_perecederos);
             System.out.println("Total: " + (acum_perecederos + acum_no_perecederos));

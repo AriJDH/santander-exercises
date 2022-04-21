@@ -16,7 +16,7 @@ public class Main {
 
         System.out.println("Calcular " + perecedero.getNombre() + ":" + total_perecedero);
 
-        Producto noPerecedero = new NoPerecedero("pancho plastico", 10, "plastico");
+        NoPerecedero noPerecedero = new NoPerecedero("pancho plastico", 10, "plastico");
         double total_no_perecedero = noPerecedero.calcular(cantidadDeProductos);
 
         System.out.println("Calcular " + noPerecedero.getNombre() + ":" + total_no_perecedero);
@@ -26,9 +26,39 @@ public class Main {
         productos.add(noPerecedero);
 
         probar_vender_5_de_cada(productos);
+        probar_vender_solo_5_de_uno(productos);
+        probar_no_encuentra_producto(productos);
+    }
+
+    private static void probar_no_encuentra_producto(List<Producto> productos) {
+        System.out.println("Prueba 3");
+        Distribuidora distribuidora = new Distribuidora(productos);
+
+        String NOMBRE_PERECEDERO = "pancho que no existe";
+
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+
+    }
+
+    private static void probar_vender_solo_5_de_uno(List<Producto> productos) {
+        System.out.println("Prueba 2");
+        Distribuidora distribuidora = new Distribuidora(productos);
+
+        String NOMBRE_PERECEDERO = "pancho rancio";
+
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
     }
 
     private static void probar_vender_5_de_cada(List<Producto> productos) {
+        System.out.println("Prueba 1");
         Distribuidora distribuidora = new Distribuidora(productos);
 
         String NOMBRE_NO_PERECEDERO = "pancho plastico";
