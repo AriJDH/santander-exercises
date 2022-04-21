@@ -18,13 +18,13 @@ public class TestCarreraDeLaSelva {
         participante3.setNumeroDeParticipante(carrera.inscribirParticipante(participante3, circuitoMedio));
 
         Participante participante4 = new Participante("asd3", "Federico", 18);
-        participante3.setNumeroDeParticipante(carrera.inscribirParticipante(participante4, circuitoAvanzado));
+        participante4.setNumeroDeParticipante(carrera.inscribirParticipante(participante4, circuitoAvanzado));
 
         Participante participante5 = new Participante("asd4", "Federico", 13);
-        participante3.setNumeroDeParticipante(carrera.inscribirParticipante(participante5, circuitoAvanzado));
+        participante5.setNumeroDeParticipante(carrera.inscribirParticipante(participante5, circuitoAvanzado));
 
         Participante participante6 = new Participante("asd5", "Federico", 18);
-        participante3.setNumeroDeParticipante(carrera.inscribirParticipante(participante6, circuitoChico));
+        participante6.setNumeroDeParticipante(carrera.inscribirParticipante(participante6, circuitoChico));
 
         System.out.println("------------------------------");
         System.out.println("Participantes del circuito chico\n");

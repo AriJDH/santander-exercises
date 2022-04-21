@@ -1,8 +1,5 @@
 package bootcamp.carreraDeLaSelva;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Inscripcion {
 
     TipoCircuito tipoCircuito;
