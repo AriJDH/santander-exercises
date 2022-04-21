@@ -21,7 +21,7 @@ public class Perecedero extends Producto {
 
     @Override
     public String toString() {
-        return super.toString() + ", dias para caducar=" + diasPorCaducar;
+        return "Perecedero{" + super.toString() + ", dias para caducar=" + diasPorCaducar + "}";
     }
 
     @Override

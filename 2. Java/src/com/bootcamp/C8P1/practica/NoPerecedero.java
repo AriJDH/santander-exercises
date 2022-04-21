@@ -9,6 +9,11 @@ public class NoPerecedero extends Producto {
     }
 
     @Override
+    public String toString() {
+        return "NoPerecedero{" + super.toString() + ", tipo=" + tipo + "}";
+    }
+
+    @Override
     public int aumentar_si_perecedero(int contador_perecederos) {
         return contador_perecederos;
     }
