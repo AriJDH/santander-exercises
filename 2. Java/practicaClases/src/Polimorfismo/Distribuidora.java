@@ -30,6 +30,12 @@ public class Distribuidora {
         productos.add(productoNoPerecedero5);
 
 
+        double precioTotal = 0;
+        for(Producto p:productos){
+            System.out.println(precioTotal += p.calcular(5));
+        }
+
+
 
     }
 
