@@ -31,4 +31,11 @@ public class Perecedero extends Producto {
         }
         return super.calcular(cant);
     }
+
+    @Override
+    public String toString() {
+        return "Perecedero{" +
+                "diasPorCaducar=" + diasPorCaducar +
+                "} " + super.toString();
+    }
 }
