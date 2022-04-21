@@ -1,7 +1,5 @@
 package com.bootcamp.C8P2.clase.modelos;
 
-import com.bootcamp.C8P2.clase.Helicoptero;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +14,6 @@ public class Equipo {
     }
 
     public void comprar(String nombre_unidad) throws UnidadInexistenteException {
-        float costo = 0;
         Unidad unidad = null;
         if("soldado".equals(nombre_unidad)){
             unidad = new Soldado();

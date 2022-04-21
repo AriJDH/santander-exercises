@@ -18,11 +18,8 @@ public abstract class Unidad implements IArma {
         int numero = (int) Math.floor(Math.random() * 100);
         if(numero <= punteria){
             puntaje += poder;
-            System.out.print("A");
-        } else {
-            System.out.print("F");
+            //System.out.print("A");
         }
-
     }
 
     public float deducir_costos(float fondos) {

@@ -46,7 +46,9 @@ public class Main {
         }
 
         //empieza juego, disparan 10 veces todos
-        for (int i = 0; i < 3; i++) {
+        int hasta = 3;
+        System.out.println("Empieza el juego disparan: " + hasta + " veces");
+        for (int i = 0; i < hasta; i++) {
             equipo_azul.disparar_todos();
             equipo_rojo.disparar_todos();
         }
