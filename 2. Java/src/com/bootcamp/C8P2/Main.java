@@ -1,9 +1,6 @@
 package com.bootcamp.C8P2;
 
-import com.bootcamp.C8P2.modelo.Estudiante;
-import com.bootcamp.C8P2.modelo.EstudianteTecnico;
-import com.bootcamp.C8P2.modelo.Persona;
-import com.bootcamp.C8P2.modelo.Tutor;
+import com.bootcamp.C8P2.modelo.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +13,11 @@ public class Main {
         Tutor tutor = new Tutor("Carlos","36893756","81920");
 
         tutor.dar_clases();
+        estudianteTecnico.dar_servicio_tecnico();
 
+        MiembroDelPersonal miembroDelPersonal = new MiembroDelPersonal("Carlos","36893756","81920");
+        Profesor profesor = new Profesor("Carlos","36893756","81920");
+
+        profesor.dar_clases();
     }
 }
