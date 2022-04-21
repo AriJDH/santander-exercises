@@ -36,4 +36,20 @@ public class Producto {
                 ", precio=" + precio +
                 '}';
     }
+
+    public int aumentar_si_perecedero(int contador_perecederos) {
+        return 0;
+    }
+
+    public double acumular_si_perecedero(double acum_perecederos, int cantidad) {
+        return 0;
+    }
+
+    public int aumentar_si_no_perecedero(int contador_no_perecederos) {
+        return 0;
+    }
+
+    public double acumular_si_no_perecedero(double acum_no_perecederos, int cantidad) {
+        return 0;
+    }
 }
