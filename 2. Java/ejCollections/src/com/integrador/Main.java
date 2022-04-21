@@ -19,5 +19,6 @@ public class Main {
         evento.desinscribir(p3);
         evento.quienesSonGrande();
         System.out.println(evento.totalAcum());
+
     }
 }
