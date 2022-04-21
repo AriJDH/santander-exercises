@@ -1,4 +1,4 @@
-package com.bootcamp.C8P2.modelo;
+package com.bootcamp.C8P2.practica.modelo;
 
 public class MiembroPersonal extends Persona {
     private String legajo;

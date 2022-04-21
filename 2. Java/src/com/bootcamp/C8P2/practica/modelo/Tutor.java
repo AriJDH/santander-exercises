@@ -1,6 +1,6 @@
-package com.bootcamp.C8P2.modelo;
+package com.bootcamp.C8P2.practica.modelo;
 
-import com.bootcamp.C8P2.interfaces.IClase;
+import com.bootcamp.C8P2.practica.interfaces.IClase;
 
 public class Tutor extends Estudiante implements IClase {
     public Tutor(String nombre, String dni, String padron) {

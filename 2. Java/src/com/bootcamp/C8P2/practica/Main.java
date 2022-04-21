@@ -1,6 +1,6 @@
-package com.bootcamp.C8P2;
+package com.bootcamp.C8P2.practica;
 
-import com.bootcamp.C8P2.modelo.*;
+import com.bootcamp.C8P2.practica.modelo.*;
 
 public class Main {
     public static void main(String[] args) {

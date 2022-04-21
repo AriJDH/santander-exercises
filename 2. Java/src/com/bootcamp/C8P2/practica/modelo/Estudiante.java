@@ -1,4 +1,4 @@
-package com.bootcamp.C8P2.modelo;
+package com.bootcamp.C8P2.practica.modelo;
 
 public class Estudiante extends Persona {
     private String padron;
