@@ -24,8 +24,27 @@ public class Main {
         List<Producto> productos = new ArrayList<>();
         productos.add(perecedero);
         productos.add(noPerecedero);
+
+        probar_vender_5_de_cada(productos);
+    }
+
+    private static void probar_vender_5_de_cada(List<Producto> productos) {
         Distribuidora distribuidora = new Distribuidora(productos);
 
-        distribuidora.vender("pancho rancio", 1);
+        String NOMBRE_NO_PERECEDERO = "pancho plastico";
+        String NOMBRE_PERECEDERO = "pancho rancio";
+
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_PERECEDERO, 1);
+
+        distribuidora.vender(NOMBRE_NO_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_NO_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_NO_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_NO_PERECEDERO, 1);
+        distribuidora.vender(NOMBRE_NO_PERECEDERO, 1);
+
     }
 }

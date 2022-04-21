@@ -41,7 +41,7 @@ public class Distribuidora {
             System.out.println("Se vendio" + LIMITE + "de cada uno");
             System.out.println("Total perecederos: " + acum_perecederos);
             System.out.println("Total no perecederos: " + acum_no_perecederos);
-            System.out.println("Total: " + acum_perecederos + acum_no_perecederos);
+            System.out.println("Total: " + (acum_perecederos + acum_no_perecederos));
 
             acum_perecederos = 0;
             acum_no_perecederos = 0;
