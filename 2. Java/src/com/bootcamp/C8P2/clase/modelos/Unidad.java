@@ -22,7 +22,10 @@ public abstract class Unidad implements IArma {
         }
     }
 
-    public float deducir_costos(float fondos) {
+    public float deducir_costos(float fondos) throws FondosInsuficientes {
+        if(fondos - poder < 0){
+            throw new FondosInsuficientes("Fondos insuficientes");
+        }
         return fondos - poder;
     }
 

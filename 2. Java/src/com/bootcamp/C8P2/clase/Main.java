@@ -29,21 +29,18 @@ public class Main {
         Equipo equipo_azul = new Equipo(fondos, "azul");
         Equipo equipo_rojo = new Equipo(fondos, "rojo");
 
-        try {
-            equipo_azul.comprar("soldado");
-            equipo_azul.comprar("tanque");
-            equipo_azul.comprar("helicoptero");
+        equipo_azul.comprar("soldado");
+        equipo_azul.comprar("tanque");
+        equipo_azul.comprar("helicoptero");
 
-            //Tira excepcion
-            //equipo_azul.comprar("helicotero");
+        //Tira excepcion
+        //equipo_azul.comprar("asdasdasd");
 
-            equipo_rojo.comprar("soldado");
-            equipo_rojo.comprar("soldado");
-            equipo_rojo.comprar("soldado");
-            equipo_rojo.comprar("tanque");
-        } catch (UnidadInexistenteException e) {
-            System.out.println(e.getMessage());;
-        }
+        equipo_rojo.comprar("soldado");
+        equipo_rojo.comprar("soldado");
+        equipo_rojo.comprar("soldado");
+        equipo_rojo.comprar("tanque");
+
 
         //empieza juego, disparan 10 veces todos
         int hasta = 3;

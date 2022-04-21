@@ -7,27 +7,36 @@ public class Equipo {
     private float fondos;
     private String color;
     List<Unidad> unidades;
+
     public Equipo(float fondos, String color) {
         this.fondos = fondos;
         this.color = color;
         unidades = new ArrayList<>();
     }
 
-    public void comprar(String nombre_unidad) throws UnidadInexistenteException {
+    public void comprar(String nombre_unidad) {
         Unidad unidad = null;
-        if("soldado".equals(nombre_unidad)){
-            unidad = new Soldado();
-            fondos = unidad.deducir_costos(this.fondos);
-        }else if("tanque".equals(nombre_unidad)){
-            unidad = new Tanque();
-            fondos = unidad.deducir_costos(this.fondos);
-        } else  if ("helicoptero".equals(nombre_unidad)){
-            unidad = new Helicoptero();
-            fondos = unidad.deducir_costos(this.fondos);
-        } else {
-            throw new UnidadInexistenteException("Unidad inexistente");
+        try {
+            if ("soldado".equals(nombre_unidad)) {
+                unidad = new Soldado();
+                fondos = unidad.deducir_costos(this.fondos);
+            } else if ("tanque".equals(nombre_unidad)) {
+                unidad = new Tanque();
+                fondos = unidad.deducir_costos(this.fondos);
+            } else if ("helicoptero".equals(nombre_unidad)) {
+                unidad = new Helicoptero();
+                fondos = unidad.deducir_costos(this.fondos);
+            } else {
+                throw new UnidadInexistenteException("Unidad inexistente");
+            }
+
+            unidades.add(unidad);
+        } catch (FondosInsuficientes e){
+            System.out.println(e.getMessage());
+        } catch (UnidadInexistenteException e) {
+            System.out.println(e.getMessage());;
         }
-        unidades.add(unidad);
+
     }
 
     public void disparar_todos() {
