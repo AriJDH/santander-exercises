@@ -2,6 +2,7 @@ package com.ej2;
 
 public class NaveSimple extends NaveAbs {
     private double[] coordenadas;
+
     public NaveSimple(String nombre, double x, double y) {
         super(nombre);
         coordenadas= new double[2];

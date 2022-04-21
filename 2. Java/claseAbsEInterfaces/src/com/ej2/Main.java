@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        NaveAbs navep1= new NaveSimple("navep1",7,8);
+        NaveAbs navep1= new NaveSimple("navep1",8,3);
         NaveAbs navep2= new NaveSimple("navep2",5,4);
         NaveAbs navep3= new NaveSimple("navep3",1,2);
         Flota flotap2= new Flota("flotap2");
@@ -16,8 +16,8 @@ public class Main {
         j1.addParticipante(p1);
         j1.addParticipante(p2);
         ArrayList<double[]> coordenadas= new ArrayList<>();
-        coordenadas.add(new double[] {5,4});
-        coordenadas.add(new double[] {1,2});
-        System.out.println(j1.jugar(coordenadas,p1,p2));
+
+        coordenadas.add(new double[] {3,7});
+        System.out.println("el ganador es "+j1.jugar(coordenadas,p1,p2));
     }
 }

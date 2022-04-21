@@ -17,7 +17,9 @@ public class Juego {
             //si están registrados
             for (double[] coordenada: coordenadasParaJugar) {
                 double d1= p1.distanciaAcoordenada(coordenada);
+                System.out.println(d1);
                 double d2= p2.distanciaAcoordenada(coordenada);
+                System.out.println(d2);
                 if (d1<d2){
                     p1.getElementoParaJugar().sumarPunto();
                     System.out.println("El ganador de esta batalla es la nave " + p1.getElementoParaJugar());
