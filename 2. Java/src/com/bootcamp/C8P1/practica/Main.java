@@ -7,5 +7,10 @@ public class Main {
         double total = producto.calcular(cantidadDeProductos);
 
         System.out.println("Calcular: " + total);
+
+        Producto perecedero = new Perecedero("pancho rancio", 500, 2);
+        double total_perecedero = perecedero.calcular(cantidadDeProductos);
+
+        System.out.println("Calcular:" + total_perecedero);
     }
 }
