@@ -9,6 +9,6 @@ public class EstudianteTecnico extends Estudiante implements IServicioTecnico {
 
     @Override
     public void dar_servicio_tecnico() {
-        System.out.println("Estudiante tecnico hace mantenimiento");
+        System.out.println("Estudiante tecnico da servicio tecnico");
     }
 }

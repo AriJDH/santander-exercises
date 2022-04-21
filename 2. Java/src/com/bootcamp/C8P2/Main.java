@@ -15,9 +15,15 @@ public class Main {
         tutor.dar_clases();
         estudianteTecnico.dar_servicio_tecnico();
 
-        MiembroDelPersonal miembroDelPersonal = new MiembroDelPersonal("Carlos","36893756","81920");
         Profesor profesor = new Profesor("Carlos","36893756","81920");
 
         profesor.dar_clases();
+
+        PersonalSoporteTecnico personalSoporteTecnico = new PersonalSoporteTecnico("Carlos","36893756","81920");
+        personalSoporteTecnico.dar_servicio_tecnico();
+
+        PersonalMantenimiento personalMantenimiento = new PersonalMantenimiento("Carlos","36893756","81920");
+
+
     }
 }
