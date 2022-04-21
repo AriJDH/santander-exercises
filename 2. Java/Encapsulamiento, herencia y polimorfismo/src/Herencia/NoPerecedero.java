@@ -2,7 +2,7 @@ package Herencia;
 
 public class NoPerecedero extends Producto{
     private  String tipo;
-
+    private double  precio;
     public NoPerecedero(String nombre, double precio, String tipo) {
         super(nombre, precio);
         this.tipo = tipo;
@@ -21,6 +21,8 @@ public class NoPerecedero extends Producto{
         return super.calcular(cantidadDeProductos);
 
     }
+
+
 
     @Override
     public String toString() {
