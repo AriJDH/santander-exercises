@@ -2,11 +2,15 @@ package Polimorfismo;
 
 public class Producto {
     private String nombre;
-    private double precio;
+    protected double precio;
 
     public Producto(String nombre, double precio) {
         this.nombre = nombre;
         this.precio = precio;
+    }
+
+    public double calcular(int cantidadDeProductos) {
+        return cantidadDeProductos * precio;
     }
 
     public String getNombre() {
