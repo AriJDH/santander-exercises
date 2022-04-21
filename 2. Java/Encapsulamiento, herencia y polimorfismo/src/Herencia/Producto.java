@@ -25,6 +25,11 @@ public class Producto {
         this.precio = precio;
     }
 
+    public double calcular(int cantidadDeProductos){
+        double monto = cantidadDeProductos * this.precio;
+        return monto;
+
+    }
     @Override
     public String toString() {
         return "Producto{" +
@@ -33,10 +38,6 @@ public class Producto {
                 '}';
     }
 
-    public double calcular(int cantidadDeProductos){
-        double monto = cantidadDeProductos * this.precio;
-        return monto;
 
-    }
 
 }
