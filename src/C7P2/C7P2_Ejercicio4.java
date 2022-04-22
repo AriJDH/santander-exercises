@@ -44,6 +44,7 @@ public class C7P2_Ejercicio4 {
 
         public static double devolverRandom(){
             return Math.random();
+
         }
 
 
