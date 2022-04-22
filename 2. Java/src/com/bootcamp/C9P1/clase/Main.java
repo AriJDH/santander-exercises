@@ -1,10 +1,39 @@
 package com.bootcamp.C9P1.clase;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 public class Main {
     public static void main(String[] args) {
         //wrappers();
         //generics();
-        expresiones_lambda();
+        //expresiones_lambda();
+        streams();
+    }
+
+    private static void streams() {
+        List<Persona> personas = new ArrayList<>();
+        personas.add(new Persona("Juan", "Gomez"));
+        personas.add(new Persona("Pedro", "Gomez"));
+        personas.add(new Persona("Maria", "Gomez"));
+
+        //metodo stream
+        personas.forEach(persona -> {
+            System.out.println(persona);
+        });
+
+        Optional<Persona> persona_primera = personas.stream().filter(persona -> persona.getNombre().equals("Juan")).findFirst();
+        System.out.println(persona_primera);
+
+        List<Persona> personas_ret = personas.stream().filter(persona -> persona.getNombre().equals("Juan")).collect(Collectors.toList());
+        System.out.println(personas_ret);
+
+        //Referencias a metodos, sintax sugar
+        //identico al forEach con expresion lambda
+        personas.forEach(System.out::println);
+
     }
 
     private static void expresiones_lambda() {
@@ -31,7 +60,7 @@ public class Main {
 
 
     private static void generics() {
-        Persona persona = new Persona("Juan");
+        Persona persona = new Persona("Juan", "Gomez");
         DesdeHasta<Integer, Integer> desdeHastaNumero = new DesdeHasta<>(20, 30);
         System.out.println(desdeHastaNumero);
 
