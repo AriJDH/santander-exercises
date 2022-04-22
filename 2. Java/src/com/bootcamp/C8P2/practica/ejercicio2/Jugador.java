@@ -12,4 +12,9 @@ public class Jugador {
     public double calcular_distancia(int x, int y) {
         return unidad.calcular_distancia(x,y);
     }
+
+    @Override
+    public String toString() {
+        return color;
+    }
 }
