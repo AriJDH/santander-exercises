@@ -1,6 +1,6 @@
-package com.bootcamp.C8P2.practica.modelo;
+package com.bootcamp.C8P2.practica.ejercicio1.modelo;
 
-public class MiembroPersonal extends Persona {
+public abstract class MiembroPersonal extends Persona {
     private String legajo;
 
     public MiembroPersonal(String nombre, String dni, String legajo) {

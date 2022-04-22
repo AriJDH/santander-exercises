@@ -1,6 +1,6 @@
-package com.bootcamp.C8P2.practica.modelo;
+package com.bootcamp.C8P2.practica.ejercicio1.modelo;
 
-import com.bootcamp.C8P2.practica.interfaces.IServicioTecnico;
+import com.bootcamp.C8P2.practica.ejercicio1.interfaces.IServicioTecnico;
 
 public class PersonalSoporteTecnico extends MiembroPersonal implements IServicioTecnico {
     public PersonalSoporteTecnico(String nombre, String dni, String legajo) {

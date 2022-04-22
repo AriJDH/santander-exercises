@@ -1,4 +1,4 @@
-package com.bootcamp.C8P2.practica.modelo;
+package com.bootcamp.C8P2.practica.ejercicio1.modelo;
 
 public class Persona {
     private String nombre;
