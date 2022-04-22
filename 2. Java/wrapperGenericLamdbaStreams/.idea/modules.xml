@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/testWrapperGenericLamdbaStreams.iml" filepath="$PROJECT_DIR$/testWrapperGenericLamdbaStreams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wrapperGenericLamdbaStreams.iml" filepath="$PROJECT_DIR$/wrapperGenericLamdbaStreams.iml" />
     </modules>
   </component>
 </project>
