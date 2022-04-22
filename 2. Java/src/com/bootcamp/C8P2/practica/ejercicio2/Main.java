@@ -59,6 +59,7 @@ public class Main {
                 System.out.println("Jugador: " + jugador);
                 distancia = jugador.calcular_distancia(punto.x, punto.y);
                 if (distancia < distancia_minima){
+                    //TODO: reemplazar por un aliasing a Jugador
                     i_jugador_distancia_min = i_jugador;
                     distancia_minima = distancia;
                 }
