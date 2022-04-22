@@ -1,0 +1,55 @@
+package com.ejercicio;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+public class App {
+
+    public static void main(String[] args) {
+
+        ArrayList<Persona> personas = new ArrayList<>();
+        personas.add(new Persona("Juan","Gomez"));
+        personas.add(new Persona("Pedro","Gomez"));
+        personas.add(new Persona("Maria","Gomez"));
+
+        personas.forEach(persona -> { System.out.println(persona); });
+
+        Optional<Persona> persona1 = personas.stream().filter((persona)-> persona.getNombre().equals("Juan")).findFirst();
+        System.out.println(persona1);
+
+        List<Persona> pers = personas.stream().filter((persona)-> persona.getNombre().equals("Juan")).collect(Collectors.toList());
+        System.out.println(pers);
+        pers.forEach(System.out::println);
+
+        /*
+        IScoring scoring;
+        scoring = (a,b) -> a + b;
+
+        System.out.println(scoring.calcular(12,15));
+
+        IScoring scoringEmpresa2;
+        scoringEmpresa2 = (a,b) -> a + b * 2;
+
+        System.out.println(scoringEmpresa2.calcular(15,12));
+        */
+
+
+        /*
+        DesdeHasta<Integer,Integer> desdeHastaNumero = new DesdeHasta<>();
+        desdeHastaNumero.setDesde(12);
+        desdeHastaNumero.setHasta(14);
+        System.out.println(desdeHastaNumero);
+
+        // informe...
+
+        DesdeHasta<String, String> desdeHastaNombre = new DesdeHasta<>();
+        desdeHastaNombre.setDesde("algo");
+        desdeHastaNombre.setHasta("otro");
+        System.out.println(desdeHastaNombre);
+        */
+
+    }
+
+}
