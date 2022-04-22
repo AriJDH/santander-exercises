@@ -6,5 +6,7 @@ import java.util.List;
 public interface DAO <E,K> {
     E buscarElemento(K key);
 
+    void agregar(E elemento);
+
     List<E> listar();
 }

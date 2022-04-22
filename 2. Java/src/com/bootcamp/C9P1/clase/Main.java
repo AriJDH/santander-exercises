@@ -14,11 +14,17 @@ public class Main {
 
 
     private static void generics() {
-        Persona persona = new Persona();
+        Persona persona = new Persona("Juan");
         DesdeHasta<Integer, Integer> desdeHastaNumero = new DesdeHasta<>(20, 30);
         System.out.println(desdeHastaNumero);
 
         DesdeHasta<String, String> desdeHastaNombre = new DesdeHasta<>("Agustin", "Marcelo");
         System.out.println(desdeHastaNombre);
+
+        PersonaDAOImpl personas = new PersonaDAOImpl();
+        personas.agregar(persona);
+
+        Persona persona_ret = personas.buscarElemento("Juan");
+        System.out.println(persona_ret);
     }
 }
