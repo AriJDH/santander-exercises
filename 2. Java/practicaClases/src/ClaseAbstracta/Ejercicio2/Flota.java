@@ -5,17 +5,32 @@ package ClaseAbstracta.Ejercicio2;
 import java.util.*;
 
 public class Flota implements ICalculable{
-    ArrayList<Nave> naves = new ArrayList<Nave>();
+    @Override
+    public double Calcular(ArrayList a) {
+        return 0;
+    }
 
     @Override
-    public double Calcular(int x, int y) {
+    public double Calcular() {
+        return 0;
+    }
+
+    /*
+    ArrayList<Nave> naves = new ArrayList<Nave>();
+
+
+    @Override
+    public double Calcular(ArrayList c) {
         int count = 0, acum = 0;
         for(Nave n:naves){
-            n.Calcular(x,y);
+            n.Calcular(c);
             count ++;
-            acum += n.Calcular(x,y);
+            acum += n.Calcular(c);
         }
         return acum / count;
     }
+
+     */
+
 
 }
