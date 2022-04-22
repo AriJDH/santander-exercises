@@ -35,10 +35,32 @@ public class APP {
         objetivos.add(objetivo1);
         objetivos.add(objetivo2);
         objetivos.add(objetivo3);
-        for(List obj : objetivos ) {
-            String masCercano = ;
-
+        List<Jugador> jugadores = new ArrayList<>(2);
+        juan.inscribirse(jugadores);
+        mica.inscribirse(jugadores);
+        double distanciaMasCercana;
+        for(List<Integer> obj : objetivos ) {
+            Jugador masCercano = jugadores.get(0);
+            distanciaMasCercana = juan.equipo.calcularDistancia(obj);
+            //distanciaMasCercana = jugadores.get(0).equipo.calcularDistancia(obj);
+            for(int i=1; i<jugadores.size(); i++) {
+                if(jugadores.get(i).equipo.calcularDistancia(obj) < distanciaMasCercana) {
+                    distanciaMasCercana = jugadores.get(i).equipo.calcularDistancia(obj);
+                    masCercano = jugadores.get(i);
+                }
+            }
+            System.out.println("El jugador con el equipo más cercano al objetivo fue " + masCercano + " con una distancia de " + distanciaMasCercana + " celdas.");
+            masCercano.puntos++;
         }
-
+        int puntajeMasAlto = jugadores.get(0).getPuntos();
+        Jugador mayorPuntaje = jugadores.get(0);
+        for(int i=1; i<jugadores.size(); i++) {
+            int puntaje = jugadores.get(i).getPuntos();
+            if(puntaje > puntajeMasAlto) {
+                puntajeMasAlto = puntaje;
+                mayorPuntaje = jugadores.get(i);
+            }
+        }
+        System.out.println("El jugador con más puntos es " + mayorPuntaje + " con un puntaje de " + puntajeMasAlto);
     }
 }

@@ -1,12 +1,16 @@
 package com.santander.ejercicio2;
 
-public class ParticipanteFlota {
+import java.util.List;
+
+public class ParticipanteFlota extends Jugador {
     private String nombre;
-    private FlotaNave flota;
+    public FlotaNave flota;
+    private int puntos;
 
     public ParticipanteFlota(String nombre, FlotaNave flota) {
         this.nombre = nombre;
         this.flota = flota;
+        puntos = 0;
     }
 
     public String getNombre() {
@@ -17,11 +21,11 @@ public class ParticipanteFlota {
         this.nombre = nombre;
     }
 
-    public FlotaNave getFlota() {
+    public FlotaNave getEquipo() {
         return flota;
     }
 
-    public void setFlota(FlotaNave flota) {
+    public void setEquipo(FlotaNave flota) {
         this.flota = flota;
     }
 
@@ -31,5 +35,14 @@ public class ParticipanteFlota {
                 "nombre='" + nombre + '\'' +
                 ", flota=" + flota +
                 '}';
+    }
+
+    @Override
+    public void inscribirse(List<Jugador> lista) {
+        lista.add(this);
+    }
+
+    public int getPuntos() {
+        return puntos;
     }
 }
