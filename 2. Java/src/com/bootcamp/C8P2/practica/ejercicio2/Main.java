@@ -20,5 +20,15 @@ public class Main {
 
         double distancia_promedio = flota.calcular_distancia(10,10);
         System.out.println("Promedio flota: " + distancia_promedio);
+
+        Jugador jugador_azul = new Jugador("azul", flota);
+
+        double distancia_jugador_flota = jugador_azul.calcular_distancia(10, 10);
+        System.out.println("jugador con flota: " + distancia_jugador_flota);
+
+        Jugador jugador_rojo = new Jugador("rojo", naveSimple);
+        double distancia_jugador_nave = jugador_rojo.calcular_distancia(10,10);
+        System.out.println("jugador con solo nave: " + distancia_jugador_nave);
+
     }
 }
