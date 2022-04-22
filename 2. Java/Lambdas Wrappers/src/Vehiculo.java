@@ -1,7 +1,7 @@
-public class Vehiculo {
+public class Vehiculo  implements Comparable{
     private String modelo;
     private String marca;
-    private int costo;
+    private Integer costo;
 
     public Vehiculo(String modelo, String marca, int costo) {
         this.modelo = modelo;
@@ -17,7 +17,7 @@ public class Vehiculo {
         return marca;
     }
 
-    public int getCosto() {
+    public Integer getCosto() {
         return costo;
     }
 
@@ -31,5 +31,16 @@ public class Vehiculo {
 
     public void setCosto(int costo) {
         this.costo = costo;
+    }
+    @Override
+    public String toString()
+    {    return "Vehiculo [modelo" + modelo + ", marca" + marca + ", costo" + costo + "]";
+
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Vehiculo otro = (Vehiculo) o;
+        return this.getCosto().compareTo(otro.getCosto());
     }
 }

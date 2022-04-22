@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Garage {
     private int id;
-    private ArrayList<Vehiculo> vehiculo= new ArrayList<>();
+    private ArrayList<Vehiculo> vehiculo;
 
     public Garage(int id, ArrayList<Vehiculo> vehiculo) {
         this.id = id;
@@ -21,7 +21,7 @@ public class Garage {
         this.id = id;
     }
 
-    public setVehiculos(ArrayList<Vehiculo> vehiculo) {
+    public void setVehiculo(ArrayList<Vehiculo> vehiculo) {
         this.vehiculo = vehiculo;
     }
 }

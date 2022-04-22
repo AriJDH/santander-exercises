@@ -21,15 +21,13 @@ public class Main {
 
         Garage garaje = new Garage(1, listaVehiculos);
 
+
+        listaVehiculos.stream().sorted().forEach(System.out::println);
+
        // Collections.sort(listaVehiculos, (x, y) -> x.getCosto().(y.getCosto()));
 
-        Collections.sort(listaVehiculos, new Comparator<Vehiculo>() {
-            @Override
-            public int compare(Vehiculo p1, Vehiculo p2) {
-                return (p1.getCosto()).compareTo(p2.getCosto());
-            }
 
-        });
+
 
 
 
