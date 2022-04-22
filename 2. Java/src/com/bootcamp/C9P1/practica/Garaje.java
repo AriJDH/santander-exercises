@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Garaje {
     List<Vehiculo> vehiculos;
@@ -27,8 +28,15 @@ public class Garaje {
         vehiculos.forEach(System.out::println);
     }
 
-    /*
-    public OptionalDouble getPromedioCosto(){
+    public List<Vehiculo> getVehiculosMenorA(double menor){
+        return vehiculos.stream().filter(vehiculo -> vehiculo.getCosto() < menor).collect(Collectors.toList());
+    }
+
+    public List<Vehiculo> getVehiculosMayorIgualA(double mayor){
+        return vehiculos.stream().filter(vehiculo -> vehiculo.getCosto() >= mayor).collect(Collectors.toList());
+    }
+
+    public double getPromedioCostoVehiculos(){
         return vehiculos.stream().mapToDouble(Vehiculo::getCosto).average().getAsDouble();
-    }*/
+    }
 }

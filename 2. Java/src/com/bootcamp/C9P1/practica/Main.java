@@ -2,6 +2,7 @@ package com.bootcamp.C9P1.practica;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,5 +38,17 @@ public class Main {
 
         System.out.println("\t Ordenar por Costo y Marca Ascendente");
         garaje.ordenarPorMarcaCostoAscendente();
+
+        System.out.println("\t Vehiculos menor a 1000");
+        List<Vehiculo> menores_a_1000 = garaje.getVehiculosMenorA(1000);
+        System.out.println(menores_a_1000);
+
+        System.out.println("\t Vehiculos mayor o igual a 1000");
+        List<Vehiculo> mayores_igual_a_1000 = garaje.getVehiculosMayorIgualA(1000);
+        System.out.println(mayores_igual_a_1000);
+
+        System.out.println("\t Promedio todos los vehiculos");
+        double promedio = garaje.getPromedioCostoVehiculos();
+        System.out.println("Promedio: " + promedio);
     }
 }
