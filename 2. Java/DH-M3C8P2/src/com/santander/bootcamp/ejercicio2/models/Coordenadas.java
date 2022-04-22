@@ -1,8 +1,11 @@
-package com.santander.bootcamp.ejercicio2;
+package com.santander.bootcamp.ejercicio2.models;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Coordenadas {
-    protected int x;
-    protected int y;
+    private int x;
+    private int y;
 
     public Coordenadas(int x, int y) {
         this.setX(x);
@@ -29,10 +32,20 @@ public class Coordenadas {
         return Math.sqrt(Math.pow(a.getX() - b.getX(), 2) + Math.pow(a.getY() - b.getY(), 2));
     }
 
-    public static Coordenadas crearAleatoriamente() {
+    public static Coordenadas crearAleatoria() {
         return new Coordenadas(
                 (int) Math.floor(Math.random() / Math.nextDown(1.0) * 100),
                 (int) Math.floor(Math.random() / Math.nextDown(1.0) * 100)
         );
+    }
+
+    public static List<Coordenadas> crearListaAleatoria(int size) {
+        List<Coordenadas> lista = new ArrayList<>(size);
+
+        for (int x = 0; x < size; x++) {
+            lista.add(Coordenadas.crearAleatoria());
+        }
+
+        return lista;
     }
 }
