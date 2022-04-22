@@ -1,0 +1,11 @@
+Clases wrappers
+
+Clases que envuelven a datos primitivos con clases y asi poder generar metodos a tipos de datos que antes no tenian
+
+int -> Integer
+
+
+Generics
+
+Formas de parametrizar colecciones e interfaces
+
