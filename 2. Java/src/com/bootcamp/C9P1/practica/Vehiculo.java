@@ -10,4 +10,21 @@ public class Vehiculo {
         this.modelo = modelo;
         this.costo = costo;
     }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", costo=" + costo +
+                '}';
+    }
+
+    public String getMarca() {
+        return marca;
+    }
 }

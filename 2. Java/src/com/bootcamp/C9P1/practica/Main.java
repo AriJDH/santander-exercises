@@ -5,19 +5,17 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Vehiculo vehiculo = new Vehiculo("Renault", "Clio", 100);
-
         Vehiculo vehiculo1 = new Vehiculo("Ford", "Fiesta", 1000);
         Vehiculo vehiculo2 = new Vehiculo("Ford", "Focus", 1200);
         Vehiculo vehiculo3 = new Vehiculo("Ford", "Explorer", 2500);
         Vehiculo vehiculo4 = new Vehiculo("Fiat", "Uno", 500);
         Vehiculo vehiculo5 = new Vehiculo("Fiat", "Cronos", 1000);
         Vehiculo vehiculo6 = new Vehiculo("Fiat", "Torino", 1250);
-        Vehiculo vehiculo7 = new Vehiculo("Chevrolet", "Aveo", 1000);
-        Vehiculo vehiculo8 = new Vehiculo("Chevrolet", "Spin", 1000);
-        Vehiculo vehiculo9 = new Vehiculo("Toyota", "Corolla", 1000);
-        Vehiculo vehiculo10 = new Vehiculo("Toyota", "Fortuner", 1000);
-        Vehiculo vehiculo11 = new Vehiculo("Renault", "Logan", 1000);
+        Vehiculo vehiculo7 = new Vehiculo("Chevrolet", "Aveo", 1250);
+        Vehiculo vehiculo8 = new Vehiculo("Chevrolet", "Spin", 2500);
+        Vehiculo vehiculo9 = new Vehiculo("Toyota", "Corolla", 1200);
+        Vehiculo vehiculo10 = new Vehiculo("Toyota", "Fortuner", 3000);
+        Vehiculo vehiculo11 = new Vehiculo("Renault", "Logan", 950);
 
         List<Vehiculo> vehiculos = new ArrayList<>();
         vehiculos.add(vehiculo1);
@@ -34,5 +32,10 @@ public class Main {
 
         Garaje garaje = new Garaje(vehiculos);
 
+        System.out.println("\t Ordenar por Costo AScendente");
+        garaje.ordenarPorCostoAscendente();
+
+        System.out.println("\t Ordenar por Costo y Marca Ascendente");
+        garaje.ordenarPorMarcaCostoAscendente();
     }
 }
