@@ -36,16 +36,18 @@ public class APP {
         objetivos.add(objetivo2);
         objetivos.add(objetivo3);
         List<Jugador> jugadores = new ArrayList<>(2);
-        juan.inscribirse(jugadores);
+        jugadores.add(juan);
+        //juan.inscribirse(jugadores);
         mica.inscribirse(jugadores);
         double distanciaMasCercana;
         for(List<Integer> obj : objetivos ) {
             Jugador masCercano = jugadores.get(0);
-            distanciaMasCercana = juan.equipo.calcularDistancia(obj);
+            distanciaMasCercana = ((Participante) jugadores.get(0)).equipo.calcularDistancia(obj);
+            //System.out.println(jugadores.get(0).equipo);
             //distanciaMasCercana = jugadores.get(0).equipo.calcularDistancia(obj);
             for(int i=1; i<jugadores.size(); i++) {
-                if(jugadores.get(i).equipo.calcularDistancia(obj) < distanciaMasCercana) {
-                    distanciaMasCercana = jugadores.get(i).equipo.calcularDistancia(obj);
+                if(((Participante) jugadores.get(i)).equipo.calcularDistancia(obj) < distanciaMasCercana) {
+                    distanciaMasCercana =  ((Participante) jugadores.get(i)).equipo.calcularDistancia(obj);
                     masCercano = jugadores.get(i);
                 }
             }
