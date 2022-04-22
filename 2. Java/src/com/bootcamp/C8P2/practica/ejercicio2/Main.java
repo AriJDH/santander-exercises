@@ -13,9 +13,9 @@ public class Main {
         //flota jugador azul
         List<NaveSimple> naves = new ArrayList<>();
 
-        NaveSimple nave1 = new NaveSimple("A1",0,0);
-        NaveSimple nave2 = new NaveSimple("A2",5,0);
-        NaveSimple nave3 = new NaveSimple("A3",10,0);
+        NaveSimple nave1 = new NaveSimple("A1",20,20);
+        NaveSimple nave2 = new NaveSimple("A2",30,0);
+        NaveSimple nave3 = new NaveSimple("A3",40,30);
 
         naves.add(nave1);
         naves.add(nave2);
@@ -24,7 +24,7 @@ public class Main {
         Flota flota = new Flota(naves);
 
         //flota jugador rojo
-        NaveSimple naveSimple = new NaveSimple("A1",0,0);
+        NaveSimple naveSimple = new NaveSimple("R1",12,15);
 
         Jugador jugador_azul = new Jugador("azul", flota);
         Jugador jugador_rojo = new Jugador("rojo", naveSimple);
@@ -37,24 +37,53 @@ public class Main {
         //empieza el juego
         //se genera el array de puntos
         List<Punto> puntos = new ArrayList<>();
-        int puntos_a_generar = 10;
+        int PUNTOS_A_GENERAR = 10;
         int rand_x = 0, rand_y = 0;
         int DISTANCIA_MAX = 50;
-        for (int i = 0; i < puntos_a_generar ; i++) {
+        for (int i = 0; i < PUNTOS_A_GENERAR ; i++) {
             rand_x = (int) Math.floor(Math.random() * DISTANCIA_MAX);
             rand_y = (int) Math.floor(Math.random() * DISTANCIA_MAX);
             puntos.add(new Punto(rand_x,rand_y));
         }
 
         //cada jugador dispara al punto con su flota
+        int i_jugador_distancia_min = 0;
+        int i_jugador = 0;
+        double MAX = 9999;
+        double distancia_minima = MAX;
+        double distancia = 0;
+
         for (Punto punto: puntos) {
-            System.out.println("Disparando al asteroide en: " + punto.x + "-" + punto.y);
+            System.out.println("Disparando al asteroide en: " + punto.x + "|" + punto.y);
             for (Jugador jugador : jugadores) {
                 System.out.println("Jugador: " + jugador);
-                jugador.calcular_distancia(punto.x, punto.y);
+                distancia = jugador.calcular_distancia(punto.x, punto.y);
+                if (distancia < distancia_minima){
+                    i_jugador_distancia_min = i_jugador;
+                    distancia_minima = distancia;
+                }
+                i_jugador++;
+            }
+            //el de distancia minima suma punto
+            jugadores.get(i_jugador_distancia_min).incrementar_puntaje();
+            i_jugador_distancia_min = 0;
+            i_jugador = 0;
+            distancia_minima = MAX;
+        }
+
+        //juego termino
+        int max = 0;
+        //aliasing de ganador
+        Jugador ganador = null;
+        for (Jugador jugador : jugadores) {
+            System.out.println("Jugador " + jugador + " puntaje final " + jugador.getPuntaje());
+            if(jugador.getPuntaje() > max){
+                ganador = jugador;
+                max = jugador.getPuntaje();
             }
         }
 
+        System.out.println("El ganador es el jugador de color: " + ganador);
 
     }
 
