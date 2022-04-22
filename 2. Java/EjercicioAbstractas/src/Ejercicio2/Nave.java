@@ -39,3 +39,4 @@ public class Nave implements Distancias{
         return  Math.pow((Math.pow(x-coordenadas.x,2)+Math.pow(y-coordenadas.y, 2)),0.5f);
     }
 }
+git

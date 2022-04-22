@@ -19,7 +19,7 @@ public class Flota implements Distancias{
     }
 
     @Override
-    public double Distancia(Coordenadas coordenadas) {
+    public double Distancia(List<Double> coordenadas) {
         double Promedio = 0;
         for (int i = 0; i< flota.size();i++){
             Promedio+= Math.pow((Math.pow(flota.get(i).x-coordenadas.x,2)+Math.pow(flota.get(i).y-coordenadas.y, 2)),0.5f);
