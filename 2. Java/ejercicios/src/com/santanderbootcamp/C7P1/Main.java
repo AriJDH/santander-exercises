@@ -1,6 +1,6 @@
-package com.santanderbootcamp.POO;
+package com.santanderbootcamp.C7P1;
 
-import com.santanderbootcamp.POO.modelos.Persona;
+import com.santanderbootcamp.C7P1.modelos.Persona;
 
 public class Main {
     public static void main(String[] args) {

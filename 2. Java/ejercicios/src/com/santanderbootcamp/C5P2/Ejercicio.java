@@ -1,4 +1,4 @@
-package com.santanderbootcamp.EstructurasDeControlYArreglos;
+package com.santanderbootcamp.C5P2;
 
 public class Ejercicio {
     public static void main(String[] args) {

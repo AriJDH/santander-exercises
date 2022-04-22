@@ -1,6 +1,6 @@
-package com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1.modelos;
+package com.santanderbootcamp.C8P2.Ejercicio1.modelos;
 
-import com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1.interfaces.Tecnico;
+import com.santanderbootcamp.C8P2.Ejercicio1.interfaces.Tecnico;
 
 public class PersonalSoporteTecnico extends MiembroDelPersonal implements Tecnico {
 

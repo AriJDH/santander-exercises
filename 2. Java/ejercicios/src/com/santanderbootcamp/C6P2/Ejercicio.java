@@ -1,4 +1,4 @@
-package com.santanderbootcamp.PracticaIntegradoraColecciones;
+package com.santanderbootcamp.C6P2;
 
 import java.util.*;
 

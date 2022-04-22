@@ -1,11 +1,10 @@
-package com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio2.modelos;
+package com.santanderbootcamp.C8P2.Ejercicio2.modelos;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Nivel {
     private List<Participante> participantes;
-
     public Nivel(List<Participante> participantes) {
         this.participantes = participantes;
     }

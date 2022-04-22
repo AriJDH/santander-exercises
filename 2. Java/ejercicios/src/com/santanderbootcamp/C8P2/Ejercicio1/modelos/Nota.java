@@ -1,4 +1,4 @@
-package com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1.modelos;
+package com.santanderbootcamp.C8P2.Ejercicio1.modelos;
 
 public class Nota {
     private double primerNota;

@@ -1,4 +1,4 @@
-package com.santanderbootcamp.ExcepcionesYClasesUtilitarias.Ejercicio4;
+package com.santanderbootcamp.C7P2.Ejercicio4;
 
 public class Calculos {
     public static double mayor(double numero1, double numero2) {

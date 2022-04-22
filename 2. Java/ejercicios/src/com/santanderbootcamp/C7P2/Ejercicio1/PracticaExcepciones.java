@@ -1,4 +1,4 @@
-package com.santanderbootcamp.ExcepcionesYClasesUtilitarias.Ejercicio1;
+package com.santanderbootcamp.C7P2.Ejercicio1;
 
 public class PracticaExcepciones {
     static int a = 0, b = 300;

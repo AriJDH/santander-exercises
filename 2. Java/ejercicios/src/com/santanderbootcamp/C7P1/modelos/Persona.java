@@ -1,4 +1,4 @@
-package com.santanderbootcamp.POO.modelos;
+package com.santanderbootcamp.C7P1.modelos;
 
 public class Persona {
     private String dni;

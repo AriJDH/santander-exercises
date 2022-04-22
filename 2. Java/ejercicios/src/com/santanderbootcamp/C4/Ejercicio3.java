@@ -1,4 +1,4 @@
-package com.santanderbootcamp.Java;
+package com.santanderbootcamp.C4;
 
 import java.util.Scanner;
 

@@ -1,9 +1,6 @@
-package com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1.modelos;
+package com.santanderbootcamp.C8P2.Ejercicio1.modelos;
 
-import com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1.interfaces.Tecnico;
-
-import java.util.HashMap;
-import java.util.List;
+import com.santanderbootcamp.C8P2.Ejercicio1.interfaces.Tecnico;
 
 public class EstudianteTecnico extends Estudiante implements Tecnico {
 

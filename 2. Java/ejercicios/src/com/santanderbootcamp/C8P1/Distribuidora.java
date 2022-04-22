@@ -1,8 +1,8 @@
-package com.santanderbootcamp.EncapsulamientoHerenciaYPolimorfismo;
+package com.santanderbootcamp.C8P1;
 
-import com.santanderbootcamp.EncapsulamientoHerenciaYPolimorfismo.modelo.NoPerecedero;
-import com.santanderbootcamp.EncapsulamientoHerenciaYPolimorfismo.modelo.Perecedero;
-import com.santanderbootcamp.EncapsulamientoHerenciaYPolimorfismo.modelo.Producto;
+import com.santanderbootcamp.C8P1.modelo.NoPerecedero;
+import com.santanderbootcamp.C8P1.modelo.Perecedero;
+import com.santanderbootcamp.C8P1.modelo.Producto;
 
 import java.util.ArrayList;
 import java.util.List;

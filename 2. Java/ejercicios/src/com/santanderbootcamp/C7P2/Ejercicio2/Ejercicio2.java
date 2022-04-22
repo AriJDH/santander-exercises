@@ -1,4 +1,4 @@
-package com.santanderbootcamp.ExcepcionesYClasesUtilitarias.Ejercicio2;
+package com.santanderbootcamp.C7P2.Ejercicio2;
 
 public class Ejercicio2 {
     public static void main(String[] args) {

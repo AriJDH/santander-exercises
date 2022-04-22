@@ -1,4 +1,4 @@
-package com.santanderbootcamp.EstructurasDinamicas;
+package com.santanderbootcamp.C6P1;
 
 import java.util.*;
 

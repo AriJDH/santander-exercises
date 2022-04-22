@@ -1,7 +1,7 @@
-package com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1;
+package com.santanderbootcamp.C8P2.Ejercicio1;
 
-import com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1.interfaces.*;
-import com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1.modelos.*;
+import com.santanderbootcamp.C8P2.Ejercicio1.interfaces.*;
+import com.santanderbootcamp.C8P2.Ejercicio1.modelos.*;
 
 public class Universidad {
     public static void main(String[] args) {

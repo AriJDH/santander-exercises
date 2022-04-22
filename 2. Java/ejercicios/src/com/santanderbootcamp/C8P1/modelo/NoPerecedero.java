@@ -1,4 +1,4 @@
-package com.santanderbootcamp.EncapsulamientoHerenciaYPolimorfismo.modelo;
+package com.santanderbootcamp.C8P1.modelo;
 
 public class NoPerecedero extends Producto{
     private String tipo;

@@ -1,4 +1,4 @@
-package com.santanderbootcamp.EstructurasDeControl;
+package com.santanderbootcamp.C5P1;
 
 import java.util.Scanner;
 

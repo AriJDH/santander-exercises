@@ -1,8 +1,7 @@
-package com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1.modelos;
+package com.santanderbootcamp.C8P2.Ejercicio1.modelos;
 
-import com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio1.interfaces.Instructor;
+import com.santanderbootcamp.C8P2.Ejercicio1.interfaces.Instructor;
 
-import java.util.HashMap;
 public class Tutor extends Estudiante implements Instructor {
     public Tutor(String dni, String nombre, String apellido, String fechaNacimiento) {
         super(dni, nombre, apellido, fechaNacimiento);

@@ -1,6 +1,6 @@
-package com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio2;
+package com.santanderbootcamp.C8P2.Ejercicio2;
 
-import com.santanderbootcamp.ClasesAbstractasEInterfaces.Ejercicio2.modelos.*;
+import com.santanderbootcamp.C8P2.Ejercicio2.modelos.*;
 
 import java.util.ArrayList;
 import java.util.List;
