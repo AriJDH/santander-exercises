@@ -3,7 +3,7 @@ package com.santanderbootcamp.GenericsWrapperLambdaStreams.modelos;
 public class Vehiculo {
     private String modelo;
     private String marca;
-    private double costo;
+    private Double costo;
 
     public Vehiculo(String modelo, String marca, double costo) {
         this.modelo = modelo;
@@ -27,11 +27,20 @@ public class Vehiculo {
         this.marca = marca;
     }
 
-    public double getCosto() {
+    public Double getCosto() {
         return costo;
     }
 
     public void setCosto(double costo) {
         this.costo = costo;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "modelo='" + modelo + '\'' +
+                ", marca='" + marca + '\'' +
+                ", costo=" + costo +
+                '}';
     }
 }

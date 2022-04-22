@@ -26,4 +26,16 @@ public class Garage {
     public void setListaVehiculos(List<Vehiculo> listaVehiculos) {
         this.listaVehiculos = listaVehiculos;
     }
+
+    public void mostrarPrecioDeMenorAMayor() {
+        listaVehiculos.stream().sorted((va,vb)->va.getCosto().compareTo(vb.getCosto())).forEach(System.out::println);
+    }
+
+    @Override
+    public String toString() {
+        return "Garage{" +
+                "id=" + id +
+                ", listaVehiculos=" + listaVehiculos +
+                '}';
+    }
 }
