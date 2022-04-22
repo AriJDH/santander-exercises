@@ -43,7 +43,7 @@ public class C8P2_Ejercicio2 {
             double menor= 9999999.999999;
             int indiceMenor = -1;
             for (int j=0; j<inscriptos.size();j++) {
-                double distancia = inscriptos.get(j).tipo.calcularDistancia(1,2,listaBlancos.get(i)[0],listaBlancos.get(i)[1]);
+                double distancia = inscriptos.get(j).tipo.calcularDistancia(listaBlancos.get(i)[0],listaBlancos.get(i)[1]);
                 if(distancia < menor){
                     menor = distancia;
                     indiceMenor=j;
@@ -112,6 +112,11 @@ public class C8P2_Ejercicio2 {
         public Nave(String nombre, int[] coordenadas) {
             this.coordenadas = coordenadas;
         }
+
+        @Override
+        public double calcularDistancia(int x2, int y2) {
+            return Math.sqrt((Math.pow((this.coordenadas[0]-x2),2)) + (Math.pow((this.coordenadas[1]-y2),2)));
+        }
     }
 
     public static class FlotaNaves implements ICalculable{
@@ -132,10 +137,10 @@ public class C8P2_Ejercicio2 {
         }
 
         @Override
-        public double calcularDistancia(int x1, int y1, int x2, int y2) {
+        public double calcularDistancia(int x2, int y2) {
             double total =0;
             for (ICalculable nave: naves) {
-                total+= nave.calcularDistancia(x1,y1,x2,y2);
+                total+= nave.calcularDistancia(x2,y2);
             }
             return total/naves.size();
         }
