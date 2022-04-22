@@ -3,7 +3,24 @@ package com.bootcamp.C9P1.clase;
 public class Main {
     public static void main(String[] args) {
         //wrappers();
-        generics();
+        //generics();
+        expresiones_lambda();
+    }
+
+    private static void expresiones_lambda() {
+        IScoring scoring;
+        scoring = (a, b) -> a + b;
+
+        int res = scoring.calcular(12, 15);
+
+        System.out.println(res);
+
+        //evitas tener que crear una clase que herede de la interfaz para
+        // implementar estos calculos
+        scoring = (a,b) -> a + (b * 2);
+        res = scoring.calcular(12, 15);
+        System.out.println(res);
+
     }
 
     private static void wrappers() {

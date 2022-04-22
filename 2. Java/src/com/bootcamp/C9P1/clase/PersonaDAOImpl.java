@@ -26,13 +26,12 @@ public class PersonaDAOImpl implements DAO<Persona, String>{
     }
 
     @Override
-    public void agregar(Persona persona) {
-        personas.add(persona);
-    }
-
-
-    @Override
     public List<Persona> listar() {
         return personas;
+    }
+
+    @Override
+    public void agregar(Persona persona) {
+        personas.add(persona);
     }
 }
