@@ -25,7 +25,5 @@ public class Main {
         listaVehiculos.add(crearVehiculo("Toyota", "Fortuner", 3000.0));
         listaVehiculos.add(crearVehiculo("Renault", "Logan", 950.0));
         Garage garage = new Garage(0, listaVehiculos);
-        garage.mostrarPrecioDeMenorAMayor();
-
     }
 }

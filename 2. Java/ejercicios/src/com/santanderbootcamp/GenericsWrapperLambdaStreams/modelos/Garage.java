@@ -31,6 +31,10 @@ public class Garage {
         listaVehiculos.stream().sorted((va,vb)->va.getCosto().compareTo(vb.getCosto())).forEach(System.out::println);
     }
 
+    public void mostrarMarcaPrecioDeMenorAMayor() {
+        listaVehiculos.stream().sorted((va,vb)->va.getCosto().compareTo(vb.getCosto())).sorted((va,vb)->va.getMarca().compareTo(vb.getMarca())).forEach(System.out::println);
+    }
+
     @Override
     public String toString() {
         return "Garage{" +
