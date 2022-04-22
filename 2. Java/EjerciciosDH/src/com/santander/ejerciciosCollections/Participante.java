@@ -1,4 +1,4 @@
-package com.santander.ejercicios;
+package com.santander.ejerciciosCollections;
 import java.util.Objects;
 
 public class Participante {

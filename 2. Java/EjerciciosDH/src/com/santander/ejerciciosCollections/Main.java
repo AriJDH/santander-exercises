@@ -1,4 +1,4 @@
-package com.santander.ejercicios;
+package com.santander.ejerciciosCollections;
 
 import java.util.LinkedList;
 import java.util.Scanner;
