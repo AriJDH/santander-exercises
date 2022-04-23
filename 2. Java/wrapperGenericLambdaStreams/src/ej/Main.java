@@ -1,10 +1,8 @@
 package ej;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.OptionalDouble;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,14 +21,19 @@ public class Main {
         Garage g1= new Garage("2",listaVehiculos);
         Comparator<Vehiculo> byMarca = Comparator.comparing(Vehiculo::getMarca);
         Comparator<Vehiculo> byCosto = Comparator.comparing(Vehiculo::getCosto);
-        g1.getVehiculos().sort(byMarca.thenComparing(byCosto));
-        System.out.println(g1.getVehiculos());
+        List<Vehiculo> copy = new ArrayList<>(listaVehiculos);
+        copy.sort(byMarca.thenComparing(byCosto));
+        System.out.println(copy);
+        System.out.println("original: ");
+        System.out.println(listaVehiculos);
         List<Vehiculo> autosMenoresA1000= g1.getVehiculos().stream().filter((auto)-> (auto.getCosto()<1000)).collect(Collectors.toList());
         List<Vehiculo> autosMayoresIgualesA1000= g1.getVehiculos().stream().filter((auto)-> (auto.getCosto()>=1000)).collect(Collectors.toList());
+        System.out.println("----");
         autosMenoresA1000.forEach(auto-> System.out.println(auto));
         System.out.println("----");
         autosMayoresIgualesA1000.forEach(auto-> System.out.println(auto));
         System.out.println("----");
+        System.out.println(listaVehiculos);
         OptionalDouble prom= g1.getVehiculos().stream().mapToInt(x -> (int) x.getCosto()).average();
         System.out.println(prom);
     }
