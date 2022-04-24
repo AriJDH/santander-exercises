@@ -29,34 +29,32 @@ public class APP {
         objetivo2.add(3);
         objetivo2.add(0);
         List<Integer> objetivo3 = new ArrayList<>(2);
+        objetivo3.add(0);
         objetivo3.add(2);
-        objetivo3.add(1);
         List<List> objetivos = new ArrayList<>(3);
         objetivos.add(objetivo1);
         objetivos.add(objetivo2);
         objetivos.add(objetivo3);
         List<Jugador> jugadores = new ArrayList<>(2);
         jugadores.add(juan);
-        //juan.inscribirse(jugadores);
-        mica.inscribirse(jugadores);
+        jugadores.add(mica);
         double distanciaMasCercana;
         for(List<Integer> obj : objetivos ) {
             Jugador masCercano = jugadores.get(0);
-            distanciaMasCercana = ((Participante) jugadores.get(0)).equipo.calcularDistancia(obj);
-            //System.out.println(jugadores.get(0).equipo);
-            //distanciaMasCercana = jugadores.get(0).equipo.calcularDistancia(obj);
+            distanciaMasCercana = ((Participante) jugadores.get(0)).getEquipo().calcularDistancia(obj);
             for(int i=1; i<jugadores.size(); i++) {
-                if(((Participante) jugadores.get(i)).equipo.calcularDistancia(obj) < distanciaMasCercana) {
-                    distanciaMasCercana =  ((Participante) jugadores.get(i)).equipo.calcularDistancia(obj);
+                if(((ParticipanteFlota) jugadores.get(i)).getEquipo().calcularDistancia(obj) < distanciaMasCercana) {
+                    distanciaMasCercana =  ((ParticipanteFlota) jugadores.get(i)).getEquipo().calcularDistancia(obj);
                     masCercano = jugadores.get(i);
                 }
             }
+            masCercano.setPuntos(masCercano.getPuntos() + 1);
             System.out.println("El jugador con el equipo más cercano al objetivo fue " + masCercano + " con una distancia de " + distanciaMasCercana + " celdas.");
             masCercano.puntos++;
         }
         int puntajeMasAlto = jugadores.get(0).getPuntos();
         Jugador mayorPuntaje = jugadores.get(0);
-        for(int i=1; i<jugadores.size(); i++) {
+        for(int i=0; i<jugadores.size(); i++) {
             int puntaje = jugadores.get(i).getPuntos();
             if(puntaje > puntajeMasAlto) {
                 puntajeMasAlto = puntaje;

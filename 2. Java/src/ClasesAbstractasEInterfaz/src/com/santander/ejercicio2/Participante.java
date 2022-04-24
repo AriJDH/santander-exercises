@@ -2,15 +2,15 @@ package com.santander.ejercicio2;
 
 import java.util.List;
 
-public class Participante extends Jugador {
+public class Participante extends Jugador<Nave> {
     private String nombre;
-    public Nave equipo;
     private int puntos;
+    private Nave equipo;
 
-    public Participante(String nombre, Nave nave) {
+    public Participante(String nombre, Nave equipo) {
         this.nombre = nombre;
-        this.equipo = nave;
-        puntos = 0;
+        this.equipo = equipo;
+        this.puntos = 0;
     }
 
     public String getNombre() {
@@ -21,16 +21,9 @@ public class Participante extends Jugador {
         this.nombre = nombre;
     }
 
-    public void setEquipo(Nave nave) {
-        this.equipo = nave;
-    }
-
     @Override
     public String toString() {
-        return "Participante{" +
-                "nombre='" + nombre + '\'' +
-                ", nave=" + equipo +
-                '}';
+        return nombre;
     }
 
     @Override
@@ -38,8 +31,14 @@ public class Participante extends Jugador {
         lista.add(this);
     }
 
+
     public Nave getEquipo() {
         return equipo;
+    }
+
+    @Override
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
     }
 
     public int getPuntos() {
