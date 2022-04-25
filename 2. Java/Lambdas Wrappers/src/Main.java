@@ -1,12 +1,11 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
         ArrayList<Vehiculo> listaVehiculos = new ArrayList<>();
 
+        //Instancia y add
         listaVehiculos.add(new Vehiculo("Fiesta", "Ford", 1000));
         listaVehiculos.add(new Vehiculo("Focus", "Ford", 1200));
         listaVehiculos.add(new Vehiculo("Explorer", "Ford", 2500));
@@ -21,16 +20,27 @@ public class Main {
 
         Garage garaje = new Garage(1, listaVehiculos);
 
-
+        //Ordenados por precio
         listaVehiculos.stream().sorted().forEach(System.out::println);
 
-       // Collections.sort(listaVehiculos, (x, y) -> x.getCosto().(y.getCosto()));
+        //Por marca y precio
+        Comparator<Vehiculo> comparadorA= (va, vb) -> va.getMarca().compareTo(vb.getMarca());
+        Comparator<Vehiculo> comparadorB= comparadorA.thenComparing((va, vb) -> va.getCosto().compareTo(vb.getCosto()));
+        listaVehiculos.sort(comparadorB);
 
+        listaVehiculos.forEach(System.out::println);
 
+        //mayores o iguales a 1000
+        List<Vehiculo> mayores= listaVehiculos.stream().filter(vehiculo -> vehiculo.getCosto()>=1000).collect(Collectors.toList());
+        mayores.forEach(System.out::println);
 
+        //menores o iguales a 1000
+        List<Vehiculo> menores= listaVehiculos.stream().filter(vehiculo -> vehiculo.getCosto()<1000).collect(Collectors.toList());
+        menores.forEach(System.out::println);
 
-
-
+        //Promedio
+        IntSummaryStatistics sumaPrecios= listaVehiculos.stream().collect(Collectors.summarizingInt(Vehiculo::getCosto));
+        System.out.println("El promedio de precios es de: " + sumaPrecios.getAverage());
 
 
 

@@ -4,6 +4,7 @@ public class Vehiculo  implements Comparable{
     private Integer costo;
 
     public Vehiculo(String modelo, String marca, int costo) {
+
         this.modelo = modelo;
         this.marca = marca;
         this.costo = costo;
@@ -34,7 +35,7 @@ public class Vehiculo  implements Comparable{
     }
     @Override
     public String toString()
-    {    return "Vehiculo [modelo" + modelo + ", marca" + marca + ", costo" + costo + "]";
+    {    return "Vehiculo [modelo " + modelo + ", marca " + marca + ", costo " + costo + "]";
 
     }
 
