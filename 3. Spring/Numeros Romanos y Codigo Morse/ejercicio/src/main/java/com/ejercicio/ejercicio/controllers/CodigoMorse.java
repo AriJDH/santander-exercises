@@ -18,7 +18,8 @@ public class CodigoMorse {
 
          for(int f=0; f<palabra.length(); f++){
              posicion= abc.indexOf(palabra.charAt(f));
-             traduccion= traduccion +morse[posicion];
+             traduccion= traduccion +morse[posicion] + " ";
+
          }
          return traduccion;
 
