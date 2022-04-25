@@ -8,6 +8,7 @@ public class MorseApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MorseApplication.class, args);
-	}
 
+
+	}
 }
