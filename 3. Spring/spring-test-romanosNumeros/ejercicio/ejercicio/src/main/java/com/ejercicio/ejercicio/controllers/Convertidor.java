@@ -24,51 +24,51 @@ public class Convertidor {
                 resultadoRomano += "M";
                 num = num - M;
             } else {
-                if (num>=M-C){
+                if (num >= M - C) {
                     resultadoRomano += "CM";
-                    num = num - (M-C);
-                }else{
+                    num = num - (M - C);
+                } else {
                     if (num >= D) {
                         resultadoRomano += "D";
                         num = num - D;
 
                     } else {
-                        if (num>=D-C){
+                        if (num >= D - C) {
                             resultadoRomano += "CD";
-                            num = num - (D-C);
-                        }else {
+                            num = num - (D - C);
+                        } else {
                             if (num >= C) {
                                 resultadoRomano += "C";
                                 num = num - C;
                             } else {
-                                if (num>=C-X){
+                                if (num >= C - X) {
                                     resultadoRomano += "XC";
-                                    num = num - (C-X);
-                                }else {
+                                    num = num - (C - X);
+                                } else {
                                     if (num >= L) {
                                         resultadoRomano += "L";
                                         num = num - L;
                                     } else {
-                                        if (num>=L-X){
+                                        if (num >= L - X) {
                                             resultadoRomano += "XL";
-                                            num = num - (L-X);
-                                        }else {
+                                            num = num - (L - X);
+                                        } else {
                                             if (num >= X) {
                                                 resultadoRomano += "X";
                                                 num = num - X;
                                             } else {
-                                                if (num>=X-I){
+                                                if (num >= X - I) {
                                                     resultadoRomano += "IX";
-                                                    num = num - (X-I);
-                                                }else {
+                                                    num = num - (X - I);
+                                                } else {
                                                     if (num >= V) {
                                                         resultadoRomano += "V";
                                                         num = num - V;
                                                     } else {
-                                                        if (num>=V-I){
+                                                        if (num >= V - I) {
                                                             resultadoRomano += "IV";
-                                                            num = num - (V-I);
-                                                        }else {
+                                                            num = num - (V - I);
+                                                        } else {
                                                             if (num >= I) {
                                                                 resultadoRomano += "I";
                                                                 num = num - I;
