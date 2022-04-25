@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.Scanner;
+
 
 @RestController
 public class CodigoMorseController {
@@ -13,7 +13,7 @@ public class CodigoMorseController {
 
     @GetMapping
     public String traducir(){
-        Scanner scanner= new Scanner(System.in);
+
         prepararTabla();
         String oracion=".... --- .-.. .-   -- ..- -. -.. ---";//Hola mundo
         String palabrasTraducir[]=oracion.split("   ");
