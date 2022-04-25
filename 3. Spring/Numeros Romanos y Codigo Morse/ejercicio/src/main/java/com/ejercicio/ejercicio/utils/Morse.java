@@ -1,4 +1,4 @@
-package com.ejercicio.ejercicio.controllers;
+package com.ejercicio.ejercicio.utils;
 
 import java.util.Hashtable;
 import java.util.Set;
@@ -56,9 +56,8 @@ public class Morse {
         equivalencias.put("=", "-...-");
         equivalencias.put("!", "−.−.−−");
 
-
         Set<String> claves = equivalencias.keySet();
-        // La clave es la letra ASCII
+
         for (String clave : claves) {
             String morse = equivalencias.get(clave);
             if (morse.equals(morseBuscado)) {
