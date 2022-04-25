@@ -1,0 +1,7 @@
+pom = configuracion y dependencias que voy agregando al proyecto
+
+Web soap= otra arquitectura de api rest
+
+3 dependencias
+
+spring web, lombok, spring boot devtools
