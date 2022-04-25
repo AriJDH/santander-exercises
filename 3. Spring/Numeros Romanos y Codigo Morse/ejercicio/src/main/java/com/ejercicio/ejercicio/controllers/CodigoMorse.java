@@ -11,15 +11,18 @@ public class CodigoMorse {
 
     public static String palabra(@PathVariable("palabra") String palabra){
          String[] morse = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",
-                ".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+                ".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..", " "};
          String abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKMNOPQRSTUVWXYZ";
          int posicion= 0;
          String traduccion= "";
-
+         try{
          for(int f=0; f<palabra.length(); f++){
              posicion= abc.indexOf(palabra.charAt(f));
              traduccion= traduccion +morse[posicion] + " ";
 
+         }
+         }catch (IndexOutOfBoundsException e){
+             System.out.println(e);
          }
          return traduccion;
 
