@@ -41,16 +41,27 @@ public class APP {
         double distanciaMasCercana;
         for(List<Integer> obj : objetivos ) {
             Jugador masCercano = jugadores.get(0);
-            distanciaMasCercana = ((Participante) jugadores.get(0)).getEquipo().calcularDistancia(obj);
-            for(int i=1; i<jugadores.size(); i++) {
-                if(((ParticipanteFlota) jugadores.get(i)).getEquipo().calcularDistancia(obj) < distanciaMasCercana) {
-                    distanciaMasCercana =  ((ParticipanteFlota) jugadores.get(i)).getEquipo().calcularDistancia(obj);
-                    masCercano = jugadores.get(i);
+            if (jugadores.get(0) instanceof Participante) {
+                distanciaMasCercana = ((Participante) jugadores.get(0)).getEquipo().calcularDistancia(obj);
+            } else {
+                distanciaMasCercana = ((ParticipanteFlota) jugadores.get(0)).getEquipo().calcularDistancia(obj);
+            }
+            for (int i = 1; i < jugadores.size(); i++) {
+                if (jugadores.get(i) instanceof Participante) {
+                    if (((Participante) jugadores.get(i)).getEquipo().calcularDistancia(obj) < distanciaMasCercana) {
+                        distanciaMasCercana = ((Participante) jugadores.get(i)).getEquipo().calcularDistancia(obj);
+                        masCercano = jugadores.get(i);
+                    }
+                }
+                else {
+                    if (((ParticipanteFlota) jugadores.get(i)).getEquipo().calcularDistancia(obj) < distanciaMasCercana) {
+                        distanciaMasCercana = ((ParticipanteFlota) jugadores.get(i)).getEquipo().calcularDistancia(obj);
+                        masCercano = jugadores.get(i);
+                    }
                 }
             }
             masCercano.setPuntos(masCercano.getPuntos() + 1);
             System.out.println("El jugador con el equipo más cercano al objetivo fue " + masCercano + " con una distancia de " + distanciaMasCercana + " celdas.");
-            masCercano.puntos++;
         }
         int puntajeMasAlto = jugadores.get(0).getPuntos();
         Jugador mayorPuntaje = jugadores.get(0);

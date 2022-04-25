@@ -2,7 +2,7 @@ package com.santander.ejercicio2;
 
 import java.util.List;
 
-public abstract class Jugador<E>{
+public abstract class Jugador<E> {
 
     public E equipo;
 
