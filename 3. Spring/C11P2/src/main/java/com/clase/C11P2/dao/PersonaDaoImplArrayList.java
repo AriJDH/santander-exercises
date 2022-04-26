@@ -11,13 +11,18 @@ public class PersonaDaoImplArrayList implements Dao<String, Persona>{
 
     public PersonaDaoImplArrayList() {
         this.personas = new ArrayList<>();
-        personas.add(new Persona("Carlos", "Perez"));
-        personas.add(new Persona("Maria", "Juarez"));
-        personas.add(new Persona("Ramona", "Perez"));
+        personas.add(new Persona("38","Carlos", "Perez"));
+        personas.add(new Persona("37", "Maria", "Juarez"));
+        personas.add(new Persona("36","Ramona", "Perez"));
     }
 
     @Override
     public List<Persona> getElementos() {
         return this.personas;
+    }
+
+    @Override
+    public Persona getElementoPorId(String clave) {
+        return null;
     }
 }

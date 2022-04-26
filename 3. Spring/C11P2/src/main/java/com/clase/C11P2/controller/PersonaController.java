@@ -3,6 +3,7 @@ package com.clase.C11P2.controller;
 import com.clase.C11P2.model.Persona;
 import com.clase.C11P2.services.PersonaServicio;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -40,5 +41,10 @@ public class PersonaController {
     @GetMapping("/getpersonas")
     public List<Persona> getServicioPersonas(){
         return personaServicio.getPersonas();
+    }
+
+    @GetMapping("/personas/{dni}")
+    public Persona getPersonaDni(@PathVariable String dni){
+        return personaServicio.getPersonaPorDni(dni);
     }
 }
