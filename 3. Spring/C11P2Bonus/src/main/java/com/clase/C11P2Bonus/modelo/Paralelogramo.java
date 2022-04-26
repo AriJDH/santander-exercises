@@ -11,7 +11,6 @@ public class Paralelogramo extends Cuadrilatero {
     }
 
     //HIPOTESIS.a siempre diagonal a c y b siempre diagonal a D
-    @Override
     public long calcularArea() {
         long ha = this.A.distancia_con(C).getY();
         long a = this.A.distancia_con(B).getX();

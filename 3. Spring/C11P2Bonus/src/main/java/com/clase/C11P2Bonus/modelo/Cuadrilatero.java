@@ -1,6 +1,6 @@
 package com.clase.C11P2Bonus.modelo;
 
-public abstract class Cuadrilatero {
+public class Cuadrilatero {
     protected final Punto A;
     protected final Punto B;
     protected final Punto C;
@@ -14,5 +14,7 @@ public abstract class Cuadrilatero {
         D = d;
     }
 
-    public abstract long calcularArea();
+    public long calcularArea() {
+        return 0;
+    }
 }
