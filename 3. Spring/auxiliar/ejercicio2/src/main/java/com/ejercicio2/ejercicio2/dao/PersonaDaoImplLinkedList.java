@@ -19,4 +19,9 @@ public class PersonaDaoImplLinkedList implements Dao<String, Persona> {
     public List<Persona> getElementos() {
         return this.personas;
     }
+
+    @Override
+    public void agregar(Persona elemento) {
+        personas.add(elemento);
+    }
 }
