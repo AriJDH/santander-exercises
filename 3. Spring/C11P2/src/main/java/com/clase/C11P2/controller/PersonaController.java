@@ -1,6 +1,7 @@
 package com.clase.C11P2.controller;
 
 import com.clase.C11P2.model.Persona;
+import com.clase.C11P2.services.PersonaServicio;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,6 +10,9 @@ import java.util.List;
 
 @RestController
 public class PersonaController {
+
+    private final PersonaServicio personaServicio = new PersonaServicio();
+
 
     @GetMapping("/getpersona")
     public Persona getPersona(){
@@ -20,6 +24,7 @@ public class PersonaController {
         return persona;
     }
 
+    /*
     @GetMapping("/getpersonas")
     public List<Persona> getPersonas(){
         List<Persona> personas = new ArrayList<>();
@@ -27,5 +32,13 @@ public class PersonaController {
         personas.add(new Persona("Maria", "Juarez"));
 
         return personas;
+    }
+    */
+
+    // desde el controller llamamos a la capa servicio
+    // desde el servicio llamamos a la capa dao/repositorio
+    @GetMapping("/getpersonas")
+    public List<Persona> getServicioPersonas(){
+        return personaServicio.getPersonas();
     }
 }
