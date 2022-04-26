@@ -66,9 +66,8 @@ public class Morse {
         String Texto = "";
 
 
-        String[] Codigo;
+        String[] Codigo = morse.split("   ");
 
-        Codigo = morse.split("   ");
 
         for (String m : Codigo) {
             String[] letras;
