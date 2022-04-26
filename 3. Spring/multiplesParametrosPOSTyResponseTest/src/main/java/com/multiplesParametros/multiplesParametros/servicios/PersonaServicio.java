@@ -16,5 +16,8 @@ public class PersonaServicio{
     public Stream<Persona> getPersonasFiltradas(String filtro){
         return personaDao.getElementosFiltrados(filtro);
     }
+    public void addPersona(Persona p1){
+        personaDao.addElemento(p1);
+    }
 
 }

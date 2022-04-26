@@ -9,4 +9,6 @@ public interface Dao <E,K>{
     public List<E> getElementos();
 
     public Stream<E> getElementosFiltrados(K elemento);
+
+    public void addElemento(E elemento);
 }

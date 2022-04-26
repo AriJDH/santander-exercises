@@ -25,7 +25,10 @@ public class DaoPersonaImpleArraylist implements Dao<Persona,String>{
         return personas.stream().filter(p->p.getApellido().equalsIgnoreCase(elemento));
     }
 
-
+    @Override
+    public void addElemento(Persona elemento) {
+        personas.add(elemento);
+    }
 
 
 }

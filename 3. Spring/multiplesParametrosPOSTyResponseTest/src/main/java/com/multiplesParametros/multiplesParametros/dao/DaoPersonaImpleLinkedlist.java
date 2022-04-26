@@ -22,4 +22,9 @@ public class DaoPersonaImpleLinkedlist implements Dao<Persona, String> {
     public Stream<Persona> getElementosFiltrados(String elemento) {
         return personas.stream().filter(p->p.getNombre().equalsIgnoreCase(elemento));
     }
+
+    @Override
+    public void addElemento(Persona elemento) {
+        personas.add(elemento);
+    }
 }
