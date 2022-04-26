@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.InvalidParameterException;
 import java.util.List;
 
 @RestController
@@ -47,7 +46,15 @@ public class Controller {
             return new ResponseEntity<>("This student doesn't exist", HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(String.valueOf(average), HttpStatus.OK);
+        String msg;
+
+        if (average >= 9) {
+            msg = "Congratulations, your average is " + average;
+        } else {
+            msg = "Your average is " + average;
+        }
+
+        return new ResponseEntity<>(msg, HttpStatus.OK);
     }
 
     @PostMapping("/addStudent")
