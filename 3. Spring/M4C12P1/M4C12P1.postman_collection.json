@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "0945deb7-0166-40bb-b645-dd44630a6692",
+		"name": "M4C12P1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Calcular m2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Propiedad_1\",\r\n    \"direccion\": \"San Martin 2020\",\r\n    \"habitaciones\": [\r\n        {\r\n            \"nombre\": \"Habitacion_1\",\r\n            \"ancho\": 100,\r\n            \"largo\": 100\r\n        },\r\n        {\r\n            \"nombre\": \"Habitacion_2\",\r\n            \"ancho\": 350,\r\n            \"largo\": 40\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/calcularMetrosCuadrados",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"calcularMetrosCuadrados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calcular valor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Propiedad_1\",\r\n    \"direccion\": \"San Martin 2020\",\r\n    \"habitaciones\": [\r\n        {\r\n            \"nombre\": \"Habitacion_1\",\r\n            \"ancho\": 100,\r\n            \"largo\": 100\r\n        },\r\n        {\r\n            \"nombre\": \"Habitacion_2\",\r\n            \"ancho\": 350,\r\n            \"largo\": 40\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/calcularValorPropiedad",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"calcularValorPropiedad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Habitacion mas grande",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Propiedad_1\",\r\n    \"direccion\": \"San Martin 2020\",\r\n    \"habitaciones\": [\r\n        {\r\n            \"nombre\": \"Habitacion_1\",\r\n            \"ancho\": 100,\r\n            \"largo\": 100\r\n        },\r\n        {\r\n            \"nombre\": \"Habitacion_2\",\r\n            \"ancho\": 350,\r\n            \"largo\": 40\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/MostrarHabitacionMasGrande",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"MostrarHabitacionMasGrande"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Habitaciones m2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Propiedad_1\",\r\n    \"direccion\": \"San Martin 2020\",\r\n    \"habitaciones\": [\r\n        {\r\n            \"nombre\": \"Habitacion_1\",\r\n            \"ancho\": 100,\r\n            \"largo\": 100\r\n        },\r\n        {\r\n            \"nombre\": \"Habitacion_2\",\r\n            \"ancho\": 350,\r\n            \"largo\": 40\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/MostrarMetrosCuadradosPorHabitacion",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"MostrarMetrosCuadradosPorHabitacion"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
