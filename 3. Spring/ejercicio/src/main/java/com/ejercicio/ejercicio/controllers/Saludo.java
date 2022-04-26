@@ -91,8 +91,6 @@ public class Saludo {
         return "";
     }
 
-
-
     public static Hashtable<String, String> obtenerEquivalencias() {
         Hashtable<String, String> equivalencias = new Hashtable<>();
         equivalencias.put("A", ".-");
