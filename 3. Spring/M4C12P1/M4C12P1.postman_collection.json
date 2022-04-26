@@ -108,6 +108,32 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Diploma",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Gonzalo\",\r\n    \"asignaturas\": [\r\n        {\r\n            \"nombre\": \"Matematica\",\r\n            \"nota\": 9\r\n        },\r\n        {\r\n            \"nombre\": \"Biologia\",\r\n            \"nota\": 5\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/obtenerDiploma",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"obtenerDiploma"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
