@@ -2,7 +2,6 @@ package com.multiplesParametros.multiplesParametros.servicios;
 
 import com.multiplesParametros.multiplesParametros.dao.Dao;
 import com.multiplesParametros.multiplesParametros.dao.DaoPersonaImpleArraylist;
-import com.multiplesParametros.multiplesParametros.dao.DaoPersonaImpleLinkedlist;
 import com.multiplesParametros.multiplesParametros.modelo.Persona;
 
 import java.util.List;
