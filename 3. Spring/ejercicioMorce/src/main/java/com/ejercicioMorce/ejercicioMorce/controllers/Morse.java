@@ -47,7 +47,7 @@ public class Morse {
         tablaConvertion.put("--..","Z");
         tablaConvertion.put(" "," ");
 
-
+//http://localhost:8080/-... ..- . -. --- ...   -.. .. .- ...   ... .- -. - .- -. -.. . .-.
 
         String[] parts = codigo.split("   ");
         for (int i = 0; i < parts.length; i++) {
