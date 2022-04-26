@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "8453d244-6b15-4642-aea9-f60c2aad52b4",
+		"name": "Ejercicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ejercicio1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Propiedad_1\",\r\n    \"direccion\": \"B\",\r\n    \"habitacionesDTO\": [\r\n        {\r\n            \"nombre\": \"Habitacion_1\",\r\n            \"ancho\": 100,\r\n            \"largo\": 100\r\n        },\r\n        {\r\n            \"nombre\": \"Habitacion_2\",\r\n            \"ancho\": 250,\r\n            \"largo\": 40\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/metrocuadrado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"metrocuadrado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Propiedad_1\",\r\n    \"direccion\": \"B\",\r\n    \"habitacionesDTO\": [\r\n        {\r\n            \"nombre\": \"Habitacion_1\",\r\n            \"ancho\": 100,\r\n            \"largo\": 100\r\n        },\r\n        {\r\n            \"nombre\": \"Habitacion_2\",\r\n            \"ancho\": 250,\r\n            \"largo\": 40\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/valorpropiedad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"valorpropiedad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Propiedad_1\",\r\n    \"direccion\": \"B\",\r\n    \"habitacionesDTO\": [\r\n        {\r\n            \"nombre\": \"Habitacion_1\",\r\n            \"ancho\": 100,\r\n            \"largo\": 100\r\n        },\r\n        {\r\n            \"nombre\": \"Habitacion_2\",\r\n            \"ancho\": 350,\r\n            \"largo\": 40\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/habitaciongrande",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"habitaciongrande"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Propiedad_1\",\r\n    \"direccion\": \"B\",\r\n    \"habitacionesDTO\": [\r\n        {\r\n            \"nombre\": \"Habitacion_1\",\r\n            \"ancho\": 100,\r\n            \"largo\": 100\r\n        },\r\n        {\r\n            \"nombre\": \"Habitacion_2\",\r\n            \"ancho\": 350,\r\n            \"largo\": 40\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/habitaciongrande",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"habitaciongrande"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
