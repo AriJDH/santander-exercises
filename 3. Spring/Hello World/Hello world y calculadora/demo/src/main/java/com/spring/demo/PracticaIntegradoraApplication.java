@@ -1,5 +1,7 @@
 package com.spring.demo;
 
+import com.spring.demo.controllers.DAO.DaoPersonaImple;
+import com.spring.demo.controllers.DAO.dao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -14,7 +16,7 @@ public class PracticaIntegradoraApplication implements CommandLineRunner {
 		SpringApplication.run(PracticaIntegradoraApplication.class, args);}
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("hola");
+		dao personadao = new DaoPersonaImple();
 	}
 
 }
