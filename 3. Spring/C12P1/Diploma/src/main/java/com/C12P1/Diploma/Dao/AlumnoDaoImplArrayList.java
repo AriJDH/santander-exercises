@@ -4,7 +4,6 @@ import com.C12P1.Diploma.Modelo.Alumno;
 import com.C12P1.Diploma.Modelo.Materia;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class AlumnoDaoImplArrayList implements Dao<Alumno> {
@@ -50,7 +49,9 @@ public class AlumnoDaoImplArrayList implements Dao<Alumno> {
 
     @Override
     public String Mensaje(Alumno alumno) {
-        return "Felicitaciones "+ alumno.getNombre()+"!";
+        if (Promedio(alumno) >= 9) {
+            return "Se le otorga el diploma al alumno " + alumno.getNombre() + "!\n Felicitaciones por el gran promedio de: ";
+        }
+        return "Se le otorga el diploma al alumno " + alumno.getNombre() + "!\n con promedio: ";
     }
-
 }
