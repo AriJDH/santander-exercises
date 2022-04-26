@@ -10,8 +10,8 @@ public class Paralelogramo extends Cuadrilatero{
         this.xSubUno=xSubUno;
     }
 
-    @Override
+
     public int calcularArea() {
-        return 0;
+        return (this.x - this.y) * 2 + (xSubUno - ySubDos) * 2;
     }
 }

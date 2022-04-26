@@ -1,11 +1,8 @@
 package com.claseExtra.claseExtra.controllers;
 
-import com.claseExtra.claseExtra.modelo.Cuadrado;
-import com.claseExtra.claseExtra.modelo.Cuadrilatero;
-import com.claseExtra.claseExtra.modelo.Paralelogramo;
+import com.claseExtra.claseExtra.modelo.*;
 import com.claseExtra.claseExtra.services.Calculador;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,20 +23,19 @@ public class CuadrilateroController {
         return calculador.calcularArea(paralelogramo);
     }
 
-    /*
-    @GetMapping("/trapezoide")
-    public int calcularAreaCuadrado(){
-        return calculador.calcularArea();
+    @GetMapping("/rectangulo")
+    public int calcularAreaRectangulo(int x, int y, int subX, int subY){
+        Cuadrilatero rectangulo = new Rectangulo(x, y, subX, subY);
+        return calculador.calcularArea(rectangulo);
     }
+
+
     @GetMapping("/trapezoide")
-    public int calcularAreaCuadrado(){
-        return calculador.calcularArea()
+    public int calcularAreaTrapezoide(@RequestParam int x,@RequestParam int y,@RequestParam int xSubUno,@RequestParam  int ySubUno
+            , @RequestParam int xSubDos,@RequestParam int ySubDos,@RequestParam int xSubTres,@RequestParam int ySubTres){
+        Cuadrilatero trapezoide = new Trapezoide(x, y, xSubUno, ySubUno, xSubDos, ySubDos, xSubTres, ySubTres);
+        return calculador.calcularArea(trapezoide);
     }
-    @GetMapping("/trapezoide")
-    public int calcularAreaCuadrado(){
-        return calculador.calcularArea()
-    }
-    */
 
 
 }
