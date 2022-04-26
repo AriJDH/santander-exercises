@@ -6,8 +6,8 @@ public interface Dao<K, E> {
 
     List<E> getElements();
 
-    E getElement(K name);
+    E getElement(K k);
 
-    void addElement(E student);
+    void addElement(E e);
 
 }

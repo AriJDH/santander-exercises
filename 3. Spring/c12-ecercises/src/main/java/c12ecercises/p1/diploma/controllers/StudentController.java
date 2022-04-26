@@ -1,6 +1,6 @@
 package c12ecercises.p1.diploma.controllers;
 
-import c12ecercises.p1.diploma.AppApplication;
+import c12ecercises.p1.diploma.DiplomaApplication;
 import c12ecercises.p1.diploma.models.Student;
 import c12ecercises.p1.diploma.services.StudentService;
 import org.slf4j.Logger;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class Controller {
+public class StudentController {
 
     StudentService studentService = new StudentService();
-    Logger LOGGER = LoggerFactory.getLogger(AppApplication.class);
+    Logger LOGGER = LoggerFactory.getLogger(DiplomaApplication.class);
 
     @GetMapping("/getStudents")
     public ResponseEntity<List<Student>> getStudents() {
