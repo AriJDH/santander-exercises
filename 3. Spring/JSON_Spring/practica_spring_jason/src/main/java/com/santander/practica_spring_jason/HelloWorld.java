@@ -18,10 +18,14 @@ public class HelloWorld {
 
     @GetMapping(path = "/{dia}/{mes}/{anio}")
     public int calcular(@PathVariable int dia, @PathVariable int mes, @PathVariable int anio){
+
         String[] fechaActual = LocalDateTime.now().toString().split("T");
         String[] anioMesDia = fechaActual[0].split("-");
         int edad = Integer.parseInt(anioMesDia[0]) - (anio+1);
-        if (Integer.parseInt(anioMesDia[1]) >= mes && Integer.parseInt(anioMesDia[2]) >= dia) {
+        if (Integer.parseInt(anioMesDia[1]) >= mes) {
+            edad += 1;
+        }
+        else if (Integer.parseInt(anioMesDia[1]) == mes && Integer.parseInt(anioMesDia[2]) >= dia) {
             edad += 1;
         }
         return edad;
