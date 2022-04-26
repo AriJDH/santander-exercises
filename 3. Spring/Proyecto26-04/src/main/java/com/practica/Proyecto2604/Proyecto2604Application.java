@@ -2,6 +2,8 @@ package com.practica.Proyecto2604;
 
 
 
+import com.practica.Proyecto2604.dao.Dao;
+import com.practica.Proyecto2604.dao.PersonaDaoImplArrayList;
 import com.practica.Proyecto2604.modelo.Persona;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,9 +25,8 @@ public class Proyecto2604Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Persona persona = new Persona();
-		persona.setNombre("Juan");
-		persona.setApellido("Gomez");
-		LOGGER.info(persona.toString());
+		Dao personaDao = new PersonaDaoImplArrayList();
+
+		LOGGER.info(personaDao.getElementos().toString());
 	}
 }
