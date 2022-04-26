@@ -6,8 +6,8 @@ import java.time.Period;
 
 public class Calculardora {
 
-public int getEdad(int dias,int meses,int años){
+public static String getEdad(int dias,int meses,int años){
     Period Edad = Period.between(LocalDate.of(años, meses, dias),LocalDate.now());
-    return Edad.getYears();
+    return "Edad: " + Edad.getYears()+ " Años";
 }
 }
