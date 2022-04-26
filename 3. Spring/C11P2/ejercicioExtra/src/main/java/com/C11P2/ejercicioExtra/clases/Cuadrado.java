@@ -11,6 +11,6 @@ public class Cuadrado extends Cuadrilatero{
 
     @Override
     public int calcularArea() {
-        return (this.x - this.y)*(this.x + this.y);
+        return (this.x - this.y)*(this.x - this.y);
     }
 }
