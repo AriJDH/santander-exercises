@@ -1,0 +1,33 @@
+package com.practica.C12P2Practica.controller;
+
+import com.practica.C12P2Practica.dto.IngredienteDTO;
+import com.practica.C12P2Practica.dto.PlatoDTO;
+import com.practica.C12P2Practica.services.PlatoService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+public class CalculadoraCaloriasController {
+    private final PlatoService platoService = new PlatoService();
+
+    @GetMapping("/")
+    public String home(){
+        return "Estas en home";
+    }
+
+    @GetMapping("/plato")
+    public PlatoDTO getDatosPlato(){//@RequestBody PlatoDTO platoDto){
+        List<IngredienteDTO> ingredientesDto = new ArrayList<>();
+        ingredientesDto.add(new IngredienteDTO("Pan", 100));
+        ingredientesDto.add(new IngredienteDTO("Salchicha", 400));
+        PlatoDTO mockPlato = new PlatoDTO("Pancho", ingredientesDto);
+
+        return mockPlato;
+    }
+
+
+}
