@@ -22,25 +22,24 @@ public class PlatoService {
 
     public List<CaloriaIngredienteDTO> getCaloriasTotalesIngredientes(PlatoDTO platoDTO) {
         List<IngredienteDTO> ingredientes = platoDTO.getIngredientes();
-        //pruebo solo con el primer ingrediente
-
         List<CaloriaIngrediente> calorias_ingredientes = new ArrayList<>();
         //dentro de un loop por cada ingrediente del plato
-            IngredienteDTO ingrediente_del_plato = ingredientes.get(0);
+        for (IngredienteDTO ingrediente_del_plato: ingredientes) {
             Ingrediente ingrediente_repo = ingredienteDao.getElementoPorId(ingrediente_del_plato.getNombre());
             String nombre_ingrediente_repo = ingrediente_repo.getName();
             Double calorias_ingrediente_repo = ingrediente_repo.getCalories();
 
-            // calculo la calorias segun el peso
-            // calorias son cada 100g
-
+            // HIPOTESIS: calorias json son cada 100g
             // TODO: ver donde meto el 100
+            // calculo la calorias segun el peso
             Double total_calorias_ingrediente = calorias_ingrediente_repo * ingrediente_del_plato.getPeso() / 100;
 
             CaloriaIngrediente caloriaIngrediente = new CaloriaIngrediente(nombre_ingrediente_repo, total_calorias_ingrediente);
 
             calorias_ingredientes.add(caloriaIngrediente);
-            //hago el map a DTO
+        }
+
+        //hago el map a DTO
         List<CaloriaIngredienteDTO> caloria_ingrediente_DTOs = calorias_ingredientes.stream().map(
                 c -> new CaloriaIngredienteDTO(c.getNombre(),c.getTotalCalorias())
         ).collect(Collectors.toList());
