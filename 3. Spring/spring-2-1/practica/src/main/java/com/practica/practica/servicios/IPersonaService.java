@@ -15,4 +15,6 @@ public interface IPersonaService {
 
     public PersonaDto getPersona();
 
+    public PersonaDto getPersona(String nombre);
+
 }

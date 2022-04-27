@@ -1,6 +1,8 @@
 package com.practica.practica.controllers;
 
+import com.practica.practica.dtos.ErrorDto;
 import com.practica.practica.dtos.PersonaDto;
+import com.practica.practica.exception.PersonaException;
 import com.practica.practica.modelo.Persona;
 import com.practica.practica.servicios.IPersonaService;
 import com.practica.practica.servicios.PersonaService;
@@ -9,10 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +23,11 @@ public class PersonaController {
 
     @Autowired
     IPersonaService personaService; // = new PersonaService();
+
+    @GetMapping("/getpersonapornombre/{nombre}")
+    public ResponseEntity<PersonaDto>  getPersona(@PathVariable String nombre) {
+        return new ResponseEntity<>(personaService.getPersona(nombre), HttpStatus.OK);
+    }
 
     @GetMapping("/getpersona")
     public ResponseEntity<PersonaDto>  getPersona() {
@@ -41,7 +45,6 @@ public class PersonaController {
         personaService.agregar(personaDto);
         return new ResponseEntity<>("Se agregó el registro con éxito", HttpStatus.OK);
     }
-
 
 
 }

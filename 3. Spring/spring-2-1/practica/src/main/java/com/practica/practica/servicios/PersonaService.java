@@ -1,6 +1,7 @@
 package com.practica.practica.servicios;
 
 import com.practica.practica.dtos.PersonaDto;
+import com.practica.practica.exception.PersonaException;
 import com.practica.practica.repo.Dao;
 import com.practica.practica.repo.PersonaDaoImplArrayList;
 import com.practica.practica.modelo.Persona;
@@ -48,6 +49,20 @@ public class PersonaService implements IPersonaService {
         persona.setNombre("Pedro");
         persona.setApellido("Gomez");
         return persona;
+    }
+
+    @Override
+    public PersonaDto getPersona(String nombre) {
+        List<Persona> personas = personaDao.getElementos();
+        Persona persona = personas.stream().filter(p -> p.getNombre().equals(nombre)).findFirst().orElse(null);
+        if( persona == null) {
+            throw new PersonaException(" nombre invalido " + nombre);
+        }
+        PersonaDto personaDto = new PersonaDto();
+        personaDto.setNombre(persona.getNombre());
+        personaDto.setApellido(persona.getApellido());
+        personaDto.setFechaNacimiento(persona.getFechaNacimiento());
+        return personaDto;
     }
 
 }
