@@ -46,4 +46,20 @@ public class PlatoService {
 
         return caloria_ingrediente_DTOs;
     }
+
+    public Double getCaloriasTotalPlato(PlatoDTO platoDTO) {
+        List<IngredienteDTO> ingredientes = platoDTO.getIngredientes();
+        double total_calorias_plato = 0;
+        for (IngredienteDTO ingrediente_del_plato: ingredientes) {
+            Ingrediente ingrediente_repo = ingredienteDao.getElementoPorId(ingrediente_del_plato.getNombre());
+            String nombre_ingrediente_repo = ingrediente_repo.getName();
+            Double calorias_ingrediente_repo = ingrediente_repo.getCalories();
+
+            double total_calorias_ingrediente = calorias_ingrediente_repo * ingrediente_del_plato.getPeso() / 100;
+
+            total_calorias_plato += total_calorias_ingrediente;
+        }
+
+        return total_calorias_plato;
+    }
 }

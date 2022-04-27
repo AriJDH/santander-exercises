@@ -35,10 +35,16 @@ public class CalculadoraCaloriasController {
         return mockPlato;
     }
 
-    @GetMapping("/plato")
-    public ResponseEntity<List<CaloriaIngredienteDTO>> getDatosPlato(@RequestBody PlatoDTO platoDTO){
+    @GetMapping("/caloriasPorIngrediente")
+    public ResponseEntity<List<CaloriaIngredienteDTO>> getCaloriasPorIngrediente(@RequestBody PlatoDTO platoDTO){
         List<CaloriaIngredienteDTO> calorias_totales_ingredientes = platoService.getCaloriasTotalesIngredientes(platoDTO);
         return new ResponseEntity<>(calorias_totales_ingredientes, HttpStatus.OK);
+    }
+
+    @GetMapping("/caloriasPlato")
+    public ResponseEntity<Double> getCaloriasPlato(@RequestBody PlatoDTO platoDTO){
+        Double calorias_total_plato = platoService.getCaloriasTotalPlato(platoDTO);
+        return new ResponseEntity<>(calorias_total_plato, HttpStatus.OK);
     }
 
 
