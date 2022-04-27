@@ -1,6 +1,8 @@
 package com.practica.Proyecto2604.controllers;
 
 import com.practica.Proyecto2604.modelo.Persona;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,13 +13,16 @@ import java.util.List;
 public class PersonaController {
 
     @GetMapping("/getpersona")
-    public Persona getPersona(){
+    public ResponseEntity<Persona> getPersona(){
         Persona persona = new Persona();
         persona.setNombre("Pedro");
         persona.setApellido("Ramirez");
 
-        return persona;
+        return new ResponseEntity<Persona>(persona, HttpStatus.OK);
     }
+
+
+
     @GetMapping("/getpersonas")
     public List<Persona> getPersonas(){
         List<Persona> personas = new ArrayList<>();
