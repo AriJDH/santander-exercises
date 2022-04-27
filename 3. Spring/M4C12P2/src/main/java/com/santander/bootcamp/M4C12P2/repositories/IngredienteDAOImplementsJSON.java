@@ -3,6 +3,7 @@ package com.santander.bootcamp.M4C12P2.repositories;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.santander.bootcamp.M4C12P2.DTO.IngredienteCaloriasDTO;
 import com.santander.bootcamp.M4C12P2.models.Ingrediente;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class IngredienteDAOImplementsJSON implements DAO<Ingrediente>{
+public class IngredienteDAOImplementsJSON implements DAO<IngredienteCaloriasDTO>{
     private List<Ingrediente> ingredientes = new ArrayList<>();
 
     public IngredienteDAOImplementsJSON(){
@@ -39,20 +40,12 @@ public class IngredienteDAOImplementsJSON implements DAO<Ingrediente>{
     }
 
     @Override
-    public void agregar(Ingrediente elemento) {
-        this.ingredientes.add(elemento);
+    public void agregar(IngredienteCaloriasDTO ingredienteCaloriasDTO) {
+        this.ingredientes.add(new Ingrediente(ingredienteCaloriasDTO));
     }
 
     @Override
-    public Ingrediente obtener(String nombre) {
-        Ingrediente buscado = null;
-
-        for (Ingrediente ingrediente : this.ingredientes) {
-            if (ingrediente.getName().equals(nombre)) {
-                buscado = ingrediente;
-            }
-        }
-
-        return buscado;
+    public IngredienteCaloriasDTO obtener(String nombre) {
+        return new IngredienteCaloriasDTO(this.ingredientes.stream().filter(p -> p.getName().equals(nombre)).findFirst().orElse(null));
     }
 }

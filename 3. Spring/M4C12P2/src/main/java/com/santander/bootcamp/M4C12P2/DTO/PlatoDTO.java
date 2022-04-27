@@ -1,6 +1,5 @@
 package com.santander.bootcamp.M4C12P2.DTO;
 
-import com.santander.bootcamp.M4C12P2.models.IngredientePeso;
 import com.santander.bootcamp.M4C12P2.models.Plato;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +10,7 @@ import java.util.List;
 @Data
 public class PlatoDTO {
     private String nombre;
-    //private HashMap<String, Double> ingredientes;
-    private List<IngredientePeso> ingredientes;
+    private List<IngredientePesoDTO> ingredientes;
 
     public PlatoDTO(Plato plato) {
         this.setNombre(plato.getNombre());

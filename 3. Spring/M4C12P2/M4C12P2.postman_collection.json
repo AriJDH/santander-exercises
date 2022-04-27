@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"lasana\",\r\n    \"ingredientes\" : [\r\n        {\r\n        \"nombre\": \"Acelga\",\r\n        \"peso\": 100\r\n    },\r\n    {\r\n        \"nombre\": \"Aceitunas\",\r\n        \"peso\": 200\r\n    }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"nombre\": \"ensalada\",\r\n    \"ingredientes\" : [\r\n        {\r\n        \"nombre\": \"Acelgas\",\r\n        \"peso\": 100\r\n    },\r\n    {\r\n        \"nombre\": \"Calabaza\",\r\n        \"peso\": 200\r\n    }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -85,6 +85,66 @@
 					],
 					"path": [
 						"obtenerCalorias",
+						"Empanada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Ingredientes Calorias",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"lasaña\",\r\n    \"ingredientes\" : [\r\n        {\r\n        \"nombre\": \"Acelga\",\r\n        \"peso\": 100\r\n    },\r\n    {\r\n        \"nombre\": \"Aceitunas\",\r\n        \"peso\": 200\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/obtenerCaloriasIngredientes/Empanada",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"obtenerCaloriasIngredientes",
+						"Empanada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Ingredientes Calorias Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"lasaña\",\r\n    \"ingredientes\" : [\r\n        {\r\n        \"nombre\": \"Acelga\",\r\n        \"peso\": 100\r\n    },\r\n    {\r\n        \"nombre\": \"Aceitunas\",\r\n        \"peso\": 200\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/obtenerIngredientesMasCalorico/Empanada",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"obtenerIngredientesMasCalorico",
 						"Empanada"
 					]
 				}
