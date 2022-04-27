@@ -39,13 +39,6 @@ public class PersonaController {
         return new ResponseEntity<>(personaService.getPersona(nombre), HttpStatus.OK);
     }
 
-    @ExceptionHandler(PersonaNoSeEncuentraException.class)
-    public ResponseEntity<ErrorDTO> handlerException(PersonaNoSeEncuentraException personaNoSeEncuentraException){
-        ErrorDTO errorDto = new ErrorDTO();
-        errorDto.setNombre("Sin registro de cliente");
-        errorDto.setDescripcion("Exception: " + personaNoSeEncuentraException.getMessage());
-        return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
-    }
 
     @PostMapping("/persona")
     public ResponseEntity<String> agregar(@RequestBody PersonaDto personaDto) {
