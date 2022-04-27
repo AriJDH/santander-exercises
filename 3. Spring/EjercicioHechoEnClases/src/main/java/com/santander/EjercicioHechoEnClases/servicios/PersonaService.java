@@ -8,23 +8,21 @@ import com.santander.EjercicioHechoEnClases.modelo.Persona;
 import java.util.List;
 
 public class PersonaService {
+
     public List<Persona> getPersonas() {
         //consultar un texto
         //consultar otra API
         //recibir un correo
         //Hacer algunos calculos
 
-        //Dao personaDao = new PersonaDaoImplLinkedList();
-        //return personaDao.getElementos();
-
-        Dao personaDao = new PersonaDaoImplArrayList();
+        Dao<String,Persona> personaDao = new PersonaDaoImplLinkedList();
+        //Dao<String,Persona> personaDao = new PersonaDaoImplArrayList();
         return personaDao.getElementos();
     }
 
-    //enviar correo
-    public boolean enviar_correo(Persona persona){
-        //obtengo datos de dao.getpersona
-        //enviar correo
-        return true;
+    public Persona getPersonaPorDNI(String dni) {
+        Dao<String, Persona> personaDao = new PersonaDaoImplLinkedList();
+        return personaDao.getElementoPorId(dni);
     }
+
 }

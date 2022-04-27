@@ -21,8 +21,9 @@ public class EjercicioHechoEnClasesApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		PersonaService personaService = new PersonaService();
-		LOGGER.info(personaService.getPersonas().toString());
+		Persona persona = new Persona();
+		persona.setNombre("Juan");
+		persona.setApellido("Martinez");
+		LOGGER.info(persona.toString());
 	}
 }
