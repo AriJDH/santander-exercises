@@ -1,15 +1,15 @@
-package com.ejPOSTyResponse.ejPOSTyResponse.modelo;
+package com.ejPOSTyResponse.ejPOSTyResponse.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@ToString
 @Data
+@ToString
+@NoArgsConstructor
 @AllArgsConstructor
-public class Materia {
+public class MateriaDTO {
     private String nombre;
     private int nota;
-
-
 }

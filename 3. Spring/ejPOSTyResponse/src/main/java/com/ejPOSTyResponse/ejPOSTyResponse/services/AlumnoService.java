@@ -1,28 +1,21 @@
 package com.ejPOSTyResponse.ejPOSTyResponse.services;
 
-import com.ejPOSTyResponse.ejPOSTyResponse.dao.Dao;
-import com.ejPOSTyResponse.ejPOSTyResponse.dao.DaoImplementacion;
-import com.ejPOSTyResponse.ejPOSTyResponse.modelo.Alumno;
-import com.ejPOSTyResponse.ejPOSTyResponse.modelo.Materia;
+import com.ejPOSTyResponse.ejPOSTyResponse.dto.AlumnoDTO;
+import com.ejPOSTyResponse.ejPOSTyResponse.dto.HabitacionDTO;
 
 import java.util.OptionalDouble;
 
 public class AlumnoService {
-    private Dao alumnoDao = new DaoImplementacion();
 
-    public void addAlumno(Alumno a) {
-        alumnoDao.addElemento(a);
-    }
-
-
-    public Double getPromedio(String alum) {
-        Alumno a1 = (Alumno) alumnoDao.getElemento(alum);
-        int acum = 0;
-        for (Materia m : a1.getMaterias()
-        ) {
-            acum += m.getNota();
+    public String mesajefor(AlumnoDTO a1) {
+        String messageDiploma;
+        messageDiploma = "Hola, " + a1.getNombre();
+        Double prom = (a1.getMaterias().stream().mapToDouble(p -> p.getNota()).sum()) / (a1.getMaterias().size());
+        if (prom > 9) {
+            messageDiploma += ". Flacx, sos un genix..";
         }
-        double prom= acum/a1.getMaterias().size();
-        return prom;
+        messageDiploma += ". Tu promedio es de " + prom;
+        return (messageDiploma);
     }
+
 }
