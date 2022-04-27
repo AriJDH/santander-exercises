@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Repository("IngredienteDaoImplJson")
 public class IngredienteDaoImplJson implements Dao<String, Ingrediente> {
@@ -40,5 +41,14 @@ public class IngredienteDaoImplJson implements Dao<String, Ingrediente> {
     @Override
     public List<Ingrediente> getElementos() {
         return ingredientes;
+    }
+
+    @Override
+    public Ingrediente getElementoPorId(String clave) {
+        Ingrediente ingrediente_encontrado = null;
+        if(ingredientes.stream().anyMatch(persona -> Objects.equals(persona.getName(), clave))){
+            ingrediente_encontrado = ingredientes.stream().filter(persona -> Objects.equals(persona.getName(), clave)).findFirst().get();
+        }
+        return ingrediente_encontrado;
     }
 }

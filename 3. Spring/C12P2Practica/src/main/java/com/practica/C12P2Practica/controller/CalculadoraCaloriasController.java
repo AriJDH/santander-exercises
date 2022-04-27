@@ -1,10 +1,12 @@
 package com.practica.C12P2Practica.controller;
 
+import com.practica.C12P2Practica.dto.CaloriaIngredienteDTO;
 import com.practica.C12P2Practica.dto.IngredienteDTO;
 import com.practica.C12P2Practica.dto.PlatoDTO;
-import com.practica.C12P2Practica.model.Ingrediente;
 import com.practica.C12P2Practica.services.PlatoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,9 +36,9 @@ public class CalculadoraCaloriasController {
     }
 
     @GetMapping("/plato")
-    public List<Ingrediente> getDatosPlato(@RequestBody PlatoDTO platoDTO){
-        List<Ingrediente> calorias_totales = platoService.getCaloriasTotalesPlato();
-        return calorias_totales;
+    public ResponseEntity<List<CaloriaIngredienteDTO>> getDatosPlato(@RequestBody PlatoDTO platoDTO){
+        List<CaloriaIngredienteDTO> calorias_totales_ingredientes = platoService.getCaloriasTotalesIngredientes(platoDTO);
+        return new ResponseEntity<>(calorias_totales_ingredientes, HttpStatus.OK);
     }
 
 
