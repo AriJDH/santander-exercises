@@ -14,4 +14,8 @@ public class Materias {
         this.nombre = nombre;
         this.nota = nota;
     }
+
+    public Materias() {
+    }
+
 }

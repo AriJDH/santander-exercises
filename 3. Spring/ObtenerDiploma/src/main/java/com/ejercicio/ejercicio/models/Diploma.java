@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class Diploma {
     protected String mensaje;
-    protected int promedio;
+    protected Double promedio;
     protected String alumno;
 
 }
