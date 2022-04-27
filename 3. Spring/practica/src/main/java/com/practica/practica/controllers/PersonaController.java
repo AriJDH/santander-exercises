@@ -1,6 +1,8 @@
 package com.practica.practica.controllers;
 
+import com.practica.practica.dtos.ErrorDTO;
 import com.practica.practica.dtos.PersonaDto;
+import com.practica.practica.exception.PersonaNoSeEncuentraException;
 import com.practica.practica.modelo.Persona;
 import com.practica.practica.servicios.IPersonaService;
 import com.practica.practica.servicios.PersonaService;
@@ -35,6 +37,14 @@ public class PersonaController {
     @GetMapping("/getpersonapornombre/{nombre}")
     public ResponseEntity<PersonaDto> getPersona(@PathVariable String nombre) {
         return new ResponseEntity<>(personaService.getPersona(nombre), HttpStatus.OK);
+    }
+
+    @ExceptionHandler(PersonaNoSeEncuentraException.class)
+    public ResponseEntity<ErrorDTO> handlerException(PersonaNoSeEncuentraException personaNoSeEncuentraException){
+        ErrorDTO errorDto = new ErrorDTO();
+        errorDto.setNombre("Sin registro de cliente");
+        errorDto.setDescripcion("Exception: " + personaNoSeEncuentraException.getMessage());
+        return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/persona")

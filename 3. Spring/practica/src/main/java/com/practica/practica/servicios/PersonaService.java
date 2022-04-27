@@ -54,7 +54,7 @@ public class PersonaService implements IPersonaService {
         List<Persona> personas = personaDao.getElementos();
         Persona persona = personas.stream().filter(p -> p.getNombre().equals(nombre)).findFirst().orElse(null);
         if(persona == null){
-            throw new PersonaNoSeEncuentraException("No se encuentra registro de peronas");
+            throw new PersonaNoSeEncuentraException("No se encuentra registro de personas");
         }
         //
 
