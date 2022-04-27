@@ -5,7 +5,7 @@ import c12ecercises.p1.diploma.dao.DaoStudent;
 import c12ecercises.p1.diploma.models.Student;
 import c12ecercises.p1.diploma.models.Subject;
 
-import java.security.InvalidParameterException;
+import java.nio.file.InvalidPathException;
 import java.util.List;
 
 public class StudentService {
@@ -20,7 +20,7 @@ public class StudentService {
         Student s = studentDao.getElement(name);
 
         if (s == null) {
-            throw new InvalidParameterException();
+            throw new InvalidPathException(name, "the student doesn't exist");
         } else {
             return s;
         }
@@ -35,7 +35,7 @@ public class StudentService {
         Student s = studentDao.getElement(name);
 
         if (s == null) {
-            throw new InvalidParameterException();
+            throw new InvalidPathException(name, "the student doesn't exist");
         }
 
         double average = 0;

@@ -29,7 +29,7 @@ public class StudentController {
         Student s;
         try {
             s = studentService.getStudent(name);
-        } catch (Exception InvalidParameterException) {
+        } catch (Exception InvalidPathException) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
@@ -42,7 +42,7 @@ public class StudentController {
         double average = 0;
         try {
             average = studentService.getAverage(name);
-        } catch (Exception InvalidParameterException) {
+        } catch (Exception InvalidPathException) {
             return new ResponseEntity<>("This student doesn't exist", HttpStatus.BAD_REQUEST);
         }
 
