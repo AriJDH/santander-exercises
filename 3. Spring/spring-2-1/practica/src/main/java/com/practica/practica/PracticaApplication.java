@@ -1,10 +1,5 @@
 package com.practica.practica;
 
-import com.practica.practica.dao.Dao;
-import com.practica.practica.dao.PersonaDaoImplArrayList;
-import com.practica.practica.dao.PersonaDaoImplLinkedList;
-import com.practica.practica.modelo.Persona;
-import com.practica.practica.servicios.PersonaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

@@ -1,31 +1,53 @@
 package com.practica.practica.servicios;
 
-import com.practica.practica.dao.Dao;
-import com.practica.practica.dao.PersonaDaoImplArrayList;
-import com.practica.practica.dao.PersonaDaoImplLinkedList;
+import com.practica.practica.dtos.PersonaDto;
+import com.practica.practica.repo.Dao;
+import com.practica.practica.repo.PersonaDaoImplArrayList;
 import com.practica.practica.modelo.Persona;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class PersonaService {
+@Service
+public class PersonaService implements IPersonaService {
 
-    public List<Persona> getPersonas() {
+    @Autowired
+    @Qualifier("PersonaDaoImplJson")
+    Dao personaDao; //  = new PersonaDaoImplArrayList();
 
-        // consultar un texto
-        // consultar otra api
-        // recibir un correo
-        // hacer calculos
-
-        Dao personaDao = new PersonaDaoImplArrayList();
-        return personaDao.getElementos();
-
+    public List<PersonaDto> getPersonas() {
+    List<Persona> personas = personaDao.getElementos();
+        List<PersonaDto> personasDto = personas.stream().map(
+                p -> new PersonaDto(p.getNombre(),p.getApellido(),p.getFechaNacimiento())
+        ).collect(Collectors.toList());
+        return personasDto;
     }
 
-    // enviar correo electronico
     public boolean enviarCorreo(Persona persona) {
-        // obtengo datos de dao.getpersona
-        // envio correo
         return true;
+    }
+
+    @Override
+    public void agregar(PersonaDto personaDto) {
+        Persona persona = new Persona();
+        persona.setNombre(personaDto.getNombre());
+        persona.setApellido(personaDto.getApellido());
+        personaDao.agregar(persona);
+    }
+
+    // julian
+    // gonza
+    // Valentino
+
+    @Override
+    public PersonaDto getPersona() {
+        PersonaDto persona = new PersonaDto();
+        persona.setNombre("Pedro");
+        persona.setApellido("Gomez");
+        return persona;
     }
 
 }
