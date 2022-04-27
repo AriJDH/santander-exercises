@@ -1,5 +1,7 @@
 package com.practica.C12P2Starwars.repo;
 
+import java.util.List;
+
 public interface Dao <K,E>{
-    E getElementoPorId(K clave);
+    List<E> getElementos(K palabra);
 }

@@ -1,6 +1,7 @@
 package com.practica.C12P2Starwars.repo;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.practica.C12P2Starwars.models.Personaje;
@@ -19,29 +20,26 @@ public class PersonajeDaoImplJson implements Dao<String, Personaje> {
     public PersonajeDaoImplJson() {
         File file = null;
         try {
-            file = ResourceUtils.getFile("classpath:food.json");
+            file = ResourceUtils.getFile("classpath:starwars.json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         ObjectMapper objectMapper = new ObjectMapper();
+        //objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
         objectMapper.registerModule(new JavaTimeModule());
 
         TypeReference<List<Personaje>> typeRef = new TypeReference<>() {};
-        List<Personaje> ingredientes = null;
+        List<Personaje> personajes = null;
         try {
-            ingredientes = objectMapper.readValue(file, typeRef);
+            personajes = objectMapper.readValue(file, typeRef);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.personajes = ingredientes;
+        this.personajes = personajes;
     }
 
     @Override
-    public Personaje getElementoPorId(String clave) {
-        Personaje ingrediente_encontrado = null;
-        if(personajes.stream().anyMatch(persona -> Objects.equals(persona.getName(), clave))){
-            ingrediente_encontrado = personajes.stream().filter(persona -> Objects.equals(persona.getName(), clave)).findFirst().get();
-        }
-        return ingrediente_encontrado;
+    public List<Personaje> getElementos(String palabra) {
+        return null;
     }
 }
