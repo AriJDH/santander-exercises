@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class PersonajeDaoImplJson implements Dao<String, Personaje> {
     private List<Personaje> personajes = new ArrayList<>();
@@ -40,6 +41,7 @@ public class PersonajeDaoImplJson implements Dao<String, Personaje> {
 
     @Override
     public List<Personaje> getElementos(String palabra) {
-        return null;
+        List<Personaje> personajes_coinciden = this.personajes.stream().filter(p -> p.includes(palabra)).collect(Collectors.toList());
+        return personajes_coinciden;
     }
 }

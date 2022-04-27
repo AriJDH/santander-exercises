@@ -7,6 +7,4 @@ import lombok.Data;
 @Data
 public class PersonajeDTO {
     private String name;
-    private long height;
-    private long mass;
 }

@@ -17,4 +17,7 @@ public class Personaje {
     private String homeworld;
     private String species;
 
+    public boolean includes(String palabra) {
+        return name.contains(palabra);
+    }
 }
