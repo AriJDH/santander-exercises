@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "cfada581-5439-4b14-8b59-9dc0556b0283",
+		"name": "Ejercicio C12P2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ejercicio1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Algo\",\r\n    \"ingredientes\": [\r\n        {\r\n            \"nombre\": \"Aceitunas negras\",\r\n            \"peso\": 9\r\n        },\r\n        {\r\n            \"nombre\": \"Aceitunas verdes\",\r\n            \"peso\": 1\r\n        },\r\n        {\r\n            \"nombre\": \"Acelgas\",\r\n            \"peso\": 3\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/caloriasTotales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"caloriasTotales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Algo\",\r\n    \"ingredientes\": [\r\n        {\r\n            \"name\": \"Aceitunas negras\",\r\n            \"peso\": 2\r\n        },\r\n        {\r\n            \"name\": \"Aceitunas verdes\",\r\n            \"peso\": 1\r\n        },\r\n        {\r\n            \"name\": \"Acelgas\",\r\n            \"peso\": 40\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ingredienteConMayorCalorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ingredienteConMayorCalorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Algo\",\r\n    \"ingredientes\": [\r\n        {\r\n            \"name\": \"Aceitunas negras\",\r\n            \"peso\": 9\r\n        },\r\n        {\r\n            \"name\": \"Aceitunas verdes\",\r\n            \"peso\": 1\r\n        },\r\n        {\r\n            \"name\": \"Acelgas\",\r\n            \"peso\": 3\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/caloriasTotales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"caloriasTotales"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
