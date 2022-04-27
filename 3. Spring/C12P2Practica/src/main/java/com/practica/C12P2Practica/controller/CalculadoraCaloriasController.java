@@ -19,14 +19,19 @@ public class CalculadoraCaloriasController {
         return "Estas en home";
     }
 
-    @GetMapping("/plato")
-    public PlatoDTO getDatosPlato(){//@RequestBody PlatoDTO platoDto){
+    @GetMapping("/prueba/plato")
+    public PlatoDTO getDatosPlato(){
         List<IngredienteDTO> ingredientesDto = new ArrayList<>();
         ingredientesDto.add(new IngredienteDTO("Pan", 100));
         ingredientesDto.add(new IngredienteDTO("Salchicha", 400));
         PlatoDTO mockPlato = new PlatoDTO("Pancho", ingredientesDto);
 
         return mockPlato;
+    }
+
+    @GetMapping("/plato")
+    public PlatoDTO getDatosPlato(@RequestBody PlatoDTO platoDTO){
+        return platoDTO;
     }
 
 

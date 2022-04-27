@@ -8,6 +8,6 @@ import lombok.*;
 
 public class IngredienteDTO {
     private String nombre;
-    private double calorias;
+    private double peso;
 
 }
