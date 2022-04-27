@@ -1,4 +1,4 @@
-package com.santander.ejerciciosTT.models;
+package com.santander.ejerciciosTT.DTO;
 
 public class DiplomaDTO {
     private double promedio;

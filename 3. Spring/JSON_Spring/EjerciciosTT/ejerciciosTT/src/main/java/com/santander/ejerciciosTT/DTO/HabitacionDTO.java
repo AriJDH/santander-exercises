@@ -1,4 +1,4 @@
-package com.santander.ejerciciosTT.models;
+package com.santander.ejerciciosTT.DTO;
 
 public class HabitacionDTO {
     private String nombre;
@@ -32,5 +32,4 @@ public class HabitacionDTO {
                 ", metrosCuadrados=" + metrosCuadrados +
                 '}';
     }
-}
 }
