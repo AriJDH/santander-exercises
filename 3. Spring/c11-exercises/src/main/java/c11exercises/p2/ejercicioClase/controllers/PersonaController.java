@@ -1,8 +1,10 @@
 package c11exercises.p2.ejercicioClase.controllers;
 
 import c11exercises.p2.ejercicioClase.App;
+import c11exercises.p2.ejercicioClase.dto.PersonDto;
 import c11exercises.p2.ejercicioClase.models.Persona;
-import c11exercises.p2.ejercicioClase.servicios.PersonaServicio;
+import c11exercises.p2.ejercicioClase.servicios.PersonaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,25 +18,23 @@ import java.util.List;
 public class PersonaController {
 
     Logger LOGGER = LoggerFactory.getLogger(App.class);
-    PersonaServicio personaServicio = new PersonaServicio();
+
+    @Autowired
+    PersonaService personaServicio; //= new PersonaService();
 
     @GetMapping("/getPersona")
-    public Persona getPersona() {
-        Persona persona = new Persona();
-        persona.setName("asd");
-        persona.setLastname("Aaa");
-
-        return persona;
+    public PersonDto getPersona() {
+        return personaServicio.getPersona();
     }
 
     @GetMapping("/getPersonas")
-    public List<Persona> getPersonas() {
+    public List<PersonDto> getPersonas() {
 
         return personaServicio.getPersonas();
     }
 
     @PostMapping("/createPersona")
-    public ResponseEntity<String> agregar(@RequestBody Persona person) {
+    public ResponseEntity<String> agregar(@RequestBody PersonDto person) {
         LOGGER.info(String.valueOf(person));
 
         personaServicio.addPerson(person);

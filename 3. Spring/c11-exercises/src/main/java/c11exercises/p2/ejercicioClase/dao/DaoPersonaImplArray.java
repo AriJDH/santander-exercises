@@ -1,10 +1,12 @@
 package c11exercises.p2.ejercicioClase.dao;
 
 import c11exercises.p2.ejercicioClase.models.Persona;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository(value = "DaoPersonaImplArray")
 public class DaoPersonaImplArray implements Dao<String, Persona>{
 
     private List<Persona> personas;

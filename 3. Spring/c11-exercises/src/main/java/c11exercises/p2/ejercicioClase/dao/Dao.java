@@ -2,7 +2,7 @@ package c11exercises.p2.ejercicioClase.dao;
 
 import java.util.List;
 
-public interface Dao <K, E> {
+public interface Dao<K, E> {
 
     public List<E> getElements();
 

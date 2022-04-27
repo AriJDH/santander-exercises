@@ -1,0 +1,68 @@
+package c12exercises.diploma.controllers;
+
+import c12exercises.diploma.DiplomaApplication;
+import c12exercises.diploma.models.Student;
+import c12exercises.diploma.services.StudentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class StudentController {
+
+    StudentService studentService = new StudentService();
+    Logger LOGGER = LoggerFactory.getLogger(DiplomaApplication.class);
+
+    @GetMapping("/getStudents")
+    public ResponseEntity<List<Student>> getStudents() {
+
+        return new ResponseEntity<>(studentService.getStudents(), HttpStatus.OK);
+    }
+
+    @GetMapping("/getStudent/{name}")
+    public ResponseEntity<Student> getStudent(@PathVariable String name) {
+
+        Student s;
+        try {
+            s = studentService.getStudent(name);
+        } catch (Exception InvalidPathException) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>(s, HttpStatus.OK);
+    }
+
+    @GetMapping("/average/{name}")
+    public ResponseEntity<String> getAverage(@PathVariable String name) {
+
+        double average = 0;
+        try {
+            average = studentService.getAverage(name);
+        } catch (Exception InvalidPathException) {
+            return new ResponseEntity<>("This student doesn't exist", HttpStatus.BAD_REQUEST);
+        }
+
+        String msg;
+
+        if (average >= 9) {
+            msg = "Congratulations, your average is " + average;
+        } else {
+            msg = "Your average is " + average;
+        }
+
+        return new ResponseEntity<>(msg, HttpStatus.OK);
+    }
+
+    @PostMapping("/addStudent")
+    public ResponseEntity<String> addStudent(@RequestBody Student s) {
+        studentService.addStudent(s);
+
+        LOGGER.info(String.valueOf(s));
+        return new ResponseEntity<>("Student added.", HttpStatus.CREATED);
+    }
+
+}
