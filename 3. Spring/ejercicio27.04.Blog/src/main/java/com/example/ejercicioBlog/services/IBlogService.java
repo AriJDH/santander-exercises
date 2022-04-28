@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface IBlogService {
 
-    public List<BlogDto> findId(Integer id);
+    public BlogDto findId(Integer id);
+    public void addElemento(BlogDto entradaBlog);
 }
