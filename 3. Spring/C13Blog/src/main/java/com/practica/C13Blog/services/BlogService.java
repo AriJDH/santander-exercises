@@ -5,6 +5,9 @@ import com.practica.C13Blog.dtos.EntradaBlogDTO;
 import com.practica.C13Blog.model.EntradaBlog;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class BlogService {
 
@@ -24,5 +27,18 @@ public class BlogService {
                 entradaBlog.getTitulo(),
                 entradaBlog.getNombre_autor(),
                 entradaBlog.getFecha_publicacion());
+    }
+
+    public List<EntradaBlogDTO> getEntradasBlog() {
+        List<EntradaBlog> entradas_blog= entradaBlogDao.getElementos();
+        //mapeo
+        List<EntradaBlogDTO> entradas_dtos = entradas_blog.stream().map(
+                e -> new EntradaBlogDTO(e.getId(),
+                        e.getTitulo(),
+                        e.getNombre_autor(),
+                        e.getFecha_publicacion())
+        ).collect(Collectors.toList());
+
+        return  entradas_dtos;
     }
 }

@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class BlogController {
 
@@ -27,6 +29,13 @@ public class BlogController {
     @GetMapping("/blog/{id}")
     public ResponseEntity<EntradaBlogDTO> getBlog(@PathVariable Integer id){
         EntradaBlogDTO respuesta = blogService.getEntradaBlog(id);
+        return new ResponseEntity<>(respuesta, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/blogs")
+    public ResponseEntity<List<EntradaBlogDTO>> getBlogs(){
+        List<EntradaBlogDTO> respuesta = blogService.getEntradasBlog();
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
 
