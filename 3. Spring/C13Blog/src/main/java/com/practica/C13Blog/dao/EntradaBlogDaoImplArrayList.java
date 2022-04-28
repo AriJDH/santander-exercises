@@ -1,5 +1,6 @@
 package com.practica.C13Blog.dao;
 
+import com.practica.C13Blog.exceptions.EntradaYaExisteException;
 import com.practica.C13Blog.model.EntradaBlog;
 
 import java.util.ArrayList;
@@ -11,7 +12,9 @@ public class EntradaBlogDaoImplArrayList implements Dao<Integer, EntradaBlog> {
 
     @Override
     public void agregar(EntradaBlog elemento) {
-        //TODO: si ya existe id lanzar excepcion
+        if(entradas.stream().anyMatch(e -> e.getId().equals(elemento.getId()))){
+            throw new EntradaYaExisteException();
+        }
         entradas.add(elemento);
     }
 
