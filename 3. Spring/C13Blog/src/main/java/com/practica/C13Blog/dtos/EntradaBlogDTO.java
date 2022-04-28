@@ -12,8 +12,8 @@ import java.time.LocalDate;
 public class EntradaBlogDTO {
     private Integer id;
     private String titulo;
-    private String nombre;
+    private String nombre_autor;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate fecha;
+    private LocalDate fecha_publicacion;
 }

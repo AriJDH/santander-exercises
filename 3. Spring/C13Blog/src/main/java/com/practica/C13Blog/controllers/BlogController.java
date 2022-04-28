@@ -22,6 +22,7 @@ public class BlogController {
 
     @PostMapping("/blogs")
     public ResponseEntity<EntradaBlogDTO> postBlogs(@RequestBody EntradaBlogDTO entradaBlogDTO){
+        //TODO: creo un DTO solo para devolver un mensaje?
         EntradaBlogDTO respuesta = blogService.publicar(entradaBlogDTO);
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
