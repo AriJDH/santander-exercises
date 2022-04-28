@@ -4,10 +4,7 @@ import com.practica.C13Blog.dtos.EntradaBlogDTO;
 import com.practica.C13Blog.services.BlogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BlogController {
@@ -26,4 +23,12 @@ public class BlogController {
         EntradaBlogDTO respuesta = blogService.publicar(entradaBlogDTO);
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
+
+    @GetMapping("/blog/{id}")
+    public ResponseEntity<EntradaBlogDTO> getBlog(@PathVariable Integer id){
+        EntradaBlogDTO respuesta = blogService.getEntradaBlog(id);
+        return new ResponseEntity<>(respuesta, HttpStatus.OK);
+    }
+
+
 }
