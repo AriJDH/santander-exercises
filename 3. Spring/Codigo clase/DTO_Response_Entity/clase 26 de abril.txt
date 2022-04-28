@@ -1,0 +1,6 @@
+DTO
+
+es un paquete que se llama dtos que se centraria en modelar en base a una clase, otra clase para solo transferencia 
+y mostrar los datos.
+
+Podemos tener un dto de respuesta y de envio.
