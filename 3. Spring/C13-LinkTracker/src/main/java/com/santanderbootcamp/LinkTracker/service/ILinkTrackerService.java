@@ -9,5 +9,7 @@ public interface ILinkTrackerService {
 
     public ResponseLinkDto obtenerLinkId(int id, String password);
 
-    public void invalidarLinkId(int id, LinkDto linkDto);
+    public ResponseLinkDto estadisticasLink(int id);
+
+    public ResponseLinkDto invalidarLinkId(int id, LinkDto linkDto);
 }

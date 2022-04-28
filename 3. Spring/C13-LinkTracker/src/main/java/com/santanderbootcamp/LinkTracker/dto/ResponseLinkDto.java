@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class ResponseLinkDto {
     private int id;
     private String url;
+    private String descripcion;
 }

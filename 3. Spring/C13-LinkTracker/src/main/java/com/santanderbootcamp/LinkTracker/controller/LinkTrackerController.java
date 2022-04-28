@@ -26,16 +26,13 @@ public class LinkTrackerController {
         return new RedirectView(linkTrackerService.obtenerLinkId(id, password).getUrl());
     }
 
-    @PostMapping("/invalidate/{id}")
-    public ResponseEntity<String> invalidar(@PathVariable int id, @RequestBody LinkDto linkDto) {
-        linkTrackerService.invalidarLinkId(id, linkDto);
-        return new ResponseEntity<>("El link fue eliminado", HttpStatus.OK);
+    @GetMapping("/metrics/{id}")
+    public ResponseEntity<ResponseLinkDto> estadisticas(@PathVariable int id) {
+        return new ResponseEntity<>(linkTrackerService.estadisticasLink(id), HttpStatus.OK);
     }
-    /*
-    public RedirectView redirection() throws MalformedURLException {
-        URL url = null;
-        String direccion = "htwww.yahoo.com";
-        url = new URL(direccion);
-        return new RedirectView(direccion);
-    }*/
+
+    @PostMapping("/invalidate/{id}")
+    public ResponseEntity<ResponseLinkDto> invalidar(@PathVariable int id, @RequestBody LinkDto linkDto) {
+        return new ResponseEntity<>(linkTrackerService.invalidarLinkId(id, linkDto), HttpStatus.OK);
+    }
 }

@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class Link {
     private String url;
     private String password;
+    private int accesos;
 }
