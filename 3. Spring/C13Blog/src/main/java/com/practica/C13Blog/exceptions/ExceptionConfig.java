@@ -15,4 +15,10 @@ public class ExceptionConfig {
         return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(EntradaNoExisteException.class)
+    public ResponseEntity<ErrorDTO> handlerException(EntradaNoExisteException entradaNoExisteException){
+        ErrorDTO errorDto = new ErrorDTO("Entrada no existe", "Exception: " + entradaNoExisteException.getMessage());
+        return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
+    }
+
 }
