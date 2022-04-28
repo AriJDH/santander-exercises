@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "a0fd76b4-49a0-4b7f-8c35-3e897cfece13",
+		"name": "M4C12P2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Agregar Plato",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"ensalada\",\r\n    \"ingredientes\" : [\r\n        {\r\n        \"nombre\": \"Acelgas\",\r\n        \"peso\": 100\r\n    },\r\n    {\r\n        \"nombre\": \"Calabaza\",\r\n        \"peso\": 200\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/agregarPlato",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"agregarPlato"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Plato",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"lasaña\",\r\n    \"ingredientes\" : [\r\n        {\r\n        \"nombre\": \"Acelga\",\r\n        \"peso\": 100\r\n    },\r\n    {\r\n        \"nombre\": \"Aceitunas\",\r\n        \"peso\": 200\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/obtenerPlato/Milanesa",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"obtenerPlato",
+						"Milanesa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Calorias",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"lasaña\",\r\n    \"ingredientes\" : [\r\n        {\r\n        \"nombre\": \"Acelga\",\r\n        \"peso\": 100\r\n    },\r\n    {\r\n        \"nombre\": \"Aceitunas\",\r\n        \"peso\": 200\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/obtenerCalorias/Empanada",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"obtenerCalorias",
+						"Empanada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Ingredientes Calorias",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"lasaña\",\r\n    \"ingredientes\" : [\r\n        {\r\n        \"nombre\": \"Acelga\",\r\n        \"peso\": 100\r\n    },\r\n    {\r\n        \"nombre\": \"Aceitunas\",\r\n        \"peso\": 200\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/obtenerCaloriasIngredientes/Empanada",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"obtenerCaloriasIngredientes",
+						"Empanada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Ingredientes Calorias Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"lasaña\",\r\n    \"ingredientes\" : [\r\n        {\r\n        \"nombre\": \"Acelga\",\r\n        \"peso\": 100\r\n    },\r\n    {\r\n        \"nombre\": \"Aceitunas\",\r\n        \"peso\": 200\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/obtenerIngredientesMasCalorico/Empanada",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"obtenerIngredientesMasCalorico",
+						"Empanada"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
