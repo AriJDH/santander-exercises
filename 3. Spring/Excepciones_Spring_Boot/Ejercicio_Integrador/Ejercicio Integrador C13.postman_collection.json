@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "a1ba8ef9-5139-45a6-aac9-eb83241de450",
+		"name": "Ejercicio Integrador C13",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ejercicio1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Pepitos blog\",\r\n        \"autor\": \"Pepitos\",\r\n        \"fecha\": \"2012-01-12\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/blog",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"blog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"Pepitos blog\",\r\n    \"autor\": \"Pepitos\",\r\n    \"fecha\":\"2012-01-12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/blog",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"blog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"Pepitos blog\",\r\n    \"autor\": \"Pepitos\",\r\n    \"fecha\":\"2012-01-12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/blog",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"blog"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
