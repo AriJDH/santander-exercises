@@ -1,6 +1,7 @@
 package com.practica.C13Blog.controllers;
 
 import com.practica.C13Blog.dtos.EntradaBlogDTO;
+import com.practica.C13Blog.dtos.RespuestaEntradaBlogDto;
 import com.practica.C13Blog.services.BlogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +21,9 @@ public class BlogController {
 
 
     @PostMapping("/blogs")
-    public ResponseEntity<EntradaBlogDTO> postBlogs(@RequestBody EntradaBlogDTO entradaBlogDTO){
+    public ResponseEntity<RespuestaEntradaBlogDto> postBlogs(@RequestBody EntradaBlogDTO entradaBlogDTO){
         //TODO: creo un DTO solo para devolver un mensaje?
-        EntradaBlogDTO respuesta = blogService.publicar(entradaBlogDTO);
+        RespuestaEntradaBlogDto respuesta = blogService.publicar(entradaBlogDTO);
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
 

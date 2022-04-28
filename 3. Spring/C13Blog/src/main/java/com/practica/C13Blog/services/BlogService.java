@@ -2,6 +2,7 @@ package com.practica.C13Blog.services;
 
 import com.practica.C13Blog.dao.EntradaBlogDaoImplArrayList;
 import com.practica.C13Blog.dtos.EntradaBlogDTO;
+import com.practica.C13Blog.dtos.RespuestaEntradaBlogDto;
 import com.practica.C13Blog.model.EntradaBlog;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,11 @@ public class BlogService {
 
     EntradaBlogDaoImplArrayList entradaBlogDao = new EntradaBlogDaoImplArrayList();
 
-    public EntradaBlogDTO publicar(EntradaBlogDTO entradaBlogDTO) {
+    public RespuestaEntradaBlogDto publicar(EntradaBlogDTO entradaBlogDTO) {
         EntradaBlog entradaBlog = new EntradaBlog(entradaBlogDTO.getId(), entradaBlogDTO.getTitulo(), entradaBlogDTO.getNombre_autor(), entradaBlogDTO.getFecha_publicacion());
         entradaBlogDao.agregar(entradaBlog);
-        return entradaBlogDTO;
+        RespuestaEntradaBlogDto respuesta = new RespuestaEntradaBlogDto(entradaBlog.getId());
+        return respuesta;
     }
 
     public EntradaBlogDTO getEntradaBlog(Integer id_blog) {
