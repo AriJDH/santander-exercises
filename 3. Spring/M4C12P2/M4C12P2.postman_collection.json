@@ -150,6 +150,29 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Buscar Personaje",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/buscarPersonaje?textoABuscar=darth",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"buscarPersonaje"
+					],
+					"query": [
+						{
+							"key": "textoABuscar",
+							"value": "darth"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
