@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Ejercici2 {
+public class Ejercicio2 {
     public static void main(String[] args) {
 
         //Ingreo por consola los valores de dni y sueldo del empleado
