@@ -5,9 +5,7 @@ import com.starwars.starwars.servicios.IPersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +16,9 @@ public class personajeController {
     @Autowired
     IPersonajeService personajeService;
 
-    @GetMapping("/personajes/{palabra}")
-    public ResponseEntity<List<PersonajeDto>> getPersonajes(@PathVariable String palabra) {
+    @PostMapping("/personajes")
+    public ResponseEntity<List<PersonajeDto>> getPersonajes(@RequestBody String palabra) {
+        System.out.println(palabra);
         List<PersonajeDto> personajeDtos = personajeService.buscarCoincidenciaEnNombre(palabra);
         return new ResponseEntity<>(personajeDtos, HttpStatus.OK);
     }
