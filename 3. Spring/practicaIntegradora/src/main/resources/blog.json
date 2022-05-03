@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "titulo": "Noticias deportivas",
+    "nombre": "Marcos Hulgrave",
+    "fechaPublicacion": "2022-01-01"
+  },
+  {
+    "id": 2,
+    "titulo": "Arranca tu dia bien arriba",
+    "nombre": "Marcos Hulgrave",
+    "fechaPublicacion": "2022-01-04"
+  }
+]
