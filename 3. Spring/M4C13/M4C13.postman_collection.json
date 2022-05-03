@@ -6,109 +6,371 @@
 	},
 	"item": [
 		{
-			"name": "crearEntradaBlog",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 2,\r\n    \"titulo\": \"un titulo\",\r\n    \"autor\": \"un autor\",\r\n    \"fechaPublicacion\": \"01/01/2000\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "blog",
+			"item": [
+				{
+					"name": "crearEntradaBlog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"titulo\": \"un titulo\",\r\n    \"autor\": \"un autor\",\r\n    \"fechaPublicacion\": \"01/01/2000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/crearEntradaBlog",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"crearEntradaBlog"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{HOST}}/crearEntradaBlog",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"crearEntradaBlog"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "crearEntradaBlog Existente",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"un titulo\",\r\n    \"autor\": \"un autor\",\r\n    \"fechaPublicacion\": \"01/01/2000\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "crearEntradaBlog Existente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"un titulo\",\r\n    \"autor\": \"un autor\",\r\n    \"fechaPublicacion\": \"01/01/2000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/crearEntradaBlog",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"crearEntradaBlog"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{HOST}}/crearEntradaBlog",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"crearEntradaBlog"
-					]
+				{
+					"name": "leerEntradaBlog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blog/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "leerEntradaBlog Inexistente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blog/99",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blog",
+								"99"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarEntradasBlog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blogs",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "leerEntradaBlog",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/blog/1",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"blog",
-						"1"
-					]
+			"name": "link tracer",
+			"item": [
+				{
+					"name": "crearLink",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"http://google.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/link",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearLink (password)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"http://google.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/link",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearLink (invalid url)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/link",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirectLink",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/link/0",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"link",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirectLink (password)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/link/2?password=1234",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"link",
+								"2"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": "1234"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirectLink (invalid id)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/link/99",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"link",
+								"99"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirectLink (inactive)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/link/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"link",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirectLink (without password)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/link/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"link",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirectLink (invalid password)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/link/2?password=abc",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"link",
+								"2"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": "abc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/metrics/0",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"metrics",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "metrics (invalid id)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/metrics/99",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"metrics",
+								"99"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalidateLink",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/invalidate/0",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"invalidate",
+								"0"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "leerEntradaBlog Inexistente",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/blog/99",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"blog",
-						"99"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "listarEntradasBlog",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/blogs",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"blogs"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	],
 	"event": [
