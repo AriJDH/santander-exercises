@@ -1,0 +1,603 @@
+{
+	"info": {
+		"_postman_id": "ac30318b-f656-40c2-8a79-b2b824968902",
+		"name": "Sprint I",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "US0001:ObtenerHoteles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0002:FiltrarHotelPorPeriodo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/hotels?dateFrom=10/01/2022&dateTo=10/03/2022&destination=Puerto Iguazú",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotels"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "10/01/2022"
+						},
+						{
+							"key": "dateTo",
+							"value": "10/03/2022"
+						},
+						{
+							"key": "destination",
+							"value": "Puerto Iguazú"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0002:HotelNoDisponibleEnPeriodo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/hotels?dateFrom=10/01/2021&dateTo=10/03/2021&destination=Puerto Iguazú",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotels"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "10/01/2021"
+						},
+						{
+							"key": "dateTo",
+							"value": "10/03/2021"
+						},
+						{
+							"key": "destination",
+							"value": "Puerto Iguazú"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0003:RealizarReservaHotel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombreUsuario\": \"juan\",\n    \"booking\": {\n        \"desde\": \"2022-02-20\",\n        \"hasta\": \"2022-03-10\",\n        \"codigoHotel\": \"CH-0003\",\n        \"destino\": \"Puerto Iguazú\",\n        \"cantidadPersonas\": 1,\n        \"tipoHabitacion\": \"Doble\",\n        \"personas\": [\n            {\n                \"dni\": 38998262,\n                \"nombre\": \"juan\",\n                \"mail\": \"juan@juan.com\",\n                \"apellido\": \"Peréz\",\n                \"nacimiento\": \"1992-06-18\"\n            }\n        ],\n        \"metodoPago\":{\n            \"tipo\": \"CREDIT\",\n            \"numeroTarjeta\": \"7567\",\n            \"cuotas\": 6\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0003:HotelNoDisponibleException",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombreUsuario\": \"juan\",\n    \"booking\": {\n        \"desde\": \"2022-02-09\",\n        \"hasta\": \"2022-02-10\",\n        \"codigoHotel\": \"CH-0003\",\n        \"destino\": \"Puerto Iguazú\",\n        \"tipoHabitacion\": \"Doble\",\n        \"cantidadPersonas\": 1,\n        \"personas\": [\n            {\n                \"dni\": 38998262,\n                \"nombre\": \"juan\",\n                \"mail\": \"juan@juan.com\",\n                \"apellido\": \"Peréz\",\n                \"nacimiento\": \"1992-06-18\"\n            }\n        ],\n        \"metodoPago\":{\n            \"tipo\": \"CREDIT\",\n            \"numeroTarjeta\": \"7567\",\n            \"cuotas\": 6\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0003:ExceptionCodigoHotelNoExiste",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombreUsuario\": \"juan\",\n    \"booking\": {\n        \"desde\": \"2022-02-20\",\n        \"hasta\": \"2022-03-10\",\n        \"codigoHotel\": \"CH-0023\",\n        \"destino\": \"Puerto Iguazú\",\n        \"tipoHabitacion\": \"Doble\",\n        \"cantidadPersonas\": 1,\n        \"personas\": [\n            {\n                \"dni\": 38998262,\n                \"nombre\": \"juan\",\n                \"mail\": \"juan@juan.com\",\n                \"apellido\": \"Peréz\",\n                \"nacimiento\": \"1992-06-18\"\n            }\n        ],\n        \"metodoPago\":{\n            \"tipo\": \"CREDIT\",\n            \"numeroTarjeta\": \"7567\",\n            \"cuotas\": 6\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0004:ObtenerVuelos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0005:FiltrarVuelosPorPeriodo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/flights?fechaDesde=10/02/2022&fechaHasta=21/02/2022&origen=Puerto Iguazú&destino=Bogotá",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"flights"
+					],
+					"query": [
+						{
+							"key": "fechaDesde",
+							"value": "10/02/2022"
+						},
+						{
+							"key": "fechaHasta",
+							"value": "21/02/2022"
+						},
+						{
+							"key": "origen",
+							"value": "Puerto Iguazú"
+						},
+						{
+							"key": "destino",
+							"value": "Bogotá"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0005:VueloNoEncontradoEnPeriodo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/flights?fechaDesde=10/02/2021&fechaHasta=21/02/2021&origen=Puerto Iguazú&destino=Bogotá",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"flights"
+					],
+					"query": [
+						{
+							"key": "fechaDesde",
+							"value": "10/02/2021"
+						},
+						{
+							"key": "fechaHasta",
+							"value": "21/02/2021"
+						},
+						{
+							"key": "origen",
+							"value": "Puerto Iguazú"
+						},
+						{
+							"key": "destino",
+							"value": "Bogotá"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0006:RealizarReservaVuelo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreUsuario\": \"nosotros\",\r\n    \"ticket\": {\r\n        \"desde\": \"2022-02-10\",\r\n        \"hasta\": \"2022-02-20\",\r\n        \"origen\": \"Puerto Iguazú\",\r\n        \"destino\": \"Bogotá\",\r\n        \"codigoVuelo\": \"PIBA-1420\",\r\n        \"asientos\": 2,\r\n        \"tipoAsiento\": \"Economy\",\r\n        \"personas\": [\r\n            {\r\n                \"dni\": \"38059235\",\r\n                \"nombre\": \"brai\",\r\n                \"apellido\": \"Gonzalez\",\r\n                \"nacimiento\": \"1992-06-18\",\r\n                \"mail\": \"brian@algo.com\"    \r\n            },  {\r\n                \"dni\": \"38059235\",\r\n                \"nombre\": \"brai\",\r\n                \"apellido\": \"Gonzalez\",\r\n                \"nacimiento\": \"1992-06-18\",\r\n                \"mail\": \"brian@algo.com\" \r\n            }\r\n        ],\r\n        \"metodoPago\": {\r\n            \"tipo\": \"CREDIT\",\r\n            \"numeroTarjeta\": \"7567\",\r\n            \"cuotas\": 6\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/flight-reservation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"flight-reservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0006:ExceptionVueloNoExiste",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreUsuario\": \"nosotros\",\r\n    \"ticket\": {\r\n        \"desde\": \"2022-02-11\",\r\n        \"hasta\": \"2022-02-20\",\r\n        \"origen\": \"Puerto Iguazú\",\r\n        \"destino\": \"Bogotá\",\r\n        \"codigoVuelo\": \"PIBA-1420\",\r\n        \"asientos\": 2,\r\n        \"tipoAsiento\": \"Economy\",\r\n        \"personas\": [\r\n            {\r\n                \"dni\": \"38059235\",\r\n                \"nombre\": \"brai\",\r\n                \"apellido\": \"Gonzalez\",\r\n                \"nacimiento\": \"1992-06-18\",\r\n                \"mail\": \"brian@algo.com\"\r\n            },  {\r\n                \"dni\": \"38059235\",\r\n                \"nombre\": \"brai\",\r\n                \"apellido\": \"Gonzalez\",\r\n                \"nacimiento\": \"1992-06-18\",\r\n                \"mail\": \"brian@algo.com\"\r\n            }\r\n        ],\r\n        \"metodoPago\": {\r\n            \"tipo\": \"CREDIT\",\r\n            \"numeroTarjeta\": \"7567\",\r\n            \"cuotas\": 6\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/flight-reservation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"flight-reservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USBonus:AgregarVuelo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nroVuelo\" : \"NUEVO-1235\",\n    \"origen\" : \"Buenos Aires\",\n    \"destino\" : \"Puerto Iguazú\",\n    \"tipoAsiento\" : \"Economy\",\n    \"precioPersona\" : 6500,\n    \"fechaIda\" : \"2022-02-10\",\n    \"fechaVuelta\" : \"2022-02-15\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USBonus:ExceptionVueloYaExiste",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"nroVuelo\" : \"PIBA-1420\",\n    \"origen\" : \"Puerto Iguazú\",\n    \"destino\" : \"Bogotá\",\n    \"tipoAsiento\" : \"Business\",\n    \"precioPersona\" : 43200,\n    \"fechaIda\" : \"2022-02-10\",\n    \"fechaVuelta\" : \"2022-02-20\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USBonus:ActualizarVuelo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nroVuelo\" : \"NUEVO-1235\",\n    \"origen\" : \"Buenos Aires\",\n    \"destino\" : \"Puerto Iguazú\",\n    \"tipoAsiento\" : \"Economy\",\n    \"precioPersona\" : 99999,\n    \"fechaIda\" : \"2022-02-10\",\n    \"fechaVuelta\" : \"2022-02-15\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USBonus:PutExceptionVueloInexistente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nroVuelo\" : \"ABCD-1420\",\n    \"origen\" : \"Buenos Aires\",\n    \"destino\" : \"Puerto Iguazú\",\n    \"tipoAsiento\" : \"Economy\",\n    \"precioPersona\" : 99999,\n    \"fechaIda\" : \"2022-02-10\",\n    \"fechaVuelta\" : \"2022-02-15\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USBonus:AgregarHotel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigoHotel\":\"CH-00012\",\r\n\t\"nombre\":\"Probando\",\r\n\t\"lugarOCiudad\":\"Puerto Iguazú\",\r\n\t\"habitacionTipo\":\"Cuadruple\",\r\n\t\"precioNoche\":1000.0,\r\n\t\"disponibleDesde\":\"2022-02-10\",\r\n\t\"disponibleHasta\":\"2022-03-20\",\r\n\t\"reservado\":\"NO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USBonus:PostExceptionHotelYaExiste",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"codigoHotel\":\"CH-0002\",\n    \"nombre\":\"Cataratas Hotel\",\n    \"lugarOCiudad\":\"Puerto Iguazú\",\n    \"habitacionTipo\":\"Doble\",\n    \"precioNoche\":6300.0,\n    \"disponibleDesde\":\"2022-02-10\",\n    \"disponibleHasta\":\"2022-03-20\",\n    \"reservado\":\"NO\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USBonus:ActualizarHotel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigoHotel\":\"CH-00012\",\r\n\t\"nombre\":\"Probando\",\r\n\t\"lugarOCiudad\":\"Puerto Iguazú\",\r\n\t\"habitacionTipo\":\"Cuadruple\",\r\n\t\"precioNoche\":99999.0,\r\n\t\"disponibleDesde\":\"2022-02-10\",\r\n\t\"disponibleHasta\":\"2022-03-20\",\r\n\t\"reservado\":\"NO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USBonus:PutExceptionHotelInexistente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigoHotel\":\"ABCD-00012\",\r\n\t\"nombre\":\"Probando\",\r\n\t\"lugarOCiudad\":\"Puerto Iguazú\",\r\n\t\"habitacionTipo\":\"Cuadruple\",\r\n\t\"precioNoche\":99999.0,\r\n\t\"disponibleDesde\":\"2022-02-10\",\r\n\t\"disponibleHasta\":\"2022-03-20\",\r\n\t\"reservado\":\"NO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
