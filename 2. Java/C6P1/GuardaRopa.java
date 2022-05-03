@@ -1,0 +1,26 @@
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class GuardaRopa {
+
+    HashMap<Integer, List<Prenda>> mapa = new HashMap<>();
+    int contador = 0;
+
+
+    public Integer guardarPrendas(List<Prenda> listaDePrenda){
+        this.mapa.put(this.contador, listaDePrenda);
+        this.contador++;
+        return contador -1;
+
+    }
+
+    public void mostrarPrendas(){
+        this.mapa.forEach((k,v) -> System.out.println("Clave: " + k + ", prenda: " + v.toString()));
+    }
+
+    public List<Prenda> devolverPrendas(Integer numero){
+        return this.mapa.get(numero);
+    }
+
+}
