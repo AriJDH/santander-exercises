@@ -15,8 +15,11 @@ public class StudentDTO {
     @Size(max = 50, message = "La longitud del nombre no puede superar los 50 caracteres")
     String studentName;
 
+    @NotBlank(message = "El mensaje de respuesta no puede ser vacio")
     String message;
 
+    @DecimalMin(value = "0.0", message = "El promedio no puede ser menor a 0.0")
+    @DecimalMax(value = "10.0", message = "El promedio no puede ser mayor a 10.0")
     Double averageScore;
 
     @Valid
