@@ -15,7 +15,7 @@ import java.util.List;
 public class StudentDTO {
     @NotBlank(message = "El nombre del alumno no puede estar vacío.")
     @Size(max = 50, message = "La longitud del nombre no puede superar los 50 caracteres.")
-    @Pattern(regexp = "[A-Z](\\p{Alpha}||\\s)+", message = "El nombre del alumno debe comenzar con mayúscula.")
+    @Pattern(regexp = "[A-Z]([A-Za-zÀ-ÿ]||\\s)+", message = "El nombre del alumno debe comenzar con mayúscula.")
     String studentName;
     String message;
     Double averageScore;
