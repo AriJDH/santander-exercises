@@ -1,6 +1,6 @@
-package com.digitalhouse.obtenerdiploma.Exception;
+package com.digitalhouse.obtenerdiploma.controller;
 
-import com.digitalhouse.obtenerdiploma.dtos.ErrorDTO;
+import com.digitalhouse.obtenerdiploma.model.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

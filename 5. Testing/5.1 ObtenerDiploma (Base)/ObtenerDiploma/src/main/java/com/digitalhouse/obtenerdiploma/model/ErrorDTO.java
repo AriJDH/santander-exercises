@@ -1,4 +1,4 @@
-package com.digitalhouse.obtenerdiploma.dtos;
+package com.digitalhouse.obtenerdiploma.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
