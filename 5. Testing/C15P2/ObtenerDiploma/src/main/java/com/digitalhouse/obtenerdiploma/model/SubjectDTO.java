@@ -8,13 +8,13 @@ import javax.validation.constraints.*;
 @Getter @Setter
 public class SubjectDTO {
 
-    @NotEmpty(message = "El nombre de la materia no puede estar vacío.")
-    @Pattern(regexp = "[A-Z](\\p{Alpha}||\\s)+", message = "El nombre de la materia debe comenzar con mayúscula.")
+    @NotBlank(message = "El nombre de la materia no puede estar vacío.")
+    @Pattern(regexp = "[A-Z](\\p{Alpha}||[áéíóú]||\\s)+", message = "El nombre de la materia debe comenzar con mayúscula.")
     @Size(max = 30,message = "La longitud del nombre no puede superar los 30 caracteres.")
     String name;
 
-    @NotEmpty(message = "La nota no puede estar vacío.")
-    @DecimalMin("0.0")
-    @DecimalMax("10")
+    @NotNull(message = "La nota no puede estar vacío.")
+    @DecimalMin(value = "0.0",message = "La mínima nota es 0.0")
+    @DecimalMax(value = "10.0",message = "La máxima nota es 10.0")
     Double score;
 }

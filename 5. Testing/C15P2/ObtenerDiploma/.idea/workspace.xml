@@ -99,7 +99,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/practica/obtenerDiploma" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ObtenerDiploma">
+  <component name="RunManager" selected="Application.ObtenerDiplomaApplication (1)">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -107,6 +107,19 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ObtenerDiplomaApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.digitalhouse.obtenerdiploma.ObtenerDiplomaApplication" />
+      <module name="ObtenerDiploma" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.digitalhouse.obtenerdiploma.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -128,22 +141,6 @@
       <module name="ObtenerDiploma" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ObetenerDiplomaApplicationTests.testObtenerDiploma" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ObtenerDiploma" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.practica.obtenerdiploma.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.practica.obtenerdiploma" />
-      <option name="MAIN_CLASS_NAME" value="com.practica.obtenerdiploma.ObetenerDiplomaApplicationTests" />
-      <option name="METHOD_NAME" value="testObtenerDiploma" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -190,18 +187,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.ObtenerDiplomaApplication" />
-      <item itemvalue="JUnit.ObetenerDiplomaApplicationTests.testObtenerDiploma" />
+      <item itemvalue="Application.ObtenerDiplomaApplication (1)" />
       <item itemvalue="JUnit.ObtenerDiplomaControllerIntegrationTest" />
       <item itemvalue="JUnit.ObtenerDiplomaControllerIntegrationTest.testObtenerDiplomaSinMaterias" />
       <item itemvalue="JUnit.All in ObtenerDiploma" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ObtenerDiplomaApplication (1)" />
         <item itemvalue="JUnit.All in ObtenerDiploma" />
         <item itemvalue="Application.ObtenerDiplomaApplication" />
         <item itemvalue="JUnit.ObtenerDiplomaControllerIntegrationTest.testObtenerDiplomaSinMaterias" />
         <item itemvalue="JUnit.ObtenerDiplomaControllerIntegrationTest" />
-        <item itemvalue="JUnit.ObetenerDiplomaApplicationTests.testObtenerDiploma" />
       </list>
     </recent_temporary>
   </component>
