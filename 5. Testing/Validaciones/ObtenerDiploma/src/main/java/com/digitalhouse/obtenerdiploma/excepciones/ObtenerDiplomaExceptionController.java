@@ -21,3 +21,4 @@ public class SistemaExceptionController {
         ErrorDTO error = new ErrorDTO("HttpMessageNotReadableException", e.getMessage());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
+}
