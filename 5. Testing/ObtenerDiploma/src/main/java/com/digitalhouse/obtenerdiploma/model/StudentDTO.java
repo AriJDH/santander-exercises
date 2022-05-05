@@ -11,11 +11,10 @@ import java.util.List;
 public class StudentDTO {
 
     @NotBlank(message = "El nombre del alumno no puede ser vacio")
-    @Pattern(regexp = "[A-Z](\\p{Alpha}||\\s)+", message = "El nombre del estudiante debe comenzar con mayúscula.")
+    @Pattern(regexp = "[A-Z](\\p{Alpha}||[áéíóú]||\\s)+", message = "El nombre del estudiante debe comenzar con mayúscula.")
     @Size(max = 50, message = "La longitud del nombre no puede superar los 50 caracteres")
     String studentName;
 
-    @NotBlank(message = "El mensaje de respuesta no puede ser vacio")
     String message;
 
     @DecimalMin(value = "0.0", message = "El promedio no puede ser menor a 0.0")
