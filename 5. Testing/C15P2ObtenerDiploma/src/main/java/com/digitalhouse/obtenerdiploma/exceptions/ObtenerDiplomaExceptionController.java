@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class ObtenerDiplomaExceptionController {
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ResponseEntity<ErrorDTO> handleValidationExceptions(MethodArgumentNotValidException ex) {
-        ErrorDTO errorDto = new ErrorDTO("Argumentos invalidos", "Exception: " + ex.getMessage());
+        ErrorDTO errorDto = new ErrorDTO("Argumentos invalidos", "Exception: " + ex.getBindingResult().getFieldError().getDefaultMessage() );
         return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
     }
 

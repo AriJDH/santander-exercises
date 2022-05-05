@@ -18,6 +18,7 @@ public class StudentDTO {
     String studentName;
     String message;
     Double averageScore;
+
     @NotEmpty(message = "La lista no puede ser vacía.")
     List<@Valid SubjectDTO> subjects;
 }
