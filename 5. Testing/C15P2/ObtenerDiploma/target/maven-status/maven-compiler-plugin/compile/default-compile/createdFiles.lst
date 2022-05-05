@@ -1,0 +1,6 @@
+com\digitalhouse\obtenerdiploma\model\SubjectDTO.class
+com\digitalhouse\obtenerdiploma\service\ObtenerDiplomaService.class
+com\digitalhouse\obtenerdiploma\service\IObtenerDiplomaService.class
+com\digitalhouse\obtenerdiploma\controller\ObtenerDiplomaController.class
+com\digitalhouse\obtenerdiploma\ObtenerDiplomaApplication.class
+com\digitalhouse\obtenerdiploma\model\StudentDTO.class

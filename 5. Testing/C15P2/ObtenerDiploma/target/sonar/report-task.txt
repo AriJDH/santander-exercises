@@ -1,0 +1,6 @@
+projectKey=obtenerDiploma
+serverUrl=http://localhost:9000
+serverVersion=9.4.0.54424
+dashboardUrl=http://localhost:9000/dashboard?id=obtenerDiploma
+ceTaskId=AYCUf6wToegaxdcQknlx
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYCUf6wToegaxdcQknlx
