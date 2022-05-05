@@ -9,8 +9,7 @@ import javax.validation.constraints.*;
 public class SubjectDTO {
     @NotNull
     @NotEmpty(message = "El nombre de la materia no puede estar vacía.")
-    //TODO: problemas con las tildes
-    @Pattern(regexp = "[A-Z](\\p{Alpha}||\\s)+", message = "El nombre de la materia debe comenzar con mayúscula.")
+    @Pattern(regexp = "[A-Z](\\p{Alpha}||[áéíúó]||\\s)+", message = "El nombre de la materia debe comenzar con mayúscula.")
     @Size(max = 30, message = "La longitud del nombre no puede superar los 30 caracteres.")
     String name;
 
