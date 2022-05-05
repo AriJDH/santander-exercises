@@ -20,7 +20,7 @@ class ClienteRepoTest {
     @Test
     void getCliente() {
         //Arrange
-        Cliente clienteAGuardar = new Cliente("Juan", "Carlos", LocalDate.of(1995,3,23));
+        Cliente clienteAGuardar = new Cliente("Juan", "Carlos");
 
         //Act
         clienteRepo.putCliente(clienteAGuardar);

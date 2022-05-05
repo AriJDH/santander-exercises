@@ -24,8 +24,5 @@ public class ClienteDto {
     private String nombre;
     private String apellido;
 
-    @JsonIgnore
-    private String otroCampo;
-
 
 }
