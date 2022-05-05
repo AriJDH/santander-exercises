@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "92f8a1c2-1a16-45f6-8e3d-8da81634df7b",
+		"name": "Diplomas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pedir diploma correctamente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentName\": \"Juan\",\r\n\t    \"subjects\": \r\n\t\t    [\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Matematica\",\r\n\t\t\t\t    \"score\": 10\r\n\t\t\t    },\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Fisica\",\r\n\t\t\t\t    \"score\": 7\r\n\t\t\t    },\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Quimica\",\r\n\t\t\t\t    \"score\": 6\r\n\t\t\t    }\r\n\t\t    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localHost:8080/analyzeScores",
+					"protocol": "http",
+					"host": [
+						"localHost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Petición sin alumno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t    \"subjects\": \r\n\t\t    [\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Matematica\",\r\n\t\t\t\t    \"score\": 10\r\n\t\t\t    },\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Fisica\",\r\n\t\t\t\t    \"score\": 7\r\n\t\t\t    },\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Quimica\",\r\n\t\t\t\t    \"score\": 6\r\n\t\t\t    }\r\n\t\t    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localHost:8080/analyzeScores",
+					"protocol": "http",
+					"host": [
+						"localHost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nombre de materia en minúscula",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentName\": \"Juan\",\r\n\t    \"subjects\": \r\n\t\t    [\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"matematica\",\r\n\t\t\t\t    \"score\": 10\r\n\t\t\t    },\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Fisica\",\r\n\t\t\t\t    \"score\": 7\r\n\t\t\t    },\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Quimica\",\r\n\t\t\t\t    \"score\": 6\r\n\t\t\t    }\r\n\t\t    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localHost:8080/analyzeScores",
+					"protocol": "http",
+					"host": [
+						"localHost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nombre de materia demasiado largo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentName\": \"Juan\",\r\n\t    \"subjects\": \r\n\t\t    [\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Matematicaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\r\n\t\t\t\t    \"score\": 10\r\n\t\t\t    },\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Fisica\",\r\n\t\t\t\t    \"score\": 7\r\n\t\t\t    },\r\n\t\t\t    {\r\n\t\t\t\t    \"name\": \"Quimica\",\r\n\t\t\t\t    \"score\": 6\r\n\t\t\t    }\r\n\t\t    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localHost:8080/analyzeScores",
+					"protocol": "http",
+					"host": [
+						"localHost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
