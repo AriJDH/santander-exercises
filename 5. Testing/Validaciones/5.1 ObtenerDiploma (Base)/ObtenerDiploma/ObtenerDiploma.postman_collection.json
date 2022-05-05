@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "91486700-a5d3-44fb-a5cc-8f981a37cb33",
+		"name": "C15P2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ObtenerDiploma",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"Juan\",\r\n\t\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Matemática\",\r\n\t\t\t\t\"score\": 10\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Nombre sin mayus)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"juan\",\r\n\t\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Matemática\",\r\n\t\t\t\t\"score\": 10\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Nombre null)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": null,\r\n\t\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Matemática\",\r\n\t\t\t\t\"score\": 10\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Nombre.length > 50)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"JuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuanJuan\",\r\n\t\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Matemática\",\r\n\t\t\t\t\"score\": 10\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Lista de materias null)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"Juan\",\r\n\t\"subjects\": []\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Nombre materia null)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"Juan\",\r\n\t\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": null,\r\n\t\t\t\t\"score\": 10\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Nombre materia sin mayuscula al principio)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"Juan\",\r\n\t\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"matemática\",\r\n\t\t\t\t\"score\": 10\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Nombre.length > 30)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"Juan\",\r\n\t\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"MatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemáticaMatemática\",\r\n\t\t\t\t\"score\": 10\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Score < 0)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"Juan\",\r\n\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Matemática\",\r\n\t\t\t\t\"score\": -10\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Score > 10)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"Juan\",\r\n\t\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Matemática\",\r\n\t\t\t\t\"score\": 11\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDiploma (Score null)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"studentName\": \"Juan\",\r\n\t\"subjects\": \r\n\t\t[\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Matemática\",\r\n\t\t\t\t\"score\": null\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Física\",\r\n\t\t\t\t\"score\": 7\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"Química\",\r\n\t\t\t\t\"score\": 6\r\n\t\t\t}\r\n\t\t]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/analyzeScores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
