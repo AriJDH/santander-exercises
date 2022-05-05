@@ -1,5 +1,7 @@
-package com.digitalhouse.obtenerdiploma.excepciones;
+package com.digitalhouse.obtenerdiploma.controller;
 
+import com.digitalhouse.obtenerdiploma.excepciones.ErrorDTO;
+import com.digitalhouse.obtenerdiploma.excepciones.ObtenerDiplomaException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -8,7 +10,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class SistemaExceptionController {
+public class ObtenerDiplomaExceptionController {
+
+    @ExceptionHandler(ObtenerDiplomaException.class)
+    ResponseEntity<ErrorDTO> handleValidationExceptions(ObtenerDiplomaException e) {
+        e.printStackTrace();
+        return new ResponseEntity<>(e.getError(), e.getStatus());
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ResponseEntity<ErrorDTO> handleValidationExceptions(MethodArgumentNotValidException e) {

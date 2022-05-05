@@ -127,6 +127,9 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.digitalhouse.obtenerdiploma.excepciones" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/java/com/practica/obtenerdiploma" />
       <recent name="$PROJECT_DIR$/src/main/java/com/practica/obtenerdiploma" />
