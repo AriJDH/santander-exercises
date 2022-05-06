@@ -11,14 +11,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 
 @Repository
 public class StudentRepository implements IStudentRepository {
 
-    @Value("${api.scope}")
-    private String SCOPE;
 
+    @Value("${api.scope}")
+    private String SCOPE  = "main";
     @Override
     public Set<StudentDTO> findAll() {
         Set<StudentDTO> loadedData = new HashSet<>();
@@ -34,7 +35,7 @@ public class StudentRepository implements IStudentRepository {
             e.printStackTrace();
             System.out.println("Failed while initializing DB, check your JSON formatting.");
         }
-
+        System.out.println(loadedData.toString());
         return loadedData;
     }
 }

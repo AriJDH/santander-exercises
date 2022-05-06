@@ -5,12 +5,24 @@ import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentDAOTest {
 
     StudentDAO studentDAO=new StudentDAO();
+    /*
+    @Test
+    void findAllTest() {
+        // arrange
+        //act
+        List<StudentDTO> studentDTOSet = new ArrayList<>(studentDAO.loadData());
+        //assert
+        assertTrue(studentDTOSet.size() != 0,"La lista no está vacia");
+    }
+     */
+
     @Test
     void savesDao() {
 

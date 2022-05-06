@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -15,9 +17,9 @@ class StudentRepositoryTest {
     void findAllTest(){
         // arrange
         //act
-        Set<StudentDTO> studentDTOSet = studentRepository.findAll();
+        List<StudentDTO> studentDTOSet = new ArrayList<>(studentRepository.findAll());
         //assert
-        assertFalse(studentDTOSet.isEmpty(),"La lista no está vacia");
+        assertTrue(studentDTOSet.size() != 0,"La lista no está vacia");
     }
 
 }
