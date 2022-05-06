@@ -43,8 +43,9 @@ class StudentServiceTest {
 
         StudentDTO studentDTO1 = studentService.read(2L);
 
-        //verify()
+        verify(iStudentDAO, atLeastOnce()).findById(2L);
 
+        assertEquals(studentDTO1, studentDTO);
 
     }
 }
