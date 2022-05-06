@@ -10,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,8 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ObtenerDiplomaServiceTest {
     private List<SubjectDTO> subjects;
-    private StudentDTO studentDTOExpected;
+    private StudentDTO studentDTOObtained;
+    private double expectedAverage;
 
     @Mock
     private StudentDAO studentDAO;
@@ -31,32 +33,49 @@ class ObtenerDiplomaServiceTest {
     void setUp(){
         //OJO: pisas el mock al crear una nueva instancia
         //obtenerDiplomaService = new ObtenerDiplomaService();
-        SubjectDTO studentSubjectDto = new SubjectDTO("Matematica", 6D);
+        SubjectDTO studentSubjectDto = new SubjectDTO("Matematica", 9D);
         SubjectDTO studentSubjectDto2 = new SubjectDTO("Matematica", 10D);
 
         subjects = new ArrayList<>();
         subjects.add(studentSubjectDto);
         subjects.add(studentSubjectDto2);
-        studentDTOExpected = new StudentDTO(1L, "Juan", null, null, subjects);
+
+        for (SubjectDTO subject: subjects) {
+            expectedAverage += subject.getScore();
+        }
+        expectedAverage = expectedAverage / subjects.size();
+
+
+        studentDTOObtained = new StudentDTO(1L, "Juan", null, null, subjects);
 
     }
 
     @Test
     void shouldCalculateAverage() {
         // Arrange
-        double expectedAverage = 0;
-        for (SubjectDTO subject: subjects) {
-            expectedAverage += subject.getScore();
-        }
-        expectedAverage = expectedAverage / subjects.size();
 
-        when(studentDAO.findById(studentDTOExpected.getId())).thenReturn(studentDTOExpected);
+        when(studentDAO.findById(studentDTOObtained.getId())).thenReturn(studentDTOObtained);
 
         // Act
-        StudentDTO studentDTOObtained = obtenerDiplomaService.analyzeScores(studentDTOExpected.getId());
+        StudentDTO studentDTOObtained = obtenerDiplomaService.analyzeScores(this.studentDTOObtained.getId());
 
         // Assert
         assertEquals(expectedAverage, studentDTOObtained.getAverageScore());
+
+    }
+
+    @Test
+    void shouldSetMessageWithFelicitacionesIfAverageMoreThanNine(){
+        // Arrange
+        when(studentDAO.findById(studentDTOObtained.getId())).thenReturn(studentDTOObtained);
+        String expectedMessage = "El alumno " + studentDTOObtained.getStudentName() + " ha obtenido un promedio de " +
+                new DecimalFormat("#.##").format(expectedAverage) + ". Felicitaciones!";
+
+        // Act
+        StudentDTO studentDTOObtained = obtenerDiplomaService.analyzeScores(this.studentDTOObtained.getId());
+
+        // Assert
+        assertEquals(expectedMessage, studentDTOObtained.getMessage());
 
     }
 }
