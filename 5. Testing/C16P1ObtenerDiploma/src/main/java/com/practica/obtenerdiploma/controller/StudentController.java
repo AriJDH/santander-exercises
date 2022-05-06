@@ -39,6 +39,7 @@ public class StudentController {
         return ResponseEntity.ok(null);
     }
 
+    //TODO: FIX THIS!
     @GetMapping("/listStudents")
     public Set<StudentDTO> listStudents() {
         return this.studentService.getAll();
