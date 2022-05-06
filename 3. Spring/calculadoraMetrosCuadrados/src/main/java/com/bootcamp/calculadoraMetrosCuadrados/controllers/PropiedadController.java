@@ -42,7 +42,6 @@ public class PropiedadController {
         return service.getHabitacionMasGrande(nombrePropiedad);
     }
 
-
     @GetMapping(path = "getMetrosCuadradosPorHabitacion/{nombrePropiedad}")
     public String[][] getMetrosCuadradosPorHabitacion(@PathVariable String nombrePropiedad){
         return service.getMetrosCuadradosHabitaciones(nombrePropiedad);
