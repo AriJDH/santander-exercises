@@ -15,7 +15,7 @@ class StudentDAOTest {
     private StudentDAO studentDAO;
     private SubjectDTO studentSubjectDto;
     private List<SubjectDTO> subjects;
-    private StudentDTO studentDtoExcepted;
+    private StudentDTO studentDtoExpected;
 
     @BeforeEach
     void setUp(){
@@ -25,7 +25,14 @@ class StudentDAOTest {
         studentSubjectDto = new SubjectDTO("Matematica", 7D);
         subjects = new ArrayList<>();
         subjects.add(studentSubjectDto);
-        studentDtoExcepted = new StudentDTO(3L, "Juan",null,7D, subjects);
+        studentDtoExpected = new StudentDTO(3L, "Juan",null,7D, subjects);
+    }
+
+    @Test
+    void shouldReturnAStudentById() {
+        studentDAO.save(studentDtoExpected);
+        StudentDTO studentObtained = studentDAO.findById(3L);
+        assertEquals(studentObtained, studentDtoExpected);
     }
 
     @Test
@@ -33,37 +40,37 @@ class StudentDAOTest {
         //Arrange
 
         //TODO: el save deberia devolver el objeto con su nuevo id de manera de poder saber que id se le asigno
-        studentDAO.save(studentDtoExcepted);
+        studentDAO.save(studentDtoExpected);
         StudentDTO studentObtained = studentDAO.findById(3L);
 
         //TODO: JUNIT puede ver atributos privados?
         //studentDAO.students.includes
         //assertEquals(studentObtained.getId(), studentToSaveDto.getId());
         //assertEquals(studentObtained.getStudentName(), studentToSaveDto.getStudentName());
-        assertEquals(studentObtained, studentDtoExcepted);
+        assertEquals(studentObtained, studentDtoExpected);
     }
 
     @Test
-    void exists() {
+    void shouldReturnTrueIfStudentsExists() {
+        // Act
+        studentDAO.save(studentDtoExpected);
+
+        // Assert
+        assertTrue(studentDAO.exists(studentDtoExpected));
     }
 
     @Test
     void shouldDeleteAStudent() {
         // Arrange
-        studentDAO.save(studentDtoExcepted);
+        studentDAO.save(studentDtoExpected);
 
         // Act
-
-        //TODO: capaz estaria bueno que devuelva el objeto que se elimino para poder devolver los datos de QUE se elimino y no solo un true
+        // TODO: capaz estaria bueno que devuelva el objeto que se elimino para poder devolver los datos de QUE se elimino y no solo un true
         studentDAO.delete(3L);
 
         // Assert
-        assertFalse(studentDAO.exists(studentDtoExcepted));
+        assertFalse(studentDAO.exists(studentDtoExpected));
     }
 
 
-
-    @Test
-    void findById() {
-    }
 }
