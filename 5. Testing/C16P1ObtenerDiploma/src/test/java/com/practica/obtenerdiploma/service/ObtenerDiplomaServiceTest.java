@@ -44,7 +44,6 @@ class ObtenerDiplomaServiceTest {
 
         @BeforeEach
         void setUp(){
-            //obtenerDiplomaService = new ObtenerDiplomaService();
             SubjectDTO studentSubjectDto = new SubjectDTO("Matematica", 9D);
             SubjectDTO studentSubjectDto2 = new SubjectDTO("Matematica", 10D);
 
@@ -56,12 +55,13 @@ class ObtenerDiplomaServiceTest {
 
             studentDTOObtainedDouble = new StudentDTO(1L, "Juan", null, null, subjects);
 
+            when(studentDAO.findById(studentDTOObtainedDouble.getId())).thenReturn(studentDTOObtainedDouble);
+
         }
 
         @Test
         void shouldCalculateAverage() {
             // Arrange
-            when(studentDAO.findById(studentDTOObtainedDouble.getId())).thenReturn(studentDTOObtainedDouble);
 
             // Act
             StudentDTO studentDTOObtained = obtenerDiplomaService.analyzeScores(studentDTOObtainedDouble.getId());
@@ -74,7 +74,6 @@ class ObtenerDiplomaServiceTest {
         @Test
         void shouldSetMessageWithFelicitaciones(){
             // Arrange
-            when(studentDAO.findById(studentDTOObtainedDouble.getId())).thenReturn(studentDTOObtainedDouble);
             String expectedMessage = "El alumno " + studentDTOObtainedDouble.getStudentName() + " ha obtenido un promedio de " +
                     new DecimalFormat("#.##").format(expectedAverage) + ". Felicitaciones!";
 
@@ -98,7 +97,6 @@ class ObtenerDiplomaServiceTest {
 
             @Test
             void shouldSetMessageWithPuedesMejorar(){
-                when(studentDAO.findById(studentDTOObtainedDouble.getId())).thenReturn(studentDTOObtainedDouble);
                 String expectedMessage = "El alumno " + studentDTOObtainedDouble.getStudentName() + " ha obtenido un promedio de " +
                         new DecimalFormat("#.##").format(expectedAverage) + ". Puedes mejorar.";
 
