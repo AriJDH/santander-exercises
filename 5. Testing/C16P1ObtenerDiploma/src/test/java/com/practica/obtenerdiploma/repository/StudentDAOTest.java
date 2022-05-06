@@ -72,5 +72,22 @@ class StudentDAOTest {
         assertFalse(studentDAO.exists(studentDtoExpected));
     }
 
+    @Test
+    void shouldUpdateAStudent(){
+        // Arrange
+
+        //Actualizo solo el nombre
+        StudentDTO updateStudentDto = new StudentDTO(studentDtoExpected.getId(), "Juan Carlos Update",null,7D, subjects);
+        studentDAO.save(studentDtoExpected);
+
+        // Act
+        studentDAO.save(updateStudentDto);
+        StudentDTO studentDtoObtained = studentDAO.findById(updateStudentDto.getId());
+
+        // Assert
+        assertEquals(studentDtoObtained.getStudentName(), updateStudentDto.getStudentName());
+
+    }
+
 
 }
