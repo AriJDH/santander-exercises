@@ -4,6 +4,7 @@ import com.practica.obtenerdiploma.model.StudentDTO;
 import com.practica.obtenerdiploma.model.SubjectDTO;
 import com.practica.obtenerdiploma.repository.StudentDAO;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,7 +30,7 @@ class ObtenerDiplomaServiceTest {
 
     @Nested
     class WhenStudentHasTwoSubjectsWithAverageHigherThanNine{
-        private StudentDTO studentDTOObtained;
+        private StudentDTO studentDTOObtainedDouble;
         private List<SubjectDTO> subjects;
         private double expectedAverage;
 
@@ -53,17 +54,17 @@ class ObtenerDiplomaServiceTest {
 
             expectedAverage = calculateAverage(subjects);
 
-            studentDTOObtained = new StudentDTO(1L, "Juan", null, null, subjects);
+            studentDTOObtainedDouble = new StudentDTO(1L, "Juan", null, null, subjects);
 
         }
 
         @Test
         void shouldCalculateAverage() {
             // Arrange
-            when(studentDAO.findById(studentDTOObtained.getId())).thenReturn(studentDTOObtained);
+            when(studentDAO.findById(studentDTOObtainedDouble.getId())).thenReturn(studentDTOObtainedDouble);
 
             // Act
-            StudentDTO studentDTOObtained = obtenerDiplomaService.analyzeScores(this.studentDTOObtained.getId());
+            StudentDTO studentDTOObtained = obtenerDiplomaService.analyzeScores(studentDTOObtainedDouble.getId());
 
             // Assert
             assertEquals(expectedAverage, studentDTOObtained.getAverageScore());
@@ -73,27 +74,42 @@ class ObtenerDiplomaServiceTest {
         @Test
         void shouldSetMessageWithFelicitaciones(){
             // Arrange
-            when(studentDAO.findById(studentDTOObtained.getId())).thenReturn(studentDTOObtained);
-            String expectedMessage = "El alumno " + studentDTOObtained.getStudentName() + " ha obtenido un promedio de " +
+            when(studentDAO.findById(studentDTOObtainedDouble.getId())).thenReturn(studentDTOObtainedDouble);
+            String expectedMessage = "El alumno " + studentDTOObtainedDouble.getStudentName() + " ha obtenido un promedio de " +
                     new DecimalFormat("#.##").format(expectedAverage) + ". Felicitaciones!";
 
             // Act
-            StudentDTO studentDTOObtained = obtenerDiplomaService.analyzeScores(this.studentDTOObtained.getId());
+            StudentDTO studentDTOObtained = obtenerDiplomaService.analyzeScores(this.studentDTOObtainedDouble.getId());
 
             // Assert
             assertEquals(expectedMessage, studentDTOObtained.getMessage());
 
         }
 
-        /*
         @Nested
         class WhenStudentHasThreeSubjectsWithAverageLowerThanNine{
 
+            @BeforeEach
             void setUp(){
-                SubjectDTO studentSubjectDto = new SubjectDTO("Matematica", 10D);
+                SubjectDTO studentSubjectDto = new SubjectDTO("Matematica", 1D);
                 subjects.add(studentSubjectDto);
+                expectedAverage = calculateAverage(subjects);
             }
-        }*/
+
+            @Test
+            void shouldSetMessageWithPuedesMejorar(){
+                when(studentDAO.findById(studentDTOObtainedDouble.getId())).thenReturn(studentDTOObtainedDouble);
+                String expectedMessage = "El alumno " + studentDTOObtainedDouble.getStudentName() + " ha obtenido un promedio de " +
+                        new DecimalFormat("#.##").format(expectedAverage) + ". Puedes mejorar.";
+
+                // Act
+                StudentDTO studentDTOObtained = obtenerDiplomaService.analyzeScores(studentDTOObtainedDouble.getId());
+
+                // Assert
+                assertEquals(expectedMessage, studentDTOObtained.getMessage());
+
+            }
+        }
 
     }
 
