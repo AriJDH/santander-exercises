@@ -1,17 +1,17 @@
 package com.bootcamp.testing.unit.repository;
 
+import com.bootcamp.testing.repository.RecipeRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
-// TODO: anotaciones?
 public class RecipeRepositoryTest {
 
-    // TODO: inyeccion de dependencias? SI.
+    // inyeccion de dependencia.
+    RecipeRepository recipeRepository;
 
     // TODO: anotaciones?
     void setup(){
-
+        recipeRepository = new RecipeRepository();
     }
 
     @Test

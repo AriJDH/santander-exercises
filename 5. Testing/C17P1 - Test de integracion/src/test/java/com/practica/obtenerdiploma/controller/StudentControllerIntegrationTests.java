@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.practica.obtenerdiploma.model.StudentDTO;
 import com.practica.obtenerdiploma.model.SubjectDTO;
+import com.practica.obtenerdiploma.util.MockMvcWrapper;
 import com.practica.obtenerdiploma.util.TestUtilsGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -159,7 +160,7 @@ public class StudentControllerIntegrationTests {
 
             MvcResult mvcResult = null;
 
-            mvcResult = executePerform("/student/registerStudent", payloadJson, "El nombre del estudiante debe comenzar con mayúscula.");
+            mvcResult = MockMvcWrapper.executePerform(mockMvc,"/student/registerStudent", payloadJson, "El nombre del estudiante debe comenzar con mayúscula.");
             
             Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
         }
