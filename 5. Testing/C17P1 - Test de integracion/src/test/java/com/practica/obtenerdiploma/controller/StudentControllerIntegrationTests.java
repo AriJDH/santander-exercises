@@ -94,6 +94,10 @@ public class StudentControllerIntegrationTests {
         @Autowired
         private MockMvc mockMvc;
 
+        private final ObjectWriter writer = new ObjectMapper().
+                configure(SerializationFeature.WRAP_ROOT_VALUE, false).
+                writer().withDefaultPrettyPrinter();
+
         @BeforeEach
         void setUp(){
             TestUtilsGenerator.emptyUsersFile();
@@ -103,10 +107,6 @@ public class StudentControllerIntegrationTests {
         public void shouldReturnOKWhenAddingANewStudent(){
             StudentDTO studentDTO = TestUtilsGenerator.getStudentWithId(1L);
             studentDTO.setStudentName("Juan");
-
-            ObjectWriter writer = new ObjectMapper().
-                    configure(SerializationFeature.WRAP_ROOT_VALUE, false).
-                    writer().withDefaultPrettyPrinter();
 
             String payloadJson = "";
             try {
@@ -127,9 +127,34 @@ public class StudentControllerIntegrationTests {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
+        }
 
-            //Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
+        @Test
+        public void shouldReturnErrorIfStudentNameIsInvalid(){
+            StudentDTO studentDTO = TestUtilsGenerator.getStudentWithId(1L);
+            studentDTO.setStudentName("notienemayus");
 
+            String payloadJson = "";
+            try {
+                payloadJson = writer.writeValueAsString(studentDTO);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+
+            MvcResult mvcResult = null;
+            try {
+                mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post("/student/registerStudent")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(payloadJson))
+                        .andDo(print()).andExpect(status().is4xxClientError())
+                        .andExpect(content().contentType("application/json"))
+                        .andExpect(MockMvcResultMatchers.jsonPath("$.description").value("El nombre del estudiante debe comenzar con mayúscula."))
+                        .andReturn();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+            Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
         }
 
     }
