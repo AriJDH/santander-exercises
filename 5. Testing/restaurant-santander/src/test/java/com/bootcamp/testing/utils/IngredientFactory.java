@@ -15,8 +15,8 @@ public class IngredientFactory {
         Ingredient bread = new Ingredient();
         bread.setName("bread");
         bread.setQuantity(1);
-        bread.setQuality(2);
-        bread.setCalories(200);
+        bread.setQuality(1);
+        bread.setCalories(320);
         return bread;
     }
 
@@ -32,18 +32,18 @@ public class IngredientFactory {
     public static Ingredient getBreadMock(){
         Ingredient bread = new Ingredient();
         bread.setName("bread");
-        bread.setQuantity(1);
+        bread.setQuantity(2);
         bread.setQuality(5);
-        bread.setCalories(983);
+        bread.setCalories(320);
         return bread;
     }
 
     public static Ingredient getMeal() {
         Ingredient meat = new Ingredient();
         meat.setName("meal");
-        meat.setQuality(5);
+        meat.setQuality(1);
         meat.setQuantity(2);
-        meat.setCalories(600);
+        meat.setCalories(700);
         return meat;
     }
 }

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -58,7 +59,7 @@ public class MenuControllerIntegrationTest {
         //EXPECTED
         ResultMatcher expectedStatus = MockMvcResultMatchers.status().isOk();
         ResultMatcher expectedJson = MockMvcResultMatchers.content().json(listJson);
-        ResultMatcher expectedContentType = MockMvcResultMatchers.content().contentType("application/json");
+        ResultMatcher expectedContentType = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
 
         //Request
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/menu");
@@ -96,6 +97,28 @@ public class MenuControllerIntegrationTest {
                 .registerModule(new JavaTimeModule())
                 .writer();
 
-        
+        Recipe expected = RecipeFactory.createBurguer();
+        String objectJson = writer.writeValueAsString(expected);
+
+        // EXPECTED
+        ResultMatcher expectedStatus = MockMvcResultMatchers.status().isOk();
+        ResultMatcher expectedJson = MockMvcResultMatchers.content().json(objectJson);
+        ResultMatcher expectedContentType = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        // REQUEST
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
+                .post("/menu/dish")
+                .param("name", "burger");
+
+        mockMvc
+                .perform(requestBuilder)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(
+                        expectedStatus,
+                        expectedJson,
+                        expectedContentType
+                );
+
+
     }
 }
