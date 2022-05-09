@@ -34,6 +34,9 @@ public class RecipeFactory {
         expected.setDescription("lorem ipsum");
         expected.setIngredients(ingredients);
 
+        expected.setCalories(14D);
+        expected.setQuality(3.5D);
+
         return expected;
 
     }
