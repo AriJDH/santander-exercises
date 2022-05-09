@@ -1,8 +1,11 @@
 package com.bootcamp.testing.unit.repository;
 
+import com.bootcamp.testing.model.Recipe;
 import com.bootcamp.testing.repository.RecipeRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
 
 public class RecipeRepositoryTest {
 
@@ -17,6 +20,9 @@ public class RecipeRepositoryTest {
     @Test
     @DisplayName("Find a recipe w/ a valid name")
     void findRecipeWithCorrectName(){
+        String name = "burguer";
+
+        Optional<Recipe> recipe = recipeRepository.getRecipe(name);
 
     }
 

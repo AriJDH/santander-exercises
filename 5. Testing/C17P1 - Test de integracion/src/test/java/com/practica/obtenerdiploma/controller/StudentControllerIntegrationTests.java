@@ -165,6 +165,25 @@ public class StudentControllerIntegrationTests {
             Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
         }
 
+        @Test
+        public void shouldReturnErrorIfStudentNameIsEmpty(){
+            StudentDTO studentDTO = TestUtilsGenerator.getStudentWithId(1L);
+            studentDTO.setStudentName(null);
+
+            String payloadJson = "";
+            try {
+                payloadJson = writer.writeValueAsString(studentDTO);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+
+            MvcResult mvcResult = null;
+
+            mvcResult = MockMvcWrapper.executePerform(mockMvc,"/student/registerStudent", payloadJson, "El nombre del estudiante no puede estar vacío.");
+
+            Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
+        }
+
     }
 
 
