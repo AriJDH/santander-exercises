@@ -31,6 +31,6 @@ public class Alumno {
         DiplomaDTO diploma = new DiplomaDTO(nombre, calcularPromedio(), mensaje, felicitaciones);
         return diploma;
     }
-    
+
 
 }
