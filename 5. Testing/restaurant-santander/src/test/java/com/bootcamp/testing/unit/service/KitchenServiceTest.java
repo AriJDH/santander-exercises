@@ -49,6 +49,9 @@ public class KitchenServiceTest {
 
         Recipe burguer = kitchenService.createDish(name);
 
+        //si los objetos NO tienen @ToString va a comparar por referencia a memoria
+        // pero un asi tenemos el problema
+        // necesitamos el @Data que implementa un toString especifico que no meustra la posicion en memoria
         assertEquals(expected.get(), burguer);
     }
 
