@@ -1,15 +1,21 @@
 package com.practica.obtenerdiploma.controller;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.practica.obtenerdiploma.model.StudentDTO;
 import com.practica.obtenerdiploma.util.TestUtilsGenerator;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.asm.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -32,7 +38,7 @@ public class StudentControllerIntegrationTests {
 
 
     @Test
-    public void testGetStudent() throws Exception{
+    public void shouldReturnAStudentWhenOneExists() throws Exception{
         TestUtilsGenerator.emptyUsersFile();
         StudentDTO studentDTO = TestUtilsGenerator.getStudentWithId(1L);
         studentDTO.setStudentName("Juan");
@@ -52,7 +58,7 @@ public class StudentControllerIntegrationTests {
     }
 
     @Test
-    public void testListStudentsWhenHasOneElement() throws Exception{
+    public void shouldReturnAListWithOneStudentWhenOneExists() throws Exception{
         TestUtilsGenerator.emptyUsersFile();
         StudentDTO studentDTO = TestUtilsGenerator.getStudentWithId(1L);
         studentDTO.setStudentName("Juan");
@@ -69,7 +75,7 @@ public class StudentControllerIntegrationTests {
     }
 
     @Test
-    public void testListStudentsWhenHasntElements() throws Exception{
+    public void shouldReturnAnEmptyListWhenThereAreNoStudents() throws Exception{
         TestUtilsGenerator.emptyUsersFile();
         MvcResult mvcResult =
                 this.mockMvc.perform(MockMvcRequestBuilders.get("/student/listStudents"))
@@ -79,6 +85,52 @@ public class StudentControllerIntegrationTests {
         String response = mvcResult.getResponse().getContentAsString();
         Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
         Assertions.assertEquals("[]",response);
+
+    }
+
+    @Nested
+    class WhenThereAreNoStudents {
+
+        @Autowired
+        private MockMvc mockMvc;
+
+        @BeforeEach
+        void setUp(){
+            TestUtilsGenerator.emptyUsersFile();
+        }
+
+        @Test
+        public void shouldReturnOKWhenAddingANewStudent(){
+            StudentDTO studentDTO = TestUtilsGenerator.getStudentWithId(1L);
+            studentDTO.setStudentName("Juan");
+
+            ObjectWriter writer = new ObjectMapper().
+                    configure(SerializationFeature.WRAP_ROOT_VALUE, false).
+                    writer().withDefaultPrettyPrinter();
+
+            String payloadJson = "";
+            try {
+                payloadJson = writer.writeValueAsString(studentDTO);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+
+            MvcResult mvcResult = null;
+            try {
+                mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post("/student/registerStudent")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(payloadJson))
+                        .andDo(print()).andExpect(status().isOk())
+                        //.andExpect(content().contentType("application/json"))
+                        //.andExpect(MockMvcResultMatchers.jsonPath("$.studentName").value("Juan"))
+                        .andReturn();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+            //Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
+
+        }
 
     }
 
