@@ -6,14 +6,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.practica.obtenerdiploma.model.StudentDTO;
-import com.practica.obtenerdiploma.model.SubjectDTO;
 import com.practica.obtenerdiploma.util.MockMvcWrapper;
 import com.practica.obtenerdiploma.util.TestUtilsGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.springframework.asm.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,10 +21,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -101,20 +95,6 @@ public class StudentControllerIntegrationTests {
                 configure(SerializationFeature.WRAP_ROOT_VALUE, false).
                 writer().withDefaultPrettyPrinter();
 
-        private MvcResult executePerform(String endpoint, String payload, String expectedDescription){
-            try {
-                return this.mockMvc.perform(MockMvcRequestBuilders.post(endpoint)
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(payload))
-                        .andDo(print()).andExpect(status().is4xxClientError())
-                        .andExpect(content().contentType("application/json"))
-                        .andExpect(MockMvcResultMatchers.jsonPath("$.description").value(expectedDescription))
-                        .andReturn();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-
         @BeforeEach
         void setUp(){
             TestUtilsGenerator.emptyUsersFile();
@@ -160,7 +140,7 @@ public class StudentControllerIntegrationTests {
 
             MvcResult mvcResult = null;
 
-            mvcResult = MockMvcWrapper.executePerform(mockMvc,"/student/registerStudent", payloadJson, "El nombre del estudiante debe comenzar con mayúscula.");
+            mvcResult = MockMvcWrapper.perform(mockMvc,"/student/registerStudent", payloadJson, "El nombre del estudiante debe comenzar con mayúscula.");
             
             Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
         }
@@ -179,7 +159,27 @@ public class StudentControllerIntegrationTests {
 
             MvcResult mvcResult = null;
 
-            mvcResult = MockMvcWrapper.executePerform(mockMvc,"/student/registerStudent", payloadJson, "El nombre del estudiante no puede estar vacío.");
+            mvcResult = MockMvcWrapper.perform(mockMvc,"/student/registerStudent", payloadJson, "El nombre del estudiante no puede estar vacío.");
+
+            Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
+        }
+
+        @Test
+        public void shouldReturnErrorIfStudentNameIsTooLarge(){
+            StudentDTO studentDTO = TestUtilsGenerator.getStudentWithId(1L);
+            studentDTO.setStudentName("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+            String payloadJson = "";
+            try {
+                payloadJson = writer.writeValueAsString(studentDTO);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+
+            MvcResult mvcResult = null;
+
+            mvcResult = MockMvcWrapper.perform(mockMvc,"/student/registerStudent",
+                    payloadJson, "La longitud del nombre del estudiante no puede superar los 50 caracteres.");
 
             Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
         }

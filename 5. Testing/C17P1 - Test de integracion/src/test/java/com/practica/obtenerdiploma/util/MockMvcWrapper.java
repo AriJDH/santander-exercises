@@ -1,6 +1,5 @@
 package com.practica.obtenerdiploma.util;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -13,7 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class MockMvcWrapper {
 
-    public static MvcResult executePerform(MockMvc mockMvc, String endpoint, String payload, String expectedDescription){
+    public static MvcResult perform(MockMvc mockMvc, String endpoint, String payload, String expectedDescription){
         try {
             return mockMvc.perform(MockMvcRequestBuilders.post(endpoint)
                             .contentType(MediaType.APPLICATION_JSON)
