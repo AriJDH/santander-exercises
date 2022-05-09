@@ -31,8 +31,11 @@ class ObtenerDiplomaControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("El alumno Pedro ha obtenido un promedio de 7,33. Puedes mejorar."))
                .andReturn();
         Assertions.assertEquals("application/json",mvcResult.getResponse().getContentType());
+        /*
         System.out.println("Hola esta es la clase: " + mvcResult.getClass().getSimpleName());
         System.out.println("Hola esta es la clase: " + mvcResult.getResponse().getContentAsString());
+        
+         */
     }
 
 }

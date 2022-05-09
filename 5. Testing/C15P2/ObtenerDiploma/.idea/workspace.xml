@@ -87,7 +87,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Testing/demo - copia" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../C16P1/ObtenerDiploma" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -186,11 +186,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ObtenerDiplomaApplication" />
       <item itemvalue="Application.ObtenerDiplomaApplication (1)" />
+      <item itemvalue="Application.ObtenerDiplomaApplication" />
+      <item itemvalue="JUnit.All in ObtenerDiploma" />
       <item itemvalue="JUnit.ObtenerDiplomaControllerIntegrationTest" />
       <item itemvalue="JUnit.ObtenerDiplomaControllerIntegrationTest.testObtenerDiplomaSinMaterias" />
-      <item itemvalue="JUnit.All in ObtenerDiploma" />
     </list>
     <recent_temporary>
       <list>
