@@ -3,10 +3,12 @@ package com.C12P1.Diploma.Servicio;
 import com.C12P1.Diploma.Modelo.Alumno;
 import com.C12P1.Diploma.Repo.AlumnoDaoImplArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AlumnoServicio implements iAlumnoServicio<String> {
 
-    Alumno alumno;
+
 
     @Autowired
     AlumnoDaoImplArrayList alumnoDaoImplArrayList;
@@ -14,7 +16,7 @@ public class AlumnoServicio implements iAlumnoServicio<String> {
 
     @Override
     public String Promedio(String nombreAlumno) {
-        alumno = alumnoDaoImplArrayList.findByName(nombreAlumno);
+        Alumno alumno = alumnoDaoImplArrayList.findByName(nombreAlumno);
         double sumaNotas = 0;
         for (int i=0;i<alumno.getMaterias().size();i++){
             sumaNotas += alumno.getMaterias().get(i).getNota();

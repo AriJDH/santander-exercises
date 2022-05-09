@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AlumnoController {
-    AlumnoServicio alumnoServicio = new AlumnoServicio();
+
+    @Autowired
+    AlumnoServicio alumnoServicio;
 
 
     @GetMapping(path="/getDiploma/{nombreAlumno}")

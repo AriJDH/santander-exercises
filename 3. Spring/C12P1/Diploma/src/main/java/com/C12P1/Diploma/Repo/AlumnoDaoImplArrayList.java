@@ -2,15 +2,18 @@ package com.C12P1.Diploma.Repo;
 
 import com.C12P1.Diploma.Modelo.Alumno;
 import com.C12P1.Diploma.Modelo.Materia;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.zip.ZipEntry;
 
+
+@Repository
 public class AlumnoDaoImplArrayList {
 
-    HashMap<String,Alumno> alumnosList = new HashMap<>();
+    List<Alumno> alumnosList = new ArrayList<>();
 
 
     public AlumnoDaoImplArrayList() {
@@ -36,11 +39,11 @@ public class AlumnoDaoImplArrayList {
         Alumno Carlos = new Alumno("Carlos", materiasCarlos);
 
 
-        alumnosList.put("Juan",Juan);
-        alumnosList.put("Carlos",Carlos);
-        alumnosList.put("Matias",Matias);
+        alumnosList.add(Juan);
+        alumnosList.add(Carlos);
+        alumnosList.add(Matias);
     }
     public Alumno findByName(String name){
-        return alumnosList.get(name);
+        return alumnosList.stream().filter(n-> n.getNombre().equals(name)).findFirst().orElse(null);
     }
 }
