@@ -35,4 +35,11 @@ public class IngredientFactory {
         bread.setCalories(983);
         return bread;
     }
+
+    public static Ingredient getMeal() {
+        Ingredient meat = new Ingredient();
+        meat.setName("meal");
+        meat.setQuantity(2);
+        return meat;
+    }
 }

@@ -22,4 +22,19 @@ public class RecipeFactory {
 
         return expected;
     }
+
+    public static Recipe createBurguer() {
+        Ingredient bread = IngredientFactory.getBread();
+        Ingredient meat = IngredientFactory.getMeal();
+
+        List<Ingredient> ingredients = Arrays.asList(bread, meat);
+
+        Recipe expected = new Recipe();
+        expected.setName("burger");
+        expected.setDescription("lorem ipsum");
+        expected.setIngredients(ingredients);
+
+        return expected;
+
+    }
 }
