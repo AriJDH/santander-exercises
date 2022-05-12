@@ -1,0 +1,122 @@
+[
+  {
+    "hotelCode": "CH-0002",
+    "name": "Cataratas Hotel",
+    "destination": "Puerto Iguazú",
+    "roomType": "DOUBLE",
+    "price": 6300,
+    "dateFrom": "10/02/2022",
+    "dateTo": "20/03/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "CH-0003",
+    "name": "Cataratas Hotel 2",
+    "destination": "Puerto Iguazú",
+    "roomType": "TRIPLE",
+    "price": 8200,
+    "dateFrom": "10/02/2022",
+    "dateTo": "23/03/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "HB-0001",
+    "name": "Hotel Bristol",
+    "destination": "Buenos Aires",
+    "roomType": "SINGLE",
+    "price": 5435,
+    "dateFrom": "10/02/2022",
+    "dateTo": "19/03/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "BH-0002",
+    "name": "Hotel Bristol 2",
+    "destination": "Buenos Aires",
+    "roomType": "DOUBLE",
+    "price": 7200,
+    "dateFrom": "12/02/2022",
+    "dateTo": "17/04/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "SH-0002",
+    "name": "Sheraton",
+    "destination": "Tucumán",
+    "roomType": "DOUBLE",
+    "price": 5790,
+    "dateFrom": "17/04/2022",
+    "dateTo": "23/05/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "SH-0001",
+    "name": "Sheraton 2",
+    "destination": "Tucumán",
+    "roomType": "SINGLE",
+    "price": 4150,
+    "dateFrom": "02/01/2022",
+    "dateTo": "19/02/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "SE-0001",
+    "name": "Selina",
+    "destination": "Bogotá",
+    "roomType": "SINGLE",
+    "price": 3900,
+    "dateFrom": "23/01/2022",
+    "dateTo": "23/11/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "SE-0002",
+    "name": "Selina 2",
+    "destination": "Bogotá",
+    "roomType": "DOUBLE",
+    "price": 5840,
+    "dateFrom": "23/01/2022",
+    "dateTo": "15/10/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "EC-0003",
+    "name": "El Campín",
+    "destination": "Bogotá",
+    "roomType": "TRIPLE",
+    "price": 7020,
+    "dateFrom": "15/02/2022",
+    "dateTo": "27/03/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "CP-0004",
+    "name": "Central Plaza",
+    "destination": "Medellín",
+    "roomType": "MULTIPLE",
+    "price": 8600,
+    "dateFrom": "01/03/2022",
+    "dateTo": "17/04/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "CP-0002",
+    "name": "Central Plaza 2",
+    "destination": "Medellín",
+    "roomType": "DOUBLE",
+    "price": 6400,
+    "dateFrom": "10/02/2022",
+    "dateTo": "20/03/2022",
+    "isReserved": false
+  },
+  {
+    "hotelCode": "BG-0004",
+    "name": "Bocagrande",
+    "destination": "Cartagena",
+    "roomType": "MULTIPLE",
+    "price": 9370,
+    "dateFrom": "17/04/2022",
+    "dateTo": "12/06/2022",
+    "isReserved": false
+  }
+]

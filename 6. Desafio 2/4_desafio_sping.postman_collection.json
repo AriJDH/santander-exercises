@@ -1,0 +1,2797 @@
+{
+	"info": {
+		"_postman_id": "f30f5b78-a556-4f61-9b10-05e516c49648",
+		"name": "4_desafio_sping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "US0001",
+			"item": [
+				{
+					"name": "listado de hoteles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/hotels",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US0002",
+			"item": [
+				{
+					"name": "mostrar hoteles por fecha y destino",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/hotels/?dateFrom=11/02/2022&dateTo=21/03/2022&destination=Puerto Iguazu",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "11/02/2022"
+								},
+								{
+									"key": "dateTo",
+									"value": "21/03/2022"
+								},
+								{
+									"key": "destination",
+									"value": "Puerto Iguazu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar hoteles por fecha y destino (DateFrom>DateTo)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/hotels/?dateFrom=10/02/2022&dateTo=12/12/2020&destination=Puerto Iguazu",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "10/02/2022"
+								},
+								{
+									"key": "dateTo",
+									"value": "12/12/2020"
+								},
+								{
+									"key": "destination",
+									"value": "Puerto Iguazu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar hoteles por fecha y destino (Not Hotel Found)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/hotels/?dateFrom=09/02/2022&dateTo=21/03/2022&destination=Puerto Iguazu",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "09/02/2022"
+								},
+								{
+									"key": "dateTo",
+									"value": "21/03/2022"
+								},
+								{
+									"key": "destination",
+									"value": "Puerto Iguazu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar hoteles por fecha y destino (InvalidDateFormat)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/hotels/?dateFrom=11/022/2022&dateTo=21/03/2022&destination=Puerto Iguazu",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "11/022/2022"
+								},
+								{
+									"key": "dateTo",
+									"value": "21/03/2022"
+								},
+								{
+									"key": "destination",
+									"value": "Puerto Iguazu"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US0003",
+			"item": [
+				{
+					"name": "Reservar Hotel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:02:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userName\": \"arjonamiguel@gmail.com\",\n    \"amount\": 6300,\n    \"interest\": 10,\n    \"total\": 6930,\n    \"booking\": {\n        \"dateFrom\": \"10/02/2022\",\n        \"dateTo\": \"20/03/2022\",\n        \"destination\": \"Puerto Iguazú\",\n        \"hotelCode\": \"CH-0002\",\n        \"peopleAmount\": 2,\n        \"roomType\": \"DOUBLE\",\n        \"people\": [\n            {\n                \"dni\": \"12345678\",\n                \"name\": \"Pepito\",\n                \"lastName\": \"Gomez\",\n                \"birthDate\": \"10/11/1982\",\n                \"mail\": \"arjonamiguel@gmail.com\"\n            },\n            {\n                \"dni\": \"13345678\",\n                \"name\": \"Fulanito\",\n                \"lastName\": \"Gomez\",\n                \"birthDate\": \"10/11/1983\",\n                \"mail\": \"arjonamigue12@gmail.com\"\n            }\n        ]\n    },\n    \"response\": {\n        \"code\": 200,\n        \"message\": \"La reserva fue hecha con exito\"\n    }\n}"
+						},
+						{
+							"name": "Reservar Hotel (reservado)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:05:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en el ingreso de reserva\",\n    \"description\": \"El hotel ya fue reservado por otra persona.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (email)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (email)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:03:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"Por favor ingrese un e-mail válido.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (dateFormat)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/22\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (dateFormat)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/22\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:04:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"Formato de fecha debe ser dd/mm/aaaa\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (peopleAmount)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 0,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (peopleAmount)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 0,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:04:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"La cantidad de personas debe ser mayor o igual a 1.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (roomType)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"ABC\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (roomType)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"ABC\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:04:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"El tipo de habitación debe ser: SINGLE, DOUBLE, TRIPLE o MULTIPLE.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (cardType)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"ABC\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (cardType)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"ABC\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:06:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"La tarjeta debe ser de tipo CREDIT o DEBIT.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (cardNumber)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234123412341234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (cardNumber)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234123412341234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:06:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"Formato de tarjeta inválido. Debe ser 1234-1234-1234-1234\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (dues)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 0\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (dues)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 0\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:06:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"Se debe pagar en al menos una cuota.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (hotelCode)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-9999\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (hotelCode)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-9999\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:04:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Error a la hora de mostrar hoteles\",\n    \"description\": \"No existe un hotel con el código solicitado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (destination)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Buenos Aires\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (destination)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Buenos Aires\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:04:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Error a la hora de mostrar hoteles\",\n    \"description\": \"No existe un hotel con el destino solicitado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (dateFrom > dateTo)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/04/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (dateFrom > dateTo)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/04/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:11:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en el ingreso de reserva\",\n    \"description\": \"La fecha de entrada debe ser menor a la de salida.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (outOfBounds)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"21/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (outOfBounds)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"21/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:09:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en el ingreso de reserva\",\n    \"description\": \"El hotel solicitado no se encuentra disponible en el período indicado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (MatchRoomTypeWithPeople)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 1,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (MatchRoomTypeWithPeople)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 1,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:31:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"No coincide la cantidad de gente con el tipo de habitacion\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (DebitCardDues)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"DEBIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (DebitCardDues)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"DEBIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:32:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"La cantidad de cuotas para tarjeta de debito debe ser 1.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Hotel (numericPeopleAmount)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": \"A\",\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/booking",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Hotel (numericPeopleAmount)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/03/2022\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"hotelCode\": \"CH-0002\",\r\n        \"peopleAmount\": \"A\",\r\n        \"roomType\": \"DOUBLE\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/booking",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"booking"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:36:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"La cantidad de personas debe ser un valor númerico\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "US0004",
+			"item": [
+				{
+					"name": "Mostrar listado de vuelos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/v1/flights",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flights"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US0005",
+			"item": [
+				{
+					"name": "Filtrar vuelos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flights/?dateFrom=10/02/2022&dateTo=15/02/2022&origin=Buenos Aires&destination=Puerto Iguazú",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "10/02/2022"
+								},
+								{
+									"key": "dateTo",
+									"value": "15/02/2022"
+								},
+								{
+									"key": "origin",
+									"value": "Buenos Aires"
+								},
+								{
+									"key": "destination",
+									"value": "Puerto Iguazú"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar vuelos dateFrom mayor a dateTo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flights/?dateFrom=16/02/2022&dateTo=15/02/2022&origin=Buenos Aires&destination=Puerto Iguazú",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "16/02/2022"
+								},
+								{
+									"key": "dateTo",
+									"value": "15/02/2022"
+								},
+								{
+									"key": "origin",
+									"value": "Buenos Aires"
+								},
+								{
+									"key": "destination",
+									"value": "Puerto Iguazú"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar vuelos formato inválido",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flights/?dateFrom=16/2022/2&dateTo=2022/15/02&origin=Buenos Aires&destination=Puerto Iguazú",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "16/2022/2"
+								},
+								{
+									"key": "dateTo",
+									"value": "2022/15/02"
+								},
+								{
+									"key": "origin",
+									"value": "Buenos Aires"
+								},
+								{
+									"key": "destination",
+									"value": "Puerto Iguazú"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar vuelos no encontrados",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flights/?dateFrom=13/02/2022&dateTo=15/02/2022&origin=Buenos Aires&destination=Puerto Iguazú",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "13/02/2022"
+								},
+								{
+									"key": "dateTo",
+									"value": "15/02/2022"
+								},
+								{
+									"key": "origin",
+									"value": "Buenos Aires"
+								},
+								{
+									"key": "destination",
+									"value": "Puerto Iguazú"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US0006",
+			"item": [
+				{
+					"name": "Reservar Vuelo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 11 May 2022 00:06:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userName\": \"arjonamiguel@gmail.com\",\n    \"amount\": 6500,\n    \"interest\": 10,\n    \"total\": 7150,\n    \"flightReservation\": {\n        \"dateFrom\": \"10/02/2022\",\n        \"dateTo\": \"20/11/2022\",\n        \"destination\": \"Puerto Iguazú\",\n        \"origin\": \"Buenos Aires\",\n        \"flightNumber\": \"BAPI-1235\",\n        \"seats\": 2,\n        \"seatType\": \"ECONOMY\",\n        \"people\": [\n            {\n                \"dni\": \"12345678\",\n                \"name\": \"Pepito\",\n                \"lastName\": \"Gomez\",\n                \"birthDate\": \"10/11/1982\",\n                \"mail\": \"arjonamiguel@gmail.com\"\n            },\n            {\n                \"dni\": \"13345678\",\n                \"name\": \"Fulanito\",\n                \"lastName\": \"Gomez\",\n                \"birthDate\": \"10/11/1983\",\n                \"mail\": \"arjonamigue12@gmail.com\"\n            }\n        ]\n    },\n    \"response\": {\n        \"code\": 200,\n        \"message\": \"La reserva fue hecha con exito. \"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (email)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (email)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:46:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"Por favor ingrese un e-mail válido.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (dateFormat)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/22\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (dateFormat)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/22\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:46:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"Formato de fecha debe ser dd/mm/aaaa\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (seats)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 0,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (seats)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 0,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:44:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"La cantidad de personas debe ser mayor o igual a 1.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (seatType)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ABC\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (seatType)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ABC\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:44:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"El tipo de habitación debe ser: ECONOMY o BUSINESS.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (cardType)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"ABC\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (cardType)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"ABC\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:45:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"La tarjeta debe ser de tipo CREDIT o DEBIT.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (cardNumber)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234123412341234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (cardNumber)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234123412341234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:45:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"Formato de tarjeta inválido. Debe ser 1234-1234-1234-1234\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (dues)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 0\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (dues)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 0\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:46:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"Se debe pagar en al menos una cuota.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (flightNumber)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-9999\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (flightNumber)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-9999\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:48:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error al mostrar vuelos\",\n    \"description\": \"No existe un vuelo con el número solicitado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (destination)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Corrientes\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (destination)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Corrientes\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:48:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error al mostrar vuelos\",\n    \"description\": \"El destino elegido no existe\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (outOfBounds)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"11/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (outOfBounds)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"11/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 23:49:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error al mostrar vuelos\",\n    \"description\": \"El vuelo solicitado no se encuentra disponible en la fecha indicada.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (DepartureIsBeforeArrival)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/12/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (DepartureIsBeforeArrival)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/12/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 11 May 2022 00:00:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"La fecha de vuelta debe ser mayor a la de ida\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (DebitCardDues)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"DEBIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (DebitCardDues)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"DEBIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 11 May 2022 00:01:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"La cantidad de cuotas para tarjeta de debito debe ser 1.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reservar Vuelo (numericSeats)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": \"A\",\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/flight-reservation",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"flight-reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservar Vuelo (numericSeats)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"arjonamiguel@gmail.com\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/02/2022\",\r\n        \"dateTo\": \"20/11/2022\",\r\n        \"origin\": \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": \"A\",\r\n        \"seatType\": \"ECONOMY\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12345678\",\r\n                \"name\": \"Pepito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1982\",\r\n                \"mail\": \"arjonamiguel@gmail.com\"\r\n            },\r\n            {\r\n                \"dni\": \"13345678\",\r\n                \"name\": \"Fulanito\",\r\n                \"lastName\": \"Gomez\",\r\n                \"birthDate\": \"10/11/1983\",\r\n                \"mail\": \"arjonamigue12@gmail.com\"\r\n            }\r\n        ],\r\n        \"paymentMethod\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/v1/flight-reservation",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"flight-reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 11 May 2022 00:02:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Error en las validaciones\",\n    \"description\": \"La cantidad de personas debe ser un valor númerico\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
