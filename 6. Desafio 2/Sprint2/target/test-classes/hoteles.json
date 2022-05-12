@@ -1,0 +1,33 @@
+[
+  {
+    "codigoHotel":"CH-0002",
+    "nombre":"Cataratas Hotel",
+    "lugarOCiudad":"Puerto Iguazú",
+    "habitacionTipo":"Doble",
+    "precioNoche":6300.0,
+    "disponibleDesde":"10/02/2022",
+    "disponibleHasta":"22/03/2022",
+    "reservado":"NO"
+  },
+  {
+    "codigoHotel":"BA-0003",
+    "nombre":"Buenos Hotel 2",
+    "lugarOCiudad":"Buenos Aires",
+    "habitacionTipo":"Triple",
+    "precioNoche":8200.0,
+    "disponibleDesde":"11/03/2022",
+    "disponibleHasta":"23/04/2022",
+    "reservado":"NO"
+  },
+  {
+    "codigoHotel":"BA-0004",
+    "nombre":"Buenos Hotel 3",
+    "lugarOCiudad":"Buenos Aires",
+    "habitacionTipo":"Triple",
+    "precioNoche":8200.0,
+    "disponibleDesde":"11/03/2022",
+    "disponibleHasta":"23/04/2022",
+    "reservado":"SI"
+  }
+
+]

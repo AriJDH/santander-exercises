@@ -1,0 +1,17 @@
+com\santanderbootcamp\desafio_spring\DesafioSpringApplicationTests.class
+com\santanderbootcamp\desafio_spring\integration_test\VuelosControllerTest$1.class
+com\santanderbootcamp\desafio_spring\utils\ClientesFactory$3.class
+com\santanderbootcamp\desafio_spring\unit_test\repo\VuelosDaoJsonImpTest.class
+com\santanderbootcamp\desafio_spring\unit_test\service\VuelosServiceTest.class
+com\santanderbootcamp\desafio_spring\unit_test\service\HotelesServiceTest.class
+com\santanderbootcamp\desafio_spring\integration_test\HotelesControllerTest$context1.class
+com\santanderbootcamp\desafio_spring\utils\ClientesFactory$4.class
+com\santanderbootcamp\desafio_spring\integration_test\HotelesControllerTest.class
+com\santanderbootcamp\desafio_spring\unit_test\repo\HotelesDaoJsonImpTest.class
+com\santanderbootcamp\desafio_spring\integration_test\VuelosControllerTest.class
+com\santanderbootcamp\desafio_spring\utils\ClientesFactory$1.class
+com\santanderbootcamp\desafio_spring\utils\ClientesFactory.class
+com\santanderbootcamp\desafio_spring\integration_test\HotelesYVuelosControllerTest.class
+com\santanderbootcamp\desafio_spring\utils\ClientesFactory$2.class
+com\santanderbootcamp\desafio_spring\utils\VuelosFactory.class
+com\santanderbootcamp\desafio_spring\utils\HotelesFactory.class

@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: com.santanderbootcamp.desafio_spring.unit_test.service.HotelesServiceTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 3, Errors: 1, Skipped: 0, Time elapsed: 0.369 s <<< FAILURE! - in com.santanderbootcamp.desafio_spring.unit_test.service.HotelesServiceTest
+registrarYMostrarTestError  Time elapsed: 0.015 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Se debe cargar la información del hotel> but was: <No hay uno hotel registrado en ese lugar.>
+	at com.santanderbootcamp.desafio_spring.unit_test.service.HotelesServiceTest.registrarYMostrarTestError(HotelesServiceTest.java:153)
+
+registrarYMostrarTest  Time elapsed: 0.002 s  <<< ERROR!
+com.santanderbootcamp.desafio_spring.excepciones.HotelesException: No hay uno hotel registrado en ese lugar.
+	at com.santanderbootcamp.desafio_spring.unit_test.service.HotelesServiceTest.registrarYMostrarTest(HotelesServiceTest.java:129)
+
+getElementosDisponiblesPorFechaYDestinoTestError  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <No hay hoteles disponibles en la fecha dada> but was: <El destino no existe>
+	at com.santanderbootcamp.desafio_spring.unit_test.service.HotelesServiceTest.getElementosDisponiblesPorFechaYDestinoTestError(HotelesServiceTest.java:97)
+
+registrarYMostrarTestError2  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <El hotel no está disponible> but was: <No hay uno hotel registrado en ese lugar.>
+	at com.santanderbootcamp.desafio_spring.unit_test.service.HotelesServiceTest.registrarYMostrarTestError2(HotelesServiceTest.java:173)
+
