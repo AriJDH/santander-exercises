@@ -34,7 +34,7 @@ class ObtenerDiplomaControllerTest {
         /*
         System.out.println("Hola esta es la clase: " + mvcResult.getClass().getSimpleName());
         System.out.println("Hola esta es la clase: " + mvcResult.getResponse().getContentAsString());
-        
+
          */
     }
 
