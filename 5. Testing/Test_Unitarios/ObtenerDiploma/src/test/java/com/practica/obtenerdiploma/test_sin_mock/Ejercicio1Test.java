@@ -12,8 +12,8 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Ejercicio1Test {
-    IStudentDAO studentDAO;
-    IStudentRepository studentRepository;
+    StudentDAO studentDAO;
+    StudentRepository studentRepository;
 
     @BeforeEach
     void setUp(){
@@ -32,15 +32,6 @@ public class Ejercicio1Test {
     void addNullStudentTest() {
         StudentDTO student= null;
         assertThrows(NullPointerException.class,()->studentDAO.save(student));
-    }
-
-    @Test
-    void addInvalidStudentTest() {
-        StudentDTO student = new StudentDTO();
-        student.setStudentName(null);
-        studentDAO.save(student);
-        assertEquals(false,studentDAO.exists(student));
-
     }
 
     @Test
@@ -77,7 +68,7 @@ public class Ejercicio1Test {
         StudentDTO student= TestUtilsGenerator.getStudentWith3Subjects("Pepito");
         studentDAO.save(student);
         studentDAO.delete(student.getId());
-        assertEquals(false,studentDAO.exists(student));
+        assertThrows(StudentNotFoundException.class,()->studentDAO.exists(student));
     }
     @Test
     void listAllStudentTest(){

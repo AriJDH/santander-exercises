@@ -16,7 +16,7 @@ public class StudentRepositoryTests {
     IStudentRepository studentRepo;
     IStudentDAO studentDAO;
 
-    @BeforeEach @AfterEach
+    @BeforeEach
     private void setUp() {
         TestUtilsGenerator.emptyUsersFile();
 
@@ -27,7 +27,7 @@ public class StudentRepositoryTests {
     @Test
     public void findAllExistentStudents() {
         // arrange
-        Set<StudentDTO> students = TestUtilsGenerator.getStudentSet();
+        Set<StudentDTO> students = TestUtilsGenerator.loadDataBase();
         students.forEach((stu) -> studentDAO.save(stu));
 
         // act

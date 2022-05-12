@@ -52,7 +52,7 @@ class Ejercicio5 {
     void modifyStudent() {
         StudentDTO studentDTO= TestUtilsGenerator.getStudentWith3Subjects("Pepito");
         studentController.modifyStudent(studentDTO);
-        verify(studentService,atLeastOnce()).create(studentDTO);
+        verify(studentService,atLeastOnce()).update(studentDTO);
     }
 
     @Test

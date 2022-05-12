@@ -31,18 +31,17 @@ class Ejercicio4 {
     @Test
     void analyzeScores() {
         StudentDTO studentDTOEsperado= TestUtilsGenerator.getStudentWith3SubjectsAverageOver9("Pepito");
-        studentDTOEsperado.setAverageScore(6.00);
+        studentDTOEsperado.setAverageScore(9.00);
         studentDTOEsperado.setMessage("El alumno Martin ha obtenido un promedio de 9. Felicitaciones!");
 
 
         StudentDTO studentDTOMock= TestUtilsGenerator.getStudentWith3SubjectsAverageOver9("Pepito");
-        studentDTOMock.setAverageScore(6.00);
+        studentDTOMock.setAverageScore(9.00);
         studentDTOMock.setMessage("El alumno Martin ha obtenido un promedio de 9. Felicitaciones!");
 
 
-        when(obtenerDiplomaService.analyzeScores(1L)).thenReturn(studentDTOMock);
+        when(obtenerDiplomaService.analyzeScores(any())).thenReturn(studentDTOMock);
         StudentDTO studentDTORespuesta=obtenerDiplomaController.analyzeScores(1L);
-        studentDTOEsperado.setStudentName("asfdasfafa");
 
         assertTrue(studentDTOEsperado.equals(studentDTORespuesta));
 

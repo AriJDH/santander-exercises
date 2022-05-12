@@ -12,7 +12,8 @@ public class StudentDAOTests {
 
     IStudentDAO studentDAO;
 
-    @BeforeEach @AfterEach
+
+    @BeforeEach
     private void setUp() {
        TestUtilsGenerator.emptyUsersFile();
        this.studentDAO = new StudentDAO();

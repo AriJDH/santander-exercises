@@ -8,6 +8,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 
+import javax.validation.Valid;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class StudentDAO implements IStudentDAO {
     }
 
     @Override
-    public void save(StudentDTO stu) {
+    public void save(@Valid StudentDTO stu) {
 
         boolean removed = this.delete(stu.getId());
 

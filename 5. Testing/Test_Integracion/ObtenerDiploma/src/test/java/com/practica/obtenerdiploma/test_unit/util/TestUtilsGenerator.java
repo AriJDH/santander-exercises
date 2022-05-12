@@ -1,6 +1,7 @@
 package com.practica.obtenerdiploma.test_unit.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -21,6 +22,26 @@ public class TestUtilsGenerator {
 
     private static String SCOPE;
     private static ObjectWriter mapper;
+
+    public static Set<StudentDTO> loadDataBase(){
+        Set<StudentDTO> loadedData = new HashSet<>();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        File file;
+        try {
+            file = ResourceUtils.getFile("./src/" + SCOPE + "/resources/users.json");
+            loadedData = objectMapper.readValue(file, new TypeReference<Set<StudentDTO>>(){});
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("Failed while initializing DB, check your resources files");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed while initializing DB, check your JSON formatting.");
+        }
+
+
+        return loadedData;
+    }
 
     public static void emptyUsersFile() {
         Properties properties = new Properties();
