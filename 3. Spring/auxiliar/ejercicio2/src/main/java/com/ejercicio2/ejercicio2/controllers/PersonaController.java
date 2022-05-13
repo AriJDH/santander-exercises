@@ -1,11 +1,13 @@
 package com.ejercicio2.ejercicio2.controllers;
 
 import com.ejercicio2.ejercicio2.dao.Dao;
+import com.ejercicio2.ejercicio2.dto.PersonaDto;
 import com.ejercicio2.ejercicio2.modelos.Persona;
 import com.ejercicio2.ejercicio2.servicios.PersonaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.spi.LoggerFactoryBinder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,23 +22,21 @@ import java.util.List;
 public class PersonaController {
     private static final Logger LOGGER = LoggerFactory.getLogger(PersonaController.class);
 
-    PersonaService personaService = new PersonaService();
+    @Autowired
+    PersonaService personaService; // = new PersonaService();
 
     @GetMapping("/getpersona")
-    public ResponseEntity<Persona> getPersona(){
-        Persona persona = new Persona();
-        persona.setNombre("Mario");
-        persona.setApellido("Lopez");
-        return new ResponseEntity<>(persona, HttpStatus.OK);
+    public ResponseEntity<PersonaDto> getPersona(){
+        return new ResponseEntity<>(personaService.getPersona(), HttpStatus.OK);
     }
 
     @GetMapping("/getpersonas")
-    public ResponseEntity<List<Persona>> getPersonas() {
+    public ResponseEntity<List<PersonaDto>> getPersonas() {
         return new ResponseEntity<>(personaService.getPersonas(), HttpStatus.OK);
     }
 
     @PostMapping("/persona")
-    public ResponseEntity<String> agregar(@RequestBody Persona persona){
+    public ResponseEntity<String> agregar(@RequestBody PersonaDto persona){
         LOGGER.info(persona.toString());
         personaService.agregar(persona);
         return new ResponseEntity<>("Se cargaron los datos correctamente" + persona, HttpStatus.OK);
