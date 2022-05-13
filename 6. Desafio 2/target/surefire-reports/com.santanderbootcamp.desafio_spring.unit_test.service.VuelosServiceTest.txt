@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.santanderbootcamp.desafio_spring.unit_test.service.VuelosServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.044 s <<< FAILURE! - in com.santanderbootcamp.desafio_spring.unit_test.service.VuelosServiceTest
+getElementosDisponiblesPorFechaYDestinoTestError  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <No hay vuelos disponibles> but was: <No hay un vuelo que llegue a ese destino.>
+	at com.santanderbootcamp.desafio_spring.unit_test.service.VuelosServiceTest.getElementosDisponiblesPorFechaYDestinoTestError(VuelosServiceTest.java:92)
+
