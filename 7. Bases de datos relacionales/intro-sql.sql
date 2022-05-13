@@ -20,6 +20,6 @@ SELECT title, rating FROM movies WHERE title LIKE 'Toy Story%';
 
 SELECT first_name, last_name FROM actors WHERE first_name LIKE 'Sam%';
 
-SELECT title, release_date FROM movies WHERE EXTRACT(YEAR FROM release_date) BETWEEN 2004 AND 2008;
+SELECT title, release_date FROM movies WHERE year(release_date) BETWEEN 2004 AND 2008;
 
 SELECT title, rating, awards, release_date FROM movies WHERE rating > 3 AND awards > 1 AND EXTRACT(YEAR FROM release_date) BETWEEN 1988 AND 2009 ORDER BY rating;
