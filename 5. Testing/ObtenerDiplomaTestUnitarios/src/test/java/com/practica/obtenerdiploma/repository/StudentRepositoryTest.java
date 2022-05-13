@@ -3,7 +3,6 @@ package com.practica.obtenerdiploma.repository;
 import com.practica.obtenerdiploma.model.StudentDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,6 +22,7 @@ class StudentRepositoryTest {
     void findAll() {
 
         StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setId(1L);
         Set<StudentDTO> students = new HashSet<>();
         students.add(studentDTO);
 
@@ -33,9 +33,19 @@ class StudentRepositoryTest {
 
         assertEquals(students.size(), studentsObtained.size());
 
-        for (int i=0; i<students.size(); ++i) {
-            // students[i].getID == studentsObtained[i].getId
-        }
-    }
+        assertEquals(students.toString(), studentsObtained.toString());
 
+        StudentDTO s1 = new StudentDTO();
+        StudentDTO s2 = new StudentDTO();
+
+        Set<StudentDTO> set1 = new HashSet<>();
+        Set<StudentDTO> set2 = new HashSet<>();
+        set1.add(s1);
+        set2.add(s2);
+
+        System.out.println(s1.equals(s2));
+
+        System.out.println(set1.equals(set2));
+
+    }
 }
