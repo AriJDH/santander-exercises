@@ -1,0 +1,42 @@
+-¿A qué se denomina JOIN en una base de datos y para qué se utiliza?
+
+Se denomina JOIN a la combinacion de tablas en una base de datos dado una condicion o varias condiciones
+
+
+-Explicar dos tipos de JOIN.
+
+INNER JOIN o JOIN
+
+Es el join por default y en este join devuelve los registros de las tablas las cuales cumplan con la/s condicion/es y nada mas.
+
+LEFT JOIN
+
+En este join devuelve los registrs de las tablas que cumplan la/s condicion/es y los registros de la tabla de la izquierda
+
+
+-¿Para qué se utiliza el GROUP BY?
+
+Se utilizan en casos donde se emplean funciones de agregacion (MIN, MAX, COUNT, SUM, AVG, etc) y hay otras columnas
+las cuales no son afectadas por la funcion de agregacion. Esto es asi debido a que dichas funciones al devolver un solo registro
+se requiere que no haya multiples registros de las columnas que no son afectadas por la funcion de agregacion.
+
+
+-¿Para qué se utiliza el HAVING?
+
+Se lo utiliza en casos en los que en una consulta en la que se utiliza funciones de agregacion se requiera aplicar condiciones a las columnas
+que son afectadas por dicha funciones. y porque no se emplea WHERE? Simple, porque el where pasa registro por registro mientras que el having
+aplica la condicion cuando ya esta el registro agrupado en uno solo 
+
+-Escribir una consulta genérica para cada uno de los siguientes diagramas:
+
+SELECT columna1
+FROM LeftTable
+JOIN RightTable ON LeftTable.id=RightTable.id;
+
+
+
+
+SELECT columna1
+FROM LeftTable
+LEFT JOIN RightTable ON LeftTable.id=RightTable.id;
+
