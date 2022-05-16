@@ -49,6 +49,14 @@ ON a.favorite_movie_id = m.id
 WHERE m.awards > 3;
 
 
+SELECT a.id,a.first_name,a.last_name
+FROM actors a
+WHERE a.favorite_movie_id IN (
+	SELECT m.id
+    FROM movies m
+    WHERE m.awards > 3);
+
+
 -- Crear un índice sobre el nombre en la tabla movies.
 -- Chequee que el índice fue creado correctamente.
 
