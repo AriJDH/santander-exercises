@@ -1,15 +1,30 @@
--- ¿A qué se denomina JOIN en una base de datos y para qué se utiliza?
--- A combinar datos de diferentes tablas a partir de condiciones en común.
+-- Mostrar el título y el nombre del género de todas las series.
+SELECT series.title, genres.name
+FROM series INNER JOIN genres
+ON series.genre_id = genres.id;
 
--- Explicar dos tipos de JOIN.
--- El inner join toma la intersección de ambas tablas, el left join tomará la intersección entre dos tablas pero seguirá
---  mostrando todos los datos correspondientes de la tabla izquierda aún cuando en la tabla derecha halla un valor null.
--- El right join es lo mismo pero prioriza a la tabla de la derecha. Por último el full outer join es la unión entre tablas.
+-- Mostrar el título de los episodios, el nombre y apellido de los actores que trabajan en cada uno de ellos.
+SELECT episodes.title, actors.first_name,actors.last_name
+FROM actors 
+JOIN actor_episode ON actor_episode.actor_id = actors.id
+JOIN episodes ON actor_episode.episode_id = episode_id;
 
--- ¿Para qué se utiliza el GROUP BY?
--- se utiliza para obtener datos resumidos y agrupados por las columnas correspondientes ya que genera un sólo registro por un grupo 
--- de filas que compartan el mismo valor en la columna.
+-- Mostrar el título de todas las series y el total de temporadas que tiene cada una de ellas.
+SELECT series.title, COUNT(seasons.serie_id) AS "Total seassons"
+FROM series JOIN seasons ON seasons.serie_id = series.id
+GROUP BY series.title;
 
--- ¿Para qué se utiliza el HAVING?
--- Funciona como el WHERE pero para las columnas obtenidas mediante el GROUP BY.
+-- Mostrar el nombre de todos los géneros y la cantidad total de películas por cada uno, siempre que sea mayor o igual a 3.
+SELECT genres.name , COUNT(movies.genre_id) as "Total movies"
+FROM genres JOIN movies ON genres.id = movies.genre_id
+GROUP BY genres.name HAVING COUNT(movies.genre_id) >= 3;
+
+-- Mostrar sólo el nombre y apellido de los actores que trabajan en todas las películas de la guerra de las galaxias y que estos no se repitan.
+ SELECT actors.first_name, actors.last_name 
+ FROM actors JOIN actor_movie ON actor_movie.actor_id = actors.id
+ JOIN movies ON actor_movie.movie_id = movies.id
+ WHERE movies.title LIKE "La Guerra de las galaxias%"
+
+
+
 
