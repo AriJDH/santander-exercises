@@ -14,7 +14,12 @@ WHERE season_id IN
 -- Episodios primera temporada
 SELECT * 
 FROM TWD
-WHERE season_id = 20
+WHERE season_id = 20;
 
 -- Creamos un indice
--- CREATE INDEX 
+-- Para facilitar las busquedas por fecha de las peliculas
+CREATE INDEX release_date_idx
+ON movies(release_date);
+
+SHOW INDEX FROM movies;
+-- HELP INDEX movie_db.movies;
