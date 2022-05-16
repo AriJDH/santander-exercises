@@ -1,0 +1,2 @@
+Principalmente detecte factura y cliente por separado, ya que no tienen nada en comun. Luego, tambien separe el producto que es algo totalmente
+ajeno a factura y cliente, debido que si queremos agregar productos habria que modificar la todo el registro.Tambien note la forma de pago para poder agregar nuevas formas de pago
