@@ -153,4 +153,25 @@ WHERE id_libro IN
         WHERE nombre = "J.K. Rowling"
         ) as autor_libros
     ON la.id_autor = autor_libros.id_autor
-    )
+    );
+    
+-- 13. v2.0 Usando otro where con subconsulta
+SELECT *
+FROM libro
+WHERE id_libro IN 
+	(SELECT id_libro
+    FROM libro_autor
+    WHERE id_autor IN
+		(SELECT id_autor 
+        FROM autor
+        WHERE nombre = "J.K. Rowling"
+        )
+    );
+
+-- 14. Listar títulos de los libros que debían devolverse el 16/07/2021.
+SELECT titulo
+FROM libro
+WHERE id_libro IN
+	(SELECT id_libro
+    FROM prestamo as p
+    WHERE p.fecha_devolucion = '2021-07-16')
