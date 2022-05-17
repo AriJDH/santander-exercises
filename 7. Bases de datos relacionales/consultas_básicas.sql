@@ -20,7 +20,7 @@ select * from actors limit 10;
 
 select title, rating from movies where title="Toy Story";
 
-select * from actors where first_name like "Sam%";
+select * from actors where first_name="Sam";
 
 select title from movies where release_date BETWEEN '2004-01-01' AND '2008-12-31';
 
