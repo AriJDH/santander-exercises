@@ -5,7 +5,6 @@ import com.example.jewelry.dto.JewelResponseDTO;
 import com.example.jewelry.dto.SuccessDTO;
 import com.example.jewelry.service.JewelryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,8 +29,7 @@ public class JewelryController {
 
     @GetMapping("/jewelry")
     public ResponseEntity<List<JewelResponseDTO>> getJewels(){
-        //TODO: agregar busqueda por is disabled, no debe mostrar las eliminadas
-        List<JewelResponseDTO> jewelDTOs = jewelryService.findAllJewels();
+        List<JewelResponseDTO> jewelDTOs = jewelryService.findAllSellableJewels();
         return ResponseEntity.ok().body(jewelDTOs);
     }
 

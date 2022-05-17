@@ -36,6 +36,11 @@ public class JewelryService {
         return jewels.stream().map(jewel -> modelMapper.map(jewel, JewelResponseDTO.class)).collect(Collectors.toList());
     }
 
+    public List<JewelResponseDTO> findAllSellableJewels() {
+        List<Jewel> jewels = jewelRepository.findJewelBySellableIsTrue();
+        return jewels.stream().map(jewel -> modelMapper.map(jewel, JewelResponseDTO.class)).collect(Collectors.toList());
+    }
+
     public JewelResponseDTO deleteJewel(Integer idJewel) {
         // busco la joya
         Jewel jewel = jewelRepository.findById(idJewel).orElseThrow(RuntimeException::new);
