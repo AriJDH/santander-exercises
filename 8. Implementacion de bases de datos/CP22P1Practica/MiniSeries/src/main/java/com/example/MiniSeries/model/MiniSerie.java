@@ -1,8 +1,13 @@
 package com.example.MiniSeries.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class MiniSerie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,4 +21,11 @@ public class MiniSerie {
 
     @Column
     private Integer amount_of_awards;
+
+    public MiniSerie(Long id, String name, Double rating, Integer amount_of_awards) {
+        this.id = id;
+        this.name = name;
+        this.rating = rating;
+        this.amount_of_awards = amount_of_awards;
+    }
 }
