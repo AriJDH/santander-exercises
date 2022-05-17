@@ -45,6 +45,11 @@ public class JewelryService {
         // busco la joya
         Jewel jewel = jewelRepository.findById(idJewel).orElseThrow(RuntimeException::new);
 
+        // si ya esta anulada logicamente lanzo excepcion
+        if(!jewel.getSellable()){
+            throw new RuntimeException();
+        }
+
         // la elimino logicamente
         jewel.setSellable(false);
 
