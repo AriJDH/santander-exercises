@@ -73,4 +73,13 @@ public class SchoolService {
                 modelMapper.map(student, StudentResponseDTO.class)).collect(Collectors.toList());
 
     }
+
+
+    public List<StudentResponseDTO> findByDisabled(){
+        List<Student> students = studentsRepository.findStudentByDisabledIsTrue();
+
+        return students.stream().map(student ->
+                modelMapper.map(student, StudentResponseDTO.class)).collect(Collectors.toList());
+
+    }
 }

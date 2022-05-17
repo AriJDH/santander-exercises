@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class StudentDTO {
     String dni;
     String name;
+    Boolean disabled;
 }

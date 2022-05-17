@@ -48,4 +48,9 @@ public class SchoolController {
     public ResponseEntity<List<StudentResponseDTO>> findByName(@PathVariable String name){
         return ResponseEntity.ok().body(schoolService.findByName(name));
     }
+
+    @GetMapping("student/findbydisabled")
+    public ResponseEntity<List<StudentResponseDTO>> findByDisabled(){
+        return ResponseEntity.ok().body(schoolService.findByDisabled());
+    }
 }

@@ -11,4 +11,5 @@ public class StudentResponseDTO {
     Integer id;
     String dni;
     String name;
+    Boolean disabled;
 }

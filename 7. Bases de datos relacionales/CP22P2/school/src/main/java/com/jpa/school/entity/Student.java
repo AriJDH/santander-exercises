@@ -26,4 +26,7 @@ public class Student {
     @Transient
     private Integer age;
 
+    @Column(name = "desactivado")
+    Boolean disabled;
+
 }

@@ -12,10 +12,14 @@ public interface StudentsRepository extends JpaRepository<Student, Integer> {
     //find<entity>by<atrribute>And<attribute>Equals
     //Optional<Student> findStudentByNameAndAgeEquals(String name);
 
-    //find<entity>by<atrribute>Equals
-    List<Student> findStudentByNameEquals(String name);
-
     // e.g. quiero buscar a todos los borrados logicos
     // TODO: findStudentByDisabled(Boolean disabled)
     // List<Student> findStudentByNameEquals(String name)
+
+    //find<entity>by<atrribute>Equals
+    List<Student> findStudentByNameEquals(String name);
+
+    List<Student> findStudentByDisabledIsTrue();
+
+
 }
