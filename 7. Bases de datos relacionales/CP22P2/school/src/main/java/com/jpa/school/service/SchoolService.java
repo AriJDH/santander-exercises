@@ -56,7 +56,7 @@ public class SchoolService {
         // podria chequear antes si existe con un findbyId
 
         studentsRepository.deleteById(idStudent);
-        
+
         Optional<Student> student = studentsRepository.findById(idStudent);
 
         if(student.isPresent()){
@@ -64,5 +64,13 @@ public class SchoolService {
         }
 
         return new SuccessDTO("Se ha eliminado con exito el alumno", HttpStatus.OK.value());
+    }
+
+    public List<StudentResponseDTO> findByName(String name){
+        List<Student> students = studentsRepository.findStudentByNameEquals(name);
+
+        return students.stream().map(student ->
+                modelMapper.map(student, StudentResponseDTO.class)).collect(Collectors.toList());
+
     }
 }

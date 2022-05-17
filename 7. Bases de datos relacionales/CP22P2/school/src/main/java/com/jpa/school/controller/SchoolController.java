@@ -43,4 +43,9 @@ public class SchoolController {
     public ResponseEntity<SuccessDTO> deleteStudent(@PathVariable Integer idStudent){
         return ResponseEntity.ok().body(schoolService.deleteStudent(idStudent));
     }
+
+    @GetMapping("student/findbyname/{name}")
+    public ResponseEntity<List<StudentResponseDTO>> findByName(@PathVariable String name){
+        return ResponseEntity.ok().body(schoolService.findByName(name));
+    }
 }
