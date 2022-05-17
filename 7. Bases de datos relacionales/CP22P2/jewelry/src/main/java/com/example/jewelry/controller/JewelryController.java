@@ -7,10 +7,7 @@ import com.example.jewelry.service.JewelryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,7 +30,15 @@ public class JewelryController {
 
     @GetMapping("/jewelry")
     public ResponseEntity<List<JewelResponseDTO>> getJewels(){
+        //TODO: agregar busqueda por is disabled, no debe mostrar las eliminadas
         List<JewelResponseDTO> jewelDTOs = jewelryService.findAllJewels();
         return ResponseEntity.ok().body(jewelDTOs);
     }
+
+    @DeleteMapping("/jewelry/delete/{idJewel}")
+    public ResponseEntity<JewelResponseDTO> deleteJewel(@PathVariable Integer idJewel){
+        JewelResponseDTO jewelResponseDTO = jewelryService.deleteJewel(idJewel);
+        return ResponseEntity.ok().body(jewelResponseDTO);
+    }
+
 }
