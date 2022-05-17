@@ -24,7 +24,7 @@ public class JewelryController {
 
     @PostMapping("/jewelry/new")
     public ResponseEntity<SuccessDTO> addJewel(@RequestBody JewelDto jewelDto){
-        SuccessDTO successDTO = jewelryService.addJewel();
+        SuccessDTO successDTO = jewelryService.addJewel(jewelDto);
         return ResponseEntity.ok().body(successDTO);
     }
 }
