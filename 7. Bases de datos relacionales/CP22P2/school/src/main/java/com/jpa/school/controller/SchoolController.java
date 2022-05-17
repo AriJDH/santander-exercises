@@ -39,7 +39,8 @@ public class SchoolController {
         return ResponseEntity.ok().body(schoolService.findOneStudent(idStudent));
     }
 
-    public void deleteStudent(){
-
+    @DeleteMapping("/student/{idStudent}")
+    public ResponseEntity<SuccessDTO> deleteStudent(@PathVariable Integer idStudent){
+        return ResponseEntity.ok().body(schoolService.deleteStudent(idStudent));
     }
 }

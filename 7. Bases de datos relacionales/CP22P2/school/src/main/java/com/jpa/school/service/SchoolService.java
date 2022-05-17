@@ -1,11 +1,13 @@
 package com.jpa.school.service;
 
 import com.jpa.school.dto.StudentDTO;
+import com.jpa.school.dto.SuccessDTO;
 import com.jpa.school.dto.response.StudentResponseDTO;
 import com.jpa.school.entity.Student;
 import com.jpa.school.repository.StudentsRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,5 +49,20 @@ public class SchoolService {
         //alternativa
         Student student = studentsRepository.findById(idStudent).orElseThrow(RuntimeException::new);
         return modelMapper.map(student, StudentResponseDTO.class);
+    }
+
+    public SuccessDTO deleteStudent(Integer idStudent) {
+        // OJO: no verifica si existe al eliminarlo, si no existe recibo un error de sql
+        // podria chequear antes si existe con un findbyId
+
+        studentsRepository.deleteById(idStudent);
+        
+        Optional<Student> student = studentsRepository.findById(idStudent);
+
+        if(student.isPresent()){
+            throw new RuntimeException();
+        }
+
+        return new SuccessDTO("Se ha eliminado con exito el alumno", HttpStatus.OK.value());
     }
 }
