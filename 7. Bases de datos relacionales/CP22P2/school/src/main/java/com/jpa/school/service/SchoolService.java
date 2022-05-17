@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,4 +34,18 @@ public class SchoolService {
     }
 
 
+    public StudentResponseDTO findOneStudent(Integer idStudent) {
+        /*Optional<Student> student = studentsRepository.findById(idStudent);
+
+        if(student.isEmpty()){
+            throw new RuntimeException();
+        }
+
+        return modelMapper.map(student, StudentResponseDTO.class);
+        */
+
+        //alternativa
+        Student student = studentsRepository.findById(idStudent).orElseThrow(RuntimeException::new);
+        return modelMapper.map(student, StudentResponseDTO.class);
+    }
 }

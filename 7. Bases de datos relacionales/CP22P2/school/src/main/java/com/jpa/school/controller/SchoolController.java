@@ -8,10 +8,7 @@ import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpResponse;
 import java.util.List;
@@ -37,8 +34,9 @@ public class SchoolController {
         return ResponseEntity.ok().body(schoolService.findAllStudents());
     }
 
-    public void getStudentById(){
-
+    @GetMapping("/student/{idStudent}")
+    public ResponseEntity<StudentResponseDTO> getStudentById(@PathVariable Integer idStudent){
+        return ResponseEntity.ok().body(schoolService.findOneStudent(idStudent));
     }
 
     public void deleteStudent(){
