@@ -41,4 +41,10 @@ public class JewelryController {
         return ResponseEntity.ok().body(jewelResponseDTO);
     }
 
+    @PutMapping("/jewelry/update/{idJewel}")
+    public ResponseEntity<JewelResponseDTO> addJewel(@PathVariable Integer idJewel, @RequestBody JewelDto jewelDto){
+        JewelResponseDTO jewelResponseDTO = jewelryService.updateJewel(idJewel, jewelDto);
+        return ResponseEntity.ok().body(jewelResponseDTO);
+    }
+
 }

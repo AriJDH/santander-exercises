@@ -44,7 +44,19 @@ public class JewelryService {
         jewel.setSellable(false);
 
         // la guardo
-        jewelRepository.save(jewel);
+        jewel = jewelRepository.save(jewel);
+
+        return modelMapper.map(jewel, JewelResponseDTO.class);
+    }
+
+    public JewelResponseDTO updateJewel(Integer idJewel, JewelDto jewelDto) {
+        Jewel jewel = jewelRepository.findById(idJewel).orElseThrow(RuntimeException::new);
+
+        // actualizo y le seteo el id que tenia antes para evitar crear uno nuevo
+        jewel = modelMapper.map(jewelDto, Jewel.class);
+        jewel.setId(idJewel);
+
+        jewel = jewelRepository.save(jewel);
 
         return modelMapper.map(jewel, JewelResponseDTO.class);
     }
