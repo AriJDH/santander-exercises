@@ -120,6 +120,25 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "getByVentaIsTrue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/jewerly/ventaIsTrue",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jewerly",
+						"ventaIsTrue"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

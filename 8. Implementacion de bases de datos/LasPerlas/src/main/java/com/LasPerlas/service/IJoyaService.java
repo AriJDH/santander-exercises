@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface IJoyaService {
 
-    public List<JoyaDto> getJoyas();
+    public List<JoyaDto> getJoyasByventaONoTrue();
+    public List<JoyaDto> getAllJoyas();
     public void saveJoya (JoyaDto joyaDtoResponse);
     public void deleteJoya(Long nro_identificatorio);
     public JoyaDto findJoya(Long nro_identificatorio);

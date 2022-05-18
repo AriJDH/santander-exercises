@@ -22,10 +22,17 @@ public class JoyaController {
 
     @GetMapping("/jewerly")
     public List<JoyaDto> getAllJoyas(){
-        List<JoyaDto> joyaDtoResponseList = joyaService.getJoyas();
+        List<JoyaDto> joyaDtoResponseList = joyaService.getAllJoyas();
         return  joyaDtoResponseList;
 
     }
+    @GetMapping("/jewerly/ventaIsTrue")
+    public List<JoyaDto> getJoyasventaIsTrue(){
+        List<JoyaDto> joyaDtoResponseList = joyaService.getJoyasByventaONoTrue();
+        return  joyaDtoResponseList;
+
+    }
+
     @GetMapping("/jewerly/{nro_identificatorio}")
     public ResponseEntity<JoyaDto> getJoyaById(@PathVariable Long nro_identificatorio){
 
@@ -34,9 +41,9 @@ public class JoyaController {
     }
 
     @PutMapping("/jewerly/delete/{nro_identificatorio}")
-    public JoyaDto deleteJoya(@PathVariable Long nro_identificatorio){
+    public String deleteJoya(@PathVariable Long nro_identificatorio){
         joyaService.deleteJoya(nro_identificatorio);
-        return joyaService.findJoya(nro_identificatorio);
+        return "Se cambio el estado correctamente, ya no esta disponible para la venta";
     }
 
     @PutMapping("/jewerly/update/{nro_identificatorio}")

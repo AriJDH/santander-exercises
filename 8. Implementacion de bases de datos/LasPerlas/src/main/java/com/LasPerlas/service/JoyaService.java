@@ -18,13 +18,19 @@ public class JoyaService implements IJoyaService {
     ModelMapper modelMapper = new ModelMapper();
 
     @Override
-    public List<JoyaDto> getJoyas() {
+    public List<JoyaDto> getJoyasByventaONoTrue() {
+
+        List<Joya> joyasList = joyaRepository.findJoyaByventaONoTrue();
+        return joyasList.stream().map(joya ->
+                modelMapper.map(joya, JoyaDto.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<JoyaDto> getAllJoyas() {
 
         List<Joya> joyasList = joyaRepository.findAll();
         return joyasList.stream().map(joya ->
                 modelMapper.map(joya, JoyaDto.class)).collect(Collectors.toList());
-
-
     }
 
 
