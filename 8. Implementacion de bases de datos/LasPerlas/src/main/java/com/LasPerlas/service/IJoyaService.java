@@ -1,15 +1,14 @@
 package com.LasPerlas.service;
 
-import com.LasPerlas.dto.response.JoyaDtoResponse;
-import com.LasPerlas.dto.response.MessageDto;
-import com.LasPerlas.entity.Joya;
+import com.LasPerlas.dto.response.JoyaDto;
 
 import java.util.List;
 
 public interface IJoyaService {
 
-    public List<JoyaDtoResponse> getJoyas();
-    public void saveJoya (JoyaDtoResponse joyaDtoResponse);
-    public MessageDto deleteJoya(long id);
-    public JoyaDtoResponse findJoya(long id);
+    public List<JoyaDto> getJoyas();
+    public void saveJoya (JoyaDto joyaDtoResponse);
+    public void deleteJoya(Long nro_identificatorio);
+    public JoyaDto findJoya(Long nro_identificatorio);
+    public void updateJoya(Long nro_identificatorio, JoyaDto joyaDtoResponse);
 }

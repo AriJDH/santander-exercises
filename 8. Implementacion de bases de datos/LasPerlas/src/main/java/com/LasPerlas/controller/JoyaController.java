@@ -1,9 +1,9 @@
 package com.LasPerlas.controller;
 
-import com.LasPerlas.dto.response.JoyaDtoResponse;
-import com.LasPerlas.entity.Joya;
+import com.LasPerlas.dto.response.JoyaDto;
 import com.LasPerlas.service.IJoyaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,24 +15,34 @@ public class JoyaController {
     private IJoyaService joyaService;
 
     @PostMapping("/jewerly/new")
-    public String createJoya(@RequestBody JoyaDtoResponse joyaDtoResponse){
+    public String createJoya(@RequestBody JoyaDto joyaDtoResponse){
         joyaService.saveJoya(joyaDtoResponse);
         return "La joya " + joyaDtoResponse.getNombre()+ " se guardo correctamente en la bbdd";
     }
 
     @GetMapping("/jewerly")
-    public List<JoyaDtoResponse> getAllJoyas(){
-        List<JoyaDtoResponse> joyaDtoResponseList = joyaService.getJoyas();
+    public List<JoyaDto> getAllJoyas(){
+        List<JoyaDto> joyaDtoResponseList = joyaService.getJoyas();
         return  joyaDtoResponseList;
 
     }
+    @GetMapping("/jewerly/{nro_identificatorio}")
+    public ResponseEntity<JoyaDto> getJoyaById(@PathVariable Long nro_identificatorio){
 
-    @PutMapping("/jewerly/delete/{id}")
-    public JoyaDtoResponse deleteJoya(@RequestParam long id){
-        JoyaDtoResponse joyaDtoResponse = joyaService.findJoya(id);
+        return  ResponseEntity.ok().body(joyaService.findJoya(nro_identificatorio));
 
-        joyaService.saveJoya(joyaDtoResponse);
-        return joyaDtoResponse;
+    }
+
+    @PutMapping("/jewerly/delete/{nro_identificatorio}")
+    public JoyaDto deleteJoya(@PathVariable Long nro_identificatorio){
+        joyaService.deleteJoya(nro_identificatorio);
+        return joyaService.findJoya(nro_identificatorio);
+    }
+
+    @PutMapping("/jewerly/update/{nro_identificatorio}")
+    public JoyaDto updateJoya(@PathVariable Long nro_identificatorio, @RequestBody JoyaDto joyaDtoResponse){
+        joyaService.updateJoya(nro_identificatorio,joyaDtoResponse);
+        return joyaService.findJoya(nro_identificatorio);
     }
 
 }
