@@ -3,6 +3,7 @@ package com.example.sorteo.service;
 import com.example.sorteo.dto.StudentDTO;
 import com.example.sorteo.dto.SuccessDTO;
 import com.example.sorteo.dto.TopicDTO;
+import com.example.sorteo.dto.TopicResponseDTO;
 import com.example.sorteo.dto.response.StudentResponseDTO;
 import com.example.sorteo.model.Student;
 import com.example.sorteo.model.Topic;
@@ -56,5 +57,14 @@ public class StudentDrawService {
         return students.stream()
                 .map(student -> modelMapper.map(student, StudentResponseDTO.class))
                 .collect(Collectors.toList());
+    }
+
+    public List<TopicResponseDTO> findAllTopics() {
+        List<Topic> topics = topicRepository.findAll();
+
+        return topics.stream()
+                .map(topic -> modelMapper.map(topic, TopicResponseDTO.class))
+                .collect(Collectors.toList());
+
     }
 }

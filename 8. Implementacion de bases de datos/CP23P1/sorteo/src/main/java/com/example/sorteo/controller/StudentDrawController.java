@@ -3,6 +3,7 @@ package com.example.sorteo.controller;
 import com.example.sorteo.dto.StudentDTO;
 import com.example.sorteo.dto.SuccessDTO;
 import com.example.sorteo.dto.TopicDTO;
+import com.example.sorteo.dto.TopicResponseDTO;
 import com.example.sorteo.dto.response.StudentResponseDTO;
 import com.example.sorteo.service.StudentDrawService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +34,15 @@ public class StudentDrawController {
     }
 
     @GetMapping("/students/")
-    public ResponseEntity<List<StudentResponseDTO>> addTopic(){
+    public ResponseEntity<List<StudentResponseDTO>> getStudents(){
         List<StudentResponseDTO> studentDTOs = studentDrawService.findAllStudents();
         return ResponseEntity.ok().body(studentDTOs);
+    }
+
+    @GetMapping("/topics/")
+    public ResponseEntity<List<TopicResponseDTO>> getTopics(){
+        List<TopicResponseDTO> topicDTOs = studentDrawService.findAllTopics();
+        return ResponseEntity.ok().body(topicDTOs);
     }
 
 }
