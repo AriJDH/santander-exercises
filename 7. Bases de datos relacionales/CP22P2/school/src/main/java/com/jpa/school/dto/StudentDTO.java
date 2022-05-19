@@ -14,5 +14,6 @@ public class StudentDTO {
     Boolean disabled;
     /*o le paso el id o le paso el curseDTOo*/
     Integer courseId;
-    //CourseRepository course;
+    //CourseDTO course;
+    LegajoDTO legajo;
 }

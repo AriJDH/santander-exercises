@@ -1,10 +1,15 @@
 package com.jpa.school.entity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+@Entity
+@AllArgsConstructor @NoArgsConstructor
+@Getter @Setter
 public class Legajo {
 
     @Id
@@ -14,7 +19,12 @@ public class Legajo {
     @Column(name = "codigo")
     private String code;
 
-    @OneToOne(mappedBy = "legajo")
+    @OneToOne(mappedBy = "legajo",
+            cascade = {
+                //un estudiante no existe si no existe su legajo
+                CascadeType.REMOVE,
+                CascadeType.PERSIST
+            })
     private Student student;
 
 }

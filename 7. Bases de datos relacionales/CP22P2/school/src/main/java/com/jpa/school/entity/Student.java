@@ -34,14 +34,22 @@ public class Student {
     @Column(name="fecha_nacimiento")
     private LocalDate dateOfBirth;
 
-    @OneToOne
+    @OneToOne(
+            cascade = {
+                    //Cuando borre persona, borre legajo
+                CascadeType.REMOVE,
+                    //cuando cree persona, creo legajo
+                CascadeType.PERSIST
+            })
     @JoinColumn(name = "idLegajo", referencedColumnName="id")
     private Legajo legajo;
 
     // Este lado siempre debe existir
+    // Eager por defecto (termina en One)
     @ManyToOne
     private Course course;
 
+    // Lazy por defecto (termina en Many)
     @ManyToMany
     // se genera por defecto pero aca podemos especificar el nombre
     @JoinTable(
