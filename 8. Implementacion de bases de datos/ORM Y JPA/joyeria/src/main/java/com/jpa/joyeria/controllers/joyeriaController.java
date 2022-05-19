@@ -18,7 +18,7 @@ public class joyeriaController {
     JoyeriaService joyeriaService;
 
     @PostMapping("/joya/new")
-    public ResponseEntity<StatusCode> addStudent(@RequestBody JoyaDTO joyadto) {
+    public ResponseEntity<StatusCode> addJoya(@RequestBody JoyaDTO joyadto) {
         return new ResponseEntity<>(joyeriaService.addJoya(joyadto), HttpStatus.OK);
     }
 
