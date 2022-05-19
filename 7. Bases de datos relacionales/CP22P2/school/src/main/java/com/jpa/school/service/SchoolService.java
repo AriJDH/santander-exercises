@@ -1,9 +1,12 @@
 package com.jpa.school.service;
 
+import com.jpa.school.dto.CourseDTO;
 import com.jpa.school.dto.StudentDTO;
 import com.jpa.school.dto.SuccessDTO;
 import com.jpa.school.dto.response.StudentResponseDTO;
+import com.jpa.school.entity.Course;
 import com.jpa.school.entity.Student;
+import com.jpa.school.repository.CourseRepository;
 import com.jpa.school.repository.StudentsRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,7 @@ public class SchoolService {
     @Autowired
     StudentsRepository studentsRepository;
     ModelMapper modelMapper = new ModelMapper();
+    CourseRepository courseRepository;
 
     public boolean addStudent(StudentDTO studentDTO){
         Student student = modelMapper.map(studentDTO, Student.class);
@@ -81,5 +85,13 @@ public class SchoolService {
         return students.stream().map(student ->
                 modelMapper.map(student, StudentResponseDTO.class)).collect(Collectors.toList());
 
+    }
+
+    public boolean addCourse(CourseDTO courseDTO) {
+        Course course = modelMapper.map(courseDTO, Course.class);
+
+        course =  this.courseRepository.save(course);
+
+        return course.getId() != null;
     }
 }

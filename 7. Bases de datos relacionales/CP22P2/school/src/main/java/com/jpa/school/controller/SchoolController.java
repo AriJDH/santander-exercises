@@ -1,5 +1,6 @@
 package com.jpa.school.controller;
 
+import com.jpa.school.dto.CourseDTO;
 import com.jpa.school.dto.StudentDTO;
 import com.jpa.school.dto.SuccessDTO;
 import com.jpa.school.dto.response.StudentResponseDTO;
@@ -27,6 +28,17 @@ public class SchoolController {
         }
         else
             throw new RuntimeException();
+    }
+
+    @PostMapping("/course")
+    public ResponseEntity<SuccessDTO> addCourse(@RequestBody CourseDTO courseDTO){
+        if(schoolService.addCourse(courseDTO)){
+            return ResponseEntity.ok()
+                    .body(new SuccessDTO("Se ha creado el curso", HttpStatus.CREATED.value()));
+        }
+        else
+            throw new RuntimeException();
+
     }
 
     @GetMapping("/student")
