@@ -13,7 +13,7 @@ public class CalculadoraTest {
         Calculadora calculadora = new Calculadora();
         int numero1 = 10;
         int numero2 = 30;
-        int resultadoEsperado = 41;
+        int resultadoEsperado = 40;
         //Act
         int resultadoObtenido = calculadora.calcular(numero1,numero2);
         //Assert
