@@ -1,9 +1,6 @@
 package com.example.sorteo.service;
 
-import com.example.sorteo.dto.StudentDTO;
-import com.example.sorteo.dto.SuccessDTO;
-import com.example.sorteo.dto.TopicDTO;
-import com.example.sorteo.dto.TopicResponseDTO;
+import com.example.sorteo.dto.*;
 import com.example.sorteo.dto.response.StudentResponseDTO;
 import com.example.sorteo.model.Student;
 import com.example.sorteo.model.Topic;
@@ -14,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,5 +66,36 @@ public class StudentDrawService {
                 .map(topic -> modelMapper.map(topic, TopicResponseDTO.class))
                 .collect(Collectors.toList());
 
+    }
+
+    public List<StudentTopicDTO> draw() {
+        double f = Math.random()/Math.nextDown(1.0);
+        double max = 15;
+        double min = 1;
+        List<Integer> drawedIds = new ArrayList<>();
+        List<StudentTopicDTO> studentTopicDTOList = new ArrayList<>();
+
+        int i = 0;
+        while (i < 5){
+            Integer drawedId = (int) (min*(1.0 - f) + max*f);
+            if(drawedIds.stream().noneMatch(id -> id.equals(drawedId))){
+                drawedIds.add(drawedId);
+            }
+            i++;
+
+            //Obtengo el estudiante y el topic
+            Student student = studentRepository.findById(drawedId).orElseThrow();
+            Topic topic = topicRepository.findById(student.getTopic().getId()).orElseThrow();
+
+            // Mapeo a un studentTopicDto
+            StudentTopicDTO studentTopicDTO = new StudentTopicDTO();
+            studentTopicDTO.setName(student.getName());
+            studentTopicDTO.setSurname(student.getSurname());
+            studentTopicDTO.setTopicDTO(modelMapper.map(topic, TopicDTO.class));
+
+            studentTopicDTOList.add(studentTopicDTO);
+        }
+
+        return studentTopicDTOList;
     }
 }

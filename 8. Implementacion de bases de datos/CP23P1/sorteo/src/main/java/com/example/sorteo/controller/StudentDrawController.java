@@ -1,9 +1,6 @@
 package com.example.sorteo.controller;
 
-import com.example.sorteo.dto.StudentDTO;
-import com.example.sorteo.dto.SuccessDTO;
-import com.example.sorteo.dto.TopicDTO;
-import com.example.sorteo.dto.TopicResponseDTO;
+import com.example.sorteo.dto.*;
 import com.example.sorteo.dto.response.StudentResponseDTO;
 import com.example.sorteo.service.StudentDrawService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +40,13 @@ public class StudentDrawController {
     public ResponseEntity<List<TopicResponseDTO>> getTopics(){
         List<TopicResponseDTO> topicDTOs = studentDrawService.findAllTopics();
         return ResponseEntity.ok().body(topicDTOs);
+    }
+
+    @GetMapping("students/draw")
+    // TODO: crear un dto para la respuesta del draw segun enunciado
+    public ResponseEntity<List<StudentTopicDTO>> draw(){
+        List<StudentTopicDTO> studentsTopic = studentDrawService.draw();
+        return ResponseEntity.ok().body(studentsTopic);
     }
 
 }
