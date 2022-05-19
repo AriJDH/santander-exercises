@@ -28,6 +28,8 @@ public class StudentDrawService {
 
     public SuccessDTO addStudent(StudentDTO studentDTO){
         Student student = modelMapper.map(studentDTO, Student.class);
+
+        //student.setTopic(topicRepository.findById(studentDTO.getTopicIdDTO().getId()));
         student = studentRepository.save(student);
 
         if(student.getId() == null){

@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter
 @Entity
 public class Topic {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column
@@ -20,5 +21,8 @@ public class Topic {
 
     @Column
     private String complexity;
+
+    @OneToMany(mappedBy = "topic")
+    private Set<Student> student;
 
 }

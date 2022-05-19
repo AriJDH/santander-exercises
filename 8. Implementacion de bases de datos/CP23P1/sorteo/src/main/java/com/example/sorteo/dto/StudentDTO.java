@@ -12,5 +12,5 @@ public class StudentDTO {
     private String surname;
     private String dni;
     private String course;
-    //private TopicDTO topic;
+    private TopicIdDTO topicIdDTO;
 }

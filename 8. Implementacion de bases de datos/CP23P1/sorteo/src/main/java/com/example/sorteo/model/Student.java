@@ -23,4 +23,7 @@ public class Student {
     private String dni;
     @Column
     private String course;
+
+    @ManyToOne
+    private Topic topic;
 }
