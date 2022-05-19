@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -26,7 +27,17 @@ public class Student {
     @Transient
     private Integer age;
 
-    @Column(name = "desactivado")
+    @Column(name = "disabled")
     Boolean disabled;
 
+    @Column(name="fecha_nacimiento")
+    private LocalDate dateOfBirth;
+    
+    @OneToOne
+    @JoinColumn(name = "idLegajo", referencedColumnName="id")
+    private Legajo legajo;
+
+    // Este lado siempre debe existir
+    @ManyToOne
+    private Course course;
 }
