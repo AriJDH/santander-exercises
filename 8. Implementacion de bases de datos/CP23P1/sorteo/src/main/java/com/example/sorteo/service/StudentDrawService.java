@@ -3,6 +3,7 @@ package com.example.sorteo.service;
 import com.example.sorteo.dto.StudentDTO;
 import com.example.sorteo.dto.SuccessDTO;
 import com.example.sorteo.dto.TopicDTO;
+import com.example.sorteo.dto.response.StudentResponseDTO;
 import com.example.sorteo.model.Student;
 import com.example.sorteo.model.Topic;
 import com.example.sorteo.repository.StudentRepository;
@@ -11,6 +12,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentDrawService {
@@ -44,5 +48,13 @@ public class StudentDrawService {
         return new SuccessDTO("Se ha creado el topic con id, "
                 + topic.getId(),
                 HttpStatus.CREATED.value());
+    }
+
+    public List<StudentResponseDTO> findAllStudents() {
+        List<Student> students = studentRepository.findAll();
+
+        return students.stream()
+                .map(student -> modelMapper.map(student, StudentResponseDTO.class))
+                .collect(Collectors.toList());
     }
 }

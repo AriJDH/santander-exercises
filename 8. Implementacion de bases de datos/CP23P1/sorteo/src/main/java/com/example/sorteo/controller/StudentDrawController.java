@@ -3,12 +3,16 @@ package com.example.sorteo.controller;
 import com.example.sorteo.dto.StudentDTO;
 import com.example.sorteo.dto.SuccessDTO;
 import com.example.sorteo.dto.TopicDTO;
+import com.example.sorteo.dto.response.StudentResponseDTO;
 import com.example.sorteo.service.StudentDrawService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class StudentDrawController {
@@ -28,5 +32,10 @@ public class StudentDrawController {
         return ResponseEntity.ok().body(successDTO);
     }
 
+    @GetMapping("/students/")
+    public ResponseEntity<List<StudentResponseDTO>> addTopic(){
+        List<StudentResponseDTO> studentDTOs = studentDrawService.findAllStudents();
+        return ResponseEntity.ok().body(studentDTOs);
+    }
 
 }
