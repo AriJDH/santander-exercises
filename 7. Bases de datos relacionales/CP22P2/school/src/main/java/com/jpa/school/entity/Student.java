@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -32,7 +33,7 @@ public class Student {
 
     @Column(name="fecha_nacimiento")
     private LocalDate dateOfBirth;
-    
+
     @OneToOne
     @JoinColumn(name = "idLegajo", referencedColumnName="id")
     private Legajo legajo;
@@ -40,4 +41,13 @@ public class Student {
     // Este lado siempre debe existir
     @ManyToOne
     private Course course;
+
+    @ManyToMany
+    // se genera por defecto pero aca podemos especificar el nombre
+    @JoinTable(
+            name="subject_student",
+            joinColumns = @JoinColumn(name = "student_id_en_tabla_externa", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "subject_id_en_tabla_externa", referencedColumnName = "id")
+        )
+    private Set<Subject> subject;
 }
