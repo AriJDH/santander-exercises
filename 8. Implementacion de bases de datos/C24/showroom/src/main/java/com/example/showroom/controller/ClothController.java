@@ -36,5 +36,14 @@ public class ClothController {
         return ResponseEntity.ok().body(clothService.updateCloth(code, clothRequestDTO));
     }
 
+    @DeleteMapping("/api/clothes/delete/{code}")
+    public ResponseEntity<ClothResponseDTO> updateCloth(@PathVariable Integer code){
+        return ResponseEntity.ok().body(clothService.deleteCloth(code));
+    }
+
+    @GetMapping("/api/clothes/size/{size}")
+    public ResponseEntity<List<ClothResponseDTO>> getClothesBySize(@PathVariable String size){
+        return ResponseEntity.ok().body(clothService.findClothesBySize(size));
+    }
 
 }

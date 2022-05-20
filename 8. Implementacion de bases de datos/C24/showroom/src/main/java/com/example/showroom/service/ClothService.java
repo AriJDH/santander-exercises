@@ -54,4 +54,19 @@ public class ClothService {
 
         return mapper.map(cloth, ClothResponseDTO.class);
     }
+
+    public ClothResponseDTO deleteCloth(Integer code) {
+        Cloth cloth = clothRepository.findById(code).orElseThrow(RuntimeException::new);
+        clothRepository.deleteById(code);
+
+        return mapper.map(cloth, ClothResponseDTO.class);
+    }
+
+    public List<ClothResponseDTO> findClothesBySize(String size) {
+        List<Cloth> clothes = clothRepository.findClothesBySize(size);
+        return clothes.stream()
+                .map(cloth -> mapper.map(cloth, ClothResponseDTO.class))
+                .collect(Collectors.toList());
+
+    }
 }
