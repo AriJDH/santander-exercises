@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClothRequestDTO {
+    private Integer id;
     private String name;
-    private String code;
     private String type;
     private String brand;
     private String color;

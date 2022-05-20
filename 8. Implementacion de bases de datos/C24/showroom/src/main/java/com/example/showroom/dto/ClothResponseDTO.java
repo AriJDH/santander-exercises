@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class ClothResponseDTO {
     private Integer id;
     private String name;
-    private String code;
     private String type;
     private String brand;
     private String color;

@@ -34,4 +34,9 @@ public class ClothService {
                 .map(cloth -> mapper.map(cloth, ClothResponseDTO.class))
                 .collect(Collectors.toList());
     }
+
+    public ClothResponseDTO findClothById(Integer code) {
+        Cloth cloth = clothRepository.findById(code).orElseThrow(RuntimeException::new);
+        return mapper.map(cloth, ClothResponseDTO.class);
+    }
 }

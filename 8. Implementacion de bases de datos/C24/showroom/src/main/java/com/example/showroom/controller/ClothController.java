@@ -5,10 +5,7 @@ import com.example.showroom.dto.request.ClothRequestDTO;
 import com.example.showroom.service.ClothService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,11 @@ public class ClothController {
     public ResponseEntity<List<ClothResponseDTO>> getClothes(){
         return ResponseEntity.ok().body(clothService.findAllClothes());
     }
+
+    @GetMapping("/api/clothes/{code}")
+    public ResponseEntity<ClothResponseDTO> getClothes(@PathVariable Integer code){
+        return ResponseEntity.ok().body(clothService.findClothById(code));
+    }
+
 
 }
