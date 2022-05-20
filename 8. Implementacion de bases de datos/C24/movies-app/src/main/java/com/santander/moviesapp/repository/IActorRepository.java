@@ -15,7 +15,7 @@ public interface IActorRepository extends JpaRepository<ActorEntity,Integer> {
     @Query("FROM ActorEntity act WHERE act.rating > :rat")
     List<ActorEntity> findActorsByRating(@Param("rat") Double rating);
 
-    @Query("SELECT actm.actor FROM ActorMovieEntity actm WHERE actm.movie.title = :name")
+    @Query("SELECT actm.actor FROM ActorMovieEntity actm JOIN actm.movie actmm WHERE actm.movie.title = :name")
     List<ActorEntity> findActorsByNameOfMovie(@Param("name") String name);
 
 }

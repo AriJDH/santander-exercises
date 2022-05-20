@@ -22,12 +22,12 @@ public class ActorController {
         return ResponseEntity.ok().body(actorService.listarActores());
     }
 
-    @GetMapping ("/actors/{rating}")
+    @GetMapping (value = "/actors_rating", params = {"rating"})
     public  ResponseEntity<List<ActorResponseDto>> listActorsBiggerThan(@RequestParam Double rating){
         return ResponseEntity.ok().body(actorService.listarActoresMayorRating(rating));
     }
 
-    @GetMapping("/actorsByMovie/{name}")
+    @GetMapping(value = "/actors_movie", params = {"name"})
     public ResponseEntity<List<ActorResponseDto>> listActorsByMovie(@RequestParam String name){
         return ResponseEntity.ok().body(actorService.listarActoresPorPelicula(name));
     }
