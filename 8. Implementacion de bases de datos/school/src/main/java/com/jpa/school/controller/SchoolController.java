@@ -1,8 +1,10 @@
 package com.jpa.school.controller;
 
+import com.jpa.school.dto.CourseDTO;
 import com.jpa.school.dto.StudentDTO;
 import com.jpa.school.dto.SuccessDTO;
 import com.jpa.school.dto.response.StudentResponseDTO;
+import com.jpa.school.entity.Student;
 import com.jpa.school.service.SchoolService;
 import com.sun.net.httpserver.Authenticator;
 import org.apache.coyote.Response;
@@ -27,6 +29,27 @@ public class SchoolController {
                     .body(new SuccessDTO("Se ha creado el alumno", HttpStatus.CREATED.value()));
             //new ResponseEntity<SuccessDTO>(
             //new SuccessDTO("Se ha creado el alumno",HttpStatus.CREATED.value()), HttpStatus.ACCEPTED);
+        }
+        else
+            throw new RuntimeException();
+    }
+    @PatchMapping("/student")
+    public ResponseEntity<SuccessDTO> updateStudent (@RequestBody StudentDTO student) {
+        if(this.schoolService.updateStudent(student)){
+            return ResponseEntity.ok()
+                    .body(new SuccessDTO("Se ha creado el alumno", HttpStatus.CREATED.value()));
+            // new ResponseEntity<SuccessDTO>(
+            // new SuccessDTO("Se ha creado el alumno", HttpStatus.CREATED.value()), HttpStatus.ACCEPTED);
+        }
+        else
+            throw new RuntimeException();
+    }
+
+    @PostMapping("/course")
+    public ResponseEntity<SuccessDTO> addCourse(@RequestBody CourseDTO courseDTO){
+        if(this.schoolService.addCourse(courseDTO)){
+            return ResponseEntity.ok()
+                    .body(new SuccessDTO("Se ha creado el course", HttpStatus.CREATED.value()));
         }
         else
             throw new RuntimeException();

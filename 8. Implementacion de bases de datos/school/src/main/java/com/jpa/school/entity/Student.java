@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Set;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -26,5 +28,35 @@ public class Student {
     @Column(name = "disabled")
     private Boolean disabled;
 
+    @Column(name = "fecha-nacimiento")
+    private LocalDate dateOfbirth;
 
+    //Eager por defecto
+    @OneToOne(
+            cascade = {
+                    CascadeType.REMOVE,
+                    CascadeType.PERSIST,
+                    //CascadeType.MERGE
+            }
+    )
+    @JoinColumn(name = "idLegajo", referencedColumnName = "id")
+    private Legajo legajo;
+
+    //siempre debe existir
+    //Eager por defecto
+    @ManyToOne(
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    private Course course;
+
+    //Lazy por defecto
+    @ManyToMany
+    @JoinTable(
+            name = "subject_student",
+            joinColumns = @JoinColumn(name = "student_id_en_tabla_externa", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "subject_id_en_tabla_externa",referencedColumnName = "id")
+    )
+    private Set<Student> student;
 }

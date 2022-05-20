@@ -1,9 +1,13 @@
 package com.jpa.school.service;
 
+import com.jpa.school.dto.CourseDTO;
 import com.jpa.school.dto.StudentDTO;
 import com.jpa.school.dto.SuccessDTO;
 import com.jpa.school.dto.response.StudentResponseDTO;
+import com.jpa.school.entity.Course;
+import com.jpa.school.entity.Legajo;
 import com.jpa.school.entity.Student;
+import com.jpa.school.repository.CourseRepository;
 import com.jpa.school.repository.StudentsRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -21,14 +25,39 @@ public class SchoolService {
 
     @Autowired
     StudentsRepository studentsRepository;
+
+    @Autowired
+    CourseRepository courseRepository;
     ModelMapper modelMapper = new ModelMapper();
 
     public boolean addStudent(StudentDTO studentDTO){
         Student student = modelMapper.map(studentDTO, Student.class);
+        student.setCourse(modelMapper.map(studentDTO.getCourse(),Course.class));
+        student.setLegajo(modelMapper.map(studentDTO.getLegajo(), Legajo.class));
 
+        //Course course = this.courseRepository.save(student.getCourse());
         student =  this.studentsRepository.save(student);
 
         if(student.getId() != null) return true; else return false;
+    }
+
+    public boolean updateStudent(StudentDTO studentDTO){
+        Student student = modelMapper.map(studentDTO, Student.class);
+        student.setCourse(courseRepository.findCourseByStudentEquals(student));
+        //student.setLegajo(modelMapper.map(studentDTO.getLegajo(), Legajo.class));
+
+        student =  this.studentsRepository.save(student);
+
+
+        if(student.getId() != null) return true; else return false;
+    }
+
+    public boolean addCourse(CourseDTO courseDTO){
+        Course course = modelMapper.map(courseDTO, Course.class);
+
+        course =  this.courseRepository.save(course);
+
+        if(course.getId() != null) return true; else return false;
     }
 
     public List<StudentResponseDTO> findAllStudents(){
