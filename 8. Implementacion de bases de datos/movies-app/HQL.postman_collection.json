@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "eaf0ce85-37b7-440f-87f3-333202e10fa6",
+		"name": "HQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20470597"
+	},
+	"item": [
+		{
+			"name": "actorWithRatingGreater",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actorwithratinggreater/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actorwithratinggreater",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actorsWithFavoriteMovie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actorswithfavoritemovie",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actorswithfavoritemovie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActorsByMovies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actorsbymovies/Titanic",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actorsbymovies",
+						"Titanic"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
