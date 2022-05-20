@@ -18,12 +18,12 @@ public class TopicService {
     ITopicRepository itopicRepository;
     ModelMapper modelMapper = new ModelMapper();
 
-    public List<TopicResponseDto> getTopics() {
+    public List<TopicDto> getTopics() {
 
         List<Topic> topicList = itopicRepository.findAll();
         return topicList.stream()
                 .map(topic ->
-                        modelMapper.map(topic, TopicResponseDto.class)).collect(Collectors.toList());
+                        modelMapper.map(topic, TopicDto.class)).collect(Collectors.toList());
     }
 
 

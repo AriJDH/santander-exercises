@@ -9,12 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudentResponseDto {
-    String id;
-
     String name;
     String surname;
-    String dni;
-    String course;
-    Topic topic;
+    TopicResponseDto topic;
 
 }

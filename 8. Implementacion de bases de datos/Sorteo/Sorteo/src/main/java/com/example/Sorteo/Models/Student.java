@@ -27,6 +27,6 @@ public class Student {
     String course;
     @ManyToOne
     @JoinColumn(name = "topic_id", nullable = false)
-    private Topic topic;
+    Topic topic;
 
 }

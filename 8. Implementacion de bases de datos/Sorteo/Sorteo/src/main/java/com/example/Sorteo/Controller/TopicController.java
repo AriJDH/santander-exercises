@@ -21,7 +21,7 @@ public class TopicController {
     TopicService topicService;
 
     @GetMapping("/topics")
-    public ResponseEntity<List<TopicResponseDto>> listTopic(){
+    public ResponseEntity<List<TopicDto>> detTopics(){
         return ResponseEntity.ok().body(topicService.getTopics());
     }
     @PostMapping("/topic")

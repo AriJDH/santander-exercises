@@ -20,9 +20,9 @@ public class Topic {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Integer id;
     @Column(name = "name_topic")
-    String name_topic;
+    String topic_name;
     @Column(name = "complejidad")
-    String complejidad;
+    String complexity;
 
     @OneToMany(mappedBy = "topic")
     Set<Student> students = new HashSet<>();

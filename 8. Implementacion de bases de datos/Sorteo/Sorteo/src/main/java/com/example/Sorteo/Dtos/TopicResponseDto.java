@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TopicResponseDto {
-    Long id;
-    String name_topic;
-    String complejidad;
+    String topic_name;
+    String complexity;
 
 }

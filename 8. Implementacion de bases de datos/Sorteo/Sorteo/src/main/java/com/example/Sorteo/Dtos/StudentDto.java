@@ -14,6 +14,6 @@ public class StudentDto {
     String surname;
     String dni;
     String course;
-    Topic topic;
+    TopicDto topic;
 
 }

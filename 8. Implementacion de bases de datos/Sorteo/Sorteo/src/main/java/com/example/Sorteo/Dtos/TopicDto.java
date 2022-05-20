@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TopicDto {
     Long id;
-    String name_topic;
-    String complejidad;
-
+    String topic_name;
+    String complexity;
 }
