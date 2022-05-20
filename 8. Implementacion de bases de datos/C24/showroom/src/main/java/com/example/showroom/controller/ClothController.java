@@ -27,8 +27,13 @@ public class ClothController {
     }
 
     @GetMapping("/api/clothes/{code}")
-    public ResponseEntity<ClothResponseDTO> getClothes(@PathVariable Integer code){
+    public ResponseEntity<ClothResponseDTO> getCloth(@PathVariable Integer code){
         return ResponseEntity.ok().body(clothService.findClothById(code));
+    }
+
+    @PutMapping("/api/clothes/{code}")
+    public ResponseEntity<ClothResponseDTO> updateCloth(@PathVariable Integer code, @RequestBody ClothRequestDTO clothRequestDTO){
+        return ResponseEntity.ok().body(clothService.updateCloth(code, clothRequestDTO));
     }
 
 
