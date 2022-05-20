@@ -8,6 +8,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ClothService {
     @Autowired
@@ -23,5 +26,12 @@ public class ClothService {
         }
 
         return mapper.map(cloth, ClothResponseDTO.class);
+    }
+
+    public List<ClothResponseDTO> findAllClothes() {
+        List<Cloth> clothes = clothRepository.findAll();
+        return clothes.stream()
+                .map(cloth -> mapper.map(cloth, ClothResponseDTO.class))
+                .collect(Collectors.toList());
     }
 }
