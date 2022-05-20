@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -31,11 +32,19 @@ public class SchoolService {
 
     public boolean addStudent(StudentDTO studentDTO){
         Student student = modelMapper.map(studentDTO, Student.class);
-        student.setCourse(modelMapper.map(studentDTO.getCourse(), Course.class));
+        // el mapper mapea mal el legajo asi que tenemos que setearselo a mano
         student.setLegajo(modelMapper.map(studentDTO.getLegajo(), Legajo.class));
 
-        student =  this.studentsRepository.save(student);
+        // si ya existe el curso lo obtengo de la BD y le seteo el student
+        Optional<Course> course = Optional.empty();
+        if(studentDTO.getCourse().getId() != null){
+            course = courseRepository.findById(studentDTO.getCourse().getId());
+            if(course.isPresent()){
+                student.setCourse(course.get());
+            }
+        }
 
+        student =  this.studentsRepository.save(student);
 
         return (student.getId() != null);
     }
