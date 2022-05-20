@@ -1,4 +1,4 @@
-package com.example.showroom.dto;
+package com.example.showroom.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

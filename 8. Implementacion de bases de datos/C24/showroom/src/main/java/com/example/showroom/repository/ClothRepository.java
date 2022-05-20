@@ -1,6 +1,5 @@
 package com.example.showroom.repository;
 
-import com.example.showroom.dto.ClothResponseDTO;
 import com.example.showroom.model.Cloth;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -1,6 +1,6 @@
 package com.example.showroom.service;
 
-import com.example.showroom.dto.ClothResponseDTO;
+import com.example.showroom.dto.response.ClothResponseDTO;
 import com.example.showroom.dto.request.ClothRequestDTO;
 import com.example.showroom.model.Cloth;
 import com.example.showroom.repository.ClothRepository;

@@ -1,6 +1,6 @@
 package com.example.showroom.controller;
 
-import com.example.showroom.dto.ClothResponseDTO;
+import com.example.showroom.dto.response.ClothResponseDTO;
 import com.example.showroom.dto.request.ClothRequestDTO;
 import com.example.showroom.service.ClothService;
 import org.springframework.beans.factory.annotation.Autowired;
