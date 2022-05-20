@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.practica.obtenerdiploma.model.StudentDTO;
 import com.practica.obtenerdiploma.model.SubjectDTO;
 import com.practica.obtenerdiploma.repository.StudentDAO;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,14 +50,14 @@ public class IntegrationTestObtenerDiploma {
 
     }
 
-    @BeforeEach
-    public void beforeEach() {
+    @BeforeEach @AfterEach
+    public void beforEach() {
         kahoot = new SubjectDTO("Kahoot", 1.0);
         musica = new SubjectDTO("Musica", 9.0);
         poo =    new SubjectDTO("POO",    2.0);
 
         student =new StudentDTO(1L, "Anibal","El alumno Anibal ha obtenido un promedio de 4,00. Puedes mejorar.",
-                4.0, "anibal@gmail.com", "", List.of(kahoot, musica, poo) );
+                4.0, "anibal@gmail.com", null, List.of(kahoot, musica, poo) );
 
         if( ! studentDAO.exists( student ) )
             studentDAO.save( student );
@@ -67,17 +68,17 @@ public class IntegrationTestObtenerDiploma {
     public void testGivenValidUserIdGetDiplomaWithAverangeScore() throws Exception {
 
         this.mockMvc.perform(
-                MockMvcRequestBuilders.get("/analyzeScores/{studentId}", 1))
+                        MockMvcRequestBuilders.get("/analyzeScores/{studentId}", 1))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(jsonPath("$.studentName").value("Anibal"))
                 .andExpect(jsonPath("$.averageScore").value(4.0))
                 .andExpect(jsonPath("$.subjects.length()").value(3))
                 //.andExpect(jsonPath("$.subjects", Matchers.containsInAnyOrder(jsonKahoot, jsonMusica, jsonPoo)))
-                .andExpect(jsonPath("$.subjects[?(@.name == \""+kahoot.getName()+"\"  && @.score == "+kahoot.getScore()+")]").exists())
-                .andExpect(jsonPath("$.subjects[?(@.name == \""+musica.getName()+"\"  && @.score == "+kahoot.getScore()+")]").exists())
-                .andExpect(jsonPath("$.subjects[?(@.name == \""+poo.getName()   +"\"  && @.score == "+kahoot.getScore()+")]").exists())
-                 ;
+                .andExpect(jsonPath("$.subjects[?(@.name == \'"+kahoot.getName()+"\'  && @.score == \'"+kahoot.getScore()+"\')]").exists())
+                .andExpect(jsonPath("$.subjects[?(@.name == \'"+musica.getName()+"\'  && @.score == \'"+musica.getScore()+"\')]").exists())
+                .andExpect(jsonPath("$.subjects[?(@.name == \'"+poo.getName()   +"\'  && @.score == \'"+poo.getScore()+"\')]").exists())
+        ;
 
 
     }
@@ -87,7 +88,6 @@ public class IntegrationTestObtenerDiploma {
         // Arrange
 
         String userJson = writer.writeValueAsString(student);
-        System.out.println(userJson);
 
         ResultMatcher expectedStatus = status().isOk();
         ResultMatcher expectedJson = content().json(userJson);
@@ -118,22 +118,6 @@ public class IntegrationTestObtenerDiploma {
         this.mockMvc.perform(MockMvcRequestBuilders.get("/analyzeScores/{studentId}", 22))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isNotFound())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.name").value("StudentNotFoundException"));
-    }
-
-    @Test
-    void testGivenAStudentWithUnspecifiedRepoAndAvgScoreLowerThan9() throws Exception {
-
-        String resultExpected = writer.writeValueAsString(true);
-
-        ResultMatcher expectedStatus = status().isOk();
-        ResultMatcher expectedJson = content().json(resultExpected);
-        ResultMatcher expectedContentType = content().contentType(MediaType.APPLICATION_JSON);
-
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/repository/{id}", 2))
-                .andDo(MockMvcResultHandlers.print())
-                .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(jsonPath("$.name").value("StudentNotFoundException"));
     }

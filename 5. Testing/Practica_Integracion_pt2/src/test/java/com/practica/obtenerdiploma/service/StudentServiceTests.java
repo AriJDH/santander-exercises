@@ -91,8 +91,6 @@ public class StudentServiceTests {
         verify(studentRepo, atLeastOnce()).findAll();
         assertTrue(CollectionUtils.isEqualCollection(students, readStudents));
     }
-    /*
-
     @Test
     public void requestRepoWithUrlEspecified(){
 
@@ -134,7 +132,7 @@ public class StudentServiceTests {
     public void requestRepo(){
 
         //arrange
-        StudentDTO studentDTOMock= TestUtilsGenerator.getStudentWith3SubjectsAverageOver9("Pepe");
+        StudentDTO studentDTOMock= TestUtilsGenerator.getStudentWith3Subjects("Pepe");
         studentDTOMock.setAverageScore(8.0);
         Boolean result;
 
@@ -148,5 +146,4 @@ public class StudentServiceTests {
         assertTrue(result);
     }
 
-     */
 }

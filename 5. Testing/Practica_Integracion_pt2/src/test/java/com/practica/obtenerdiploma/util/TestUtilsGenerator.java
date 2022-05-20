@@ -1,9 +1,11 @@
 package com.practica.obtenerdiploma.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.practica.obtenerdiploma.model.StudentDTO;
 import com.practica.obtenerdiploma.model.SubjectDTO;
 import org.springframework.core.io.ClassPathResource;
@@ -59,6 +61,7 @@ public class TestUtilsGenerator {
         stu.setId(9999L);
         stu.setStudentName(name);
         stu.setSubjects(subjects);
+        stu.setEmail("sdada@gmail.com");
 
         return stu;
     }
@@ -77,6 +80,7 @@ public class TestUtilsGenerator {
         stu.setId(9999L);
         stu.setStudentName(name);
         stu.setSubjects(subjects);
+        stu.setEmail("dasdafvg@gmail.com");
 
         return stu;
     }
@@ -137,5 +141,23 @@ public class TestUtilsGenerator {
 
         writer.close();
     }
+    public static List<StudentDTO> loadDataBaseHoteles() {
+        File file = null;
+        try {
+            file = ResourceUtils.getFile("classpath:users.json");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
 
+        TypeReference<List<StudentDTO>> typeRef = new TypeReference<>() {};
+        List<StudentDTO> studentDTOList = null;
+        try {
+            studentDTOList = objectMapper.readValue(file, typeRef);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return studentDTOList;
+    }
 }
