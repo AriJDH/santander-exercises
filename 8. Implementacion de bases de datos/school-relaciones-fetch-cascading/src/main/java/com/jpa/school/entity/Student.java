@@ -31,17 +31,6 @@ public class Student {
 
     @Column(name="fecha_nacimiento")
     private LocalDate dateOfBirth;
-
-    // Eager por defecto
-    @OneToOne(
-            cascade = {
-                    CascadeType.REMOVE,
-                    CascadeType.PERSIST,
-            }
-    )
-    @JoinColumn(name = "idLegajo", referencedColumnName = "id")
-    private Legajo legajo;
-
     // Este lado siempre debe existir
     // Eager por defecto
     @ManyToOne(cascade = {
@@ -49,6 +38,18 @@ public class Student {
             CascadeType.MERGE
     })
     private Course course;
+    // Eager por defecto
+    @OneToOne(
+            cascade = {
+                    CascadeType.REMOVE,
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
+    @JoinColumn(name = "idLegajo", referencedColumnName = "id")
+    private Legajo legajo;
+
+
 
     // Lazy por defecto
     @ManyToMany()

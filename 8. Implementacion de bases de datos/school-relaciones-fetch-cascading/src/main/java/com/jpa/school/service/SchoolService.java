@@ -43,7 +43,7 @@ public class SchoolService {
     public boolean updateStudent(StudentDTO studentDTO){
         Student student = modelMapper.map(studentDTO, Student.class);
         student.setCourse(courseRepository.findCourseByStudentEquals(student));
-        //student.setLegajo(modelMapper.map(studentDTO.getLegajo(), Legajo.class));
+        student.setLegajo(modelMapper.map(studentDTO.getLegajo(), Legajo.class));
 
         student =  this.studentsRepository.save(student);
 
