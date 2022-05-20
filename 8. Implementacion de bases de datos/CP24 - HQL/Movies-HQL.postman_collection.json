@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "7257b3ff-2213-46f7-92d0-93aab4f9c2ff",
+		"name": "Movies-HQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ActorsWithFavoriteMovie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actorsWithFavoriteMovie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actorsWithFavoriteMovie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActorWithRatingGreatingThan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actorsWithRatingGreatingThan/2.5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actorsWithRatingGreatingThan",
+						"2.5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActorsWorkInMovie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actorsWorkInMovie/Avatar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actorsWorkInMovie",
+						"Avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MoviesWithActorRatingGreatingThan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/MoviesWithActorRatingGreatingThan/5.0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoviesWithActorRatingGreatingThan",
+						"5.0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MoviesInGenre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/MoviesInGenre/Aventuras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MoviesInGenre",
+						"Aventuras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SeriesWithSeasonsGreatingThan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/SeriesWithSeasonsGreatingThan/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"SeriesWithSeasonsGreatingThan",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EpisodesWithTheActor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/EpisodesWithTheActor/Johnny/Galecki",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EpisodesWithTheActor",
+						"Johnny",
+						"Galecki"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
