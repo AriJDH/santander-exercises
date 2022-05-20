@@ -35,6 +35,9 @@ public class SchoolService {
         // el mapper mapea mal el legajo asi que tenemos que setearselo a mano
         student.setLegajo(modelMapper.map(studentDTO.getLegajo(), Legajo.class));
 
+        // para el caso del legajo NUNCA voy a tener un legajo precargado
+        // asi que si el body no esta completo lanzo excepcion -> deberia ser una validacion notnull en el dto
+
         // si ya existe el curso lo obtengo de la BD y le seteo el student
         Optional<Course> course = Optional.empty();
         if(studentDTO.getCourse().getId() != null){
