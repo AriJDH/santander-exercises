@@ -46,4 +46,9 @@ public class ClothController {
         return ResponseEntity.ok().body(clothService.findClothesBySize(size));
     }
 
+    @GetMapping("/api/clothes")
+    public ResponseEntity<List<ClothResponseDTO>> getClothesByName(@RequestParam(value = "name") String name){
+        return ResponseEntity.ok().body(clothService.findClothesByName(name));
+    }
+
 }

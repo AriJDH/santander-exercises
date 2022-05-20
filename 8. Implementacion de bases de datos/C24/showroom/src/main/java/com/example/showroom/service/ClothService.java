@@ -69,4 +69,12 @@ public class ClothService {
                 .collect(Collectors.toList());
 
     }
+
+    public List<ClothResponseDTO> findClothesByName(String name) {
+        List<Cloth> clothes = clothRepository.findClothesByName(name);
+        return clothes.stream()
+                .map(cloth -> mapper.map(cloth, ClothResponseDTO.class))
+                .collect(Collectors.toList());
+
+    }
 }
