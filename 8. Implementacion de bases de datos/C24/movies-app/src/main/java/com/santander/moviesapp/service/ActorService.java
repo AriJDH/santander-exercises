@@ -23,4 +23,11 @@ public class ActorService{
                 .map(actorEntity -> mapper.map(actorEntity, ActorResponseDto.class))
                 .collect(Collectors.toList());
     }
+
+    public List<ActorResponseDto> findAllActorsByFavoriteMovieIdIsNotNull() {
+        List<ActorEntity> actors = actorRepository.findAllActorsByFavoriteMovieIdIsNotNull();
+        return actors.stream()
+                .map(actorEntity -> mapper.map(actorEntity, ActorResponseDto.class))
+                .collect(Collectors.toList());
+    }
 }

@@ -20,4 +20,11 @@ public class ActorController {
         List<ActorResponseDto> actors = actorsService.getAllActors();
         return ResponseEntity.ok().body(actors);
     }
+
+    //Listar todos los actores que tengan declarada una película favorita.
+    @GetMapping("/actors/favorite")
+    public ResponseEntity<List<ActorResponseDto>> findAllActorsByFavoriteMovieIdIsNotNull(){
+        List<ActorResponseDto> actors = actorsService.findAllActorsByFavoriteMovieIdIsNotNull();
+        return ResponseEntity.ok().body(actors);
+    }
 }
