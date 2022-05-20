@@ -1,5 +1,6 @@
 SELECT * FROM episodes;
 SELECT * FROM actor_episode;
+SELECT * FROM actor_movie;
 SELECT * FROM actors;
 SELECT * FROM movies;
 
@@ -13,7 +14,7 @@ SELECT * FROM actors WHERE rating >= 7;
 SELECT * FROM actors as a
 WHERE a.id IN 
 	(
-	SELECT id
+	SELECT actor_id
     FROM actor_movie
     WHERE movie_id IN (
 		SELECT id 
@@ -21,4 +22,19 @@ WHERE a.id IN
         WHERE title = "Avatar"
         )
 		
+    );
+    
+-- Listar todas las películas cuyos actores tengan rating 
+-- superior a <valor recibido por parámetro>
+
+SELECT * 
+FROM movies as m
+WHERE m.id IN (
+	SELECT movie_id
+    FROM actor_movie
+    WHERE actor_id IN (
+		SELECT id
+        FROM actors
+        WHERE rating > 7
     )
+)

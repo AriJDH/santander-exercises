@@ -22,4 +22,6 @@ public interface IActorRepository extends JpaRepository<ActorEntity, Integer> {
     // con join
     //@Query("FROM ActorEntity a JOIN ActorMovieEntity am ON am.actor.id = a.id JOIN MovieEntity m ON m.id = am.movie.id WHERE m.title like :title")
     List<ActorEntity> findAllActorsByMovie(@Param("title") String title);
+
+
 }
