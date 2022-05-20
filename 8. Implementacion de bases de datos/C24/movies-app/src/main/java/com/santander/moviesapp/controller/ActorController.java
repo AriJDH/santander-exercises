@@ -36,13 +36,13 @@ public class ActorController {
         return ResponseEntity.ok().body(actors);
     }
 
-    /*
+
     //Listar todos los actores que trabajan en la <película recibida por parámetro>
     @GetMapping("/actors/movie/{title}")
     public ResponseEntity<List<ActorResponseDto>> findAllActorsByMovie(@PathVariable String title){
         List<ActorResponseDto> actors = actorsService.findAllActorsByMovie(title);
         return ResponseEntity.ok().body(actors);
     }
-    */
+
 
 }

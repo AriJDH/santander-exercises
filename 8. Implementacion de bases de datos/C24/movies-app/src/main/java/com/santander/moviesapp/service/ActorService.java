@@ -38,4 +38,11 @@ public class ActorService{
                 .map(actorEntity -> mapper.map(actorEntity, ActorResponseDto.class))
                 .collect(Collectors.toList());
     }
+
+    public List<ActorResponseDto> findAllActorsByMovie(String title) {
+        List<ActorEntity> actors = actorRepository.findAllActorsByMovie(title);
+        return actors.stream()
+                .map(actorEntity -> mapper.map(actorEntity, ActorResponseDto.class))
+                .collect(Collectors.toList());
+    }
 }
