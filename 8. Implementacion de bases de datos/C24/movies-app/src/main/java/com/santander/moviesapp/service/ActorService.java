@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,6 +27,13 @@ public class ActorService{
 
     public List<ActorResponseDto> findAllActorsByFavoriteMovieIdIsNotNull() {
         List<ActorEntity> actors = actorRepository.findAllActorsByFavoriteMovieIdIsNotNull();
+        return actors.stream()
+                .map(actorEntity -> mapper.map(actorEntity, ActorResponseDto.class))
+                .collect(Collectors.toList());
+    }
+
+    public List<ActorResponseDto> findAllActorsByRatingHigherThan(BigDecimal rating) {
+        List<ActorEntity> actors = actorRepository.findAllActorsByRatingHigherThan(rating);
         return actors.stream()
                 .map(actorEntity -> mapper.map(actorEntity, ActorResponseDto.class))
                 .collect(Collectors.toList());
