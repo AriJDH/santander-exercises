@@ -13,8 +13,6 @@ import java.util.Date;
 public class MovieResponseDto {
 
     private String title;
-    private BigDecimal rating;
     private Integer awards;
-    private Date releaseDate;
-    private Integer length;
+
 }

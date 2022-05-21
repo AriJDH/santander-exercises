@@ -61,6 +61,63 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "moviesByGenre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/moviesbygenresname/Drama",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"moviesbygenresname",
+						"Drama"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MoviesByRatingActors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/moviesbyratingactors/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"moviesbyratingactors",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SeriesWithSeasonGreaterThan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/serieswithseasongreater/8",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"serieswithseasongreater",
+						"8"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

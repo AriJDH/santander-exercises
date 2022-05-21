@@ -15,5 +15,4 @@ public class SerieResponseDto {
     private Date release_date;
     private Date end_date;
     private String genre;
-    private Integer seasons;
 }
