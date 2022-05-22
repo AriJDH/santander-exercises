@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "6c8f30ee-6301-4fa4-9706-08a74b3aecc6",
+		"name": "movies-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "crud actors",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Florence\",\n    \"lastName\": \"Pugh\",\n    \"raiting\": 7.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/actors",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/actors",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/actors/byId/55",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"actors",
+								"byId",
+								"55"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Florence\",\n    \"lastName\": \"Pugh\",\n    \"raiting\": 8.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/actors?id=53",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"actors"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "53"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/actors?id=53",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"actors"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "53"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/actors/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"actors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/actors/2?raiting=8",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"actors",
+						"2"
+					],
+					"query": [
+						{
+							"key": "raiting",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/actors/3?movieid=2",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"actors",
+						"3"
+					],
+					"query": [
+						{
+							"key": "movieid",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/movies/4?raiting=8.0",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"movies",
+						"4"
+					],
+					"query": [
+						{
+							"key": "raiting",
+							"value": "8.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/movies/5?genreid=3",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"movies",
+						"5"
+					],
+					"query": [
+						{
+							"key": "genreid",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/episodes/7?actorid=32",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"episodes",
+						"7"
+					],
+					"query": [
+						{
+							"key": "actorid",
+							"value": "32"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/series/6?seasons=3",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"series",
+						"6"
+					],
+					"query": [
+						{
+							"key": "seasons",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
