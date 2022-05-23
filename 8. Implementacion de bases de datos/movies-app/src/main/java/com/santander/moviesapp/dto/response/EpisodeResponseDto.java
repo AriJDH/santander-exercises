@@ -13,9 +13,7 @@ import java.util.Date;
 @EqualsAndHashCode
 public class EpisodeResponseDto {
 
-    private Integer id;
     private String title;
     private Integer number;
     private Date release_date;
-    private BigDecimal rating;
 }

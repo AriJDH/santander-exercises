@@ -118,6 +118,25 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GetEpisodeByLastNameActor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getepisodebylastnameactor/Clarke",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getepisodebylastnameactor",
+						"Clarke"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
