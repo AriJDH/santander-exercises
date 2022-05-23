@@ -46,7 +46,9 @@ public class SaleService {
         }
 
         sale.setClothSales(clothSales);
-
+        
+        // TODO: funciona pero el sale_id queda en null
+        // Moraleja: cascade.persist es un asco
         sale = saleRepository.save(sale);
 
         if(sale.getId() == null){
