@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Random;
@@ -41,6 +38,17 @@ public class SorteoController {
         }
         else
             throw new RuntimeException();
+    }
+
+    @PostMapping("/course/{name}")
+    public ResponseEntity<SuccessDto> addCourse(@PathVariable String name) {
+        if (this.sorteoService.addCourse(name)) {
+            return ResponseEntity.ok()
+                    .body(new SuccessDto("Course Created", HttpStatus.CREATED.value()));
+        }
+        else {
+            throw new RuntimeException();
+        }
     }
 
     @GetMapping("/students")

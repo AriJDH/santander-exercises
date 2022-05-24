@@ -11,6 +11,8 @@ import javax.persistence.Column;
 @AllArgsConstructor
 @Data
 public class TopicDTO {
+
+    private Integer id;
     private String name;
     private String complexity;
 }

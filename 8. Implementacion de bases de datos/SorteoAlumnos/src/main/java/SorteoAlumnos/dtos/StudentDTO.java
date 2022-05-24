@@ -19,5 +19,7 @@ public class StudentDTO {
 
     private String course;
 
-    private Integer topicId;
+    //private Integer topicId;
+
+    private TopicDTO topic;
 }

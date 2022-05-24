@@ -17,7 +17,7 @@ import java.util.Set;
 public class Topic {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column
@@ -26,6 +26,6 @@ public class Topic {
     @Column
     private String complexity;
 
-    @OneToMany(mappedBy = "topic")
-    private Set<Student> students;
+    //@OneToMany(mappedBy = "topic")
+    //private Set<Student> students;
 }
