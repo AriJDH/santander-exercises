@@ -31,12 +31,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.and()
                 //.addFilter(jwtAuthorizationFilter());
 
+        /*
         http.authorizeRequests()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/user").hasAnyRole("ADMIN","USER")
                 .antMatchers("/").permitAll()
                 .and().httpBasic();
-
+        */
     }
 
     @Autowired
