@@ -1,8 +1,12 @@
 package com.jpa.integrador.controller;
 
-import com.jpa.integrador.dto.LoginDTO;
+import com.jpa.integrador.dto.SignupDTO;
+import com.jpa.integrador.dto.SuccessDTO;
+import com.jpa.integrador.dto.UserRequestDTO;
+import com.jpa.integrador.dto.UserResponseDTO;
 import com.jpa.integrador.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +38,12 @@ public class UserController {
     public String login(@PathVariable String username){
         userService.login(username);
         return "Logeado rey";
+    }
+
+    @PreAuthorize("permitAll()")
+    @PostMapping("/signup")
+    public ResponseEntity<UserResponseDTO> login(@RequestBody UserRequestDTO userRequestDTO){
+        return ResponseEntity.ok().body(userService.signup(userRequestDTO));
     }
 
 }
