@@ -19,7 +19,7 @@ public class ClothController {
     @Autowired
     IClothService clothService;
 
-    @PreAuthorize("hasAuthority('ADMIN') OR hasAuthority('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PostMapping("/clothes")
     public ResponseEntity<SuccessDTO> addCloth(@RequestBody ClothRequestDTO clothRequestDTO){
         if(clothService.addCloth(clothRequestDTO))
@@ -37,7 +37,7 @@ public class ClothController {
 
 
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/clothes/{code}")
     public ResponseEntity<SuccessDTO> updateClothByCode (@PathVariable("code") Integer code,
                                                          @RequestBody ClothRequestDTO cloth){

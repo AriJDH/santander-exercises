@@ -23,5 +23,6 @@ public class Users {
     String username;
     @Column(name = "contrasenia")
     String password;
-
+    @Column(name = "rol")
+    String role;
 }

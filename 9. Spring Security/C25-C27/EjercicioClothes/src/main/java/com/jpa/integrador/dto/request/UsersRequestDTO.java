@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class UsersRequestDTO {
 
-    public String username;
-    public String password;
+    private String username;
+    private String password;
+    private String role;
 }

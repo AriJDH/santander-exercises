@@ -1,5 +1,7 @@
 package com.jpa.integrador.config;
 
+import com.jpa.integrador.entity.Users;
+import com.jpa.integrador.repository.UserRepository;
 import net.bytebuddy.build.Plugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,19 +23,25 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
+    UserRepository userRepository;
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        if (username.equals("admin")){
+        Users usuario = userRepository.findByUsername(username).stream().findFirst().orElseThrow(()->new UsernameNotFoundException("Usuario invalido"));
+        System.out.println(usuario.getRole());
+        if (usuario.getRole().equals("admin")){
+
             List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-            var userDetails = new User("admin",passwordEncoder.encode("admin"),grantedAuthorities);
+            grantedAuthorities.add(new SimpleGrantedAuthority("ADMIN"));
+            var userDetails = new User(usuario.getUsername(),usuario.getPassword(),grantedAuthorities);
             return userDetails;
         }
-        if(username.equals("user")){
+        if(usuario.getRole().equals("user")){
             List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            var userDetails = new User("user", passwordEncoder.encode("user"), grantedAuthorities);
+            grantedAuthorities.add(new SimpleGrantedAuthority("USER"));
+            var userDetails = new User(usuario.getUsername(), usuario.getPassword(), grantedAuthorities);
             return userDetails;
         }
         throw new UsernameNotFoundException("User not found");
