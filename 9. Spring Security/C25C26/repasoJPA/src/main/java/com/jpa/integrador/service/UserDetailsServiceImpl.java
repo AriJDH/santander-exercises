@@ -29,6 +29,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         UserEntity user = userRepository.findByUsernameEquals(username);
 
+        /*
+        if(user == null){
+            throw new UsernameNotFoundException("User not found");
+        }
+        */
+        if(user.getRole().equals("user")){
+            List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+            var userDetails = new User(user.getUsername(), passwordEncoder.encode(user.getPassword()), grantedAuthorities);
+            return userDetails;
+        }
+
         if(user.getRole().equals("admin")){
             List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
             grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
