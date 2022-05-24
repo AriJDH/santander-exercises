@@ -1,4 +1,4 @@
-package com.jpa.integrador.service;
+package com.jpa.integrador.config;
 
 import net.bytebuddy.build.Plugin;
 import org.springframework.beans.factory.annotation.Autowired;

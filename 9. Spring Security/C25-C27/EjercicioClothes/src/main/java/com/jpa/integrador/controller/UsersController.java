@@ -21,7 +21,7 @@ public class UsersController {
 
     }
 
-    @PostMapping("/logging")
+    @PostMapping("/login")
     public ResponseEntity<SuccessDTO> loguearse(@RequestBody UsersRequestDTO usersRequestDTO){
         return ResponseEntity.ok().body(usersService.loguearse(usersRequestDTO));
 

@@ -1,5 +1,6 @@
 package com.jpa.integrador.service;
 
+import com.jpa.integrador.config.UserDetailsServiceImpl;
 import com.jpa.integrador.dto.SuccessDTO;
 import com.jpa.integrador.dto.request.UsersRequestDTO;
 import com.jpa.integrador.entity.Users;
