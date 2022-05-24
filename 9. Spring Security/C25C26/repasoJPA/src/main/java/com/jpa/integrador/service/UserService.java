@@ -1,7 +1,7 @@
 package com.jpa.integrador.service;
 
-import com.jpa.integrador.dto.UserRequestDTO;
-import com.jpa.integrador.dto.UserResponseDTO;
+import com.jpa.integrador.dto.request.UserRequestDTO;
+import com.jpa.integrador.dto.response.UserResponseDTO;
 import com.jpa.integrador.entity.UserEntity;
 import com.jpa.integrador.repository.UserRepository;
 import org.modelmapper.ModelMapper;

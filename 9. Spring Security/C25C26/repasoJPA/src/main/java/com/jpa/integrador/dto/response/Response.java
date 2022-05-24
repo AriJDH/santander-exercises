@@ -1,13 +1,12 @@
-package com.jpa.integrador.dto;
+package com.jpa.integrador.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SignupDTO {
-    private String username;
-    private String password;
+@Data
+public class Response {
+    private String token;
 }
