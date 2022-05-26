@@ -22,10 +22,8 @@ public class ClothController {
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PostMapping("/clothes")
     public ResponseEntity<SuccessDTO> addCloth(@RequestBody ClothRequestDTO clothRequestDTO){
-        if(clothService.addCloth(clothRequestDTO))
-            return ResponseEntity.ok().body(new SuccessDTO("Se agrego una nueva prenda", 201));
-        else
-            throw new RuntimeException();
+        Integer id = clothService.addCloth(clothRequestDTO);
+        return ResponseEntity.ok().body(new SuccessDTO("Se ha creado una prenda con id " + id, 201));
     }
 
    // @PreAuthorize("hasAuthority('ALL')")

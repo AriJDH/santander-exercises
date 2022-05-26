@@ -34,13 +34,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (usuario.getRole().equals("admin")){
 
             List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            grantedAuthorities.add(new SimpleGrantedAuthority("ADMIN"));
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
             var userDetails = new User(usuario.getUsername(),usuario.getPassword(),grantedAuthorities);
             return userDetails;
         }
         if(usuario.getRole().equals("user")){
             List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            grantedAuthorities.add(new SimpleGrantedAuthority("USER"));
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
             var userDetails = new User(usuario.getUsername(), usuario.getPassword(), grantedAuthorities);
             return userDetails;
         }

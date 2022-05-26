@@ -1,5 +1,6 @@
 package com.jpa.integrador.service;
 
+import com.jpa.integrador.dto.SuccessDTO;
 import com.jpa.integrador.dto.request.ClothRequestDTO;
 import com.jpa.integrador.dto.response.ClothesListResponseDTO;
 import com.jpa.integrador.dto.response.ClothesResponseDTO;
@@ -21,9 +22,9 @@ public class ClothService implements IClothService{
 
     ModelMapper mapper = new ModelMapper();
     @Override
-    public Boolean addCloth(ClothRequestDTO clothRequestDTO) {
+    public Integer addCloth(ClothRequestDTO clothRequestDTO) {
         Cloth cloth = clothRepository.save(mapper.map(clothRequestDTO, Cloth.class));
-        return cloth.getId() != null;
+        return cloth.getId();
     }
 
     @Override

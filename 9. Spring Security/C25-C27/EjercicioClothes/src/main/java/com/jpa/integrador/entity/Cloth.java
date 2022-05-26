@@ -13,7 +13,8 @@ import javax.persistence.*;
 @Table(name = "prenda")
 public class Cloth {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "idClothes")
+    @SequenceGenerator(name = "idClothes", initialValue = 1,allocationSize = 1)
     private Integer id;
     @Column(name = "nombre")
     private String name;
@@ -30,6 +31,6 @@ public class Cloth {
 
 
     @ManyToOne
-    @JoinColumn(name = "sale_id", nullable = false)
+    @JoinColumn(name = "sale_id", nullable = true)
     private Sale ventas;
 }

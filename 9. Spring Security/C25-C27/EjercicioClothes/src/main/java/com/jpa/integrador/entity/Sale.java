@@ -18,7 +18,8 @@ import java.util.List;
 public class Sale {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "idSales")
+    @SequenceGenerator(name = "idSales", initialValue = 1,allocationSize = 1)
     private Integer id;
 
     @Column(name = "fecha")

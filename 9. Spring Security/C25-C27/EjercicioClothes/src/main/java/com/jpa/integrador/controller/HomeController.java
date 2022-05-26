@@ -16,13 +16,13 @@ public class HomeController {
     }
 
     @GetMapping("/admin")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public String adminMessage(){
         return "Hola admin";
     }
 
     @GetMapping("/user")
-    @PreAuthorize("hasAuthority('ADMIN') OR hasAuthority('USER')")
+    @PreAuthorize("hasRole('ADMIN') OR hasRole('USER')")
     public String UserMessage(){
         return "Hola user";
     }

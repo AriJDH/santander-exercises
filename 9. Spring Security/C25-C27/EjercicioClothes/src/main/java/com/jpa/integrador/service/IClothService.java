@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface IClothService {
 
-    Boolean addCloth(ClothRequestDTO clothRequestDTO);
+    Integer addCloth(ClothRequestDTO clothRequestDTO);
 
     ClothesListResponseDTO findAllCloth();
 
