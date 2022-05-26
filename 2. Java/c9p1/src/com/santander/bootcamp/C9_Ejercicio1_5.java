@@ -62,11 +62,6 @@ public class C9_Ejercicio1_5 {
 
         System.out.printf("$%.2f",listaVehiculos.stream().mapToDouble((vehiculo -> vehiculo.getCosto())).average().getAsDouble());
 
-
-
-
-
-
     }
 
     public static class Vehiculo{
