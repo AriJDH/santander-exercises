@@ -1,0 +1,1 @@
+INSERT into user value ("juan","123","caca");
