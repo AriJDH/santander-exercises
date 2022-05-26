@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -22,27 +23,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsService userDetailsService;
 
+    @Autowired
+    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
+    @Autowired
+    private JwtAuthenticationFilter customJwtAuthenticationFilter;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http
                 .csrf().disable()
                 .httpBasic()
                 .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-                //.and()
-                //.addFilter(jwtAuthorizationFilter());
+                .exceptionHandling()
+                .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().addFilterBefore(customJwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-        /*http.authorizeRequests()
-                .antMatchers("/authenticate").permitAll().anyRequest().authenticated()
-                .and().httpBasic();*/
 
-        /*
-        http.authorizeRequests()
-                .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/user").hasAnyRole("ADMIN","USER")
-                .antMatchers("/").permitAll()
-                .and().httpBasic();
-        */
     }
 
     @Autowired

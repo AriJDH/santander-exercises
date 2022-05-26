@@ -27,8 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        //TODO: hacer que deuvelva optional
-        UserEntity user = userRepository.findByUsernameEquals(username);
+        UserEntity user = userRepository.findByUsernameEquals(username).orElseThrow();
 
         if(user.getRole().equals("user")){
             List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
