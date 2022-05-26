@@ -17,15 +17,16 @@ import java.util.Set;
 @Table(name = "tema")
 public class Tema {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombre del tema")
-    private String nombreTema;
+    @Column()
+    private String nombre;
 
-    @Column(name = "complejidad")
+    @Column()
     private String complejidad;
 
     @OneToMany(mappedBy = "tema")
-    private Set<Alumno> alumnos = new HashSet<>();
+    private Set<Alumno> alumnos;
+
 }

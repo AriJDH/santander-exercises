@@ -31,6 +31,6 @@ public class Alumno {
     private String curso;
 
     @ManyToOne
-    @JoinColumn(name = "temaId", nullable = false)
+    @JoinColumn (name = "idTema")
     private Tema tema;
 }
