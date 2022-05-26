@@ -43,6 +43,12 @@ public class UserController {
         return "Hello user";
     }
 
+    @PreAuthorize("hasRole('NEW')")
+    @GetMapping("/new")
+    public String helloNewRole(){
+        return "Hello new role";
+    }
+
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/admin")
     public String helloAdmin(){
