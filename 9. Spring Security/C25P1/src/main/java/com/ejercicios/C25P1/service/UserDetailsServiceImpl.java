@@ -25,6 +25,24 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     IUserRepository iUserRepository;
 
     @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        if(s.equals("admin")){
+            List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            var userDetails = new User("admin", passwordEncoder.encode("admin"), grantedAuthorities);
+            return userDetails;
+        }
+        if(s.equals("user")){
+            List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+            var userDetails = new User("admin", passwordEncoder.encode("user"), grantedAuthorities);
+            return userDetails;
+        }
+        throw new UsernameNotFoundException("User not found");
+    }
+
+    /* Metodo de logueo con atributo rol en BBDD
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntity userEntity = iUserRepository.findByUsernameEquals(username);
         if (userEntity == null){
@@ -44,6 +62,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             return userDetails;
         }
         throw new UsernameNotFoundException("User not found");
-    }
+    }*/
 
 }
