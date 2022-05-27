@@ -78,30 +78,20 @@ public class JwtUtils {
 
         List<SimpleGrantedAuthority> roles = new ArrayList<>();
 
-        Optional<String> role = Optional.empty();
-
-        if((role = getRole(claims, "isAdmin")).isPresent()){
-            roles.add(new SimpleGrantedAuthority(role.get()));
-        }
-
-        if((role = getRole(claims, "isUser")).isPresent()){
-            roles.add(new SimpleGrantedAuthority(role.get()));
-        }
-
-        if((role = getRole(claims, "isNew")).isPresent()){
-            roles.add(new SimpleGrantedAuthority(role.get()));
-        }
+        addRole(claims, roles, "isAdmin");
+        addRole(claims, roles, "isUser");
+        addRole(claims, roles, "isNew");
 
         return roles;
     }
 
-    private Optional<String> getRole(Claims claims, String jsonField){
-        Boolean isRole = claims.get(jsonField, Boolean.class);
-        Optional<String> role = Optional.empty();
-        if(isRole != null && isRole){
-            role = Optional.of("ROLE_" + isRoleToRole.get(jsonField));
+    private boolean addRole(Claims claims, List<SimpleGrantedAuthority> roles, String expectedRole){
+        Boolean isRole = claims.get(expectedRole, Boolean.class);
+        boolean added = (isRole != null && isRole);
+        if(added){
+            roles.add(new SimpleGrantedAuthority("ROLE_" + isRoleToRole.get(expectedRole)));
         }
-        return role;
+        return added;
     }
 
 }
