@@ -1,0 +1,7 @@
+1. Listar todos los actores que tengan declarada una película favorita.
+2. Listar todos los actores que tengan rating superior a <valor recibido por parámetro>
+3. Listar todos los actores que trabajan en la <película recibida por parámetro>
+4. Listar todas las películas cuyos actores tengan rating superior a <valor recibido por parámetro>
+5. Listar todas las películas que pertenezcan al <género recibido por parámetro>
+6. Listar todas las series que tengan más de <cantidad de temporadas recibida por parámetro>
+7. Listar todos los episodios (de cualquier serie) donde trabaja un <actor recibido por parámetro>
