@@ -27,7 +27,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
 
-        try{
+        try {
             // JWT Token is in the form "Bearer token". Remove Bearer word and
             // get  only the Token
             String jwtToken = extractJwtFromRequest(request);
@@ -45,15 +45,29 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             } else {
                 System.out.println("Cannot set the Security Context");
             }
-        }catch(ExpiredJwtException ex)
-        {
+
+        } catch (ExpiredJwtException ex) {
+            String isRefreshToken = request.getHeader("isRefreshToken");
+            String requestURL = request.getRequestURL().toString();
+            // allow for Refresh Token creation if following conditions are true.
+            if (isRefreshToken != null && isRefreshToken.equals("true") && requestURL.contains("refreshtoken")) {
+                allowForRefreshToken(ex, request);
+            } else
+                request.setAttribute("exception", ex);
+        } catch (BadCredentialsException ex) {
             request.setAttribute("exception", ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
-        catch(BadCredentialsException ex)
-        {
-            request.setAttribute("exception", ex);
-        }
+
         chain.doFilter(request, response);
+    }
+
+    private void allowForRefreshToken(ExpiredJwtException ex, HttpServletRequest request) {
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
+                null, null, null);
+        SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+        request.setAttribute("claims", ex.getClaims());
     }
 
     private String extractJwtFromRequest(HttpServletRequest request) {

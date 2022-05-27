@@ -12,9 +12,10 @@ import java.util.*;
 
 @Service
 public class JwtUtils {
+
     private String secret;
     private int jwtExpirationInMs;
-
+    private int refreshExpirationDateInMs;
     private Map<String, String> isRoleToRole = new HashMap<String, String>(){{
        put("isAdmin", "ADMIN");
        put("isUser", "USER");
@@ -29,6 +30,11 @@ public class JwtUtils {
     @Value("${jwt.expirationDateInMs}")
     public void setJwtExpirationInMs(int jwtExpirationInMs) {
         this.jwtExpirationInMs = jwtExpirationInMs;
+    }
+
+    @Value("${jwt.refreshExpirationDateInMs}")
+    public void setRefreshExpirationDateInMs(int refreshExpirationDateInMs) {
+        this.refreshExpirationDateInMs = refreshExpirationDateInMs;
     }
 
     public String generateToken(UserDetails userDetails) {
@@ -94,4 +100,9 @@ public class JwtUtils {
         return added;
     }
 
+    public String doGenerateRefreshToken(Map<String, Object> claims, String subject) {
+        return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + refreshExpirationDateInMs))
+                .signWith(SignatureAlgorithm.HS512, secret).compact();
+    }
 }
