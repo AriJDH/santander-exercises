@@ -27,28 +27,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserEntity user = userRepository.findByUsernameEquals(username).orElseThrow();
-
-        if(user.getRole().equals("new")){
-            List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_NEW"));
-            var userDetails = new User(user.getUsername(), passwordEncoder.encode(user.getPassword()), grantedAuthorities);
-            return userDetails;
-        }
-
-        if(user.getRole().equals("user")){
-            List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            var userDetails = new User(user.getUsername(), passwordEncoder.encode(user.getPassword()), grantedAuthorities);
-            return userDetails;
-        }
-
-        if(user.getRole().equals("admin")){
-            List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-            var userDetails = new User(user.getUsername(), passwordEncoder.encode(user.getPassword()), grantedAuthorities);
-            return userDetails;
-        }
-        throw new UsernameNotFoundException("User not found");
+        UserEntity user = userRepository.findByUsernameEquals(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole().toUpperCase()));
+        var userDetails = new User(user.getUsername(), passwordEncoder.encode(user.getPassword()), grantedAuthorities);
+        return userDetails;
     }
 }
