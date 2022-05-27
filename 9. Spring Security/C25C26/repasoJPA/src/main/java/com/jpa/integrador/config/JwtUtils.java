@@ -15,6 +15,12 @@ public class JwtUtils {
     private String secret;
     private int jwtExpirationInMs;
 
+    private Map<String, String> isRoleToRole = new HashMap<String, String>(){{
+       put("isAdmin", "ADMIN");
+       put("isUser", "USER");
+       put("isNew", "NEW");
+    }};
+
     @Value("${jwt.secret}")
     public void setSecret(String secret) {
         this.secret = secret;
@@ -70,24 +76,32 @@ public class JwtUtils {
     public List<SimpleGrantedAuthority> getRolesFromToken(String token) {
         Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
 
-        List<SimpleGrantedAuthority> roles = null;
+        List<SimpleGrantedAuthority> roles = new ArrayList<>();
 
-        Boolean isAdmin = claims.get("isAdmin", Boolean.class);
-        Boolean isUser = claims.get("isUser", Boolean.class);
-        Boolean isNew = claims.get("isNew", Boolean.class);
+        Optional<String> role = Optional.empty();
 
-        if (isAdmin != null && isAdmin) {
-            roles = Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        if((role = getRole(claims, "isAdmin")).isPresent()){
+            roles.add(new SimpleGrantedAuthority(role.get()));
         }
-        if (isUser != null && isUser) {
-            roles = Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+
+        if((role = getRole(claims, "isUser")).isPresent()){
+            roles.add(new SimpleGrantedAuthority(role.get()));
         }
-        if (isNew != null && isNew) {
-            roles = Arrays.asList(new SimpleGrantedAuthority("ROLE_NEW"));
+
+        if((role = getRole(claims, "isNew")).isPresent()){
+            roles.add(new SimpleGrantedAuthority(role.get()));
         }
 
         return roles;
+    }
 
+    private Optional<String> getRole(Claims claims, String jsonField){
+        Boolean isRole = claims.get(jsonField, Boolean.class);
+        Optional<String> role = Optional.empty();
+        if(isRole != null && isRole){
+            role = Optional.of("ROLE_" + isRoleToRole.get(jsonField));
+        }
+        return role;
     }
 
 }
